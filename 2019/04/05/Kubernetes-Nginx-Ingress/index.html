@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="nginx">
+  <meta name="description" content="For example12345678910111213141516171819202122232425262728293031apiVersion: extensions/v1beta1kind: Ingressmetadata:  annotations:    nginx.ingress.kubernetes.io/force-ssl-redirect: &apos;true&apos; #代表其中跳转">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx">
-<meta property="og:url" content="http://yoursite.com/2019/04/03/nginx/index.html">
+<meta property="og:title" content="Kubernetes_Nginx-Ingress">
+<meta property="og:url" content="http://yoursite.com/2019/04/05/Kubernetes-Nginx-Ingress/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="nginx">
+<meta property="og:description" content="For example12345678910111213141516171819202122232425262728293031apiVersion: extensions/v1beta1kind: Ingressmetadata:  annotations:    nginx.ingress.kubernetes.io/force-ssl-redirect: &apos;true&apos; #代表其中跳转">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-03T06:18:12.162Z">
+<meta property="og:updated_time" content="2019-04-04T16:18:05.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nginx">
-<meta name="twitter:description" content="nginx">
+<meta name="twitter:title" content="Kubernetes_Nginx-Ingress">
+<meta name="twitter:description" content="For example12345678910111213141516171819202122232425262728293031apiVersion: extensions/v1beta1kind: Ingressmetadata:  annotations:    nginx.ingress.kubernetes.io/force-ssl-redirect: &apos;true&apos; #代表其中跳转">
 
 
 
@@ -116,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/03/nginx/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/05/Kubernetes-Nginx-Ingress/">
 
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>nginx | GeekSRE</title>
+  <title>Kubernetes_Nginx-Ingress | GeekSRE</title>
   
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/nginx/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/Kubernetes-Nginx-Ingress/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GeekSRE">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">nginx
+          <h1 class="post-title" itemprop="name headline">Kubernetes_Nginx-Ingress
 
               
             
@@ -334,7 +334,7 @@
                 
               
 
-              <time title="Created: 2019-04-03 14:08:26 / Modified: 14:18:12" itemprop="dateCreated datePublished" datetime="2019-04-03T14:08:26+08:00">2019-04-03</time>
+              <time title="Created: 2019-04-05 00:17:52 / Modified: 00:18:05" itemprop="dateCreated datePublished" datetime="2019-04-05T00:17:52+08:00">2019-04-05</time>
             
 
             
@@ -373,7 +373,7 @@
       
 
       
-        <p>nginx</p>
+        <h2 id="For-example"><a href="#For-example" class="headerlink" title="For example"></a>For example</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Ingress</span><br><span class="line">metadata:</span><br><span class="line">  annotations:</span><br><span class="line">    nginx.ingress.kubernetes.io/force-ssl-redirect: <span class="string">'true'</span> <span class="comment">#代表其中跳转</span></span><br><span class="line">    nginx.ingress.kubernetes.io/service-weight: <span class="string">''</span></span><br><span class="line">    nginx.ingress.kubernetes.io/ssl-redirect: <span class="string">'true'</span></span><br><span class="line">  creationTimestamp: <span class="string">'2018-12-25T10:29:36Z'</span></span><br><span class="line">  generation: 1</span><br><span class="line">  name: boss</span><br><span class="line">  namespace: default</span><br><span class="line">  resourceVersion: <span class="string">'21429383'</span></span><br><span class="line">  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/boss</span><br><span class="line">  uid: fa56e2a0-082f-11e9-80cf-00163e0e2421</span><br><span class="line">spec:</span><br><span class="line">  rules:</span><br><span class="line">    - host: boss1.vcg.com</span><br><span class="line">      http:</span><br><span class="line">        paths:</span><br><span class="line">          - backend:</span><br><span class="line">              serviceName: node-vcg-boss</span><br><span class="line">              servicePort: 80</span><br><span class="line">            path: /</span><br><span class="line">  tls:</span><br><span class="line">    - hosts:</span><br><span class="line">        - boss1.vcg.com</span><br><span class="line">      secretName: vcg-https</span><br><span class="line">status:</span><br><span class="line">  loadBalancer:</span><br><span class="line">    ingress:</span><br><span class="line">      - ip: 39.97.21.16</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -404,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/04/03/nginx/" rel="next" title="nginx">
+                <i class="fa fa-chevron-left"></i> nginx
               </a>
             
           </div>
@@ -413,10 +413,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/05/Kubernetes-Nginx-Ingress/" rel="prev" title="Kubernetes_Nginx-Ingress">
-                Kubernetes_Nginx-Ingress <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -460,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -514,6 +519,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#For-example"><span class="nav-number">1.</span> <span class="nav-text">For example</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

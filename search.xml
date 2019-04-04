@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Kubernetes_Nginx-Ingress]]></title>
+    <url>%2F2019%2F04%2F05%2FKubernetes-Nginx-Ingress%2F</url>
+    <content type="text"><![CDATA[For example12345678910111213141516171819202122232425262728293031apiVersion: extensions/v1beta1kind: Ingressmetadata: annotations: nginx.ingress.kubernetes.io/force-ssl-redirect: 'true' #代表其中跳转 nginx.ingress.kubernetes.io/service-weight: '' nginx.ingress.kubernetes.io/ssl-redirect: 'true' creationTimestamp: '2018-12-25T10:29:36Z' generation: 1 name: boss namespace: default resourceVersion: '21429383' selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/boss uid: fa56e2a0-082f-11e9-80cf-00163e0e2421spec: rules: - host: boss1.vcg.com http: paths: - backend: serviceName: node-vcg-boss servicePort: 80 path: / tls: - hosts: - boss1.vcg.com secretName: vcg-httpsstatus: loadBalancer: ingress: - ip: 39.97.21.16]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[nginx]]></title>
     <url>%2F2019%2F04%2F03%2Fnginx%2F</url>
     <content type="text"><![CDATA[nginx]]></content>
