@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Archer]]></title>
+    <url>%2F2019%2F04%2F05%2FArcher%2F</url>
+    <content type="text"><![CDATA[ARCHER — 自动化SQL操作平台基于inception的自动化SQL操作平台，支持SQL执行、LDAP认证、发邮件、OSC、SQL查询、SQL优化建议、权限管理等功能，支持docker镜像。 GitHub项目地址：https://github.com/jly8866/archer 主要功能 自动审核发起SQL上线，工单提交，由inception自动审核，审核通过后需要由审核人进行人工审核 人工审核inception自动审核通过的工单，由其他研发工程师或研发经理来审核，DBA操作执行SQL为什么要有人工审核？这是遵循运维领域线上操作的流程意识，一个工程师要进行线上数据库SQL更新，最好由另外一个工程师来把关很多时候DBA并不知道SQL的业务含义，所以人工审核最好由其他研发工程师或研发经理来审核. 这是archer的设计理念 回滚数据展示工单内可展示回滚语句，支持一键提交回滚工单 定时执行SQL审核通过的工单可由DBA选择定时执行，执行前可修改执行时间，可随时终止 pt-osc执行支持pt-osc执行进度展示，并且可以点击中止pt-osc进程 MySQL查询库、表、关键字自动补全查询结果集限制、查询结果导出、表结构展示、多结果集展示 MySQL查询权限管理基于inception解析查询语句，查询权限支持限制到表级查询权限申请、审核和管理，支持审核流程配置，多级审核 MySQL查询动态脱敏基于inception解析查询语句，配合脱敏字段配置、脱敏规则(正则表达式)实现敏感数据动态脱敏 慢日志管理基于percona-toolkit的pt_query_digest分析和存储慢日志，并在web端展现 邮件通知可配置邮件提醒，对上线申请、权限申请、审核结果等进行通知对异常登录进行通知 安装安装docker 、git1yum install -y docker git 下载镜像123docker pull hhyo/inceptiondocker pull hhyo/archerdocker pull mysql:5.6.35 创建archer配置文件服务目录定为 /vcg/archer/ 1mkdir /vcg/archer/ 123456789101112131415161718192021222324vim /vcg/archer/inc.cnf[inception]general_log=1general_log_file=inception.logport=6669socket=/tmp/inc.socketcharacter-set-client-handshake=0character-set-server=utf8inception_remote_system_password=rootinception_remote_system_user=wzf1inception_remote_backup_port=3306inception_remote_backup_host=127.0.0.1inception_support_charset=utf8,utf8mb4inception_enable_nullable=0inception_check_primary_key=1inception_check_column_comment=1inception_check_table_comment=1inception_osc_on=OFFinception_osc_bin_dir=/usr/bininception_osc_min_table_size=1inception_osc_chunk_time=0.1inception_enable_blob_type=1inception_check_column_default_value=1 12wget https://github.com/jly8866/archer/blob/master/archer/settings.py修改其中的数据库地址、用户名、密码 启动容器12345docker run --name inception -v /vcg/archer/inc.cnf:/etc/inc.cnf -p 6669:6669 -dti hhyo/inceptiondocker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6.35docker run --name archer -v /vcg/archer/settings.py:/opt/archer/archer/settings.py -e NGINX_PORT=9123 -p 9123:9123 -dti hhyo/archer 创建数据库123mysql -uroot -pCREATE DATABASE IF NOT EXISTS archer_github DEFAULT CHARSET utf8 COLLATE utf8_general_ci; 初始化数据库12345678docker exec -ti archer /bin/bash cd /opt/archer source /opt/venv4archer/bin/activate # 初始化数据库 python3 manage.py makemigrations sql python3 manage.py migrate # 创建管理员账号 python3 manage.py createsuperuser 访问地址： http://xxxx::9123/]]></content>
+      <categories>
+        <category>Archer</category>
+      </categories>
+      <tags>
+        <tag>Archer</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo]]></title>
     <url>%2F2019%2F04%2F05%2FHexo%2F</url>
     <content type="text"><![CDATA[快速、简洁且高效的博客框架官网: https://hexo.io 特点超快速度Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。 支持 MarkdownHexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。 一键部署只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。 丰富的插件Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。 12345$ npm install hexo-cli -g$ hexo init blog$ cd blog$ npm install$ hexo server 最佳实践命令缩写hexo支持指令缩写，例如：hexo generate和hexo g是等效的。d = deploy 部署g = generate 生成静态页面l = log 启动日记记录，使用覆盖记录格式n = new 新建文章o = output 设置输出路径p = port 重设端口s = server 启动服务器w = watch 监视文件变动 组合命令1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 修改首页博客为预览模式12345vim themes/next/_config.ymlauto_excerpt: enable: false length: 150 将 auto_excerpt的enable参数由false改为true]]></content>
