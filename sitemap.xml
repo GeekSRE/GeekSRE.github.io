@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2019-04-05T04:32:40.286Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/05/Kubernetes-Nginx-Ingress/</loc>
+    
+    <lastmod>2019-04-05T01:48:04.723Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2019-04-05T01:45:12.670Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2019-04-04T16:54:26.185Z</lastmod>
@@ -9,30 +30,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
-    
-    <lastmod>2019-04-04T16:51:52.748Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/04/05/Hexo/</loc>
     
     <lastmod>2019-04-04T16:42:04.512Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/05/Kubernetes-Nginx-Ingress/</loc>
-    
-    <lastmod>2019-04-04T16:18:05.251Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/03/nginx/</loc>
-    
-    <lastmod>2019-04-03T06:18:12.162Z</lastmod>
     
   </url>
   
