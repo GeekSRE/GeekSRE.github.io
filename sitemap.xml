@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/07/Cookie-Session/</loc>
+    
+    <lastmod>2019-04-07T02:08:42.497Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/07/Cookie/</loc>
+    
+    <lastmod>2019-04-07T02:07:31.025Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/05/Nginx-%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/</loc>
     
     <lastmod>2019-04-05T09:17:54.909Z</lastmod>
