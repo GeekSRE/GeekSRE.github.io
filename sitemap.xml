@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/08/Ansible-%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0%E5%85%8D%E5%AF%86%E7%A0%81%E8%AE%A4%E8%AF%81/</loc>
+    
+    <lastmod>2019-04-08T09:36:47.625Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/05/Nginx-%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/</loc>
     
     <lastmod>2019-04-08T02:12:10.853Z</lastmod>
