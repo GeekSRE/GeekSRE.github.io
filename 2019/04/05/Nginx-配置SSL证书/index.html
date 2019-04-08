@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Nginx配置SSL证书，实现HTTPS访问 获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件     1234567891011121314151617server &amp;#123;listen 80;  listen 443;">
+  <meta name="description" content="Nginx配置SSL证书，实现HTTPS访问 获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件  123456789101112131415161718192021222324252627282930313233server &amp;#123;	listen 80;	server_name *.zhaohongye.com;">
 <meta name="keywords" content="Linux,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx_配置SSL证书">
 <meta property="og:url" content="http://yoursite.com/2019/04/05/Nginx-配置SSL证书/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="Nginx配置SSL证书，实现HTTPS访问 获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件     1234567891011121314151617server &amp;#123;listen 80;  listen 443;">
+<meta property="og:description" content="Nginx配置SSL证书，实现HTTPS访问 获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件  123456789101112131415161718192021222324252627282930313233server &amp;#123;	listen 80;	server_name *.zhaohongye.com;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T09:17:54.909Z">
+<meta property="og:updated_time" content="2019-04-08T02:07:38.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx_配置SSL证书">
-<meta name="twitter:description" content="Nginx配置SSL证书，实现HTTPS访问 获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件     1234567891011121314151617server &amp;#123;listen 80;  listen 443;">
+<meta name="twitter:description" content="Nginx配置SSL证书，实现HTTPS访问 获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件  123456789101112131415161718192021222324252627282930313233server &amp;#123;	listen 80;	server_name *.zhaohongye.com;">
 
 
 
@@ -369,12 +369,24 @@
                 
               
 
-              <time title="Created: 2019-04-05 17:15:18 / Modified: 17:17:54" itemprop="dateCreated datePublished" datetime="2019-04-05T17:15:18+08:00">2019-04-05</time>
+              <time title="Created: 2019-04-05 17:15:18" itemprop="dateCreated datePublished" datetime="2019-04-05T17:15:18+08:00">2019-04-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-08 10:07:38" itemprop="dateModified" datetime="2019-04-08T10:07:38+08:00">2019-04-08</time>
               
             
           </span>
@@ -435,7 +447,7 @@
 <ol start="3">
 <li>修改nginx配置文件</li>
 </ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen 80;  </span><br><span class="line">listen 443;                                                           #添加监听端口</span><br><span class="line">charset utf-8;</span><br><span class="line">ssl on;                                                               #ssl功能开启</span><br><span class="line">ssl_certificate sslfile/1_vcg.com_bundle.crt;                         #证书路径</span><br><span class="line">ssl_certificate_key sslfile/2_vcg.com.key;</span><br><span class="line">ssl_session_timeout 5m;</span><br><span class="line">server_name test-www.vcg.com;</span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_pass http://test-www.vcg.com;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    client_max_body_size    1000m;</span><br><span class="line">    proxy_max_temp_file_size 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> <span class="regexp">*.zhaohongye.com</span>;</span><br><span class="line">	<span class="comment">#return 301 https://$host$request_uri;</span></span><br><span class="line">	<span class="attribute">return</span> <span class="number">301</span> https://zhaohongye.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">	<span class="attribute">server_name</span> zhaohongye.com www.zhaohongye.com;</span><br><span class="line">	<span class="attribute">access_log</span>  /var/log/nginx/zhy.log main;</span><br><span class="line">	<span class="attribute">error_log</span>  /var/log/nginx/zhy.<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">ssl</span> <span class="literal">on</span>;   <span class="comment">#ssl功能开启</span></span><br><span class="line">	<span class="attribute">ssl_certificate</span> sslfile/2027481_zhaohongye.com.pem;</span><br><span class="line">	<span class="attribute">ssl_certificate_key</span> sslfile/2027481_zhaohongye.com.key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="attribute">location</span> / &#123;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">		<span class="attribute">proxy_redirect</span>          http:// https://;</span><br><span class="line">		<span class="attribute">proxy_pass</span>              http://127.0.0.1:4000; </span><br><span class="line">		<span class="attribute">client_max_body_size</span>    <span class="number">10M</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Host <span class="variable">$host</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Server <span class="variable">$host</span>;</span><br><span class="line">		<span class="comment"># Required for new HTTP-based CLI</span></span><br><span class="line">		<span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">		<span class="attribute">proxy_request_buffering</span> <span class="literal">off</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>https访问验证</li>
 </ol>
