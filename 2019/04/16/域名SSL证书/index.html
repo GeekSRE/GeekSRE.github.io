@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="SSL证书 什么是数字证书？ 数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。 数字证书还有一个重要的特征：只在特定的时间段内有效。  什么是SSL？ SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。">
+<meta name="keywords" content="Linux,SSL证书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="域名SSL证书">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/域名SSL证书/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="SSL证书 什么是数字证书？ 数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。 数字证书还有一个重要的特征：只在特定的时间段内有效。  什么是SSL？ SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-16T07:14:34.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="域名SSL证书">
+<meta name="twitter:description" content="SSL证书 什么是数字证书？ 数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。 数字证书还有一个重要的特征：只在特定的时间段内有效。  什么是SSL？ SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="GeekSRE" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/04/16/域名SSL证书/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>域名SSL证书 | GeekSRE</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GeekSRE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-主页">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>主页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-个人信息">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>个人信息</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/域名SSL证书/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">域名SSL证书
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-16 15:04:09 / Modified: 15:14:34" itemprop="dateCreated datePublished" datetime="2019-04-16T15:04:09+08:00">2019-04-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/SSL证书/" itemprop="url" rel="index"><span itemprop="name">SSL证书</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><ul>
+<li><p>什么是数字证书？</p>
+<p>数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。</p>
+<p>数字证书还有一个重要的特征：只在特定的时间段内有效。</p>
+</li>
+<li><p>什么是SSL？</p>
+<p>SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。</p>
+</li>
+<li><p>什么是SSL证书？</p>
+<p>SSL证书采用SSL协议进行通信，是由权威机构颁发给网站的可信凭证。</p>
+<p>SSL证书采用SSL协议进行通信。SSL证书部署到Web服务器后，Web服务器访问将启用HTTPS协议。您的网站将会通过 HTTPS 加密协议来传输数据，可帮助Web服务器和网站间建立可信的加密链接，从而保证网络数据传输的安全。</p>
+</li>
+<li><p>什么是HTTPS？</p>
+<p>HTTPS是一种基于SSL协议的网站加密传输协议。</p>
+<p>网站安装SSL证书后，使用HTTPS加密协议访问，可激活客户端浏览器到网站服务器之间的<strong>SSL加密通道</strong>（SSL协议），从而实现高强度双向加密传输，防止传输数据被泄露或篡改。HTTPS 也就是HTTP + SSL，是HTTP的安全版。</p>
+</li>
+<li><p>什么是CA认证中心？</p>
+<p>CA认证中心（CA机构），即证书授权中心（Certificate Authority），或称证书授权机构。</p>
+<p>CA认证中心作为电子商务交易中受信任的第三方，承担公钥体系中公钥合法性检验的责任。</p>
+</li>
+</ul>
+<h2 id="SSL证书类型配置表"><a href="#SSL证书类型配置表" class="headerlink" title="SSL证书类型配置表"></a>SSL证书类型配置表</h2><p>证书根据不同的验证级别，分为以下三类：</p>
+<ul>
+<li>域名型SSL（DV SSL）</li>
+<li>企业型SSL（OV SSL）</li>
+<li>增强型SSL（EV SSL）</li>
+</ul>
+<p>根据保护域名的数量需求，SSL 证书又分为：</p>
+<ul>
+<li>单域名版：只保护一个域名，例如 <a href="http://www.abc.com" target="_blank" rel="noopener">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
+<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a href="http://www.abc.com" target="_blank" rel="noopener">www.abc.com</a> , <a href="http://www.bcd.com" target="_blank" rel="noopener">www.bcd.com</a>, pay.efg.com 等</li>
+<li>通配符版：一张证书保护同一个主域名下同一级的所有子域名，不限个数，形如 *.abc.com 。注意，通配符版只有 DVSSL 和 OVSSL 具有， EVSSL 不具有通配符版本。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">证书品牌</th>
+<th style="text-align:left">证书类型</th>
+<th style="text-align:left">保护域名的类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GeoTrust</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">1个带通配符的域名1个明细域名多个明细域名</td>
+<td style="text-align:left">提供加密功能，对申请者的身份进行严格的审核验证，可提供可信身份证明。多个域名例上限为300个。如: buy1.example.com, buy2.example.com, next.buy.example2.com, 上述3个明细子域名计算为3个域名。</td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">GlobalSign</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">CFCA</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Symantec</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">通配符DV SSL</td>
+<td style="text-align:left">通配符域名</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">增强型OV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供站点加密功能，需要核验组织注册信息，证书中会显示组织名称。组织信息验证通过后，3个工作日内颁发证书。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">增强型EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">增强型EV SSL提供站点加密功能，浏览器绿色地址栏显示组织信息强化信任。组织信息验证通过后7个工作日内颁发证书。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">免费型DV SSL</td>
+<td style="text-align:left">1个域名</td>
+<td style="text-align:left">免费新根证书，切入DigiCert PKI体系，兼容性操作系统版本IOS 5.0+、Android 2.3.3+、JRE 1.6.5+、WIN 7+。最多保护一个明细子域名，不支持通配符，一个阿里云帐户最多签发20张免费证书。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SSL证书购买"><a href="#SSL证书购买" class="headerlink" title="SSL证书购买"></a>SSL证书购买</h2><p>登录阿里云控制台，进入SSL证书服务。</p>
+<h2 id="SSL证书更新"><a href="#SSL证书更新" class="headerlink" title="SSL证书更新"></a>SSL证书更新</h2><p>公司域名SSL证书即将到期，替换SSL证书需知道哪些二级域名使用了HTTPS访问，并且获取SSL证书过期时间，来验证证书是否更新。</p>
+<h5 id="获取域名下的解析信息"><a href="#获取域名下的解析信息" class="headerlink" title="获取域名下的解析信息"></a>获取域名下的解析信息</h5><p>登录域名服务商控制条—云解析—域名解析列表—导出解析记录</p>
+<p>将二级域名的记录写入domains.txt文件备用</p>
+<h5 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for domain in `cat domains.txt` #读取存储了需要监测的域名的文件</span><br><span class="line">do</span><br><span class="line">    curl $domain.vcg.com:443 1&gt;/dev/null 2&gt;/dev/null --connect-timeout 3</span><br><span class="line">    if [[ $? -eq 0  ]]; then</span><br><span class="line">      END_TIME=$(echo | openssl s_client -servername $domain.vcg.com  -connect $domain.vcg.com:443 2&gt;/dev/null | openssl x509 -noout -dates |grep 'After'| awk -F '=' '&#123;print $2&#125;'| awk -F ' +' '&#123;print $1,$2,$4 &#125;' )</span><br><span class="line">      echo "$domain.vcg.com 的SSL证书到期时间为 $END_TIME  "  &gt;&gt; result1.txt</span><br><span class="line">    else</span><br><span class="line">      echo "$domain.vcg.com 没https " &gt;&gt; result1.txt</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h5 id="根据输出文件查看SSL证书过期时间，进行证书替换工作"><a href="#根据输出文件查看SSL证书过期时间，进行证书替换工作" class="headerlink" title="根据输出文件查看SSL证书过期时间，进行证书替换工作"></a>根据输出文件查看SSL证书过期时间，进行证书替换工作</h5><h5 id="SSL证书更新的配置路径"><a href="#SSL证书更新的配置路径" class="headerlink" title="SSL证书更新的配置路径"></a>SSL证书更新的配置路径</h5><ul>
+<li>阿里云OSS-对象存储</li>
+<li>阿里云WAF-Web防火墙</li>
+<li>阿里云SLB-负载均衡</li>
+<li>Nginx</li>
+</ul>
+<p>##### </p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/SSL证书/" rel="tag"># SSL证书</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/暴力破解攻击和防御/" rel="next" title="暴力破解攻击和防御">
+                <i class="fa fa-chevron-left"></i> 暴力破解攻击和防御
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">GeekSRE</p>
+              <div class="site-description motion-element" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL证书"><span class="nav-number">1.</span> <span class="nav-text">SSL证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL证书类型配置表"><span class="nav-number">2.</span> <span class="nav-text">SSL证书类型配置表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL证书购买"><span class="nav-number">3.</span> <span class="nav-text">SSL证书购买</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL证书更新"><span class="nav-number">4.</span> <span class="nav-text">SSL证书更新</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取域名下的解析信息"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">获取域名下的解析信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编写脚本"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">编写脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#根据输出文件查看SSL证书过期时间，进行证书替换工作"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">根据输出文件查看SSL证书过期时间，进行证书替换工作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SSL证书更新的配置路径"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">SSL证书更新的配置路径</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
