@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2019-04-16T06:38:48.853Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/16/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA/</loc>
     
     <lastmod>2019-04-16T06:33:34.758Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://yoursite.com/2019/04/05/Archer/</loc>
     
     <lastmod>2019-04-05T09:01:59.749Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2019-04-05T04:55:04.174Z</lastmod>
     
   </url>
   
