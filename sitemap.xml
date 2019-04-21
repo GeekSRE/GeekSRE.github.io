@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/04/16/GitLab%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/</loc>
+    
+    <lastmod>2019-04-21T06:02:47.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/17/test/</loc>
+    
+    <lastmod>2019-04-17T09:35:36.034Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/16/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1/</loc>
     
     <lastmod>2019-04-16T08:49:51.379Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://yoursite.com/2019/04/16/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA/</loc>
     
     <lastmod>2019-04-16T08:46:45.182Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/04/16/GitLab%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/</loc>
-    
-    <lastmod>2019-04-16T08:46:07.167Z</lastmod>
     
   </url>
   
