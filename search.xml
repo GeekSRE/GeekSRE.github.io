@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[test]]></title>
-    <url>%2F2019%2F04%2F17%2Ftest%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[Hexo-博客中添加图片等资源]]></title>
+    <url>%2F2019%2F04%2F21%2FHexo-%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E7%AD%89%E8%B5%84%E6%BA%90%2F</url>
+    <content type="text"><![CDATA[引用于 https://blog.csdn.net/qq_40265501/article/details/80019774 官方介绍：https://hexo.io/zh-cn/docs/asset-folders.html 一图胜万言 博客中有时候图片比文字更有说服力，比如：代码运行结果，代码运行效果等 开启’资源文件管理’功能将 config.yml文件中的 post_asset_folder 选项设为 true 12_config.ymlpost_asset_folder: true 安装Hexo插件插件地址：https://github.com/dangxuandev/hexo-asset-image 1npm install hexo-asset-image --save 在博客中添加图片 新建博客 1hexo n test 查看目录结构 123[root@nginx GeekSRE]# ls -l source/_posts/ |grep testdrwxr-xr-x 2 root root 4096 4月 17 17:29 test-rw-r--r-- 1 root root 96 4月 17 17:35 test.md 可以看到 会在 source/_posts 目录创建 test.md 和 test目录 与博客同名目录用于存放资源文件，如图片、CSS、JS 文件等 上传图片到”文章资源文件夹” 123# 比如使用CSDN博客中的图片：cd source/_posts/testwget https://img-blog.csdn.net/20180420154609543 引用 12345vim source/_posts/test.md# ![你想要输入的替代文字](图片文件)# 比如：![图片](test.jpg) 保存 1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 验证效果]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[GitLab代码托管]]></title>
