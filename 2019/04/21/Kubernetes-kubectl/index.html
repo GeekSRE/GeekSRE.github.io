@@ -96,18 +96,20 @@
 
 
 
-  <meta name="description" content="For example12345678910111213141516171819202122232425262728293031apiVersion: extensions/v1beta1kind: Ingressmetadata:  annotations:    nginx.ingress.kubernetes.io/force-ssl-redirect: &apos;true&apos; #代表其中跳转">
+  <meta name="description" content="管理Kubernetes集群的工具 [TOC] 安装 下载最新版的kubectl客户端 https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md  安装和配置 https://kubernetes.io/docs/tasks/tools/install-kubectl/  验证 1kuberctl version   配置集">
 <meta name="keywords" content="Kubernetes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kubernetes_Nginx-Ingress">
-<meta property="og:url" content="http://yoursite.com/2019/04/05/Kubernetes-Nginx-Ingress/index.html">
+<meta property="og:title" content="Kubernetes-kubectl">
+<meta property="og:url" content="http://yoursite.com/2019/04/21/Kubernetes-kubectl/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="For example12345678910111213141516171819202122232425262728293031apiVersion: extensions/v1beta1kind: Ingressmetadata:  annotations:    nginx.ingress.kubernetes.io/force-ssl-redirect: &apos;true&apos; #代表其中跳转">
+<meta property="og:description" content="管理Kubernetes集群的工具 [TOC] 安装 下载最新版的kubectl客户端 https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md  安装和配置 https://kubernetes.io/docs/tasks/tools/install-kubectl/  验证 1kuberctl version   配置集">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T01:48:04.723Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/21/Kubernetes-kubectl/kuberctl-version.jpg">
+<meta property="og:updated_time" content="2019-04-21T07:04:18.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kubernetes_Nginx-Ingress">
-<meta name="twitter:description" content="For example12345678910111213141516171819202122232425262728293031apiVersion: extensions/v1beta1kind: Ingressmetadata:  annotations:    nginx.ingress.kubernetes.io/force-ssl-redirect: &apos;true&apos; #代表其中跳转">
+<meta name="twitter:title" content="Kubernetes-kubectl">
+<meta name="twitter:description" content="管理Kubernetes集群的工具 [TOC] 安装 下载最新版的kubectl客户端 https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md  安装和配置 https://kubernetes.io/docs/tasks/tools/install-kubectl/  验证 1kuberctl version   配置集">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/21/Kubernetes-kubectl/kuberctl-version.jpg">
 
 
 
@@ -117,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/05/Kubernetes-Nginx-Ingress/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/21/Kubernetes-kubectl/">
 
 
 
@@ -127,7 +129,7 @@
   };
 </script>
 
-  <title>Kubernetes_Nginx-Ingress | GeekSRE</title>
+  <title>Kubernetes-kubectl | GeekSRE</title>
   
 
 
@@ -326,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/Kubernetes-Nginx-Ingress/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/Kubernetes-kubectl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GeekSRE">
@@ -343,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kubernetes_Nginx-Ingress
+          <h1 class="post-title" itemprop="name headline">Kubernetes-kubectl
 
               
             
@@ -369,7 +371,7 @@
                 
               
 
-              <time title="Created: 2019-04-05 00:17:52 / Modified: 09:48:04" itemprop="dateCreated datePublished" datetime="2019-04-05T00:17:52+08:00">2019-04-05</time>
+              <time title="Created: 2019-04-21 15:02:52 / Modified: 15:04:18" itemprop="dateCreated datePublished" datetime="2019-04-21T15:02:52+08:00">2019-04-21</time>
             
 
             
@@ -426,7 +428,38 @@
       
 
       
-        <h2 id="For-example"><a href="#For-example" class="headerlink" title="For example"></a>For example</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Ingress</span><br><span class="line">metadata:</span><br><span class="line">  annotations:</span><br><span class="line">    nginx.ingress.kubernetes.io/force-ssl-redirect: <span class="string">'true'</span> <span class="comment">#代表其中跳转</span></span><br><span class="line">    nginx.ingress.kubernetes.io/service-weight: <span class="string">''</span></span><br><span class="line">    nginx.ingress.kubernetes.io/ssl-redirect: <span class="string">'true'</span></span><br><span class="line">  creationTimestamp: <span class="string">'2018-12-25T10:29:36Z'</span></span><br><span class="line">  generation: 1</span><br><span class="line">  name: boss</span><br><span class="line">  namespace: default</span><br><span class="line">  resourceVersion: <span class="string">'21429383'</span></span><br><span class="line">  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/boss</span><br><span class="line">  uid: fa56e2a0-082f-11e9-80cf-00163e0e2421</span><br><span class="line">spec:</span><br><span class="line">  rules:</span><br><span class="line">    - host: boss1.vcg.com</span><br><span class="line">      http:</span><br><span class="line">        paths:</span><br><span class="line">          - backend:</span><br><span class="line">              serviceName: node-vcg-boss</span><br><span class="line">              servicePort: 80</span><br><span class="line">            path: /</span><br><span class="line">  tls:</span><br><span class="line">    - hosts:</span><br><span class="line">        - boss1.vcg.com</span><br><span class="line">      secretName: vcg-https</span><br><span class="line">status:</span><br><span class="line">  loadBalancer:</span><br><span class="line">    ingress:</span><br><span class="line">      - ip: 39.97.21.16</span><br></pre></td></tr></table></figure>
+        <p>管理Kubernetes集群的工具</p>
+<p>[TOC]</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>下载最新版的kubectl客户端</p>
+<p><a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md" target="_blank" rel="noopener">https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md</a></p>
+</li>
+<li><p>安装和配置</p>
+<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></p>
+</li>
+<li><p>验证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kuberctl version</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/21/Kubernetes-kubectl/kuberctl-version.jpg" alt></p>
+</li>
+<li><p>配置集群凭证</p>
+<p>您可以使用<strong>scp</strong>命令安全地将主节点的配置从 Kubernetes 集群主 VM 中的 <code>/etc/kubernetes/kube.conf</code> 复制到本地计算机的 <code>$HOME/.kube/config</code>（<code>kubectl</code> 预期凭据所在的位置）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir $HOME/.kube</span><br><span class="line">scp root@&lt;master-public-ip&gt;:/etc/kubernetes/kube.conf $HOME/.kube/config</span><br></pre></td></tr></table></figure>
+<p>公有云环境也可以在集群配置页面获取到config配置</p>
+</li>
+<li><p>验证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubect get all</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><strong>help-获取帮助信息</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">zhaohongye ~ ^-^ #kubectl help</span><br><span class="line">kubectl controls the Kubernetes cluster manager.</span><br><span class="line"></span><br><span class="line">Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/</span><br><span class="line"></span><br><span class="line">Basic Commands (Beginner):</span><br><span class="line">  create         Create a resource from a file or from stdin.</span><br><span class="line">  expose         使用 replication controller, service, deployment 或者 pod</span><br><span class="line">并暴露它作为一个 新的 Kubernetes Service</span><br><span class="line">  run            在集群中运行一个指定的镜像</span><br><span class="line">  set            为 objects 设置一个指定的特征</span><br><span class="line">  run-container  在集群中运行一个指定的镜像. This command is</span><br><span class="line">deprecated, use "run" instead</span><br><span class="line"></span><br><span class="line">Basic Commands (Intermediate):</span><br><span class="line">  get            显示一个或更多 resources</span><br><span class="line">  explain        查看资源的文档</span><br><span class="line">  edit           在服务器上编辑一个资源</span><br><span class="line">  delete         Delete resources by filenames, stdin, resources and names, or</span><br><span class="line">by resources and label selector</span><br><span class="line"></span><br><span class="line">Deploy Commands:</span><br><span class="line">  rollout        Manage the rollout of a resource</span><br><span class="line">  rolling-update 完成指定的 ReplicationController 的滚动升级</span><br><span class="line">  scale          为 Deployment, ReplicaSet, Replication Controller 或者 Job</span><br><span class="line">设置一个新的副本数量</span><br><span class="line">  autoscale      自动调整一个 Deployment, ReplicaSet, 或者</span><br><span class="line">ReplicationController 的副本数量</span><br><span class="line"></span><br><span class="line">Cluster Management Commands:</span><br><span class="line">  certificate    修改 certificate 资源.</span><br><span class="line">  cluster-info   显示集群信息</span><br><span class="line">  top            Display Resource (CPU/Memory/Storage) usage.</span><br><span class="line">  cordon         标记 node 为 unschedulable</span><br><span class="line">  uncordon       标记 node 为 schedulable</span><br><span class="line">  drain          Drain node in preparation for maintenance</span><br><span class="line">  taint          更新一个或者多个 node 上的 taints</span><br><span class="line"></span><br><span class="line">Troubleshooting and Debugging Commands:</span><br><span class="line">  describe       显示一个指定 resource 或者 group 的 resources 详情</span><br><span class="line">  logs           输出容器在 pod 中的日志</span><br><span class="line">  attach         Attach 到一个运行中的 container</span><br><span class="line">  exec           在一个 container 中执行一个命令</span><br><span class="line">  port-forward   Forward one or more local ports to a pod</span><br><span class="line">  proxy          运行一个 proxy 到 Kubernetes API server</span><br><span class="line">  cp             复制 files 和 directories 到 containers</span><br><span class="line">和从容器中复制 files 和 directories.</span><br><span class="line">  auth           Inspect authorization</span><br><span class="line"></span><br><span class="line">Advanced Commands:</span><br><span class="line">  apply          通过文件名或标准输入流(stdin)对资源进行配置</span><br><span class="line">  patch          使用 strategic merge patch 更新一个资源的 field(s)</span><br><span class="line">  replace        通过 filename 或者 stdin替换一个资源</span><br><span class="line">  convert        在不同的 API versions 转换配置文件</span><br><span class="line"></span><br><span class="line">Settings Commands:</span><br><span class="line">  label          更新在这个资源上的 labels</span><br><span class="line">  annotate       更新一个资源的注解</span><br><span class="line">  completion     Output shell completion code for the specified shell (bash or</span><br><span class="line">zsh)</span><br><span class="line"></span><br><span class="line">Other Commands:</span><br><span class="line">  api-versions   Print the supported API versions on the server, in the form of</span><br><span class="line">"group/version"</span><br><span class="line">  config         修改 kubeconfig 文件</span><br><span class="line">  help           Help about any command</span><br><span class="line">  plugin         Runs a command-line plugin</span><br><span class="line">  version        输出 client 和 server 的版本信息</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  kubectl [flags] [options]</span><br><span class="line"></span><br><span class="line">Use "kubectl &lt;command&gt; --help" for more information about a given command.</span><br><span class="line">Use "kubectl options" for a list of global command-line options (applies to all</span><br><span class="line">commands).</span><br></pre></td></tr></table></figure>
+<p><strong>get-获取信息</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get all</span><br></pre></td></tr></table></figure>
+<p><strong>scale-扩缩容</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl scale Deployment node-vcg-web --replicas=1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl scale Deployment node-vcg-web --replicas=10</span><br></pre></td></tr></table></figure>
+<p>批量扩缩容    </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i in `kubectl get deployment | awk '&#123;print $1&#125;' |grep -v NAME`; do</span><br><span class="line">   kubectl scale Deployment $i --replicas=1</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>#### </p>
 
       
     </div>
@@ -463,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/04/21/Hexo-博客中添加图片等资源/" rel="next" title="Hexo-博客中添加图片等资源">
+                <i class="fa fa-chevron-left"></i> Hexo-博客中添加图片等资源
               </a>
             
           </div>
@@ -472,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/05/Hexo-博客/" rel="prev" title="Hexo">
-                Hexo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -667,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#For-example"><span class="nav-number">1.</span> <span class="nav-text">For example</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li></ol></div>
             
 
           </div>
