@@ -96,18 +96,20 @@
 
 
 
-  <meta name="description" content="获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件  123456789101112131415161718192021222324252627282930313233server &amp;#123;	listen 80;	server_name *.zhaohongye.com;	#return 301 https://$h">
-<meta name="keywords" content="Nginx">
+  <meta name="description" content="Docker镜像是启动容器的基石。 什么是Docker镜像 Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称">
+<meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx_配置SSL证书">
-<meta property="og:url" content="http://yoursite.com/2019/04/05/Nginx-配置SSL证书/index.html">
+<meta property="og:title" content="Docker-镜像image">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/Docker-镜像image/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件  123456789101112131415161718192021222324252627282930313233server &amp;#123;	listen 80;	server_name *.zhaohongye.com;	#return 301 https://$h">
+<meta property="og:description" content="Docker镜像是启动容器的基石。 什么是Docker镜像 Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T08:47:07.963Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/Docker-镜像image/Docker镜像.JPEG">
+<meta property="og:updated_time" content="2019-04-23T03:24:43.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx_配置SSL证书">
-<meta name="twitter:description" content="获取证书并上传到Ngx服务器   检查Ngx是否安装–with-http_ssl_module模块   修改nginx配置文件  123456789101112131415161718192021222324252627282930313233server &amp;#123;	listen 80;	server_name *.zhaohongye.com;	#return 301 https://$h">
+<meta name="twitter:title" content="Docker-镜像image">
+<meta name="twitter:description" content="Docker镜像是启动容器的基石。 什么是Docker镜像 Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/23/Docker-镜像image/Docker镜像.JPEG">
 
 
 
@@ -117,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/04/05/Nginx-配置SSL证书/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/23/Docker-镜像image/">
 
 
 
@@ -127,7 +129,7 @@
   };
 </script>
 
-  <title>Nginx_配置SSL证书 | GeekSRE</title>
+  <title>Docker-镜像image | GeekSRE</title>
   
 
 
@@ -326,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/Nginx-配置SSL证书/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/Docker-镜像image/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GeekSRE">
@@ -343,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Nginx_配置SSL证书
+          <h1 class="post-title" itemprop="name headline">Docker-镜像image
 
               
             
@@ -369,24 +371,12 @@
                 
               
 
-              <time title="Created: 2019-04-05 17:15:18" itemprop="dateCreated datePublished" datetime="2019-04-05T17:15:18+08:00">2019-04-05</time>
+              <time title="Created: 2019-04-23 11:17:48 / Modified: 11:24:43" itemprop="dateCreated datePublished" datetime="2019-04-23T11:17:48+08:00">2019-04-23</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-16 16:47:07" itemprop="dateModified" datetime="2019-04-16T16:47:07+08:00">2019-04-16</time>
               
             
           </span>
@@ -403,7 +393,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
 
                 
                 
@@ -438,19 +428,34 @@
       
 
       
-        <ol>
-<li><h4 id="获取证书并上传到Ngx服务器"><a href="#获取证书并上传到Ngx服务器" class="headerlink" title="获取证书并上传到Ngx服务器"></a>获取证书并上传到Ngx服务器</h4></li>
-</ol>
-<ol start="2">
-<li><h4 id="检查Ngx是否安装–with-http-ssl-module模块"><a href="#检查Ngx是否安装–with-http-ssl-module模块" class="headerlink" title="检查Ngx是否安装–with-http_ssl_module模块"></a>检查Ngx是否安装–with-http_ssl_module模块</h4></li>
-</ol>
-<ol start="3">
-<li><h4 id="修改nginx配置文件"><a href="#修改nginx配置文件" class="headerlink" title="修改nginx配置文件"></a>修改nginx配置文件</h4></li>
-</ol>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> <span class="regexp">*.zhaohongye.com</span>;</span><br><span class="line">	<span class="comment">#return 301 https://$host$request_uri;</span></span><br><span class="line">	<span class="attribute">return</span> <span class="number">301</span> https://zhaohongye.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">	<span class="attribute">server_name</span> zhaohongye.com www.zhaohongye.com;</span><br><span class="line">	<span class="attribute">access_log</span>  /var/log/nginx/zhy.log main;</span><br><span class="line">	<span class="attribute">error_log</span>  /var/log/nginx/zhy.<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">ssl</span> <span class="literal">on</span>;   <span class="comment">#ssl功能开启</span></span><br><span class="line">	<span class="attribute">ssl_certificate</span> sslfile/2027481_zhaohongye.com.pem;</span><br><span class="line">	<span class="attribute">ssl_certificate_key</span> sslfile/2027481_zhaohongye.com.key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="attribute">location</span> / &#123;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">		<span class="attribute">proxy_redirect</span>          http:// https://;</span><br><span class="line">		<span class="attribute">proxy_pass</span>              http://127.0.0.1:4000; </span><br><span class="line">		<span class="attribute">client_max_body_size</span>    <span class="number">10M</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Host <span class="variable">$host</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Server <span class="variable">$host</span>;</span><br><span class="line">		<span class="comment"># Required for new HTTP-based CLI</span></span><br><span class="line">		<span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">		<span class="attribute">proxy_request_buffering</span> <span class="literal">off</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li><h4 id="https访问验证"><a href="#https访问验证" class="headerlink" title="https访问验证"></a>https访问验证</h4></li>
-</ol>
+        <p>Docker镜像是启动容器的基石。</p>
+<h4 id="什么是Docker镜像"><a href="#什么是Docker镜像" class="headerlink" title="什么是Docker镜像"></a>什么是Docker镜像</h4><hr>
+<p>Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称这样的文件为镜像。一个镜像可以迭代在另一个镜像的顶部。位于下方的镜像称之为父镜像，最底层的镜像称之为<strong>基础镜像</strong>。最后，当从一个镜像启动容器时，Docker会在最顶层加载一个读写文件系统作为容器。</p>
+<p><img src="/2019/04/23/Docker-镜像image/Docker镜像.JPEG" alt="Docker镜像"></p>
+<p>Docker的这种机制我们称之为<strong>写时复制</strong>。</p>
+<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<p>该命令可以用于查找当前系统中所有存在的镜像列表。</p>
+<p>Ps：本地镜像默认保存在Docker宿主机的/var/lib/docker目录下。所有的镜像都是保存在仓库中，而仓库位于Registry中。默认的Registry是Docker公司运营的Docker Hub。每个镜像仓库都可以存放很多的镜像。</p>
+<h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
+<p>上述命令会拉取镜像到本地。</p>
+<p>为了区分同一个仓库中不同的镜像，Docker提供了一种tag的功能。我们可以给每个版本的镜像添加一个唯一的tag来标识该镜像。此时，镜像的名称如下：仓库名称:tag。我们在运行镜像或拉取镜像时，可以直接指定对应的标签。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry-vpc.cn-beijing.aliyuncs.com/vcgcs/jdk8:util</span><br></pre></td></tr></table></figure>
+<h4 id="查找镜像"><a href="#查找镜像" class="headerlink" title="查找镜像"></a>查找镜像</h4><hr>
+<p>从Docker Hub查找有哪些公共的可用镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search keywords</span><br></pre></td></tr></table></figure>
+<h4 id="构建Docker镜像"><a href="#构建Docker镜像" class="headerlink" title="构建Docker镜像"></a>构建Docker镜像</h4><hr>
+<p><strong>docker build</strong> 命令用于使用 Dockerfile 创建镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t runoob/ubuntu:v1 .</span><br></pre></td></tr></table></figure>
+<p>使用URL <strong>github.com/creack/docker-firefox</strong> 的 Dockerfile 创建镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build github.com/creack/docker-firefox</span><br></pre></td></tr></table></figure>
+<p>也可以通过 -f Dockerfile 文件的位置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -f /path/to/a/Dockerfile .</span><br></pre></td></tr></table></figure>
+<h4 id="登录镜像仓库"><a href="#登录镜像仓库" class="headerlink" title="登录镜像仓库"></a>登录镜像仓库</h4><p>使用阿里云容器镜像服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login --username="ops@vcg.com" --password="******" registry-vpc.cn-beijing.aliyuncs.com</span><br></pre></td></tr></table></figure>
+<h4 id="推送镜像到仓库"><a href="#推送镜像到仓库" class="headerlink" title="推送镜像到仓库"></a>推送镜像到仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcgcs/jdk8:util</span><br></pre></td></tr></table></figure>
+<h4 id="修改镜像Tag"><a href="#修改镜像Tag" class="headerlink" title="修改镜像Tag"></a>修改镜像Tag</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images  # 获取ImageId</span><br><span class="line">docker tag [ImageId] registry.cn-beijing.aliyuncs.com/vcg/500px-vcg-com:[镜像版本号]</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -474,7 +479,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
           
         </div>
       
@@ -487,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/05/Archer-SQL自动化平台/" rel="next" title="Archer">
-                <i class="fa fa-chevron-left"></i> Archer
+              <a href="/2019/04/21/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/" rel="next" title="阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理">
+                <i class="fa fa-chevron-left"></i> 阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理
               </a>
             
           </div>
@@ -496,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/07/Cookie-Session/" rel="prev" title="Cookie & Session">
-                Cookie & Session <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -695,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取证书并上传到Ngx服务器"><span class="nav-number">1.</span> <span class="nav-text">获取证书并上传到Ngx服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查Ngx是否安装–with-http-ssl-module模块"><span class="nav-number">2.</span> <span class="nav-text">检查Ngx是否安装–with-http_ssl_module模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改nginx配置文件"><span class="nav-number">3.</span> <span class="nav-text">修改nginx配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#https访问验证"><span class="nav-number">4.</span> <span class="nav-text">https访问验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Docker镜像"><span class="nav-number">1.</span> <span class="nav-text">什么是Docker镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看镜像列表"><span class="nav-number">2.</span> <span class="nav-text">查看镜像列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取镜像"><span class="nav-number">3.</span> <span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找镜像"><span class="nav-number">4.</span> <span class="nav-text">查找镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建Docker镜像"><span class="nav-number">5.</span> <span class="nav-text">构建Docker镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#登录镜像仓库"><span class="nav-number">6.</span> <span class="nav-text">登录镜像仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推送镜像到仓库"><span class="nav-number">7.</span> <span class="nav-text">推送镜像到仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改镜像Tag"><span class="nav-number">8.</span> <span class="nav-text">修改镜像Tag</span></a></li></ol></div>
             
 
           </div>

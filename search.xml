@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Docker-镜像image]]></title>
+    <url>%2F2019%2F04%2F23%2FDocker-%E9%95%9C%E5%83%8Fimage%2F</url>
+    <content type="text"><![CDATA[Docker镜像是启动容器的基石。 什么是Docker镜像 Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称这样的文件为镜像。一个镜像可以迭代在另一个镜像的顶部。位于下方的镜像称之为父镜像，最底层的镜像称之为基础镜像。最后，当从一个镜像启动容器时，Docker会在最顶层加载一个读写文件系统作为容器。 Docker的这种机制我们称之为写时复制。 查看镜像列表 1docker images 该命令可以用于查找当前系统中所有存在的镜像列表。 Ps：本地镜像默认保存在Docker宿主机的/var/lib/docker目录下。所有的镜像都是保存在仓库中，而仓库位于Registry中。默认的Registry是Docker公司运营的Docker Hub。每个镜像仓库都可以存放很多的镜像。 拉取镜像 1docker pull centos 上述命令会拉取镜像到本地。 为了区分同一个仓库中不同的镜像，Docker提供了一种tag的功能。我们可以给每个版本的镜像添加一个唯一的tag来标识该镜像。此时，镜像的名称如下：仓库名称:tag。我们在运行镜像或拉取镜像时，可以直接指定对应的标签。 1docker pull registry-vpc.cn-beijing.aliyuncs.com/vcgcs/jdk8:util 查找镜像 从Docker Hub查找有哪些公共的可用镜像 1docker search keywords 构建Docker镜像 docker build 命令用于使用 Dockerfile 创建镜像。 1docker build -t runoob/ubuntu:v1 . 使用URL github.com/creack/docker-firefox 的 Dockerfile 创建镜像。 1docker build github.com/creack/docker-firefox 也可以通过 -f Dockerfile 文件的位置： 1docker build -f /path/to/a/Dockerfile . 登录镜像仓库使用阿里云容器镜像服务 1docker login --username="ops@vcg.com" --password="******" registry-vpc.cn-beijing.aliyuncs.com 推送镜像到仓库1docker push registry-vpc.cn-beijing.aliyuncs.com/vcgcs/jdk8:util 修改镜像Tag12docker images # 获取ImageIddocker tag [ImageId] registry.cn-beijing.aliyuncs.com/vcg/500px-vcg-com:[镜像版本号]]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理]]></title>
     <url>%2F2019%2F04%2F21%2F%E9%98%BF%E9%87%8C%E4%BA%91WAF-Kubernetes-Ingress-%E6%9E%B6%E6%9E%84%E4%B8%8B%E6%97%A0%E6%B3%95%E6%8B%BF%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP%E7%9A%84%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%2F</url>
     <content type="text"><![CDATA[背景:2019年04月19日晚21:10分进行网络维护，内容如下： ​ 将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址 故障现象：​ 后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。 排查记录: 21:15 查看Ingress日志，发现Ingress拿到的IP就是WAF回源地址，为错误IP，确定非前端nodejs代码bug。 21:33 联系阿里云技术团队一起排查问题。 22:20 确认Ingress的模板文件中 the_real_ip 变量是拿的 remote_addr 字段，等待阿里技术联系Ingree研发同学，给出回复。 23:23 Ingree研发同学联系上后确认Ingress没问题，可能是WAF没传真实IP到Ingress。 23:50 在Ingress容器和前端nodejs所在宿主机tcpdump工具抓包后分析得出： (1)、WAF已经将真实客户端地址放到了 x-Forwarded-For 的字段中传给了ECS(2)、ECS(容器的ingress)将真实的客户端IP，放到了x-Original-Forwarded-For；而将WAF的回源地址放到了 x-Forwarded-For 4月20日 00:29 将compute-full-forwarded-for配置到Ingress的ConfigMap中，问题解决。 结论：阿里云容器服务Kubernetes集群的Ingress默认ConfigMap中未配置 compute-full-forwarded-for参数，导致将ingress拿到的WAF回源IP替换为XFF，而非附加到XFF中。 https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#compute-full-forwarded-for 反思： 预览环境和线上环境架构不一致： 此次故障中，预览环境未使用WAF防护，直接解析到K8S集群，未提前发现此次问题，已修正，以后尽量维持环境统一，避免此类问题出现。 故障点定位速度慢： 网络请求问题优先抓包分析，提升故障定位速度，后续夯实基础知识，提升问题排查能力。 Kubernetes专业知识掌握程度较低 目前仅仅在使用层面上能力ok，但是其实现原理、组件实现方式等知识点薄弱，后续还需在K8S学习中多总结，多学习，争取减少故障，提升运维能力。]]></content>
