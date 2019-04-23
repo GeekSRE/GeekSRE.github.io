@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="个人信息 姓名：赵宏业   性别：男  生日：1992年07月28日  职位：运维工程师  就职公司：视觉中国  工作地点：北京  个人网站：  http://zhaohongye.com  http://ops.ren  http://ops.work  http://zhy.io     联系方式 QQ：724045150  Email：vip@zhaohongye.com   工作经历视觉中">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人信息">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="背景:2019年04月19日晚21:10分进行网络维护，内容如下： ​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址 故障现象：​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。 排查记录: 21:15 查看Ingres">
+<meta name="keywords" content="Kubernetes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理">
+<meta property="og:url" content="http://yoursite.com/2019/04/21/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="个人信息 姓名：赵宏业   性别：男  生日：1992年07月28日  职位：运维工程师  就职公司：视觉中国  工作地点：北京  个人网站：  http://zhaohongye.com  http://ops.ren  http://ops.work  http://zhy.io     联系方式 QQ：724045150  Email：vip@zhaohongye.com   工作经历视觉中">
+<meta property="og:description" content="背景:2019年04月19日晚21:10分进行网络维护，内容如下： ​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址 故障现象：​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。 排查记录: 21:15 查看Ingres">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-21T06:39:00.965Z">
+<meta property="og:updated_time" content="2019-04-21T11:10:29.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人信息">
-<meta name="twitter:description" content="个人信息 姓名：赵宏业   性别：男  生日：1992年07月28日  职位：运维工程师  就职公司：视觉中国  工作地点：北京  个人网站：  http://zhaohongye.com  http://ops.ren  http://ops.work  http://zhy.io     联系方式 QQ：724045150  Email：vip@zhaohongye.com   工作经历视觉中">
+<meta name="twitter:title" content="阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理">
+<meta name="twitter:description" content="背景:2019年04月19日晚21:10分进行网络维护，内容如下： ​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址 故障现象：​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。 排查记录: 21:15 查看Ingres">
 
 
 
@@ -116,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/about/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/21/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/">
 
 
 
@@ -126,7 +127,7 @@
   };
 </script>
 
-  <title>个人信息 | GeekSRE</title>
+  <title>阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理 | GeekSRE</title>
   
 
 
@@ -263,7 +264,7 @@
         
         
           
-          <li class="menu-item menu-item-个人信息 menu-item-active">
+          <li class="menu-item menu-item-个人信息">
 
     
     
@@ -284,25 +285,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -330,146 +312,211 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">个人信息
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h2><ul>
-<li><p>姓名：赵宏业 </p>
-</li>
-<li><p>性别：男</p>
-</li>
-<li><p>生日：1992年07月28日</p>
-</li>
-<li><p>职位：运维工程师</p>
-</li>
-<li><p>就职公司：视觉中国</p>
-</li>
-<li><p>工作地点：北京</p>
-</li>
-<li><p>个人网站：</p>
-<ul>
-<li><p><a href="http://zhaohongye.com" target="_blank" rel="noopener">http://zhaohongye.com</a></p>
-</li>
-<li><p><a href="http://ops.ren" target="_blank" rel="noopener">http://ops.ren</a></p>
-</li>
-<li><p><a href="http://ops.work" target="_blank" rel="noopener">http://ops.work</a></p>
-</li>
-<li><p><a href="http://zhy.io" target="_blank" rel="noopener">http://zhy.io</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul>
-<li><p>QQ：724045150</p>
-</li>
-<li><p>Email：<a href="mailto:vip@zhaohongye.com" target="_blank" rel="noopener">vip@zhaohongye.com</a></p>
-</li>
-</ul>
-<h2 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h2><h4 id="视觉中国-2018-01-至今"><a href="#视觉中国-2018-01-至今" class="headerlink" title="视觉中国    2018/01 - 至今"></a><strong>视觉中国</strong>    2018/01 - 至今</h4><ul>
-<li><p>负责运维规范、运营体系能力建设，不断提升运营水平，包括设架构审核、容量规划、容灾演练等工作；</p>
-</li>
-<li><p>解决业务上线过程，遇到的技术难题，并对业务线上环境中存在的问题进行定期反馈和推动改善；</p>
-</li>
-<li><p>负责快速响应线上突发事件，追踪定位，分析和解决问题，并制定和跟进后续的改进和规避方案；</p>
-</li>
-<li><p>参与系统架构的设计、评审、优化等工作；</p>
-</li>
-<li><p>培养和辅导初中级运维工程师。</p>
-</li>
-</ul>
-<h4 id="必要商城-2017-11-2018-01"><a href="#必要商城-2017-11-2018-01" class="headerlink" title="必要商城    2017/11 - 2018/01"></a>必要商城    2017/11 - 2018/01</h4><ul>
-<li><p>负责公司日常系统的管理工作，包括机房管理、账号管理、安全设置、服务部署等相关运维工作。</p>
-</li>
-<li><p>负责公司的系统应用运维工作，包括应用故障处理、配置管理、系统监控、系统升级、系统安全、性能优化、版本发布更新等工作；</p>
-</li>
-<li><p>参与运维支撑平台、自动化平台的建设，编写相关的运维手册及维护文档；</p>
-</li>
-<li><p>.负责公司现有资产管理系统、监控系统、发布系统的开发和维护工作，后期技术支持；</p>
-</li>
-<li><p>完成上级交付的工作任务。</p>
-</li>
-</ul>
-<h4 id="国信优易数据有限公司-2016-06-2017-11"><a href="#国信优易数据有限公司-2016-06-2017-11" class="headerlink" title="国信优易数据有限公司    2016/06 - 2017/11"></a><strong>国信优易数据有限公司</strong>    2016/06 - 2017/11</h4><ul>
-<li><p>负责研发事业部应用系统的部署、发布、性能优化、监控、维护</p>
-</li>
-<li><p>配合需求部门，快速交付运维基础资源及数据资源</p>
-</li>
-<li><p>及时响应及处理故障，并输入文档报告，保障线上系统稳定运行</p>
-</li>
-<li><p>参与系统架构设计、改进、优化，并实施技术方案</p>
-</li>
-<li><p>常见应用配置及优化，如Nginx/Apache、Mysql/Oracle、Bind、Tomcat、LVS、Memcache等</p>
-</li>
-<li><p>编写Shell、Python脚本代替重复手工性工作，使用开源工具提升运维效率，如Zabbix、Ansible、蓝鲸智云等</p>
-</li>
-<li><p>私有云、容器云部署、维护工作，包含虚机以及池管理</p>
-</li>
-<li><p>Ambari环境部署维护Hadoop大数据环境</p>
-</li>
-<li><p>服务器上架工作，包含组Raid、装系统、网络配置、应用部署</p>
-</li>
-<li><p>服务器采购、域名备份、域名解析、网络映射工作</p>
-</li>
-<li><p>邮箱、SVN、OA等系统帐号维护和权限分配工作</p>
-</li>
-<li><p>参与团队管理工作</p>
-</li>
-</ul>
-<h4 id="博雅软件-2015-04-2016-06"><a href="#博雅软件-2015-04-2016-06" class="headerlink" title="博雅软件    2015/04 - 2016/06"></a><strong>博雅软件</strong>    2015/04 - 2016/06</h4><ul>
-<li>根据开发需求搭建环境；</li>
-<li>构建及维护单机版监控系统；</li>
-<li>编写Shell/Python脚本进行自动化运维；</li>
-<li>负责CMDB开发及维护，实现日志可视化；</li>
-<li>编写发布脚本，对线上代码使用脚本发布。</li>
-</ul>
-<h4 id="玲珑视界科技-北京-有限公司-2013-07-2015-04"><a href="#玲珑视界科技-北京-有限公司-2013-07-2015-04" class="headerlink" title="玲珑视界科技(北京)有限公司    2013/07 - 2015/04"></a><strong>玲珑视界科技(北京)有限公司</strong>    2013/07 - 2015/04</h4><ul>
-<li><p>搭建及维护LNMP/LAMP环境；</p>
-</li>
-<li><p>负责MySQL的数据备份和归档；</p>
-</li>
-<li><p>编写Shell脚本进行自动化运维；</p>
-</li>
-<li><p>负责服务器及应用的监控，熟练掌握Nagios/Cacti/Zabbix工具；</p>
-</li>
-<li><p>Apache/Nginx、Tomcat/NodeJS等服务应用配置和维护工作。</p>
-</li>
-</ul>
+          <h1 class="post-title" itemprop="name headline">阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理
 
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-21 19:00:55 / Modified: 19:10:29" itemprop="dateCreated datePublished" datetime="2019-04-21T19:00:55+08:00">2019-04-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h5 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h5><p>2019年04月19日晚21:10分进行网络维护，内容如下：</p>
+<p>​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址</p>
+<h5 id="故障现象："><a href="#故障现象：" class="headerlink" title="故障现象："></a>故障现象：</h5><p>​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。</p>
+<h5 id="排查记录"><a href="#排查记录" class="headerlink" title="排查记录:"></a>排查记录:</h5><ol>
+<li><p>21:15 查看Ingress日志，发现Ingress拿到的IP就是WAF回源地址，为错误IP，确定非前端nodejs代码bug。</p>
+</li>
+<li><p>21:33  联系阿里云技术团队一起排查问题。</p>
+</li>
+<li><p>22:20  确认Ingress的模板文件中 the_real_ip 变量是拿的 remote_addr 字段，等待阿里技术联系Ingree研发同学，给出回复。</p>
+</li>
+<li><p>23:23 Ingree研发同学联系上后确认Ingress没问题，可能是WAF没传真实IP到Ingress。</p>
+</li>
+<li><p>23:50 在Ingress容器和前端nodejs所在宿主机tcpdump工具抓包后分析得出：</p>
+<p>(1)、WAF已经将真实客户端地址放到了 x-Forwarded-For 的字段中传给了ECS<br>(2)、ECS(容器的ingress)将真实的客户端IP，放到了x-Original-Forwarded-For；而将WAF的回源地址放到了 x-Forwarded-For</p>
+</li>
+<li><p>4月20日 00:29 将compute-full-forwarded-for配置到Ingress的ConfigMap中，问题解决。</p>
+</li>
+</ol>
+<h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><p>阿里云容器服务Kubernetes集群的Ingress默认ConfigMap中未配置 compute-full-forwarded-for参数，导致将ingress拿到的WAF回源IP替换为XFF，而非附加到XFF中。</p>
+<p><a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#compute-full-forwarded-for" target="_blank" rel="noopener">https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#compute-full-forwarded-for</a></p>
+<h5 id="反思："><a href="#反思：" class="headerlink" title="反思："></a>反思：</h5><ol>
+<li><p>预览环境和线上环境架构不一致：</p>
+<p>此次故障中，预览环境未使用WAF防护，直接解析到K8S集群，未提前发现此次问题，已修正，以后尽量维持环境统一，避免此类问题出现。</p>
+</li>
+<li><p>故障点定位速度慢：</p>
+<p>网络请求问题优先抓包分析，提升故障定位速度，后续夯实基础知识，提升问题排查能力。</p>
+</li>
+<li><p>Kubernetes专业知识掌握程度较低</p>
+<p>目前仅仅在使用层面上能力ok，但是其实现原理、组件实现方式等知识点薄弱，后续还需在K8S学习中多总结，多学习，争取减少故障，提升运维能力。</p>
+</li>
+</ol>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kubernetes/" rel="tag"># Kubernetes</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/21/Kubernetes-kubectl/" rel="next" title="Kubernetes-kubectl">
+                <i class="fa fa-chevron-left"></i> Kubernetes-kubectl
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -646,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人信息"><span class="nav-number">1.</span> <span class="nav-text">个人信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系方式"><span class="nav-number">2.</span> <span class="nav-text">联系方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作经历"><span class="nav-number">3.</span> <span class="nav-text">工作经历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#视觉中国-2018-01-至今"><span class="nav-number">3.0.1.</span> <span class="nav-text">视觉中国    2018/01 - 至今</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#必要商城-2017-11-2018-01"><span class="nav-number">3.0.2.</span> <span class="nav-text">必要商城    2017/11 - 2018/01</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#国信优易数据有限公司-2016-06-2017-11"><span class="nav-number">3.0.3.</span> <span class="nav-text">国信优易数据有限公司    2016/06 - 2017/11</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#博雅软件-2015-04-2016-06"><span class="nav-number">3.0.4.</span> <span class="nav-text">博雅软件    2015/04 - 2016/06</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玲珑视界科技-北京-有限公司-2013-07-2015-04"><span class="nav-number">3.0.5.</span> <span class="nav-text">玲珑视界科技(北京)有限公司    2013/07 - 2015/04</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#故障现象："><span class="nav-number">2.</span> <span class="nav-text">故障现象：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#排查记录"><span class="nav-number">3.</span> <span class="nav-text">排查记录:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结论："><span class="nav-number">4.</span> <span class="nav-text">结论：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反思："><span class="nav-number">5.</span> <span class="nav-text">反思：</span></a></li></ol></div>
             
 
           </div>
