@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/28/记一次Java微服务容器化维护工作/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/28/记一次Java微服务容器化维护工作/3.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/28/记一次Java微服务容器化维护工作/4.png">
-<meta property="og:updated_time" content="2019-04-28T08:48:47.517Z">
+<meta property="og:updated_time" content="2019-04-28T08:50:36.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次Java微服务容器化维护工作">
 <meta name="twitter:description" content="事件背景 容器架构由Swarm迁移到Kubernetes Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。 utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。 思路 与相关研发沟通，确定ut">
@@ -374,7 +374,7 @@
                 
               
 
-              <time title="Created: 2019-04-28 16:44:38 / Modified: 16:48:47" itemprop="dateCreated datePublished" datetime="2019-04-28T16:44:38+08:00">2019-04-28</time>
+              <time title="Created: 2019-04-28 16:44:38 / Modified: 16:50:36" itemprop="dateCreated datePublished" datetime="2019-04-28T16:44:38+08:00">2019-04-28</time>
             
 
             
@@ -413,17 +413,17 @@
       
 
       
-        <h5 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h5><hr>
+        <h4 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h4><hr>
 <p>容器架构由Swarm迁移到Kubernetes</p>
 <p>Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。</p>
 <p>utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。</p>
-<h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><hr>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><hr>
 <p>与相关研发沟通，确定utilservice程序一些基础信息：比如</p>
 <p>​    需要哪些基础组件，在ecs上部署遇到什么问题，如何处理的</p>
 <p>​    git仓库地址、服务启动命令、服务端口、是否连接数据库、服务调用关系。</p>
 <p>确定使用jdk环境，需要使用到 wkhtmltopdf 这个命令，用于生成pdf；</p>
 <p>生成的pdf过程会有 字体和语言的问题，需提前处理。</p>
-<h4 id="制作镜像"><a href="#制作镜像" class="headerlink" title="制作镜像"></a>制作镜像</h4><hr>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><hr>
 <h5 id="确定基础镜像"><a href="#确定基础镜像" class="headerlink" title="确定基础镜像"></a>确定基础镜像</h5><p>访问<a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com</a>，搜索 wkhtmltopdf 关键词</p>
 <p><img src="/2019/04/28/记一次Java微服务容器化维护工作/1.png" alt="1"></p>
 <p>确定基础镜像使用 buildo/java8-wkhtmltopdf 。</p>
@@ -685,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#事件背景"><span class="nav-number">1.</span> <span class="nav-text">事件背景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#制作镜像"><span class="nav-number"></span> <span class="nav-text">制作镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#确定基础镜像"><span class="nav-number">1.</span> <span class="nav-text">确定基础镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第一版"><span class="nav-number">1.1.</span> <span class="nav-text">Dockerfile (第一版)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载JCE"><span class="nav-number">2.</span> <span class="nav-text">下载JCE</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第二版"><span class="nav-number">2.1.</span> <span class="nav-text">Dockerfile (第二版)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理程序报错"><span class="nav-number">3.</span> <span class="nav-text">处理程序报错</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、找到不到-iSignature-pfx-证书："><span class="nav-number">3.1.</span> <span class="nav-text">1、找到不到 iSignature.pfx 证书：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">4.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第三版"><span class="nav-number">4.1.</span> <span class="nav-text">Dockerfile (第三版)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、tmpDic不是文件夹"><span class="nav-number">4.2.</span> <span class="nav-text">2、tmpDic不是文件夹</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第四版"><span class="nav-number">4.3.</span> <span class="nav-text">Dockerfile (第四版)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、pdf内容乱码"><span class="nav-number">4.4.</span> <span class="nav-text">3、pdf内容乱码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第五版"><span class="nav-number">4.5.</span> <span class="nav-text">Dockerfile (第五版)</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件背景"><span class="nav-number">1.</span> <span class="nav-text">事件背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作"><span class="nav-number">3.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#确定基础镜像"><span class="nav-number">3.1.</span> <span class="nav-text">确定基础镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第一版"><span class="nav-number">3.1.1.</span> <span class="nav-text">Dockerfile (第一版)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载JCE"><span class="nav-number">3.2.</span> <span class="nav-text">下载JCE</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第二版"><span class="nav-number">3.2.1.</span> <span class="nav-text">Dockerfile (第二版)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理程序报错"><span class="nav-number">3.3.</span> <span class="nav-text">处理程序报错</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、找到不到-iSignature-pfx-证书："><span class="nav-number">3.3.1.</span> <span class="nav-text">1、找到不到 iSignature.pfx 证书：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">3.4.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第三版"><span class="nav-number">3.4.1.</span> <span class="nav-text">Dockerfile (第三版)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、tmpDic不是文件夹"><span class="nav-number">3.4.2.</span> <span class="nav-text">2、tmpDic不是文件夹</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第四版"><span class="nav-number">3.4.3.</span> <span class="nav-text">Dockerfile (第四版)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、pdf内容乱码"><span class="nav-number">3.4.4.</span> <span class="nav-text">3、pdf内容乱码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第五版"><span class="nav-number">3.4.5.</span> <span class="nav-text">Dockerfile (第五版)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
