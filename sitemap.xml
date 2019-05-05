@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/05/05/Kubernetes-Secrets/</loc>
+    
+    <lastmod>2019-05-05T07:02:14.272Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/05/05/Nginx-ingress-controller%E9%83%A8%E7%BD%B2/</loc>
     
     <lastmod>2019-05-05T06:41:32.138Z</lastmod>
