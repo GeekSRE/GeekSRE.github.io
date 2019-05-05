@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller  Ingress 是从Kubernetes集群外部访问集群内部服务的入口，概念示意可参考下方说明。你可以给Ingress配置提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机等。用户通过POST Ingress资源到API ser">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-05T06:34:17.674Z">
+<meta property="og:updated_time" content="2019-05-05T06:38:06.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx-ingress controller部署">
 <meta name="twitter:description" content="https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller  Ingress 是从Kubernetes集群外部访问集群内部服务的入口，概念示意可参考下方说明。你可以给Ingress配置提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机等。用户通过POST Ingress资源到API ser">
@@ -369,7 +369,7 @@
                 
               
 
-              <time title="Created: 2019-05-05 14:31:36 / Modified: 14:34:17" itemprop="dateCreated datePublished" datetime="2019-05-05T14:31:36+08:00">2019-05-05</time>
+              <time title="Created: 2019-05-05 14:31:36 / Modified: 14:38:06" itemprop="dateCreated datePublished" datetime="2019-05-05T14:31:36+08:00">2019-05-05</time>
             
 
             
@@ -432,7 +432,7 @@
 <p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口，概念示意可参考下方说明。你可以给Ingress配置提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机等。用户通过POST Ingress资源到API server的方式来请求ingress。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">internet</span><br><span class="line">     |</span><br><span class="line">[ Ingress ]</span><br><span class="line">--|-----|--</span><br><span class="line">[ Services ]</span><br></pre></td></tr></table></figure>
 <p>Ingress controller负责实现Ingress。Ingress controller在Kubernetes集群中默认不会自动启用，您可以在一个pod中部署任意类型的自定义Ingress Controller。本文将以Nginx-ingress controller为例，说明Controller部署和Ingress定义。更多外部类型的Ingresss Controller参考<a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/" target="_blank" rel="noopener">Kubernetes官方文档</a>。</p>
-<h4 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h4><ol>
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><ol>
 <li><h5 id="从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录："><a href="#从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录：" class="headerlink" title="从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录："></a>从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/nginxinc/kubernetes-ingress/archive/v1.4.5.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf v1.4.5.tar.gz</span><br></pre></td></tr></table></figure>
 <p><strong>说明</strong>：本文说明在1.12.3版本的集群上如何部署nginx-ingress controller，如集群版本不同，选择其他适合的ginx-ingress controller安装部署文件。</p>
 </li>
@@ -442,7 +442,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd kubernetes-ingress-1.4.5/deployments</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="二、安装nginx-ingress-controller"><a href="#二、安装nginx-ingress-controller" class="headerlink" title="二、安装nginx-ingress controller"></a>二、安装nginx-ingress controller</h4><ol>
+<h4 id="安装nginx-ingress-controller"><a href="#安装nginx-ingress-controller" class="headerlink" title="安装nginx-ingress controller"></a>安装nginx-ingress controller</h4><ol>
 <li><h5 id="为nginx-ingress-controller创建一个namespace和service-account："><a href="#为nginx-ingress-controller创建一个namespace和service-account：" class="headerlink" title="为nginx-ingress controller创建一个namespace和service account："></a>为nginx-ingress controller创建一个namespace和service account：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common/ns-and-sa.yaml</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：</p>
@@ -484,7 +484,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">nginx-ingress-f67b87b88-5cspd   1/1     Running   0          3h11m</span><br><span class="line">nginx-ingress-f67b87b88-n7qnw   1/1     Running   0          3h13m</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="三、示例应用"><a href="#三、示例应用" class="headerlink" title="三、示例应用"></a>三、示例应用</h4><p>例如：配置www2.veer.com的ingress配置</p>
+<h4 id="示例应用"><a href="#示例应用" class="headerlink" title="示例应用"></a>示例应用</h4><p>例如：配置www2.veer.com的ingress配置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">cms-veer</span>       <span class="comment"># 变量：名字</span></span><br><span class="line"><span class="attr">  namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  rules:</span></span><br><span class="line"><span class="attr">    - host:</span> <span class="string">www2.veer.com</span>   <span class="comment"># 变量：url</span></span><br><span class="line"><span class="attr">      http:</span></span><br><span class="line"><span class="attr">        paths:</span></span><br><span class="line"><span class="attr">          - backend:</span></span><br><span class="line"><span class="attr">              serviceName:</span> <span class="string">node-vcg-veer-pre</span> <span class="comment"># 变量：后端应用service</span></span><br><span class="line"><span class="attr">              servicePort:</span> <span class="number">80</span>      <span class="comment"># 变量：后端应用service端口</span></span><br><span class="line"><span class="attr">            path:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">  tls:</span></span><br><span class="line"><span class="attr">    - hosts:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">www2.veer.com</span>       </span><br><span class="line"><span class="attr">      secretName:</span> <span class="string">veer-https</span>    <span class="comment"># 变量：ssl证书</span></span><br></pre></td></tr></table></figure>
 
       
@@ -732,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、环境准备"><span class="nav-number">1.</span> <span class="nav-text">一、环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录："><span class="nav-number">1.1.</span> <span class="nav-text">从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、安装nginx-ingress-controller"><span class="nav-number">2.</span> <span class="nav-text">二、安装nginx-ingress controller</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#为nginx-ingress-controller创建一个namespace和service-account："><span class="nav-number">2.1.</span> <span class="nav-text">为nginx-ingress controller创建一个namespace和service account：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、示例应用"><span class="nav-number">3.</span> <span class="nav-text">三、示例应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录："><span class="nav-number">1.1.</span> <span class="nav-text">从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装nginx-ingress-controller"><span class="nav-number">2.</span> <span class="nav-text">安装nginx-ingress controller</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#为nginx-ingress-controller创建一个namespace和service-account："><span class="nav-number">2.1.</span> <span class="nav-text">为nginx-ingress controller创建一个namespace和service account：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例应用"><span class="nav-number">3.</span> <span class="nav-text">示例应用</span></a></li></ol></div>
             
 
           </div>
