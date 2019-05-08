@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2F2019%2F05%2F08%2Ftest%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Kubernetes-Secrets]]></title>
     <url>%2F2019%2F05%2F05%2FKubernetes-Secrets%2F</url>
     <content type="text"><![CDATA[背景信息若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。 密钥有多种类型，例如： Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。 Opaque：base64 编码格式的 Secret，用来存储密码、证书等敏感信息。 Opaque 类型的数据是一个 map 类型，要求value 是 base64 编码格式 您也可通过命令行手动创建密钥，请参见 kubernetes secret 了解更多信息。 命令创建1234567891011kubectl create secretCreate a secret using specified subcommand.Available Commands: docker-registry Create a secret for use with a Docker registry generic Create a secret from a local file, directory or literal value tls Create a TLS secretUsage: kubectl create secret [flags] [options] 查看证书12345[cicd-jd@ops-jenkins-master ssl]$ kubectl get secretsNAME TYPE DATA AGEdefault-token-msfm9 kubernetes.io/service-account-token 3 24dregistry.cn-beijing.aliyuncs.com kubernetes.io/dockerconfigjson 1 24dveer-https kubernetes.io/tls 2 3h25m 123456789101112[cicd-jd@ops-jenkins-master ssl]$ kubectl describe secrets veer-httpsName: veer-httpsNamespace: defaultLabels: &lt;none&gt;Annotations: &lt;none&gt;Type: kubernetes.io/tlsData====tls.crt: 3941 bytestls.key: 1676 bytes 删除1kubectl delete secret $NAME 示例创建SSL证书 准备公钥、私钥文件12[cicd-jd@ops-jenkins-master ssl]$ lsveer.key veer.pem 创建secret1kubectl create secret tls veer-https --cert=./veer.pem --key=./veer.key 验证123[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets veer-httpsNAME TYPE DATA AGEveer-https kubernetes.io/tls 2 3h22m]]></content>
