@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Kubernetes-HostAliases]]></title>
+    <url>%2F2019%2F05%2F09%2FKubernetes-HostAliases%2F</url>
+    <content type="text"><![CDATA[https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/ k8s上微服务之间可以通过service的域名来互相访问。域名的解析是一般是通过在集群中的kube-dns来完成的。 如需向Pod的/etc/hosts文件添加条目实现解析需求时，可以使用Pod Spec中的HostAliases字段添加自定义条目。 例如： 123456789101112131415161718192021222324service/networking/hostaliases-pod.yaml apiVersion: v1kind: Podmetadata: name: hostaliases-podspec: restartPolicy: Never hostAliases: - ip: "127.0.0.1" hostnames: - "foo.local" - "bar.local" - ip: "10.1.2.3" hostnames: - "foo.remote" - "bar.remote" containers: - name: cat-hosts image: busybox command: - cat args: - "/etc/hosts" 示例： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152apiVersion: apps/v1beta2kind: Deploymentmetadata: labels: app: vcg-gateway name: vcg-gateway namespace: defaultspec: replicas: 1 selector: matchLabels: app: vcg-gateway strategy: rollingUpdate: maxSurge: 25% maxUnavailable: 25% type: RollingUpdate template: metadata: labels: app: vcg-gateway spec: containers: - env: - name: aliyun_logs_vcg-gateway value: stdout image: &gt;- registry-vpc.cn-beijing.aliyuncs.com/vcg/vcg-gateway:pro-20190423162116 imagePullPolicy: Always name: vcg-gateway resources: limits: cpu: '1' memory: 4Gi requests: cpu: 500m memory: 1000Mi dnsPolicy: ClusterFirst hostAliases: - hostnames: - www.vcg.com ip: 39.97.197.135 - hostnames: - www1.visualchina.com - www1.vcg.com ip: 39.97.21.16 imagePullSecrets: - name: registry-vpc.cn-beijing.aliyuncs.com restartPolicy: Always schedulerName: default-scheduler securityContext: &#123;&#125; terminationGracePeriodSeconds: 30]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[test]]></title>
     <url>%2F2019%2F05%2F08%2Ftest%2F</url>
     <content type="text"></content>

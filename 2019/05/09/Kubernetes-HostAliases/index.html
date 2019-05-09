@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="背景信息若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。 密钥有多种类型，例如：  Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。 Opaqu">
+  <meta name="description" content="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/  k8s上微服务之间可以通过service的域名来互相访问。域名的解析是一般是通过在集群中的kube-dns来完成的。 如需向Pod的/etc/hosts文件添加条目实现解析需求时，可以使用">
 <meta name="keywords" content="Kubernetes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kubernetes-Secrets">
-<meta property="og:url" content="http://yoursite.com/2019/05/05/Kubernetes-Secrets/index.html">
+<meta property="og:title" content="Kubernetes-HostAliases">
+<meta property="og:url" content="http://yoursite.com/2019/05/09/Kubernetes-HostAliases/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="背景信息若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。 密钥有多种类型，例如：  Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。 Opaqu">
+<meta property="og:description" content="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/  k8s上微服务之间可以通过service的域名来互相访问。域名的解析是一般是通过在集群中的kube-dns来完成的。 如需向Pod的/etc/hosts文件添加条目实现解析需求时，可以使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-05T07:02:14.272Z">
+<meta property="og:updated_time" content="2019-05-09T08:33:40.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kubernetes-Secrets">
-<meta name="twitter:description" content="背景信息若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。 密钥有多种类型，例如：  Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。 Opaqu">
+<meta name="twitter:title" content="Kubernetes-HostAliases">
+<meta name="twitter:description" content="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/  k8s上微服务之间可以通过service的域名来互相访问。域名的解析是一般是通过在集群中的kube-dns来完成的。 如需向Pod的/etc/hosts文件添加条目实现解析需求时，可以使用">
 
 
 
@@ -117,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/05/Kubernetes-Secrets/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/09/Kubernetes-HostAliases/">
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>Kubernetes-Secrets | GeekSRE</title>
+  <title>Kubernetes-HostAliases | GeekSRE</title>
   
 
 
@@ -343,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/Kubernetes-Secrets/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/Kubernetes-HostAliases/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GeekSRE">
@@ -360,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kubernetes-Secrets
+          <h1 class="post-title" itemprop="name headline">Kubernetes-HostAliases
 
               
             
@@ -386,7 +386,7 @@
                 
               
 
-              <time title="Created: 2019-05-05 15:01:47 / Modified: 15:02:14" itemprop="dateCreated datePublished" datetime="2019-05-05T15:01:47+08:00">2019-05-05</time>
+              <time title="Created: 2019-05-09 16:33:12 / Modified: 16:33:40" itemprop="dateCreated datePublished" datetime="2019-05-09T16:33:12+08:00">2019-05-09</time>
             
 
             
@@ -425,26 +425,15 @@
       
 
       
-        <h4 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h4><p>若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。</p>
-<p>密钥有多种类型，例如：</p>
-<ul>
-<li>Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。</li>
-<li>Opaque：base64 编码格式的 Secret，用来存储密码、证书等敏感信息。</li>
-</ul>
-<p>Opaque 类型的数据是一个 map 类型，要求value 是 base64 编码格式</p>
-<p>您也可通过命令行手动创建密钥，请参见 <a href="https://kubernetes.io/docs/concepts/configuration/secret/" target="_blank" rel="noopener">kubernetes secret</a> 了解更多信息。</p>
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret</span><br><span class="line"></span><br><span class="line">Create a secret using specified subcommand.</span><br><span class="line"></span><br><span class="line">Available Commands:</span><br><span class="line">  docker-registry Create a secret for use with a Docker registry</span><br><span class="line">  generic         Create a secret from a local file, directory or literal value</span><br><span class="line">  tls             Create a TLS secret</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  kubectl create secret [flags] [options]</span><br></pre></td></tr></table></figure>
-<h5 id="查看证书"><a href="#查看证书" class="headerlink" title="查看证书"></a>查看证书</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets</span><br><span class="line">NAME                               TYPE                                  DATA   AGE</span><br><span class="line">default-token-msfm9                kubernetes.io/service-account-token   3      24d</span><br><span class="line">registry.cn-beijing.aliyuncs.com   kubernetes.io/dockerconfigjson        1      24d</span><br><span class="line">veer-https                         kubernetes.io/tls                     2      3h25m</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl describe secrets veer-https</span><br><span class="line">Name:         veer-https</span><br><span class="line">Namespace:    default</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line"></span><br><span class="line">Type:  kubernetes.io/tls</span><br><span class="line"></span><br><span class="line">Data</span><br><span class="line">====</span><br><span class="line">tls.crt:  3941 bytes</span><br><span class="line">tls.key:  1676 bytes</span><br></pre></td></tr></table></figure>
-<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete secret $NAME</span><br></pre></td></tr></table></figure>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><h5 id="创建SSL证书"><a href="#创建SSL证书" class="headerlink" title="创建SSL证书"></a>创建SSL证书</h5><ol>
-<li><h6 id="准备公钥、私钥文件"><a href="#准备公钥、私钥文件" class="headerlink" title="准备公钥、私钥文件"></a>准备公钥、私钥文件</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ ls</span><br><span class="line">veer.key  veer.pem</span><br></pre></td></tr></table></figure>
-</li>
-<li><h6 id="创建secret"><a href="#创建secret" class="headerlink" title="创建secret"></a>创建secret</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret tls veer-https --cert=./veer.pem --key=./veer.key</span><br></pre></td></tr></table></figure>
-</li>
-<li><h6 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets veer-https</span><br><span class="line">NAME         TYPE                DATA   AGE</span><br><span class="line">veer-https   kubernetes.io/tls   2      3h22m</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+        <blockquote>
+<p><a href="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/</a></p>
+</blockquote>
+<p>k8s上微服务之间可以通过service的域名来互相访问。域名的解析是一般是通过在集群中的kube-dns来完成的。</p>
+<p>如需向Pod的/etc/hosts文件添加条目实现解析需求时，可以使用Pod Spec中的HostAliases字段添加自定义条目。</p>
+<p>例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">service/networking/hostaliases-pod.yaml</span> </span><br><span class="line"></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">hostaliases-pod</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  restartPolicy:</span> <span class="string">Never</span></span><br><span class="line"><span class="attr">  hostAliases:</span></span><br><span class="line"><span class="attr">  - ip:</span> <span class="string">"127.0.0.1"</span></span><br><span class="line"><span class="attr">    hostnames:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"foo.local"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"bar.local"</span></span><br><span class="line"><span class="attr">  - ip:</span> <span class="string">"10.1.2.3"</span></span><br><span class="line"><span class="attr">    hostnames:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"foo.remote"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"bar.remote"</span></span><br><span class="line"><span class="attr">  containers:</span></span><br><span class="line"><span class="attr">  - name:</span> <span class="string">cat-hosts</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">busybox</span></span><br><span class="line"><span class="attr">    command:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">cat</span></span><br><span class="line"><span class="attr">    args:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"/etc/hosts"</span></span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1beta2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  labels:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">vcg-gateway</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">vcg-gateway</span></span><br><span class="line"><span class="attr">  namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    matchLabels:</span></span><br><span class="line"><span class="attr">      app:</span> <span class="string">vcg-gateway</span></span><br><span class="line"><span class="attr">  strategy:</span></span><br><span class="line"><span class="attr">    rollingUpdate:</span></span><br><span class="line"><span class="attr">      maxSurge:</span> <span class="number">25</span><span class="string">%</span></span><br><span class="line"><span class="attr">      maxUnavailable:</span> <span class="number">25</span><span class="string">%</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">RollingUpdate</span></span><br><span class="line"><span class="attr">  template:</span></span><br><span class="line"><span class="attr">    metadata:</span></span><br><span class="line"><span class="attr">      labels:</span></span><br><span class="line"><span class="attr">        app:</span> <span class="string">vcg-gateway</span></span><br><span class="line"><span class="attr">    spec:</span></span><br><span class="line"><span class="attr">      containers:</span></span><br><span class="line"><span class="attr">        - env:</span></span><br><span class="line"><span class="attr">            - name:</span> <span class="string">aliyun_logs_vcg-gateway</span></span><br><span class="line"><span class="attr">              value:</span> <span class="string">stdout</span></span><br><span class="line"><span class="attr">          image:</span> <span class="string">&gt;-</span></span><br><span class="line">            <span class="string">registry-vpc.cn-beijing.aliyuncs.com/vcg/vcg-gateway:pro-20190423162116</span></span><br><span class="line"><span class="attr">          imagePullPolicy:</span> <span class="string">Always</span></span><br><span class="line"><span class="attr">          name:</span> <span class="string">vcg-gateway</span></span><br><span class="line"><span class="attr">          resources:</span></span><br><span class="line"><span class="attr">            limits:</span></span><br><span class="line"><span class="attr">              cpu:</span> <span class="string">'1'</span></span><br><span class="line"><span class="attr">              memory:</span> <span class="number">4</span><span class="string">Gi</span></span><br><span class="line"><span class="attr">            requests:</span></span><br><span class="line"><span class="attr">              cpu:</span> <span class="number">500</span><span class="string">m</span></span><br><span class="line"><span class="attr">              memory:</span> <span class="number">1000</span><span class="string">Mi</span></span><br><span class="line"><span class="attr">      dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line"><span class="attr">      hostAliases:</span></span><br><span class="line"><span class="attr">        - hostnames:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">www.vcg.com</span></span><br><span class="line"><span class="attr">          ip:</span> <span class="number">39.97</span><span class="number">.197</span><span class="number">.135</span></span><br><span class="line"><span class="attr">        - hostnames:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">www1.visualchina.com</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">www1.vcg.com</span></span><br><span class="line"><span class="attr">          ip:</span> <span class="number">39.97</span><span class="number">.21</span><span class="number">.16</span></span><br><span class="line"><span class="attr">      imagePullSecrets:</span></span><br><span class="line"><span class="attr">        - name:</span> <span class="string">registry-vpc.cn-beijing.aliyuncs.com</span></span><br><span class="line"><span class="attr">      restartPolicy:</span> <span class="string">Always</span></span><br><span class="line"><span class="attr">      schedulerName:</span> <span class="string">default-scheduler</span></span><br><span class="line"><span class="attr">      securityContext:</span> <span class="string">&#123;&#125;</span></span><br><span class="line"><span class="attr">      terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -481,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/05/Nginx-ingress-controller部署/" rel="next" title="Nginx-ingress controller部署">
-                <i class="fa fa-chevron-left"></i> Nginx-ingress controller部署
+              <a href="/2019/05/08/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
               </a>
             
           </div>
@@ -490,10 +479,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/08/test/" rel="prev" title="test">
-                test <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -535,17 +520,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -680,23 +656,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景信息"><span class="nav-number">1.</span> <span class="nav-text">背景信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令"><span class="nav-number">2.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建"><span class="nav-number">2.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看证书"><span class="nav-number">2.2.</span> <span class="nav-text">查看证书</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除"><span class="nav-number">2.3.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建SSL证书"><span class="nav-number">3.1.</span> <span class="nav-text">创建SSL证书</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#准备公钥、私钥文件"><span class="nav-number">3.1.1.</span> <span class="nav-text">准备公钥、私钥文件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#创建secret"><span class="nav-number">3.1.2.</span> <span class="nav-text">创建secret</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#验证"><span class="nav-number">3.1.3.</span> <span class="nav-text">验证</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
