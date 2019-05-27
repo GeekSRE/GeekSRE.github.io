@@ -2,25 +2,25 @@
   "_args": [
     [
       {
-        "raw": "live2d-widget-model-z16@^1.0.5",
+        "raw": "live2d-widget-model-miku",
         "scope": null,
-        "escapedName": "live2d-widget-model-z16",
-        "name": "live2d-widget-model-z16",
-        "rawSpec": "^1.0.5",
-        "spec": ">=1.0.5 <2.0.0",
-        "type": "range"
+        "escapedName": "live2d-widget-model-miku",
+        "name": "live2d-widget-model-miku",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
       },
       "/data/GeekSRE"
     ]
   ],
-  "_from": "live2d-widget-model-z16@>=1.0.5 <2.0.0",
-  "_id": "live2d-widget-model-z16@1.0.5",
+  "_from": "live2d-widget-model-miku@latest",
+  "_id": "live2d-widget-model-miku@1.0.5",
   "_inCache": true,
-  "_location": "/live2d-widget-model-z16",
+  "_location": "/live2d-widget-model-miku",
   "_nodeVersion": "8.4.0",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/live2d-widget-model-z16_1.0.5_1518094399853_0.6419365507594417"
+    "tmp": "tmp/live2d-widget-model-miku_1.0.5_1518094226152_0.1372062793235227"
   },
   "_npmUser": {
     "name": "xiazeyu",
@@ -29,36 +29,35 @@
   "_npmVersion": "5.5.1",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "live2d-widget-model-z16@^1.0.5",
+    "raw": "live2d-widget-model-miku",
     "scope": null,
-    "escapedName": "live2d-widget-model-z16",
-    "name": "live2d-widget-model-z16",
-    "rawSpec": "^1.0.5",
-    "spec": ">=1.0.5 <2.0.0",
-    "type": "range"
+    "escapedName": "live2d-widget-model-miku",
+    "name": "live2d-widget-model-miku",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
   },
   "_requiredBy": [
-    "#USER",
-    "/"
+    "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/live2d-widget-model-z16/-/live2d-widget-model-z16-1.0.5.tgz",
-  "_shasum": "7604025e733d6fc6b24a60c3231e5b62d5e532a1",
+  "_resolved": "https://registry.npmjs.org/live2d-widget-model-miku/-/live2d-widget-model-miku-1.0.5.tgz",
+  "_shasum": "49a0b7b4bbc371e36b75cf62d745933e7bcf108b",
   "_shrinkwrap": null,
-  "_spec": "live2d-widget-model-z16@^1.0.5",
+  "_spec": "live2d-widget-model-miku",
   "_where": "/data/GeekSRE",
   "bugs": {
     "url": "https://github.com/xiazeyu/live2d-widget-models/issues"
   },
   "dependencies": {},
-  "description": "z16 live2d model for live2d-widget.js",
+  "description": "miku live2d model for live2d-widget.js",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "integrity": "sha512-1CUY6iOWakrJQdShWOJwzYvM0rj0Ok71B5qbKT03/ATPKUYmDLgSIy4QiH9CDZkXSwlQtIEG7CUqqaUzFZTB4w==",
-    "shasum": "7604025e733d6fc6b24a60c3231e5b62d5e532a1",
-    "tarball": "https://registry.npmjs.org/live2d-widget-model-z16/-/live2d-widget-model-z16-1.0.5.tgz",
-    "fileCount": 9,
-    "unpackedSize": 300813
+    "integrity": "sha512-uwthpWUAeqiA/tL87QNri1eNp0w0UKxM34n/PhA0ng/ZU4hhsJKYHaRcoPK8oOWbpLYCoS8uzWAACmXfomylTg==",
+    "shasum": "49a0b7b4bbc371e36b75cf62d745933e7bcf108b",
+    "tarball": "https://registry.npmjs.org/live2d-widget-model-miku/-/live2d-widget-model-miku-1.0.5.tgz",
+    "fileCount": 13,
+    "unpackedSize": 1000268
   },
   "homepage": "https://github.com/xiazeyu/live2d-widget-models#readme",
   "license": "GPL-2.0",
@@ -72,7 +71,7 @@
       "email": "xiazeyu_2011@126.com"
     }
   ],
-  "name": "live2d-widget-model-z16",
+  "name": "live2d-widget-model-miku",
   "optionalDependencies": {},
   "readme": "ERROR: No README data found!",
   "repository": {
