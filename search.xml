@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo博客美化添加live2d动画]]></title>
+    <url>%2F2019%2F05%2F27%2FHexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96%E6%B7%BB%E5%8A%A0live2d%E5%8A%A8%E7%94%BB%2F</url>
+    <content type="text"><![CDATA[hexo-helper-live2d GitHub地址 安装插件 在hexo根目录执行 1npm install --save hexo-helper-live2d 选择动画模型 模型地址 live2d-widget-model-chitose live2d-widget-model-epsilon2_1 live2d-widget-model-gf live2d-widget-model-haru live2d-widget-model-haruto live2d-widget-model-hibiki live2d-widget-model-hijiki live2d-widget-model-izumi live2d-widget-model-koharu live2d-widget-model-miku live2d-widget-model-ni-j live2d-widget-model-nico live2d-widget-model-nietzsche live2d-widget-model-nipsilon live2d-widget-model-nito live2d-widget-model-shizuku live2d-widget-model-tororo live2d-widget-model-tsumiki live2d-widget-model-unitychan live2d-widget-model-wanko live2d-widget-model-z16 本次选择安装live2d-widget-model-haruto 1npm install live2d-widget-model-haruto 拷贝资源 在hexo根目录live2d_models 1mkdir -p live2d_models cp模型文件 1cp -r node_modules/live2d-widget-model-haruto/ live2d_models/ 编辑主配置编辑_config.yml 12345678910111213141516live2d: enable: true scriptFrom: local pluginRootPath: live2dw/ pluginJsPath: lib/ pluginModelPath: assets/ tagMode: false debug: false model: use: live2d-widget-model-haruto display: position: right width: 150 height: 300 mobile: show: true 重新部署1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 我部署到GitHub上的域名正常，服务器上的没生效，重启进程后生效。]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Next主题增加动态背景并设置透明化]]></title>
     <url>%2F2019%2F05%2F27%2FNext%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%80%8F%E6%98%8E%E5%8C%96%2F</url>
     <content type="text"><![CDATA[编辑主题配置编辑 themes/next/_config.yml 12345678#canvas_nest: falsecanvas_nest: enable: true onmobile: true # display on mobile or not color: &apos;0,0,255&apos; # RGB values, use &apos;,&apos; to separate opacity: 0.5 # the opacity of line: 0~1 zIndex: -1 # z-index property of the background count: 99 # the number of lines 重新部署1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d]]></content>
