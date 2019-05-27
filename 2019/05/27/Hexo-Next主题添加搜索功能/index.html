@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+  <meta name="description" content="安装插件博客根目录执行以下命令： 1npm install hexo-generator-searchdb --save 修改主配置编辑配置文件：_config.yaml 12345search:  path: search.xml  field: post  format: html  limit: 10000 修改主题配置编辑 themes/next/_config.yml 12local_s">
+<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/2019/05/08/test/index.html">
+<meta property="og:title" content="Hexo-Next主题添加搜索功能">
+<meta property="og:url" content="http://yoursite.com/2019/05/27/Hexo-Next主题添加搜索功能/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+<meta property="og:description" content="安装插件博客根目录执行以下命令： 1npm install hexo-generator-searchdb --save 修改主配置编辑配置文件：_config.yaml 12345search:  path: search.xml  field: post  format: html  limit: 10000 修改主题配置编辑 themes/next/_config.yml 12local_s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-08T08:18:07.725Z">
+<meta property="og:updated_time" content="2019-05-27T06:20:44.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
-<meta name="twitter:description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+<meta name="twitter:title" content="Hexo-Next主题添加搜索功能">
+<meta name="twitter:description" content="安装插件博客根目录执行以下命令： 1npm install hexo-generator-searchdb --save 修改主配置编辑配置文件：_config.yaml 12345search:  path: search.xml  field: post  format: html  limit: 10000 修改主题配置编辑 themes/next/_config.yml 12local_s">
 
 
 
@@ -116,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/08/test/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/27/Hexo-Next主题添加搜索功能/">
 
 
 
@@ -126,7 +127,7 @@
   };
 </script>
 
-  <title>test | GeekSRE</title>
+  <title>Hexo-Next主题添加搜索功能 | GeekSRE</title>
   
 
 
@@ -381,7 +382,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/test/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/Hexo-Next主题添加搜索功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GeekSRE">
@@ -398,7 +399,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">test
+          <h1 class="post-title" itemprop="name headline">Hexo-Next主题添加搜索功能
 
               
             
@@ -424,12 +425,34 @@
                 
               
 
-              <time title="Created: 2019-05-08 16:18:07" itemprop="dateCreated datePublished" datetime="2019-05-08T16:18:07+08:00">2019-05-08</time>
+              <time title="Created: 2019-05-27 14:19:49 / Modified: 14:20:44" itemprop="dateCreated datePublished" datetime="2019-05-27T14:19:49+08:00">2019-05-27</time>
             
 
+            
+              
+
+              
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -459,7 +482,14 @@
       
 
       
-        
+        <h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p>博客根目录执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<h5 id="修改主配置"><a href="#修改主配置" class="headerlink" title="修改主配置"></a>修改主配置</h5><p>编辑配置文件：_config.yaml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<h5 id="修改主题配置"><a href="#修改主题配置" class="headerlink" title="修改主题配置"></a>修改主题配置</h5><p>编辑 themes/next/_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+<h5 id="重新部署"><a href="#重新部署" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -480,6 +510,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+        </div>
+      
 
       
       
@@ -489,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/05/Kubernetes-Secrets/" rel="next" title="Kubernetes-Secrets">
-                <i class="fa fa-chevron-left"></i> Kubernetes-Secrets
+              <a href="/2019/05/09/Kubernetes-HostAliases/" rel="next" title="Kubernetes-HostAliases">
+                <i class="fa fa-chevron-left"></i> Kubernetes-HostAliases
               </a>
             
           </div>
@@ -498,10 +534,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/09/Kubernetes-HostAliases/" rel="prev" title="Kubernetes-HostAliases">
-                Kubernetes-HostAliases <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -543,8 +575,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -679,6 +720,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装插件"><span class="nav-number">1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改主配置"><span class="nav-number">2.</span> <span class="nav-text">修改主配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改主题配置"><span class="nav-number">3.</span> <span class="nav-text">修改主题配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重新部署"><span class="nav-number">4.</span> <span class="nav-text">重新部署</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
