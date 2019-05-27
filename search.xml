@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Next主题增加动态背景并设置透明化]]></title>
+    <url>%2F2019%2F05%2F27%2FNext%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%80%8F%E6%98%8E%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[编辑主题配置编辑 themes/next/_config.yml 12345678#canvas_nest: falsecanvas_nest: enable: true onmobile: true # display on mobile or not color: &apos;0,0,255&apos; # RGB values, use &apos;,&apos; to separate opacity: 0.5 # the opacity of line: 0~1 zIndex: -1 # z-index property of the background count: 99 # the number of lines 重新部署1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo-Next主题添加搜索功能]]></title>
     <url>%2F2019%2F05%2F27%2FHexo-Next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%2F</url>
     <content type="text"><![CDATA[安装插件博客根目录执行以下命令： 1npm install hexo-generator-searchdb --save 修改主配置编辑配置文件：_config.yaml 12345search: path: search.xml field: post format: html limit: 10000 修改主题配置编辑 themes/next/_config.yml 12local_search: enable: true 重新部署1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d]]></content>
