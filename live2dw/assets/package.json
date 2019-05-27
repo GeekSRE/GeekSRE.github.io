@@ -2,25 +2,25 @@
   "_args": [
     [
       {
-        "raw": "live2d-widget-model-z16@^1.0.5",
+        "raw": "live2d-widget-model-haruto",
         "scope": null,
-        "escapedName": "live2d-widget-model-z16",
-        "name": "live2d-widget-model-z16",
-        "rawSpec": "^1.0.5",
-        "spec": ">=1.0.5 <2.0.0",
-        "type": "range"
+        "escapedName": "live2d-widget-model-haruto",
+        "name": "live2d-widget-model-haruto",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
       },
       "/data/GeekSRE"
     ]
   ],
-  "_from": "live2d-widget-model-z16@>=1.0.5 <2.0.0",
-  "_id": "live2d-widget-model-z16@1.0.5",
+  "_from": "live2d-widget-model-haruto@latest",
+  "_id": "live2d-widget-model-haruto@1.0.5",
   "_inCache": true,
-  "_location": "/live2d-widget-model-z16",
+  "_location": "/live2d-widget-model-haruto",
   "_nodeVersion": "8.4.0",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/live2d-widget-model-z16_1.0.5_1518094399853_0.6419365507594417"
+    "tmp": "tmp/live2d-widget-model-haruto_1.0.5_1518094142850_0.09191494933027466"
   },
   "_npmUser": {
     "name": "xiazeyu",
@@ -29,36 +29,35 @@
   "_npmVersion": "5.5.1",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "live2d-widget-model-z16@^1.0.5",
+    "raw": "live2d-widget-model-haruto",
     "scope": null,
-    "escapedName": "live2d-widget-model-z16",
-    "name": "live2d-widget-model-z16",
-    "rawSpec": "^1.0.5",
-    "spec": ">=1.0.5 <2.0.0",
-    "type": "range"
+    "escapedName": "live2d-widget-model-haruto",
+    "name": "live2d-widget-model-haruto",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
   },
   "_requiredBy": [
-    "#USER",
-    "/"
+    "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/live2d-widget-model-z16/-/live2d-widget-model-z16-1.0.5.tgz",
-  "_shasum": "7604025e733d6fc6b24a60c3231e5b62d5e532a1",
+  "_resolved": "https://registry.npmjs.org/live2d-widget-model-haruto/-/live2d-widget-model-haruto-1.0.5.tgz",
+  "_shasum": "0a6ae6a93393008246e3f6a30b5b14bb77d2ee55",
   "_shrinkwrap": null,
-  "_spec": "live2d-widget-model-z16@^1.0.5",
+  "_spec": "live2d-widget-model-haruto",
   "_where": "/data/GeekSRE",
   "bugs": {
     "url": "https://github.com/xiazeyu/live2d-widget-models/issues"
   },
   "dependencies": {},
-  "description": "z16 live2d model for live2d-widget.js",
+  "description": "haruto live2d model for live2d-widget.js",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "integrity": "sha512-1CUY6iOWakrJQdShWOJwzYvM0rj0Ok71B5qbKT03/ATPKUYmDLgSIy4QiH9CDZkXSwlQtIEG7CUqqaUzFZTB4w==",
-    "shasum": "7604025e733d6fc6b24a60c3231e5b62d5e532a1",
-    "tarball": "https://registry.npmjs.org/live2d-widget-model-z16/-/live2d-widget-model-z16-1.0.5.tgz",
-    "fileCount": 9,
-    "unpackedSize": 300813
+    "integrity": "sha512-zoD6F1c/ryPBV9zQiOj+zRZTYbELNivrK8lM2Sr4DKp/kCzDB+RjJuHjqXEVEMtRc8Q23zKkfrlGyC1OQOFP7g==",
+    "shasum": "0a6ae6a93393008246e3f6a30b5b14bb77d2ee55",
+    "tarball": "https://registry.npmjs.org/live2d-widget-model-haruto/-/live2d-widget-model-haruto-1.0.5.tgz",
+    "fileCount": 15,
+    "unpackedSize": 553328
   },
   "homepage": "https://github.com/xiazeyu/live2d-widget-models#readme",
   "license": "GPL-2.0",
@@ -72,7 +71,7 @@
       "email": "xiazeyu_2011@126.com"
     }
   ],
-  "name": "live2d-widget-model-z16",
+  "name": "live2d-widget-model-haruto",
   "optionalDependencies": {},
   "readme": "ERROR: No README data found!",
   "repository": {
