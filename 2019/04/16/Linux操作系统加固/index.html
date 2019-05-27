@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="引自阿里云https://help.aliyun.com/knowledge_detail/49809.html&amp;gt;  本帮助手册旨在指导系统管理人员或安全检查人员进行Linux操作系统的安全合规性检查和加固。  1. 账号和口令1.1 禁用或删除无用账号减少系统无用账号，降低安全风险。 操作步骤  使用命令 userdel &amp;lt;用户名&amp;gt; 删除不必要的账号。 使用命令 passwd">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux操作系统加固">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/Linux操作系统加固/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="引自阿里云https://help.aliyun.com/knowledge_detail/49809.html&amp;gt;  本帮助手册旨在指导系统管理人员或安全检查人员进行Linux操作系统的安全合规性检查和加固。  1. 账号和口令1.1 禁用或删除无用账号减少系统无用账号，降低安全风险。 操作步骤  使用命令 userdel &amp;lt;用户名&amp;gt; 删除不必要的账号。 使用命令 passwd">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-16T08:46:45.182Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux操作系统加固">
+<meta name="twitter:description" content="引自阿里云https://help.aliyun.com/knowledge_detail/49809.html&amp;gt;  本帮助手册旨在指导系统管理人员或安全检查人员进行Linux操作系统的安全合规性检查和加固。  1. 账号和口令1.1 禁用或删除无用账号减少系统无用账号，降低安全风险。 操作步骤  使用命令 userdel &amp;lt;用户名&amp;gt; 删除不必要的账号。 使用命令 passwd">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="GeekSRE" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/04/16/Linux操作系统加固/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux操作系统加固 | GeekSRE</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GeekSRE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-Home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-分类"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-归档"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-标签"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-个人信息">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-个人信息"></i> <br>个人信息</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/Linux操作系统加固/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux操作系统加固
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-16 14:11:32 / Modified: 16:46:45" itemprop="dateCreated datePublished" datetime="2019-04-16T14:11:32+08:00">2019-04-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/安全/" itemprop="url" rel="index"><span itemprop="name">安全</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>引自阿里云<a href="https://help.aliyun.com/knowledge_detail/49809.html" target="_blank" rel="noopener">https://help.aliyun.com/knowledge_detail/49809.html</a>&gt;</p>
+</blockquote>
+<p>本帮助手册旨在指导系统管理人员或安全检查人员进行Linux操作系统的安全合规性检查和加固。</p>
+<hr>
+<h3 id="1-账号和口令"><a href="#1-账号和口令" class="headerlink" title="1. 账号和口令"></a>1. 账号和口令</h3><h4 id="1-1-禁用或删除无用账号"><a href="#1-1-禁用或删除无用账号" class="headerlink" title="1.1 禁用或删除无用账号"></a>1.1 禁用或删除无用账号</h4><p>减少系统无用账号，降低安全风险。</p>
+<p><strong>操作步骤</strong></p>
+<ul>
+<li>使用命令 <code>userdel &lt;用户名&gt;</code> 删除不必要的账号。</li>
+<li>使用命令 <code>passwd -l &lt;用户名&gt;</code> 锁定不必要的账号。</li>
+<li>使用命令 <code>passwd -u &lt;用户名&gt;</code> 解锁必要的账号。</li>
+</ul>
+<h4 id="1-2-检查特殊账号"><a href="#1-2-检查特殊账号" class="headerlink" title="1.2 检查特殊账号"></a>1.2 检查特殊账号</h4><p>检查是否存在空口令和root权限的账号。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>查看空口令和root权限账号，确认是否存在异常账号：<ul>
+<li>使用命令 <code>awk -F: &#39;($2==&quot;&quot;)&#39; /etc/shadow</code> 查看空口令账号。</li>
+<li>使用命令 <code>awk -F: &#39;($3==0)&#39; /etc/passwd</code> 查看UID为零的账号。</li>
+</ul>
+</li>
+<li>加固空口令账号：<ul>
+<li>使用命令 <code>passwd &lt;用户名&gt;</code> 为空口令账号设定密码。</li>
+<li>确认UID为零的账号只有root账号。</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-3-添加口令策略"><a href="#1-3-添加口令策略" class="headerlink" title="1.3 添加口令策略"></a>1.3 添加口令策略</h4><p>加强口令的复杂度等，降低被猜解的可能性。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li><p>使用命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/login.defs</span><br></pre></td></tr></table></figure>
+<p>修改配置文件。</p>
+<ul>
+<li><code>PASS_MAX_DAYS 90 #新建用户的密码最长使用天数</code></li>
+<li><code>PASS_MIN_DAYS 0 #新建用户的密码最短使用天数</code></li>
+<li><code>PASS_WARN_AGE 7 #新建用户的密码到期提前提醒天数</code></li>
+</ul>
+</li>
+<li><p>使用chage命令修改用户设置。<br>例如，<code>chage -m 0 -M 30 -E 2000-01-01 -W 7 &lt;用户名&gt;</code>表示将此用户的密码最长使用天数设为30，最短使用天数设为0，密码2000年1月1日过期，过期前七天警告用户。</p>
+</li>
+<li><p>设置连续输错三次密码，账号锁定五分钟。使用命令 <code>vi /etc/pam.d/common-auth</code>修改配置文件，在配置文件中添加 <code>auth required pam_tally.so onerr=fail deny=3 unlock_time=300</code>。</p>
+</li>
+</ol>
+<h4 id="1-4-限制用户su"><a href="#1-4-限制用户su" class="headerlink" title="1.4 限制用户su"></a>1.4 限制用户su</h4><p>限制能su到root的用户。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令 <code>vi /etc/pam.d/su</code>修改配置文件，在配置文件中添加行。例如，只允许test组用户su到root，则添加 <code>auth required pam_wheel.so group=test</code>。</p>
+<h4 id="1-4-禁止root用户直接登录"><a href="#1-4-禁止root用户直接登录" class="headerlink" title="1.4 禁止root用户直接登录"></a>1.4 禁止root用户直接登录</h4><p>限制root用户直接登录。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>创建普通权限账号并配置密码,防止无法远程登录;</li>
+<li>使用命令 <code>vi /etc/ssh/sshd_config</code>修改配置文件将PermitRootLogin的值改成no，并保存，然后使用<code>service sshd restart</code>重启服务。</li>
+</ol>
+<h3 id="2-服务"><a href="#2-服务" class="headerlink" title="2. 服务"></a>2. 服务</h3><h4 id="2-1-关闭不必要的服务"><a href="#2-1-关闭不必要的服务" class="headerlink" title="2.1 关闭不必要的服务"></a>2.1 关闭不必要的服务</h4><p>关闭不必要的服务（如普通服务和xinetd服务），降低风险。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令<code>systemctl disable &lt;服务名&gt;</code>设置服务在开机时不自动启动。</p>
+<p><strong>说明</strong>： 对于部分老版本的Linux操作系统（如CentOS 6），可以使用命令<code>chkconfig --level &lt;init级别&gt; &lt;服务名&gt; off</code>设置服务在指定init级别下开机时不自动启动。</p>
+<h4 id="2-2-SSH服务安全"><a href="#2-2-SSH服务安全" class="headerlink" title="2.2 SSH服务安全"></a>2.2 SSH服务安全</h4><p>对SSH服务进行安全加固，防止暴力破解成功。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令 <code>vim /etc/ssh/sshd_config</code> 编辑配置文件。</p>
+<ul>
+<li>不允许root账号直接登录系统。<br>设置 PermitRootLogin 的值为 no。</li>
+<li>修改SSH使用的协议版本。<br>设置 Protocol 的版本为 2。</li>
+<li>修改允许密码错误次数（默认6次）。<br>设置 MaxAuthTries 的值为 3。</li>
+</ul>
+<p>配置文件修改完成后，重启sshd服务生效。</p>
+<h3 id="3-文件系统"><a href="#3-文件系统" class="headerlink" title="3. 文件系统"></a>3. 文件系统</h3><h4 id="3-1-设置umask值"><a href="#3-1-设置umask值" class="headerlink" title="3.1 设置umask值"></a>3.1 设置umask值</h4><p>设置默认的umask值，增强安全性。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令 <code>vi /etc/profile</code> 修改配置文件，添加行 <code>umask 027</code>， 即新创建的文件属主拥有读写执行权限，同组用户拥有读和执行权限，其他用户无权限。</p>
+<h4 id="3-2-设置登录超时"><a href="#3-2-设置登录超时" class="headerlink" title="3.2 设置登录超时"></a>3.2 设置登录超时</h4><p>设置系统登录后，连接超时时间，增强安全性。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令 <code>vi /etc/profile</code> 修改配置文件，将以 <code>TMOUT=</code> 开头的行注释，设置为<code>TMOUT=180</code>，即超时时间为三分钟。</p>
+<h3 id="4-日志"><a href="#4-日志" class="headerlink" title="4. 日志"></a>4. 日志</h3><h4 id="4-1-syslogd日志"><a href="#4-1-syslogd日志" class="headerlink" title="4.1 syslogd日志"></a>4.1 syslogd日志</h4><p>启用日志功能，并配置日志记录。</p>
+<p><strong>操作步骤</strong></p>
+<p>Linux系统默认启用以下类型日志：</p>
+<ul>
+<li>系统日志（默认）/var/log/messages</li>
+<li>cron日志（默认）/var/log/cron</li>
+<li>安全日志（默认）/var/log/secure</li>
+</ul>
+<p><strong>注意</strong>：部分系统可能使用syslog-ng日志，配置文件为：/etc/syslog-ng/syslog-ng.conf。</p>
+<p>您可以根据需求配置详细日志。</p>
+<h4 id="4-2-记录所有用户的登录和操作日志"><a href="#4-2-记录所有用户的登录和操作日志" class="headerlink" title="4.2 记录所有用户的登录和操作日志"></a>4.2 记录所有用户的登录和操作日志</h4><p>通过脚本代码实现记录所有用户的登录操作日志，防止出现安全事件后无据可查。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li><p>运行 <code>[root@xxx /]# vim /etc/profile</code>打开配置文件。</p>
+</li>
+<li><p>在配置文件中输入以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">history</span><br><span class="line">USER=`whoami`</span><br><span class="line">USER_IP=`who -u am i 2&gt;/dev/null| awk '&#123;print $NF&#125;'|sed -e 's/[()]//g'`</span><br><span class="line">if [ "$USER_IP" = "" ]; then</span><br><span class="line">USER_IP=`hostname`</span><br><span class="line">fi</span><br><span class="line">if [ ! -d /var/log/history ]; then</span><br><span class="line">mkdir /var/log/history</span><br><span class="line">chmod 777 /var/log/history</span><br><span class="line">fi</span><br><span class="line">if [ ! -d /var/log/history/$&#123;LOGNAME&#125; ]; then</span><br><span class="line">mkdir /var/log/history/$&#123;LOGNAME&#125;</span><br><span class="line">chmod 300 /var/log/history/$&#123;LOGNAME&#125;</span><br><span class="line">fi</span><br><span class="line">export HISTSIZE=4096</span><br><span class="line">DT=`date +"%Y%m%d_%H:%M:%S"`</span><br><span class="line">export HISTFILE="/var/log/history/$&#123;LOGNAME&#125;/$&#123;USER&#125;@$&#123;USER_IP&#125;_$DT"</span><br><span class="line">chmod 600 /var/log/history/$&#123;LOGNAME&#125;/*history* 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行 <code>[root@xxx /]# source /etc/profile</code> 加载配置生效。<br><strong>注意</strong>： /var/log/history 是记录日志的存放位置，可以自定义。</p>
+</li>
+</ol>
+<p>通过上述步骤，可以在 /var/log/history 目录下以每个用户为名新建一个文件夹，每次用户退出后都会产生以用户名、登录IP、时间的日志文件，包含此用户本次的所有操作（root用户除外）。</p>
+<p>同时，建议您使用OSS服务收集存储日志。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/08/Ansible-快速添加免密码认证/" rel="next" title="Ansible-快速添加免密码认证">
+                <i class="fa fa-chevron-left"></i> Ansible-快速添加免密码认证
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/16/Elasticsearch服务安全加固/" rel="prev" title="Elasticsearch服务安全加固">
+                Elasticsearch服务安全加固 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">GeekSRE</p>
+              <div class="site-description motion-element" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-账号和口令"><span class="nav-number">1.</span> <span class="nav-text">1. 账号和口令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-禁用或删除无用账号"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 禁用或删除无用账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-检查特殊账号"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 检查特殊账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-添加口令策略"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 添加口令策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-限制用户su"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 限制用户su</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-禁止root用户直接登录"><span class="nav-number">1.5.</span> <span class="nav-text">1.4 禁止root用户直接登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-服务"><span class="nav-number">2.</span> <span class="nav-text">2. 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-关闭不必要的服务"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 关闭不必要的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-SSH服务安全"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 SSH服务安全</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-文件系统"><span class="nav-number">3.</span> <span class="nav-text">3. 文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-设置umask值"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 设置umask值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-设置登录超时"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 设置登录超时</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-日志"><span class="nav-number">4.</span> <span class="nav-text">4. 日志</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-syslogd日志"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 syslogd日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-记录所有用户的登录和操作日志"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 记录所有用户的登录和操作日志</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </div></main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">京ICP备17002268号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('Copied');
+        else $(this).text('Copy failed');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('Copy');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

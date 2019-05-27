@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="管理Kubernetes集群的工具  安装 下载最新版的kubectl客户端https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&amp;gt;  安装和配置https://kubernetes.io/docs/tasks/tools/install-kubectl/&amp;gt;  验证安装 1kuberctl version">
+<meta name="keywords" content="Kubernetes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes-kubectl">
+<meta property="og:url" content="http://yoursite.com/2019/04/21/Kubernetes-kubectl/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="管理Kubernetes集群的工具  安装 下载最新版的kubectl客户端https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&amp;gt;  安装和配置https://kubernetes.io/docs/tasks/tools/install-kubectl/&amp;gt;  验证安装 1kuberctl version">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/21/Kubernetes-kubectl/kubectl-version.jpg">
+<meta property="og:updated_time" content="2019-04-21T07:49:35.573Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kubernetes-kubectl">
+<meta name="twitter:description" content="管理Kubernetes集群的工具  安装 下载最新版的kubectl客户端https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&amp;gt;  安装和配置https://kubernetes.io/docs/tasks/tools/install-kubectl/&amp;gt;  验证安装 1kuberctl version">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/21/Kubernetes-kubectl/kubectl-version.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="GeekSRE" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/04/21/Kubernetes-kubectl/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Kubernetes-kubectl | GeekSRE</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GeekSRE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-Home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-分类"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-归档"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-标签"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-个人信息">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-个人信息"></i> <br>个人信息</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/Kubernetes-kubectl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Kubernetes-kubectl
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-21 15:02:52 / Modified: 15:49:35" itemprop="dateCreated datePublished" datetime="2019-04-21T15:02:52+08:00">2019-04-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>管理Kubernetes集群的工具</p>
+<hr>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><ol>
+<li><h6 id="下载最新版的kubectl客户端"><a href="#下载最新版的kubectl客户端" class="headerlink" title="下载最新版的kubectl客户端"></a>下载最新版的kubectl客户端</h6><p><a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&gt;" target="_blank" rel="noopener">https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&gt;</a></p>
+</li>
+<li><h6 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h6><p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/&gt;" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/tools/install-kubectl/&gt;</a></p>
+</li>
+<li><p>验证安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kuberctl version</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/21/Kubernetes-kubectl/kubectl-version.jpg" alt="kuberctl-version.jpg"></p>
+</li>
+<li><h6 id="配置集群凭证"><a href="#配置集群凭证" class="headerlink" title="配置集群凭证"></a>配置集群凭证</h6><p>您可以使用<strong>scp</strong>命令安全地将主节点的配置从 Kubernetes 集群主 VM 中的 <code>/etc/kubernetes/kube.conf</code> 复制到本地计算机的 <code>$HOME/.kube/config</code>（<code>kubectl</code> 预期凭据所在的位置）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir $HOME/.kube</span><br><span class="line">scp root@&lt;master-public-ip&gt;:/etc/kubernetes/kube.conf $HOME/.kube/config</span><br></pre></td></tr></table></figure>
+<p>公有云环境也可以在集群配置页面获取到config配置</p>
+</li>
+<li><p>验证连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubect get all</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h5><h6 id="help-获取帮助信息"><a href="#help-获取帮助信息" class="headerlink" title="help-获取帮助信息"></a>help-获取帮助信息</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">zhaohongye ~ ^-^ #kubectl help</span><br><span class="line">kubectl controls the Kubernetes cluster manager.</span><br><span class="line"></span><br><span class="line">Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/</span><br><span class="line"></span><br><span class="line">Basic Commands (Beginner):</span><br><span class="line">  create         Create a resource from a file or from stdin.</span><br><span class="line">  expose         使用 replication controller, service, deployment 或者 pod</span><br><span class="line">并暴露它作为一个 新的 Kubernetes Service</span><br><span class="line">  run            在集群中运行一个指定的镜像</span><br><span class="line">  set            为 objects 设置一个指定的特征</span><br><span class="line">  run-container  在集群中运行一个指定的镜像. This command is</span><br><span class="line">deprecated, use "run" instead</span><br><span class="line"></span><br><span class="line">Basic Commands (Intermediate):</span><br><span class="line">  get            显示一个或更多 resources</span><br><span class="line">  explain        查看资源的文档</span><br><span class="line">  edit           在服务器上编辑一个资源</span><br><span class="line">  delete         Delete resources by filenames, stdin, resources and names, or</span><br><span class="line">by resources and label selector</span><br><span class="line"></span><br><span class="line">Deploy Commands:</span><br><span class="line">  rollout        Manage the rollout of a resource</span><br><span class="line">  rolling-update 完成指定的 ReplicationController 的滚动升级</span><br><span class="line">  scale          为 Deployment, ReplicaSet, Replication Controller 或者 Job</span><br><span class="line">设置一个新的副本数量</span><br><span class="line">  autoscale      自动调整一个 Deployment, ReplicaSet, 或者</span><br><span class="line">ReplicationController 的副本数量</span><br><span class="line"></span><br><span class="line">Cluster Management Commands:</span><br><span class="line">  certificate    修改 certificate 资源.</span><br><span class="line">  cluster-info   显示集群信息</span><br><span class="line">  top            Display Resource (CPU/Memory/Storage) usage.</span><br><span class="line">  cordon         标记 node 为 unschedulable</span><br><span class="line">  uncordon       标记 node 为 schedulable</span><br><span class="line">  drain          Drain node in preparation for maintenance</span><br><span class="line">  taint          更新一个或者多个 node 上的 taints</span><br><span class="line"></span><br><span class="line">Troubleshooting and Debugging Commands:</span><br><span class="line">  describe       显示一个指定 resource 或者 group 的 resources 详情</span><br><span class="line">  logs           输出容器在 pod 中的日志</span><br><span class="line">  attach         Attach 到一个运行中的 container</span><br><span class="line">  exec           在一个 container 中执行一个命令</span><br><span class="line">  port-forward   Forward one or more local ports to a pod</span><br><span class="line">  proxy          运行一个 proxy 到 Kubernetes API server</span><br><span class="line">  cp             复制 files 和 directories 到 containers</span><br><span class="line">和从容器中复制 files 和 directories.</span><br><span class="line">  auth           Inspect authorization</span><br><span class="line"></span><br><span class="line">Advanced Commands:</span><br><span class="line">  apply          通过文件名或标准输入流(stdin)对资源进行配置</span><br><span class="line">  patch          使用 strategic merge patch 更新一个资源的 field(s)</span><br><span class="line">  replace        通过 filename 或者 stdin替换一个资源</span><br><span class="line">  convert        在不同的 API versions 转换配置文件</span><br><span class="line"></span><br><span class="line">Settings Commands:</span><br><span class="line">  label          更新在这个资源上的 labels</span><br><span class="line">  annotate       更新一个资源的注解</span><br><span class="line">  completion     Output shell completion code for the specified shell (bash or</span><br><span class="line">zsh)</span><br><span class="line"></span><br><span class="line">Other Commands:</span><br><span class="line">  api-versions   Print the supported API versions on the server, in the form of</span><br><span class="line">"group/version"</span><br><span class="line">  config         修改 kubeconfig 文件</span><br><span class="line">  help           Help about any command</span><br><span class="line">  plugin         Runs a command-line plugin</span><br><span class="line">  version        输出 client 和 server 的版本信息</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  kubectl [flags] [options]</span><br><span class="line"></span><br><span class="line">Use "kubectl &lt;command&gt; --help" for more information about a given command.</span><br><span class="line">Use "kubectl options" for a list of global command-line options (applies to all</span><br><span class="line">commands).</span><br></pre></td></tr></table></figure>
+<h6 id="get-获取信息"><a href="#get-获取信息" class="headerlink" title="get-获取信息"></a>get-获取信息</h6><p>Display one or many resources</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Examples:</span><br><span class="line"><span class="meta">  #</span><span class="bash"> List all pods <span class="keyword">in</span> ps output format.</span></span><br><span class="line">  kubectl get pods</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List all pods <span class="keyword">in</span> ps output format with more information (such as node name).</span></span><br><span class="line">  kubectl get pods -o wide</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List a single replication controller with specified NAME <span class="keyword">in</span> ps output format.</span></span><br><span class="line">  kubectl get replicationcontroller web</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List a single pod <span class="keyword">in</span> JSON output format.</span></span><br><span class="line">  kubectl get -o json pod web-pod-13je7</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List a pod identified by <span class="built_in">type</span> and name specified <span class="keyword">in</span> <span class="string">"pod.yaml"</span> <span class="keyword">in</span> JSON output format.</span></span><br><span class="line">  kubectl get -f pod.yaml -o json</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> Return only the phase value of the specified pod.</span></span><br><span class="line">  kubectl get -o template pod/web-pod-13je7 --template=&#123;&#123;.status.phase&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List all replication controllers and services together <span class="keyword">in</span> ps output format.</span></span><br><span class="line">  kubectl get rc,services</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List one or more resources by their <span class="built_in">type</span> and names.</span></span><br><span class="line">  kubectl get rc/web service/frontend pods/web-pod-13je7</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List all resources with different types.</span></span><br><span class="line">  kubectl get all</span><br></pre></td></tr></table></figure>
+<h6 id="scale-扩缩容"><a href="#scale-扩缩容" class="headerlink" title="scale-扩缩容"></a>scale-扩缩容</h6><p>Set a new size for a Deployment, ReplicaSet, Replication Controller, or StatefulSet.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Examples:</span><br><span class="line">  # Scale a replicaset named &apos;foo&apos; to 3.</span><br><span class="line">  kubectl scale --replicas=3 rs/foo</span><br><span class="line"></span><br><span class="line">  # Scale a resource identified by type and name specified in &quot;foo.yaml&quot; to 3.</span><br><span class="line">  kubectl scale --replicas=3 -f foo.yaml</span><br><span class="line"></span><br><span class="line">  # If the deployment named mysql&apos;s current size is 2, scale mysql to 3.</span><br><span class="line">  kubectl scale --current-replicas=2 --replicas=3 deployment/mysql</span><br><span class="line"></span><br><span class="line">  # Scale multiple replication controllers.</span><br><span class="line">  kubectl scale --replicas=5 rc/foo rc/bar rc/baz</span><br><span class="line"></span><br><span class="line">  # Scale statefulset named &apos;web&apos; to 3.</span><br><span class="line">  kubectl scale --replicas=3 statefulset/web</span><br><span class="line">  </span><br><span class="line">  kubectl scale Deployment node-vcg-web --replicas=1</span><br><span class="line">  kubectl scale Deployment node-vcg-web --replicas=10</span><br></pre></td></tr></table></figure>
+<p>批量扩缩容    </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i in `kubectl get deployment | awk '&#123;print $1&#125;' |grep -v NAME`; do</span><br><span class="line">   kubectl scale Deployment $i --replicas=1</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h6 id="exec-在container中执行命令"><a href="#exec-在container中执行命令" class="headerlink" title="exec-在container中执行命令"></a>exec-在container中执行命令</h6><p>Execute a command in a container.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line">  -c, --container='': Container name. If omitted, the first container in the pod will be chosen</span><br><span class="line">  -p, --pod='': Pod name</span><br><span class="line">  -i, --stdin=false: Pass stdin to the container</span><br><span class="line">  -t, --tty=false: Stdin is a TTY</span><br><span class="line">Examples:</span><br><span class="line">  kubectl exec 123456-7890 -c ruby-container -it -- bash -il</span><br><span class="line">Usage:</span><br><span class="line">  kubectl exec POD [-c CONTAINER] -- COMMAND [args...] [options]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kubernetes/" rel="tag"># Kubernetes</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/21/Hexo-博客中添加图片等资源/" rel="next" title="Hexo-博客中添加图片等资源">
+                <i class="fa fa-chevron-left"></i> Hexo-博客中添加图片等资源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/21/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/" rel="prev" title="阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理">
+                阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">GeekSRE</p>
+              <div class="site-description motion-element" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#下载最新版的kubectl客户端"><span class="nav-number">1.1.</span> <span class="nav-text">下载最新版的kubectl客户端</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#安装和配置"><span class="nav-number">1.2.</span> <span class="nav-text">安装和配置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置集群凭证"><span class="nav-number">1.3.</span> <span class="nav-text">配置集群凭证</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#命令参数"><span class="nav-number">2.</span> <span class="nav-text">命令参数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#help-获取帮助信息"><span class="nav-number">2.1.</span> <span class="nav-text">help-获取帮助信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#get-获取信息"><span class="nav-number">2.2.</span> <span class="nav-text">get-获取信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#scale-扩缩容"><span class="nav-number">2.3.</span> <span class="nav-text">scale-扩缩容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#exec-在container中执行命令"><span class="nav-number">2.4.</span> <span class="nav-text">exec-在container中执行命令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </div></main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">京ICP备17002268号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('Copied');
+        else $(this).text('Copy failed');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('Copy');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
