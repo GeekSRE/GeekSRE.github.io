@@ -1818,7 +1818,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #90ff81;
+  background: #5e04cf;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2903,6 +2903,7 @@ hr {
 body {
   background: url("https://source.unsplash.com/random/1600x900");
   background-repeat: no-repeat;
+  background: rgba(200,54,54,0.5);
   background-attachment: fixed;
   background-position: 50% 50%;
 }
