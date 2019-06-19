@@ -86,12 +86,12 @@
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="神策logagent收集Kubernetes Pod日志  项目背景：神策logagent需要收集到java程序输出的日志，用于分析用户行为等 想到两种方案  pod指定部署到某台宿主机上，日志目录挂载到宿主机，宿主机上启动logagent程序。 sidecar的形式  目前使用第一种方案，比较稳妥，后续技术扎实后会替换成第二种，更稳定高效。 部署logagent官方部署文档 安装Jdk1yum">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/06/19/神策logagent收集Kubernetes-Pod日志/Users/zhaohongye/Library/Application%20Support/typora-user-images/image-20190619142748161.png">
-<meta property="og:updated_time" content="2019-06-19T06:35:02.453Z">
+<meta property="og:image" content="http://yoursite.com/2019/06/19/神策logagent收集Kubernetes-Pod日志/1560925678009.jpg">
+<meta property="og:updated_time" content="2019-06-19T06:47:28.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神策logagent收集Kubernetes-Pod日志">
 <meta name="twitter:description" content="神策logagent收集Kubernetes Pod日志  项目背景：神策logagent需要收集到java程序输出的日志，用于分析用户行为等 想到两种方案  pod指定部署到某台宿主机上，日志目录挂载到宿主机，宿主机上启动logagent程序。 sidecar的形式  目前使用第一种方案，比较稳妥，后续技术扎实后会替换成第二种，更稳定高效。 部署logagent官方部署文档 安装Jdk1yum">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/19/神策logagent收集Kubernetes-Pod日志/Users/zhaohongye/Library/Application%20Support/typora-user-images/image-20190619142748161.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/19/神策logagent收集Kubernetes-Pod日志/1560925678009.jpg">
 
 
 
@@ -382,7 +382,7 @@
 <h4 id="配置节点标签"><a href="#配置节点标签" class="headerlink" title="配置节点标签"></a>配置节点标签</h4><p>两种方式实现：</p>
 <ol>
 <li><p>控制台上添加标签</p>
-<p><img src="/2019/06/19/神策logagent收集Kubernetes-Pod日志/Users/zhaohongye/Library/Application Support/typora-user-images/image-20190619142748161.png" alt="image-20190619142748161"></p>
+<p><img src="/2019/06/19/神策logagent收集Kubernetes-Pod日志/./1560925678009.jpg" alt="image-20190619142748161"></p>
 </li>
 <li><p>命令行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">例如给 cn-beijing.i-2ze7nm52ylwxd8j4d0lq 这个node添加标签：</span></span><br><span class="line">kubectl label nodes cn-beijing.i-2ze7nm52ylwxd8j4d0lq test-key=test-value</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看标签：</span></span><br><span class="line">kubectl get node --show-labels</span><br></pre></td></tr></table></figure>
