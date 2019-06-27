@@ -1818,7 +1818,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #792bf2;
+  background: #cf42ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2902,7 +2902,7 @@ hr {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("images/VCG41155282681.jpg");
+    background-image: url("/images/VCG41155282681.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
