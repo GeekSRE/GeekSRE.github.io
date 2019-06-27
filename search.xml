@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[GitLab旧版本安装]]></title>
+    <url>%2F2019%2F06%2F27%2FGitLab%E6%97%A7%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[需求研发需要找老代码，找到备份文件后恢复时报错版本过低 操作 下载安装包https://packages.gitlab.com/gitlab/gitlab-ce找到对应的版本，下载到服务器 安装 1rpm -ivh gitlab-ce-8.6.6-ce.0.el7.x86_64.rpm 恢复数据 1gitlab-rake gitlab:backup:restore RAILS_ENV=production BACKUP=1561606164]]></content>
+      <categories>
+        <category>GitLab</category>
+      </categories>
+      <tags>
+        <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Gitlab旧版本安装]]></title>
+    <url>%2F2019%2F06%2F27%2FGitlab%E6%97%A7%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[修复漏洞-提升RDS响应速度]]></title>
     <url>%2F2019%2F06%2F23%2F%E4%BF%AE%E5%A4%8D%E6%BC%8F%E6%B4%9E-%E6%8F%90%E5%8D%87RDS%E5%93%8D%E5%BA%94%E9%80%9F%E5%BA%A6%2F</url>
     <content type="text"><![CDATA[需求： 升级linux内核版本，修复SACK Panic”远程DoS漏洞 安装nscd，提升RDS响应速度 说明：漏洞描述：Linux 以及 FreeBSD 等系统内核上存在严重远程DoS漏洞，攻击者可利用该漏洞构造并发送特定的 SACK 序列请求到目标服务器导致服务器崩溃或拒绝服务。 目前已知受影响版本如下： • FreeBSD 12（使用到 RACK TCP 协议栈） • CentOS 5（Redhat 官方已停止支持，不再提供补丁） • CentOS 6 • CentOS 7 • Ubuntu 18.04 LTS • Ubuntu 16.04 LTS • Ubuntu 19.04 • Ubuntu 18.10各大Linux发行厂商已发布内核修复补丁，详细内核修复版本如下： • CentOS 6 ：2.6.32-754.15.3 • CentOS 7 ：3.10.0-957.21.3 • Ubuntu 18.04 LTS ：4.15.0-52.56 • Ubuntu 16.04 LTS：4.4.0-151.178 修复建议：➤【CentOS 6/7 系列用户】注：截止文章发布，CentOS官方暂未同步内核修复补丁到软件源，建议用户及时关注补丁更新情况并开展相应升级工作。升级方式如下： yum clean all &amp;&amp; yum makecache，进行软件源更新； yum update kernel -y，更新当前内核版本; reboot，更新后重启系统生效; uname -a，检查当前版本是否为上述【安全版本】，如果是，则说明修复成功。 ➤【Ubuntu 16.06/18.04 LTS 系列用户】 sudo apt-get update &amp;&amp; sudo apt-get install linux-image-generic，进行软件源更新并安装最新内核版本； sudo reboot，更新后重启系统生效； uname -a，检查当前版本是否为【安全版本】，如果是，则说明修复成功。如果用户不方便重启进行内核补丁更新，可选择临时缓解方案：运行如下命令禁用内核 SACK 配置防范漏洞利用：sysctl -w net.ipv4.tcp_sack=0 NSCD服务：https://help.aliyun.com/knowledge_detail/41806.html NSCD（Name Service Cache Daemon）是一种能够缓存passwd、group、hosts的本地缓存服务。若您使用短连接的方式连接RDS，请在与RDS相连的ECS实例上进行如下操作开启NSCD，提升RDS响应速度。 思路： 编写Shell脚本 Ansible分发脚本 Ansible执行脚本 验证脚本执行情况 分批重启主机 实现：Shell脚本：1234567vim /data/vcg/zhy/ansible/0623.shyum clean all &amp;&amp; yum makecacheyum update -y # 或者 yum update kernel -yyum install -y nscdsystemctl enable nscd.serviceecho "options timeout:1 attempts:1" &gt;&gt; /etc/resolv.conf 分发脚本1ansible pre-k8s -m copy -a "src=/data/vcg/zhy/ansible/0623.sh dest=/tmp/0623.sh mode=755" 执行脚本1ansible pre-k8s -m shell -a "/tmp/0623.sh" 验证脚本执行情况1ansible pre-k8s -m shell -a "cat /etc/resolv.conf |grep options" 分批重启主机12345678910111213141516171819#脚本内容：hosts="172.20.21.249172.20.21.250172.20.21.251172.20.21.252172.20.21.253172.20.21.254172.20.21.255172.20.22.0172.20.22.1172.20.22.2"for i in $hosts;do ssh $i uptime ssh $i reboot sleep 2m ssh $i uptimedone]]></content>
