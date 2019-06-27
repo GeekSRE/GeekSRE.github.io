@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Cookie,Session,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="https://www.cnblogs.com/liwenzhou/p/8343243.html  CookieCookie是什么保存在浏览器端的键值对 为什么要有Cookie因为HTTP请求是无状态的 Cookie的原理服务端可以在返回响应的时候 做手脚在浏览器上写入键值对，就是Cookie，浏览器发送请求的时候会自动携带该网站保存在浏览器中的键值对 Cookie的使用场景 保存登录信息 保存">
+<meta name="keywords" content="Cookie,Session">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie &amp; Session">
+<meta property="og:url" content="http://yoursite.com/Cookie-Session/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="https://www.cnblogs.com/liwenzhou/p/8343243.html  CookieCookie是什么保存在浏览器端的键值对 为什么要有Cookie因为HTTP请求是无状态的 Cookie的原理服务端可以在返回响应的时候 做手脚在浏览器上写入键值对，就是Cookie，浏览器发送请求的时候会自动携带该网站保存在浏览器中的键值对 Cookie的使用场景 保存登录信息 保存">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-16T08:40:59.681Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cookie &amp; Session">
+<meta name="twitter:description" content="https://www.cnblogs.com/liwenzhou/p/8343243.html  CookieCookie是什么保存在浏览器端的键值对 为什么要有Cookie因为HTTP请求是无状态的 Cookie的原理服务端可以在返回响应的时候 做手脚在浏览器上写入键值对，就是Cookie，浏览器发送请求的时候会自动携带该网站保存在浏览器中的键值对 Cookie的使用场景 保存登录信息 保存">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/Cookie-Session/">
+
+
+
+
+
+  <title>Cookie & Session | GeekSRE</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GeekSRE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Cookie-Session/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Cookie & Session</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T10:08:04+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/Cookie-Session/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Cookie-Session/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://www.cnblogs.com/liwenzhou/p/8343243.html" target="_blank" rel="noopener">https://www.cnblogs.com/liwenzhou/p/8343243.html</a></p>
+</blockquote>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h4 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么"></a>Cookie是什么</h4><p>保存在浏览器端的键值对</p>
+<h4 id="为什么要有Cookie"><a href="#为什么要有Cookie" class="headerlink" title="为什么要有Cookie"></a>为什么要有Cookie</h4><p>因为HTTP请求是无状态的</p>
+<h4 id="Cookie的原理"><a href="#Cookie的原理" class="headerlink" title="Cookie的原理"></a>Cookie的原理</h4><p>服务端可以在返回响应的时候 做手脚<br>在浏览器上写入键值对，就是Cookie，浏览器发送请求的时候会自动携带该网站保存在浏览器中的键值对</p>
+<h4 id="Cookie的使用场景"><a href="#Cookie的使用场景" class="headerlink" title="Cookie的使用场景"></a>Cookie的使用场景</h4><ol>
+<li>保存登录信息</li>
+<li>保存用户的搜索关键词</li>
+</ol>
+<h4 id="Django中操作Cookie"><a href="#Django中操作Cookie" class="headerlink" title="Django中操作Cookie"></a>Django中操作Cookie</h4><h5 id="获取Cookie"><a href="#获取Cookie" class="headerlink" title="获取Cookie"></a>获取Cookie</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">request.COOKIES[<span class="string">'key'</span>]</span><br><span class="line">request.get_signed_cookie(key, default=RAISE_ERROR, salt=<span class="string">''</span>, max_age=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">    default: 默认值</span><br><span class="line">    salt: 加密盐</span><br><span class="line">    max_age: 后台控制过期时间</span><br></pre></td></tr></table></figure>
+<h5 id="设置Cookie"><a href="#设置Cookie" class="headerlink" title="设置Cookie"></a>设置Cookie</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">rep = HttpResponse(...)</span><br><span class="line">rep ＝ render(request, ...)</span><br><span class="line"></span><br><span class="line">rep.set_cookie(key,value,...)</span><br><span class="line">rep.set_signed_cookie(key,value,salt=<span class="string">'加密盐'</span>, max_age=<span class="literal">None</span>, ...)</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">     key, 键</span><br><span class="line">     value=<span class="string">''</span>, 值</span><br><span class="line">     max_age=<span class="literal">None</span>, 超时时间</span><br><span class="line">     expires=<span class="literal">None</span>, 超时时间(IE requires expires, so set it <span class="keyword">if</span> hasn<span class="string">'t been already.)</span></span><br><span class="line"><span class="string">     path='</span>/<span class="string">', Cookie生效的路径，/ 表示根路径，特殊的：根路径的cookie可以被任何url的页面访问</span></span><br><span class="line"><span class="string">     domain=None, Cookie生效的域名</span></span><br><span class="line"><span class="string">     secure=False, https传输</span></span><br><span class="line"><span class="string">     httponly=False 只能http协议传输，无法被JavaScript获取（不是绝对，底层抓包可以获取到也可以被覆盖）</span></span><br></pre></td></tr></table></figure>
+<h5 id="删除Cookie"><a href="#删除Cookie" class="headerlink" title="删除Cookie"></a>删除Cookie</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span><span class="params">(request)</span>:</span></span><br><span class="line">    rep = redirect(<span class="string">"/login/"</span>)</span><br><span class="line">    rep.delete_cookie(<span class="string">"user"</span>)  <span class="comment"># 删除用户浏览器上之前设置的usercookie值</span></span><br><span class="line">    <span class="keyword">return</span> rep</span><br></pre></td></tr></table></figure>
+<h5 id="完整views-py示例："><a href="#完整views-py示例：" class="headerlink" title="完整views.py示例："></a>完整views.py示例：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render,redirect</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse,HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_login</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">a</span><span class="params">(request,*args,**kwargs)</span>:</span></span><br><span class="line">        Cookies = request.COOKIES.get(<span class="string">"is_login"</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'yes'</span> != Cookies:</span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">'/test01/login'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> func(request,*args,**kwargs)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'index界面'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">home</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'home'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'test01/login.html'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span><span class="params">(request)</span>:</span></span><br><span class="line">    rep = redirect(<span class="string">'/test01/login'</span>)</span><br><span class="line">    rep.delete_cookie(<span class="string">'is_login'</span>)</span><br><span class="line">    <span class="keyword">return</span> rep</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_username</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">"POST"</span>:</span><br><span class="line">        username = request.POST.get(<span class="string">'username'</span>,<span class="literal">None</span>)</span><br><span class="line">        password = request.POST.get(<span class="string">'password'</span>,<span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">if</span> username == <span class="string">'z'</span> <span class="keyword">and</span> password == <span class="string">'z'</span>:</span><br><span class="line">            rep = render(request,<span class="string">'test01/home.html'</span>,&#123;<span class="string">'username'</span>:username&#125;)</span><br><span class="line">            <span class="comment">#rep.set_cookie('is_login','yes')</span></span><br><span class="line">            rep.set_signed_cookie(<span class="string">'is_login'</span>, <span class="string">'yes'</span>, expires=<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            rep = redirect(<span class="string">'/test01/login'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        rep =  redirect(<span class="string">'/test01/login'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rep</span><br></pre></td></tr></table></figure>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>Cookie虽然在一定程度上解决了“保持状态”的需求，但是由于Cookie本身最大支持4096字节，以及Cookie本身保存在客户端，可能被拦截或窃取，因此就需要有一种新的东西，它能支持更多的字节，并且他保存在服务器，有较高的安全性。这就是Session。</p>
+<p>问题来了，基于HTTP协议的无状态特征，服务器根本就不知道访问者是“谁”。那么上述的Cookie就起到桥接的作用。</p>
+<p>我们可以给每个客户端的Cookie分配一个唯一的id，这样用户在访问时，通过Cookie，服务器就知道来的人是“谁”。然后我们再根据不同的Cookie的id，在服务器上保存一段时间的私密资料，如“账号密码”等等。</p>
+<p>总结而言：Cookie弥补了HTTP无状态的不足，让服务器知道来的人是“谁”；但是Cookie以文本的形式保存在本地，自身安全性较差；所以我们就通过Cookie识别不同的用户，对应的在Session里保存私密的信息以及超过4096字节的文本。<br>另外，上述所说的Cookie和Session其实是共通性的东西，不限于语言和框架。</p>
+<h4 id="Django中操作Session"><a href="#Django中操作Session" class="headerlink" title="Django中操作Session"></a>Django中操作Session</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取、设置、删除Session中数据</span></span><br><span class="line">request.session[<span class="string">'k1'</span>]</span><br><span class="line">request.session.get(<span class="string">'k1'</span>,<span class="literal">None</span>)</span><br><span class="line">request.session[<span class="string">'k1'</span>] = <span class="number">123</span></span><br><span class="line">request.session.setdefault(<span class="string">'k1'</span>,<span class="number">123</span>) <span class="comment"># 存在则不设置</span></span><br><span class="line"><span class="keyword">del</span> request.session[<span class="string">'k1'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有 键、值、键值对</span></span><br><span class="line">request.session.keys()</span><br><span class="line">request.session.values()</span><br><span class="line">request.session.items()</span><br><span class="line">request.session.iterkeys()</span><br><span class="line">request.session.itervalues()</span><br><span class="line">request.session.iteritems()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会话session的key</span></span><br><span class="line">request.session.session_key</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将所有Session失效日期小于当前日期的数据删除</span></span><br><span class="line">request.session.clear_expired()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查会话session的key在数据库中是否存在</span></span><br><span class="line">request.session.exists(<span class="string">"session_key"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除当前会话的所有Session数据</span></span><br><span class="line">request.session.delete()</span><br><span class="line">　　</span><br><span class="line"><span class="comment"># 删除当前的会话数据并删除会话的Cookie。</span></span><br><span class="line">request.session.flush() </span><br><span class="line">    这用于确保前面的会话数据不可以再次被用户的浏览器访问</span><br><span class="line">    例如，django.contrib.auth.logout() 函数中就会调用它。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置会话Session和Cookie的超时时间</span></span><br><span class="line">request.session.set_expiry(value)</span><br><span class="line">    * 如果value是个整数，session会在些秒数后失效。</span><br><span class="line">    * 如果value是个datatime或timedelta，session就会在这个时间后失效。</span><br><span class="line">    * 如果value是<span class="number">0</span>,用户关闭浏览器session就会失效。</span><br><span class="line">    * 如果value是<span class="literal">None</span>,session会依赖全局session失效策略。</span><br></pre></td></tr></table></figure>
+<h4 id="Seesion版验证登录"><a href="#Seesion版验证登录" class="headerlink" title="Seesion版验证登录"></a>Seesion版验证登录</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_login</span><span class="params">(func)</span>:</span></span><br><span class="line"><span class="meta">    @wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(request, *args, **kwargs)</span>:</span></span><br><span class="line">        next_url = request.get_full_path()</span><br><span class="line">        <span class="keyword">if</span> request.session.get(<span class="string">"user"</span>):</span><br><span class="line">            <span class="keyword">return</span> func(request, *args, **kwargs)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">"/login/?next=&#123;&#125;"</span>.format(next_url))</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">"POST"</span>:</span><br><span class="line">        user = request.POST.get(<span class="string">"user"</span>)</span><br><span class="line">        pwd = request.POST.get(<span class="string">"pwd"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> user == <span class="string">"alex"</span> <span class="keyword">and</span> pwd == <span class="string">"alex1234"</span>:</span><br><span class="line">            <span class="comment"># 设置session</span></span><br><span class="line">            request.session[<span class="string">"user"</span>] = user</span><br><span class="line">            <span class="comment"># 获取跳到登陆页面之前的URL</span></span><br><span class="line">            next_url = request.GET.get(<span class="string">"next"</span>)</span><br><span class="line">            <span class="comment"># 如果有，就跳转回登陆之前的URL</span></span><br><span class="line">            <span class="keyword">if</span> next_url:</span><br><span class="line">                <span class="keyword">return</span> redirect(next_url)</span><br><span class="line">            <span class="comment"># 否则默认跳转到index页面</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> redirect(<span class="string">"/index/"</span>)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">"login.html"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="comment"># 删除所有当前请求相关的session</span></span><br><span class="line">    request.session.delete()</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">"/login/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    current_user = request.session.get(<span class="string">"user"</span>, <span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">"index.html"</span>, &#123;<span class="string">"user"</span>: current_user&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Django中的Session配置"><a href="#Django中的Session配置" class="headerlink" title="Django中的Session配置"></a>Django中的Session配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 数据库Session</span><br><span class="line">SESSION_ENGINE = <span class="string">'django.contrib.sessions.backends.db'</span>   <span class="comment"># 引擎（默认）</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 缓存Session</span><br><span class="line">SESSION_ENGINE = <span class="string">'django.contrib.sessions.backends.cache'</span>  <span class="comment"># 引擎</span></span><br><span class="line">SESSION_CACHE_ALIAS = <span class="string">'default'</span>                            <span class="comment"># 使用的缓存别名（默认内存缓存，也可以是memcache），此处别名依赖缓存的设置</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 文件Session</span><br><span class="line">SESSION_ENGINE = <span class="string">'django.contrib.sessions.backends.file'</span>    <span class="comment"># 引擎</span></span><br><span class="line">SESSION_FILE_PATH = <span class="literal">None</span>                                    <span class="comment"># 缓存文件路径，如果为None，则使用tempfile模块获取一个临时地址tempfile.gettempdir() </span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 缓存+数据库</span><br><span class="line">SESSION_ENGINE = <span class="string">'django.contrib.sessions.backends.cached_db'</span>        <span class="comment"># 引擎</span></span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 加密Cookie Session</span><br><span class="line">SESSION_ENGINE = <span class="string">'django.contrib.sessions.backends.signed_cookies'</span>   <span class="comment"># 引擎</span></span><br><span class="line"></span><br><span class="line">其他公用设置项：</span><br><span class="line">SESSION_COOKIE_NAME ＝ <span class="string">"sessionid"</span>                       <span class="comment"># Session的cookie保存在浏览器上时的key，即：sessionid＝随机字符串（默认）</span></span><br><span class="line">SESSION_COOKIE_PATH ＝ <span class="string">"/"</span>                               <span class="comment"># Session的cookie保存的路径（默认）</span></span><br><span class="line">SESSION_COOKIE_DOMAIN = <span class="literal">None</span>                             <span class="comment"># Session的cookie保存的域名（默认）</span></span><br><span class="line">SESSION_COOKIE_SECURE = <span class="literal">False</span>                            <span class="comment"># 是否Https传输cookie（默认）</span></span><br><span class="line">SESSION_COOKIE_HTTPONLY = <span class="literal">True</span>                           <span class="comment"># 是否Session的cookie只支持http传输（默认）</span></span><br><span class="line">SESSION_COOKIE_AGE = <span class="number">1209600</span>                             <span class="comment"># Session的cookie失效日期（2周）（默认）</span></span><br><span class="line">SESSION_EXPIRE_AT_BROWSER_CLOSE = <span class="literal">False</span>                  <span class="comment"># 是否关闭浏览器使得Session过期（默认）</span></span><br><span class="line">SESSION_SAVE_EVERY_REQUEST = <span class="literal">False</span>                       <span class="comment"># 是否每次请求都保存Session，默认修改之后才保存（默认）</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Cookie/" rel="tag"># Cookie</a>
+          
+            <a href="/tags/Session/" rel="tag"># Session</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Nginx-配置SSL证书/" rel="next" title="Nginx_配置SSL证书">
+                <i class="fa fa-chevron-left"></i> Nginx_配置SSL证书
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Ansible-快速添加免密码认证/" rel="prev" title="Ansible-快速添加免密码认证">
+                Ansible-快速添加免密码认证 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">GeekSRE</p>
+              <p class="site-description motion-element" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">1.0.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要有Cookie"><span class="nav-number">1.0.2.</span> <span class="nav-text">为什么要有Cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的原理"><span class="nav-number">1.0.3.</span> <span class="nav-text">Cookie的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的使用场景"><span class="nav-number">1.0.4.</span> <span class="nav-text">Cookie的使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django中操作Cookie"><span class="nav-number">1.0.5.</span> <span class="nav-text">Django中操作Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取Cookie"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">获取Cookie</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置Cookie"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">设置Cookie</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除Cookie"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">删除Cookie</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#完整views-py示例："><span class="nav-number">1.0.5.4.</span> <span class="nav-text">完整views.py示例：</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">2.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Django中操作Session"><span class="nav-number">2.0.1.</span> <span class="nav-text">Django中操作Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Seesion版验证登录"><span class="nav-number">2.0.2.</span> <span class="nav-text">Seesion版验证登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django中的Session配置"><span class="nav-number">2.0.3.</span> <span class="nav-text">Django中的Session配置</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyufM0rw3';
+      var conf = '73a6adbaabdd8bed0dee3f1ce129f159';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
