@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[GitLab-管理员密码重置]]></title>
+    <url>%2F2019%2F06%2F27%2FGitLab-%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[官方文档地址：https://docs.gitlab.com/ce/security/reset_root_password.html 操作如下： 1gitlab-rails console production 1user = User.where(id: 1).first 123456user.password = &apos;secret_pass&apos;user.password_confirmation = &apos;secret_pass&apos;例如：user.password = 123456789user.password_confirmation = 123456789 1user.save!]]></content>
+      <categories>
+        <category>GitLab</category>
+      </categories>
+      <tags>
+        <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GitLab旧版本安装]]></title>
     <url>%2F2019%2F06%2F27%2FGitLab%E6%97%A7%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%2F</url>
     <content type="text"><![CDATA[需求研发需要找老代码，找到备份文件后恢复时报错版本过低 操作 下载安装包https://packages.gitlab.com/gitlab/gitlab-ce找到对应的版本，下载到服务器 安装 1rpm -ivh gitlab-ce-8.6.6-ce.0.el7.x86_64.rpm 恢复数据 1gitlab-rake gitlab:backup:restore RAILS_ENV=production BACKUP=1561606164]]></content>
@@ -10,11 +21,6 @@
       <tags>
         <tag>GitLab</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Gitlab旧版本安装]]></title>
-    <url>%2F2019%2F06%2F27%2FGitlab%E6%97%A7%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"></content>
   </entry>
   <entry>
     <title><![CDATA[修复漏洞-提升RDS响应速度]]></title>
