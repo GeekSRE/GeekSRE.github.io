@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,SSL证书,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SSL证书 什么是数字证书？ 数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。 数字证书还有一个重要的特征：只在特定的时间段内有效。  什么是SSL？ SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。">
+<meta name="keywords" content="Linux,SSL证书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="域名SSL证书">
+<meta property="og:url" content="http://yoursite.com/Linux/SSL证书/域名SSL证书/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="SSL证书 什么是数字证书？ 数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。 数字证书还有一个重要的特征：只在特定的时间段内有效。  什么是SSL？ SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/Linux/SSL证书/域名SSL证书/免费SSL证书购买.jpg">
+<meta property="og:updated_time" content="2019-04-23T01:51:30.424Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="域名SSL证书">
+<meta name="twitter:description" content="SSL证书 什么是数字证书？ 数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。 数字证书还有一个重要的特征：只在特定的时间段内有效。  什么是SSL？ SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。">
+<meta name="twitter:image" content="http://yoursite.com/Linux/SSL证书/域名SSL证书/免费SSL证书购买.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/Linux/SSL证书/域名SSL证书/">
+
+
+
+
+
+  <title>域名SSL证书 | GeekSRE</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">GeekSRE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Linux/SSL证书/域名SSL证书/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">域名SSL证书</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T15:04:09+08:00">
+                2019-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/SSL证书/" itemprop="url" rel="index">
+                    <span itemprop="name">SSL证书</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/Linux/SSL证书/域名SSL证书/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Linux/SSL证书/域名SSL证书/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><ul>
+<li><p>什么是数字证书？</p>
+<p>数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。</p>
+<p>数字证书还有一个重要的特征：只在特定的时间段内有效。</p>
+</li>
+<li><p>什么是SSL？</p>
+<p>SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。</p>
+</li>
+<li><p>什么是SSL证书？</p>
+<p>SSL证书采用SSL协议进行通信，是由权威机构颁发给网站的可信凭证。</p>
+<p>SSL证书采用SSL协议进行通信。SSL证书部署到Web服务器后，Web服务器访问将启用HTTPS协议。您的网站将会通过 HTTPS 加密协议来传输数据，可帮助Web服务器和网站间建立可信的加密链接，从而保证网络数据传输的安全。</p>
+</li>
+<li><p>什么是HTTPS？</p>
+<p>HTTPS是一种基于SSL协议的网站加密传输协议。</p>
+<p>网站安装SSL证书后，使用HTTPS加密协议访问，可激活客户端浏览器到网站服务器之间的<strong>SSL加密通道</strong>（SSL协议），从而实现高强度双向加密传输，防止传输数据被泄露或篡改。HTTPS 也就是HTTP + SSL，是HTTP的安全版。</p>
+</li>
+<li><p>什么是CA认证中心？</p>
+<p>CA认证中心（CA机构），即证书授权中心（Certificate Authority），或称证书授权机构。</p>
+<p>CA认证中心作为电子商务交易中受信任的第三方，承担公钥体系中公钥合法性检验的责任。</p>
+</li>
+</ul>
+<h2 id="SSL证书类型配置表"><a href="#SSL证书类型配置表" class="headerlink" title="SSL证书类型配置表"></a>SSL证书类型配置表</h2><p>证书根据不同的验证级别，分为以下三类：</p>
+<ul>
+<li>域名型SSL（DV SSL）</li>
+<li>企业型SSL（OV SSL）</li>
+<li>增强型SSL（EV SSL）</li>
+</ul>
+<p>根据保护域名的数量需求，SSL 证书又分为：</p>
+<ul>
+<li>单域名版：只保护一个域名，例如 <a href="http://www.abc.com" target="_blank" rel="noopener">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
+<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a href="http://www.abc.com" target="_blank" rel="noopener">www.abc.com</a> , <a href="http://www.bcd.com" target="_blank" rel="noopener">www.bcd.com</a>, pay.efg.com 等</li>
+<li>通配符版：一张证书保护同一个主域名下同一级的所有子域名，不限个数，形如 *.abc.com 。注意，通配符版只有 DVSSL 和 OVSSL 具有， EVSSL 不具有通配符版本。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">证书品牌</th>
+<th style="text-align:left">证书类型</th>
+<th style="text-align:left">保护域名的类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GeoTrust</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">1个带通配符的域名1个明细域名多个明细域名</td>
+<td style="text-align:left">提供加密功能，对申请者的身份进行严格的审核验证，可提供可信身份证明。多个域名例上限为300个。如: buy1.example.com, buy2.example.com, next.buy.example2.com, 上述3个明细子域名计算为3个域名。</td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">GlobalSign</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">CFCA</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Symantec</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">通配符DV SSL</td>
+<td style="text-align:left">通配符域名</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">增强型OV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供站点加密功能，需要核验组织注册信息，证书中会显示组织名称。组织信息验证通过后，3个工作日内颁发证书。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">增强型EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">增强型EV SSL提供站点加密功能，浏览器绿色地址栏显示组织信息强化信任。组织信息验证通过后7个工作日内颁发证书。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">免费型DV SSL</td>
+<td style="text-align:left">1个域名</td>
+<td style="text-align:left">免费新根证书，切入DigiCert PKI体系，兼容性操作系统版本IOS 5.0+、Android 2.3.3+、JRE 1.6.5+、WIN 7+。最多保护一个明细子域名，不支持通配符，一个阿里云帐户最多签发20张免费证书。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SSL证书购买"><a href="#SSL证书购买" class="headerlink" title="SSL证书购买"></a>SSL证书购买</h2><p>登录阿里云控制台，进入SSL证书服务。</p>
+<p><img src="/Linux/SSL证书/域名SSL证书/免费SSL证书购买.jpg" alt="免费SSL证书购买"></p>
+<h2 id="SSL证书更新"><a href="#SSL证书更新" class="headerlink" title="SSL证书更新"></a>SSL证书更新</h2><p>公司域名SSL证书即将到期，替换SSL证书需知道哪些二级域名使用了HTTPS访问，并且获取SSL证书过期时间，来验证证书是否更新。</p>
+<h5 id="获取域名下的解析信息"><a href="#获取域名下的解析信息" class="headerlink" title="获取域名下的解析信息"></a>获取域名下的解析信息</h5><p>登录域名服务商控制条—云解析—域名解析列表—导出解析记录</p>
+<p>将二级域名的记录写入domains.txt文件备用</p>
+<h5 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for domain in `cat domains.txt` #读取存储了需要监测的域名的文件</span><br><span class="line">do</span><br><span class="line">    curl $domain.vcg.com:443 1&gt;/dev/null 2&gt;/dev/null --connect-timeout 3</span><br><span class="line">    if [[ $? -eq 0  ]]; then</span><br><span class="line">      END_TIME=$(echo | openssl s_client -servername $domain.vcg.com  -connect $domain.vcg.com:443 2&gt;/dev/null | openssl x509 -noout -dates |grep 'After'| awk -F '=' '&#123;print $2&#125;'| awk -F ' +' '&#123;print $1,$2,$4 &#125;' )</span><br><span class="line">      echo "$domain.vcg.com 的SSL证书到期时间为 $END_TIME  "  &gt;&gt; result1.txt</span><br><span class="line">    else</span><br><span class="line">      echo "$domain.vcg.com 没https " &gt;&gt; result1.txt</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h5 id="根据输出文件查看SSL证书过期时间，进行证书替换工作"><a href="#根据输出文件查看SSL证书过期时间，进行证书替换工作" class="headerlink" title="根据输出文件查看SSL证书过期时间，进行证书替换工作"></a>根据输出文件查看SSL证书过期时间，进行证书替换工作</h5><h5 id="SSL证书更新的配置路径"><a href="#SSL证书更新的配置路径" class="headerlink" title="SSL证书更新的配置路径"></a>SSL证书更新的配置路径</h5><ul>
+<li>阿里云OSS-对象存储</li>
+<li>阿里云WAF-Web防火墙</li>
+<li>阿里云SLB-负载均衡</li>
+<li>Nginx</li>
+</ul>
+<p>##### </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/SSL证书/" rel="tag"># SSL证书</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Linux/安全/暴力破解攻击和防御/" rel="next" title="暴力破解攻击和防御">
+                <i class="fa fa-chevron-left"></i> 暴力破解攻击和防御
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/GitLab/GitLab代码托管/" rel="prev" title="GitLab代码托管">
+                GitLab代码托管 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">GeekSRE</p>
+              <p class="site-description motion-element" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL证书"><span class="nav-number">1.</span> <span class="nav-text">SSL证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL证书类型配置表"><span class="nav-number">2.</span> <span class="nav-text">SSL证书类型配置表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL证书购买"><span class="nav-number">3.</span> <span class="nav-text">SSL证书购买</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL证书更新"><span class="nav-number">4.</span> <span class="nav-text">SSL证书更新</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取域名下的解析信息"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">获取域名下的解析信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编写脚本"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">编写脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#根据输出文件查看SSL证书过期时间，进行证书替换工作"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">根据输出文件查看SSL证书过期时间，进行证书替换工作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SSL证书更新的配置路径"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">SSL证书更新的配置路径</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyufM0rw3';
+      var conf = '73a6adbaabdd8bed0dee3f1ce129f159';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
