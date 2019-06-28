@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jenkins-安装]]></title>
+    <url>%2FJenkins-%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[Jenkins-安装 官方安装文档 安装部署： jdk + war包 jdk + tomcat + war包 docker JDK+War包 安装JDK 源码安装： oracle官网获取JDK安装包，jdk-8u211-linux-x64.tar.gz，并上传到服务器。 123456789101112131415# 服务器软件目录 /data/vcg/# 1、解压tar zxf jdk-8u211-linux-x64.tar.gz# 2、配置环境变量 /etc/profilevim /etc/profile添加如下内容：#jdkexport JAVA_HOME=/data/vcg/jdk1.8.0_211export CLASSPATH=.:$JAVA_HOME/jar/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jarexport PATH=$JAVA_HOME/bin:$PATH# 3、重新加载配置文件source /etc/profile# 4、验证java -version YUM安装 1yum install -y java-1.8.0-openjdk.x86_64 获取Jenkins war包 Jenkins官网获取下载链接，或直接下载程序包，然后scp上传到服务器待用。 1wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.176.1/jenkins.war 启动Jenkins 1java -jar jenkins.war 12后台启动：nohup java -jar jenkins.war &amp; 访问ip:8080/jenkins JDK+Tomcat+War包 安装JDK1yum install -y java-1.8.0-openjdk.x86_64 安装Tomcatapache官网获取Tomcat安装包，apache-tomcat-8.5.42.tar.gz，并上传到服务器。 12345678# 服务器软件目录 /data/vcg/# wgetwget http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.42/bin/apache-tomcat-8.5.42.tar.gz# 解压tar zxf apache-tomcat-8.5.42.tar.gz# 重命名mv apache-tomcat-8.5.42 tomcat 获取Jenkins war包 1wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.176.1/jenkins.war 将Jenkins war包放到tomcat下 1cp jenkins.war /data/vcg/tomcat/webapps 启动tomcat 1sh /data/vcg/tomcat/bin/startup.sh 访问ip:8080/jenkins Docker123456789docker run \ -u root \ --rm \ -d \ -p 8080:8080 \ -p 50000:50000 \ -v jenkins-data:/var/jenkins_home \ -v /var/run/docker.sock:/var/run/docker.sock \ jenkinsci/blueocean 配置Jenkins 解锁 安装插件 等待插件安装———————— 创建管理员用户 一般选择 “使用admin账号继续” 安装完成]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GitLab-管理员密码重置]]></title>
     <url>%2FGitLab-%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[官方文档地址：https://docs.gitlab.com/ce/security/reset_root_password.html 操作如下： 1gitlab-rails console production 1user = User.where(id: 1).first 123456user.password = &apos;secret_pass&apos;user.password_confirmation = &apos;secret_pass&apos;例如：user.password = 123456789user.password_confirmation = 123456789 1user.save!]]></content>
@@ -57,8 +68,8 @@
     <url>%2F%E5%A5%87%E8%91%A9%E9%9C%80%E6%B1%82-jenkins%E8%84%9A%E6%9C%AC%2F</url>
     <content type="text"><![CDATA[jenkins 项目中的shell脚本： 实现 自动构建后 访问微服务可以获取 Kubernetes pod镜像地址 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657set -eTime=`date +%Y%m%d%H%M%S`WorkDir=`pwd`if [[ $&#123;Scope&#125; == "测试环境" ]]; then Branch="release" ScopeName="test"fiif [[ $&#123;Scope&#125; == "预发环境" ]]; then Branch="master" ScopeName="pre"fiif [[ $&#123;Scope&#125; == "生产环境" ]]; then Branch="master" ScopeName="pro"ficat &gt; Dockerfile &lt;&lt;EOFFROM registry-vpc.cn-beijing.aliyuncs.com/vcgcs/flaskWORKDIR /usr/src/appADD . .CMD python manager.pyEOFcat &gt; manager.py &lt;&lt;EOFfrom flask import Flaskfrom flask import requestimport osapp = Flask(__name__)@app.route('/',methods=["GET"])def cicd_test(): if request.method == 'GET': test = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/test-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read() pre = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/pre-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read() pro = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/pro-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read() return "test环境的镜像地址: %s ,pre环境的镜像地址: %s , pro环境的镜像地址: %s" % (test,pre,pro)if __name__ == '__main__': app.run(host='0.0.0.0',port='5001',debug=True)EOFdocker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time .docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Timedocker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Timeif [[ $&#123;Scope&#125; == "测试环境" ]]; then su - cicd-test -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"fiif [[ $&#123;Scope&#125; == "预发环境" ]]; then su - cicd-pre -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"fiif [[ $&#123;Scope&#125; == "生产环境" ]]; then su - cicd-pro -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"fi 效果为： 1test环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:test-20190530160557 ,pre环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:pre-20190530162226 , pro环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:pro-20190530162233]]></content>
       <tags>
-        <tag>Kubernetes</tag>
         <tag>Jenkins</tag>
+        <tag>Kubernetes</tag>
       </tags>
   </entry>
   <entry>
