@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jenkins-API]]></title>
+    <url>%2FJenkins-API%2F</url>
+    <content type="text"><![CDATA[Jenkins-API 需求：在自动化平台中调用jenkins API，实现程序发版、自定义任务等 实现：Python API 安装 1pip install python-jenkins examples 123456import jenkinsserver = jenkins.Jenkins('http://localhost:8080', username='myuser', password='mypassword')user = server.get_whoami()version = server.get_version()print('Hello %s from Jenkins %s' % (user['fullName'], version)) 123456789101112import jenkinsjob_name='k8s/cicd-test-0613'jenkins_server_url='http://jenkins.visualchina.com/jenkins'user_id='vcgdev'api_token='***************************'server=jenkins.Jenkins(jenkins_server_url, username=user_id, password=api_token)#String参数化构建job名为job_name的job, 参数param_dict为字典形式，如：param_dict= &#123;"param1"：“value1”， “param2”：“value2”&#125;param_dict= &#123;"Action":"程序发版","Scope":"生产环境","JenkinsApi":"true"&#125;server.build_job(job_name, parameters=param_dict)last_build_number = server.get_job_info(job_name)['lastCompletedBuild']['number']build_info = server.get_build_info(job_name, last_build_number)print(build_info) 项目截图]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Jenkins-GitLab_WebHook自动构建]]></title>
     <url>%2FJenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[Jenkins-GitLab_WebHook自动构建 插件：GitLab Plugin 安装插件 开启触发器 创建只读账号 创建只读角色 分配角色给readonly账号 在GitLab代码项目中配置WebHook 测试 验证 实战下构建情况]]></content>
