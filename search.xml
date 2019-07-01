@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jenkins-邮件通知]]></title>
+    <url>%2FJenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5%2F</url>
+    <content type="text"><![CDATA[Jenkins-邮件通知 默认自带邮件功能 配置系统管理员邮件地址 配置邮件通知，并发送测试邮件 查收邮件 job中配置邮件通知 查看job日志 查收邮件 再将第四步中错误命令修复好，重新构建 查看job日志 查收恢复邮件 使用Email-ext插件Email-ext+plugin 安装插件可以通过系统管理→管理插件→可选插件，选择Email Extension插件进行安装： 配置发件人账号密码，smtp服务器地址，端口 配置邮件文本类型，模板内容 123456789101112131415161718&lt;hr/&gt;(本邮件是程序自动下发，请勿回复!)&lt;br/&gt;&lt;hr/&gt; Jenkins地址: $HUDSON_URL&lt;br/&gt;&lt;hr/&gt;项目名称： $PROJECT_NAME&lt;br/&gt;&lt;hr/&gt;构建编号： $BUILD_NUMBER&lt;br/&gt;&lt;hr/&gt; 构建状态： $BUILD_STATUS&lt;br/&gt;&lt;hr/&gt; 触发原因： $&#123;CAUSE&#125;&lt;br/&gt;&lt;hr/&gt; 构建日志地址： &lt;a href="$&#123;BUILD_URL&#125;console"&gt;$&#123;BUILD_URL&#125;console&lt;/a&gt;&lt;br/&gt;&lt;hr/&gt; 构建地址： &lt;a href="$BUILD_URL"&gt;$BUILD_URL&lt;/a&gt;&lt;br/&gt;&lt;hr/&gt; 变更集： $&#123;JELLY_SCRIPT,template="html"&#125;&lt;br/&gt;&lt;hr/&gt; 配置发送规则 开启邮件通知增加构建后操作步骤，选择Editable Email Notifiation 配置收件人、抄送人、是否发送附件（构建日志）等 查看job日志 查收邮件]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Jenkins-域名解析+Nginx代理]]></title>
+    <url>%2FJenkins-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-Nginx%E4%BB%A3%E7%90%86%2F</url>
+    <content type="text"><![CDATA[配置Jenkins URL 配置域名解析 添加Nginx解析nginx配置文件如下： 123456789101112131415161718192021222324252627282930313233343536server &#123; listen 80; server_name jenkins.visualchina.com; location / &#123; rewrite ^/(.*)$ http://jenkins.visualchina.com/jenkins; &#125; location /jenkins &#123; proxy_pass http://127.0.0.1:8080/jenkins; proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded_For $proxy_add_x_forwarded_for; &#125;&#125;server &#123; listen 443 ssl; server_name jenkins.visualchina.com; access_log /var/log/nginx/jenkins.visualchina.com main; error_log /var/log/nginx/jenkins.visualchina.com.error.log; ssl on; #ssl功能开启 ssl_certificate sslfile/visualchina.pem; #证书路径 ssl_certificate_key sslfile/visualchina.key; location / &#123; rewrite ^/(.*)$ http://jenkins.visualchina.com/jenkins; &#125; location /jenkins &#123; proxy_pass http://127.0.0.1:8080/jenkins; proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded_For $proxy_add_x_forwarded_for; &#125;&#125;]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Jenkins-用户权限管理]]></title>
     <url>%2FJenkins-%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%2F</url>
     <content type="text"><![CDATA[Jenkins-用户权限管理 使用Role-based Authorization Strategy插件实现权限管理 安装插件 确认安装完成 激活基于角色的策略 自定义角色权限 分配角色给用户]]></content>
