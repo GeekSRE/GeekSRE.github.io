@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jenkins-用户权限管理]]></title>
+    <url>%2FJenkins-%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"><![CDATA[Jenkins-用户权限管理 使用Role-based Authorization Strategy插件实现权限管理 安装插件 确认安装完成 激活基于角色的策略 自定义角色权限 分配角色给用户]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Jenkins-插件管理]]></title>
     <url>%2FJenkins-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%2F</url>
     <content type="text"><![CDATA[插件安装Web控制台安装 进入“插件管理”界面 搜索插件名称 勾选插件，选择直接安装 安装完成。（部分插件安装后需重启，勾选重启Jenkins选项即可。） 上传插件公司以前使用Swarm管理Docker容器，用到aliyun-container-service-deploy的jenkins插件更新应用 到清华源下载插件 https://mirror.tuna.tsinghua.edu.cn/jenkins/plugins/aliyun-container-service-deploy/latest/ 上传插件 等待安装]]></content>
