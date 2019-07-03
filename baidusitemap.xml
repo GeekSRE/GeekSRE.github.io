@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2019-07-03</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/Jenkins-API/</loc>
     <lastmod>2019-07-01</lastmod>
   </url>  <url>

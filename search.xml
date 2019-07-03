@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jenkins-RobotFramework执行自动化测试]]></title>
+    <url>%2FJenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[Jenkins-RobotFramework执行自动化测试 安装插件 添加slave节点由于master节点是linux服务器，RobotFramework软件部署在windows服务器上。 新建freestyle项目指定slave节点构建 配置通过百分比和邮件通知 构建效果]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Jenkins-API]]></title>
     <url>%2FJenkins-API%2F</url>
     <content type="text"><![CDATA[Jenkins-API 需求：在自动化平台中调用jenkins API，实现程序发版、自定义任务等 实现：Python API 安装 1pip install python-jenkins examples 123456import jenkinsserver = jenkins.Jenkins('http://localhost:8080', username='myuser', password='mypassword')user = server.get_whoami()version = server.get_version()print('Hello %s from Jenkins %s' % (user['fullName'], version)) 123456789101112import jenkinsjob_name='k8s/cicd-test-0613'jenkins_server_url='http://jenkins.visualchina.com/jenkins'user_id='vcgdev'api_token='***************************'server=jenkins.Jenkins(jenkins_server_url, username=user_id, password=api_token)#String参数化构建job名为job_name的job, 参数param_dict为字典形式，如：param_dict= &#123;"param1"：“value1”， “param2”：“value2”&#125;param_dict= &#123;"Action":"程序发版","Scope":"生产环境","JenkinsApi":"true"&#125;server.build_job(job_name, parameters=param_dict)last_build_number = server.get_job_info(job_name)['lastCompletedBuild']['number']build_info = server.get_build_info(job_name, last_build_number)print(build_info) 项目截图]]></content>
