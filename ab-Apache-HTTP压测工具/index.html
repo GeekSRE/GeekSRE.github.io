@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Docker,Kubernetes,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,23 +79,17 @@
 
 
 
-<meta name="description" content="事件背景 容器架构由Swarm迁移到Kubernetes Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。 utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。 思路 与相关研发沟通，确定ut">
-<meta name="keywords" content="Docker,Kubernetes">
+<meta name="description" content="官网：https://httpd.apache.org/docs/2.4/programs/ab.html 概述：网站性能压力测试是服务器网站性能调优过程中必不可缺少的一环。只有让服务器处在高压情况下，才能真正体现出软件、硬件等各种设置不当所暴露出的问题。 性能测试工具目前最常见的有以下几种：ab、http_load、webbench、siege。今天我们专门来介绍ab。 ab是apache自带的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次Java微服务容器化维护工作">
-<meta property="og:url" content="http://yoursite.com/记一次Java微服务容器化维护工作/index.html">
+<meta property="og:title" content="ab-Apache_HTTP压测工具">
+<meta property="og:url" content="http://yoursite.com/ab-Apache-HTTP压测工具/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="事件背景 容器架构由Swarm迁移到Kubernetes Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。 utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。 思路 与相关研发沟通，确定ut">
+<meta property="og:description" content="官网：https://httpd.apache.org/docs/2.4/programs/ab.html 概述：网站性能压力测试是服务器网站性能调优过程中必不可缺少的一环。只有让服务器处在高压情况下，才能真正体现出软件、硬件等各种设置不当所暴露出的问题。 性能测试工具目前最常见的有以下几种：ab、http_load、webbench、siege。今天我们专门来介绍ab。 ab是apache自带的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/记一次Java微服务容器化维护工作/1.png">
-<meta property="og:image" content="http://yoursite.com/记一次Java微服务容器化维护工作/2.png">
-<meta property="og:image" content="http://yoursite.com/记一次Java微服务容器化维护工作/3.png">
-<meta property="og:image" content="http://yoursite.com/记一次Java微服务容器化维护工作/4.png">
-<meta property="og:updated_time" content="2019-04-28T08:50:36.457Z">
+<meta property="og:updated_time" content="2019-07-16T06:13:46.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一次Java微服务容器化维护工作">
-<meta name="twitter:description" content="事件背景 容器架构由Swarm迁移到Kubernetes Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。 utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。 思路 与相关研发沟通，确定ut">
-<meta name="twitter:image" content="http://yoursite.com/记一次Java微服务容器化维护工作/1.png">
+<meta name="twitter:title" content="ab-Apache_HTTP压测工具">
+<meta name="twitter:description" content="官网：https://httpd.apache.org/docs/2.4/programs/ab.html 概述：网站性能压力测试是服务器网站性能调优过程中必不可缺少的一环。只有让服务器处在高压情况下，才能真正体现出软件、硬件等各种设置不当所暴露出的问题。 性能测试工具目前最常见的有以下几种：ab、http_load、webbench、siege。今天我们专门来介绍ab。 ab是apache自带的">
 
 
 
@@ -125,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/记一次Java微服务容器化维护工作/">
+  <link rel="canonical" href="http://yoursite.com/ab-Apache-HTTP压测工具/">
 
 
 
 
 
-  <title>记一次Java微服务容器化维护工作 | GeekSRE</title>
+  <title>ab-Apache_HTTP压测工具 | GeekSRE</title>
   
 
 
@@ -300,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/记一次Java微服务容器化维护工作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ab-Apache-HTTP压测工具/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GeekSRE">
@@ -317,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">记一次Java微服务容器化维护工作</h1>
+          <h1 class="post-title" itemprop="name headline">ab-Apache_HTTP压测工具</h1>
         
 
         <div class="post-meta">
@@ -329,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T16:44:38+08:00">
-                2019-04-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T14:13:29+08:00">
+                2019-07-16
               </time>
             
 
@@ -349,8 +343,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/记一次Java微服务容器化维护工作/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="记一次Java微服务容器化维护工作/" itemprop="commentsCount"></span>
+                <a href="/ab-Apache-HTTP压测工具/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="ab-Apache-HTTP压测工具/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -372,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  827
+                  1.9k
                 </span>
               
 
@@ -388,7 +382,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -409,36 +403,47 @@
       
 
       
-        <h4 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h4><hr>
-<p>容器架构由Swarm迁移到Kubernetes</p>
-<p>Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。</p>
-<p>utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。</p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><hr>
-<p>与相关研发沟通，确定utilservice程序一些基础信息：比如</p>
-<p>​    需要哪些基础组件，在ecs上部署遇到什么问题，如何处理的</p>
-<p>​    git仓库地址、服务启动命令、服务端口、是否连接数据库、服务调用关系。</p>
-<p>确定使用jdk环境，需要使用到 wkhtmltopdf 这个命令，用于生成pdf；</p>
-<p>生成的pdf过程会有 字体和语言的问题，需提前处理。</p>
-<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><hr>
-<h5 id="确定基础镜像"><a href="#确定基础镜像" class="headerlink" title="确定基础镜像"></a>确定基础镜像</h5><p>访问<a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com</a>，搜索 wkhtmltopdf 关键词</p>
-<p><img src="/记一次Java微服务容器化维护工作/1.png" alt="1"></p>
-<p>确定基础镜像使用 buildo/java8-wkhtmltopdf 。</p>
-<h6 id="Dockerfile-第一版"><a href="#Dockerfile-第一版" class="headerlink" title="Dockerfile (第一版)"></a>Dockerfile (第一版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo/java8-wkhtmltopdf</span><br></pre></td></tr></table></figure>
-<h5 id="下载JCE"><a href="#下载JCE" class="headerlink" title="下载JCE"></a>下载JCE</h5><p>需要使用到JCE，在oracle官网下载。</p>
-<p>JDK7的下载地址: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</a><br>JDK8的下载地址: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</a></p>
-<p>Java Cryptography Extension (JCE) 无限强度权限策略文件 8 下载</p>
-<h6 id="Dockerfile-第二版"><a href="#Dockerfile-第二版" class="headerlink" title="Dockerfile (第二版)"></a>Dockerfile (第二版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo/java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p /application/</span><br><span class="line">WORKDIR /application/</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8/US_export_policy.jar /docker-java-home/jre/lib/security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8/local_policy.jar /docker-java-home/jre/lib/security &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h5 id="处理程序报错"><a href="#处理程序报错" class="headerlink" title="处理程序报错"></a>处理程序报错</h5><h6 id="1、找到不到-iSignature-pfx-证书："><a href="#1、找到不到-iSignature-pfx-证书：" class="headerlink" title="1、找到不到 iSignature.pfx 证书："></a>1、找到不到 iSignature.pfx 证书：</h6><p>报错截图：</p>
-<h5 id><a href="#" class="headerlink" title></a><img src="/记一次Java微服务容器化维护工作/2.png" alt="2"></h5><p>可以看到找不到/media/providerstamp/signature/iSignature.pfx 证书文件，简单，从老服务器上找到对应文件，拷贝过来。</p>
-<h6 id="Dockerfile-第三版"><a href="#Dockerfile-第三版" class="headerlink" title="Dockerfile (第三版)"></a>Dockerfile (第三版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo/java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p /application/</span><br><span class="line">WORKDIR /application/</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8/US_export_policy.jar /docker-java-home/jre/lib/security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8/local_policy.jar /docker-java-home/jre/lib/security &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/signature/  &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx /media/providerstamp/signature/ &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h6 id="2、tmpDic不是文件夹"><a href="#2、tmpDic不是文件夹" class="headerlink" title="2、tmpDic不是文件夹"></a>2、tmpDic不是文件夹</h6><p><img src="/记一次Java微服务容器化维护工作/3.png" alt="3"></p>
-<p>研发查看代码后确定是要使用 /media/providerstamp/temp/ 目录，索性登录老服务器上查看/media/providerstamp下所有目录，都创建好，并将需要的文件scp拷贝过来。</p>
-<p><img src="/记一次Java微服务容器化维护工作/4.png" alt="4"></p>
-<p>看到还有 done 、unitrust目录，并且unitrust目录中的unitrust.key 程序也会用到。</p>
-<h6 id="Dockerfile-第四版"><a href="#Dockerfile-第四版" class="headerlink" title="Dockerfile (第四版)"></a>Dockerfile (第四版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo/java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p /application/</span><br><span class="line">WORKDIR /application/</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8/US_export_policy.jar /docker-java-home/jre/lib/security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8/local_policy.jar /docker-java-home/jre/lib/security &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/signature/  &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/done/  &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/unitrust/  &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/temp/  &amp;&amp; \</span><br><span class="line">        cp unitrust.key /media/providerstamp/unitrust &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx /media/providerstamp/signature/ &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h6 id="3、pdf内容乱码"><a href="#3、pdf内容乱码" class="headerlink" title="3、pdf内容乱码"></a>3、pdf内容乱码</h6><p>乱码是由于字体问题，简单直接，直接从老服务器上拷贝 /usr/share/fonts 目录。</p>
-<h6 id="Dockerfile-第五版"><a href="#Dockerfile-第五版" class="headerlink" title="Dockerfile (第五版)"></a>Dockerfile (第五版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo/java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p /application/</span><br><span class="line">WORKDIR /application/</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8/US_export_policy.jar /docker-java-home/jre/lib/security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8/local_policy.jar /docker-java-home/jre/lib/security &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/signature/  &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/done/  &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/unitrust/  &amp;&amp; \</span><br><span class="line">        mkdir -p /media/providerstamp/temp/  &amp;&amp; \</span><br><span class="line">        cp unitrust.key /media/providerstamp/unitrust &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx /media/providerstamp/signature/ &amp;&amp; \</span><br><span class="line">        rm -f /usr/local/bin/wkhtmltopdf &amp;&amp; \</span><br><span class="line">        rm -rf /usr/share/fonts &amp;&amp; \</span><br><span class="line">        cp wkhtmltopdf /usr/local/bin/ &amp;&amp; \</span><br><span class="line">        tar zxf fonts.tar.gz &amp;&amp; \</span><br><span class="line">        mv fonts/ /usr/share/</span><br></pre></td></tr></table></figure>
-<p>至此，此微服务容器化已完成。👏👏👏</p>
+        <h4 id="官网："><a href="#官网：" class="headerlink" title="官网："></a>官网：</h4><p><a href="https://httpd.apache.org/docs/2.4/programs/ab.html" target="_blank" rel="noopener">https://httpd.apache.org/docs/2.4/programs/ab.html</a></p>
+<h4 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h4><p>网站性能压力测试是服务器网站性能调优过程中必不可缺少的一环。只有让服务器处在高压情况下，才能真正体现出软件、硬件等各种设置不当所暴露出的问题。</p>
+<p>性能测试工具目前最常见的有以下几种：ab、http_load、webbench、siege。今天我们专门来介绍ab。</p>
+<p>ab是apache自带的压力测试工具。ab非常实用，它不仅可以对apache服务器进行网站访问压力测试，也可以对或其它类型的服务器进行压力测试。比如nginx、tomcat、IIS等。 </p>
+<h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><p>ab是apachebench命令的缩写。</p>
+<p>ab的原理：ab命令会创建多个并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此，它既可以用来测试apache的负载压力，也可以测试nginx、lighthttp、tomcat、IIS等其它Web服务器的压力。</p>
+<p>ab命令对发出负载的计算机要求很低，它既不会占用很高CPU，也不会占用很多内存。但却会给目标服务器造成巨大的负载，其原理类似CC攻击。自己测试使用也需要注意，否则一次上太多的负载。可能造成目标服务器资源耗完，严重时甚至导致死机。</p>
+<h4 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd-tools</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@ops-jenkins-master ~]# ab -V</span><br><span class="line"></span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br></pre></td></tr></table></figure>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数:"></a>参数:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -help</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">-n  在测试会话中所执行的请求个数。默认时，仅执行一个请求。</span><br><span class="line"></span><br><span class="line">-c  一次产生的请求个数。默认是一次一个。</span><br><span class="line"></span><br><span class="line">-t  测试所进行的最大秒数。其内部隐含值是-n 50000，它可以使对服务器的测试限制在一个固定的总时间以内。默认时，没有时间限制。</span><br><span class="line"></span><br><span class="line">-p  包含了需要POST的数据的文件。</span><br><span class="line"></span><br><span class="line">-P  对一个中转代理提供BASIC认证信任。用户名和密码由一个:隔开，并以base64编码形式发送。无论服务器是否需要(即, 是否发送了401认证需求代码)，此字符串都会被发送。</span><br><span class="line"></span><br><span class="line">-T  POST数据所使用的Content-type头信息。</span><br><span class="line"></span><br><span class="line">-v  设置显示信息的详细程度-4或更大值会显示头信息，3或更大值可以显示响应代码(404,200等),2或更大值可以显示警告和其他信息。</span><br><span class="line"></span><br><span class="line">-V  显示版本号并退出。</span><br><span class="line"></span><br><span class="line">-w  以HTML表的格式输出结果。默认时，它是白色背景的两列宽度的一张表。</span><br><span class="line"></span><br><span class="line">-i  执行HEAD请求，而不是GET。</span><br><span class="line"></span><br><span class="line">-x  设置&lt;table&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-X  对请求使用代理服务器。</span><br><span class="line"></span><br><span class="line">-y  设置&lt;tr&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-z  设置&lt;td&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-C  对请求附加一个Cookie:行。其典型形式是name=value的一个参数对，此参数可以重复。</span><br><span class="line"></span><br><span class="line">-H  对请求附加额外的头信息。此参数的典型形式是一个有效的头信息行，其中包含了以冒号分隔的字段和值的对(如,&quot;Accept-Encoding:zip/zop;8bit&quot;)。</span><br><span class="line"></span><br><span class="line">-A  对服务器提供BASIC认证信任。用户名和密码由一个:隔开，并以base64编码形式发送。无论服务器是否需要(即,是否发送了401认证需求代码)，此字符串都会被发送。</span><br><span class="line"></span><br><span class="line">-h  显示使用方法。</span><br><span class="line"></span><br><span class="line">-d  不显示&quot;percentage served within XX [ms] table&quot;的消息(为以前的版本提供支持)。</span><br><span class="line"></span><br><span class="line">-e  产生一个以逗号分隔的(CSV)文件，其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间。由于这种格式已经“二进制化”，所以比&apos;gnuplot&apos;格式更有用。</span><br><span class="line"></span><br><span class="line">-g  把所有测试结果写入一个&apos;gnuplot&apos;或者TSV(以Tab分隔的)文件。此文件可以方便地导入到Gnuplot,IDL,Mathematica,Igor甚至Excel中。其中的第一行为标题。</span><br><span class="line"></span><br><span class="line">-i  执行HEAD请求，而不是GET。</span><br><span class="line"></span><br><span class="line">-k  启用HTTP KeepAlive功能，即在一个HTTP会话中执行多个请求。默认时，不启用KeepAlive功能。</span><br><span class="line"></span><br><span class="line">-q  如果处理的请求数大于150，ab每处理大约10%或者100个请求时，会在stderr输出一个进度计数。此-q标记可以抑制这些信息。</span><br></pre></td></tr></table></figure>
+<h4 id="性能指标："><a href="#性能指标：" class="headerlink" title="性能指标："></a>性能指标：</h4><ul>
+<li><p><strong>吞吐率（Requests per second）</strong></p>
+<p>概念：服务器并发处理能力的量化描述，单位是reqs/s，指的是某个并发用户数下单位时间内处理的请求数。某个并发用户数下单位时间内能处理的最大请求数，称之为最大吞吐率。</p>
+<p>计算公式：总请求数 / 处理完成这些请求数所花费的时间，即<br>Request per second = Complete requests / Time taken for tests</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>并发连接数（The number of concurrent connections）</strong></p>
+<p>概念：某个时刻服务器所接受的请求数目，简单的讲，就是一个会话。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>并发用户数（The number of concurrent users，Concurrency Level）</strong></p>
+<p>概念：要注意区分这个概念和并发连接数之间的区别，一个用户可能同时会产生多个会话，也即连接数。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>用户平均请求等待时间（Time per request）</strong></p>
+<p>计算公式：处理完成所有请求数所花费的时间/ （总请求数 / 并发用户数），即<br>Time per request = Time taken for tests /（ Complete requests / Concurrency Level）</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>服务器平均请求等待时间（Time per request: across all concurrent requests）</strong></p>
+<p>计算公式：处理完成所有请求数所花费的时间 / 总请求数，即<br>Time taken for / testsComplete requests<br>可以看到，它是吞吐率的倒数。<br>同时，它也=用户平均请求等待时间/并发用户数，即<br>Time per request / Concurrency Level</p>
+</li>
+</ul>
+<h4 id="示例一："><a href="#示例一：" class="headerlink" title="示例一："></a>示例一：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 请求访问 https://www.zhaohongye.com/ ，访问 -n 100次，并发 -c 10次</span></span><br><span class="line"></span><br><span class="line">ab -c 10 -n 100 https://www.zhaohongye.com/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  请求结果</span></span><br><span class="line"></span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br><span class="line"></span><br><span class="line">Benchmarking www.zhaohongye.com (be patient).....done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Server Software:        nginx/1.12.2         # 服务器软件</span><br><span class="line">Server Hostname:        www.zhaohongye.com   # 域名</span><br><span class="line">Server Port:            443                  # 请求端口号</span><br><span class="line">SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256</span><br><span class="line"></span><br><span class="line">Document Path:          /                    # 文件路径</span><br><span class="line">Document Length:        68872 bytes          # 页面字节数</span><br><span class="line"></span><br><span class="line">Concurrency Level:      10                   # 请求并发数</span><br><span class="line">Time taken for tests:   14.797 seconds       # 总访问时间</span><br><span class="line">Complete requests:      100                  # 总请求次数</span><br><span class="line">Failed requests:        0                    # 失败请求次数</span><br><span class="line">Write errors:           0            </span><br><span class="line">Total transferred:      6901400 bytes      # 请求总数据大小（包括header头信息）</span><br><span class="line">HTML transferred:       6887200 bytes      # html页面实际总字节数</span><br><span class="line">Requests per second:    6.76 [#/sec] (mean)   # 每秒多少请求，服务器的吞吐量</span><br><span class="line">Time per request:       1479.677 [ms] (mean)   # 用户平均请求等待时间 </span><br><span class="line">Time per request:       147.968 [ms] (mean, across all concurrent requests)                     # 服务器平均处理时间，也就是服务器吞吐量的倒数 </span><br><span class="line">Transfer rate:          455.48 [Kbytes/sec] received   #每秒获取的数据长度</span><br><span class="line"></span><br><span class="line">Connection Times (ms)</span><br><span class="line">              min  mean[+/-sd] median   max</span><br><span class="line">Connect:        5   12   3.3     12      19</span><br><span class="line">Processing:   156 1429 207.5   1462    1626</span><br><span class="line">Waiting:      155 1426 207.2   1449    1623</span><br><span class="line">Total:        165 1441 207.9   1476    1636</span><br><span class="line"></span><br><span class="line">Percentage of the requests served within a certain time (ms)</span><br><span class="line"><span class="meta">  50%</span><span class="bash">   1476   <span class="comment">#50%用户请求在1476ms内返回</span></span></span><br><span class="line"><span class="meta">  66%</span><span class="bash">   1489   <span class="comment">#60%用户请求在1489ms内返回</span></span></span><br><span class="line"><span class="meta">  75%</span><span class="bash">   1524</span></span><br><span class="line"><span class="meta">  80%</span><span class="bash">   1572</span></span><br><span class="line"><span class="meta">  90%</span><span class="bash">   1594</span></span><br><span class="line"><span class="meta">  95%</span><span class="bash">   1635</span></span><br><span class="line"><span class="meta">  98%</span><span class="bash">   1636</span></span><br><span class="line"><span class="meta">  99%</span><span class="bash">   1636</span></span><br><span class="line"><span class="meta"> 100%</span><span class="bash">   1636 (longest request)</span></span><br></pre></td></tr></table></figure>
+<h4 id="示例二："><a href="#示例二：" class="headerlink" title="示例二："></a>示例二：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -k -c 600 -n 100000 -p 1000.txt -T application/x-www-form-urlencoded -H "api-key:d99caed6d0997c4d3f141249c346e9d4" -H "authorization:Bearer xx" 'http://172.16.237.108/ai/search/photo/wps1'</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1000.txt 的内容</span></span><br><span class="line"></span><br><span class="line">img_url=https://goss1.vcg.com/editorial/vcg/400/new/VCG111160779787.jpg&amp;result_size=30&amp;image_type=url</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -454,14 +459,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Docker/" rel="tag"># Docker</a>
-          
-            <a href="/tags/Kubernetes/" rel="tag"># Kubernetes</a>
-          
-        </div>
-      
 
       
       
@@ -471,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Docker-镜像image/" rel="next" title="Docker-镜像image">
-                <i class="fa fa-chevron-left"></i> Docker-镜像image
+              <a href="/Jenkins-RobotFramework执行自动化测试/" rel="next" title="Jenkins-RobotFramework执行自动化测试">
+                <i class="fa fa-chevron-left"></i> Jenkins-RobotFramework执行自动化测试
               </a>
             
           </div>
@@ -480,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Confluence安装-维护-迁移实践/" rel="prev" title="Confluence安装-维护-迁移实践">
-                Confluence安装-维护-迁移实践 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -620,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件背景"><span class="nav-number">1.</span> <span class="nav-text">事件背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作"><span class="nav-number">3.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#确定基础镜像"><span class="nav-number">3.1.</span> <span class="nav-text">确定基础镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第一版"><span class="nav-number">3.1.1.</span> <span class="nav-text">Dockerfile (第一版)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载JCE"><span class="nav-number">3.2.</span> <span class="nav-text">下载JCE</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第二版"><span class="nav-number">3.2.1.</span> <span class="nav-text">Dockerfile (第二版)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理程序报错"><span class="nav-number">3.3.</span> <span class="nav-text">处理程序报错</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、找到不到-iSignature-pfx-证书："><span class="nav-number">3.3.1.</span> <span class="nav-text">1、找到不到 iSignature.pfx 证书：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">3.4.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第三版"><span class="nav-number">3.4.1.</span> <span class="nav-text">Dockerfile (第三版)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、tmpDic不是文件夹"><span class="nav-number">3.4.2.</span> <span class="nav-text">2、tmpDic不是文件夹</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第四版"><span class="nav-number">3.4.3.</span> <span class="nav-text">Dockerfile (第四版)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、pdf内容乱码"><span class="nav-number">3.4.4.</span> <span class="nav-text">3、pdf内容乱码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Dockerfile-第五版"><span class="nav-number">3.4.5.</span> <span class="nav-text">Dockerfile (第五版)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#官网："><span class="nav-number">1.</span> <span class="nav-text">官网：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#概述："><span class="nav-number">2.</span> <span class="nav-text">概述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原理："><span class="nav-number">3.</span> <span class="nav-text">原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装："><span class="nav-number">4.</span> <span class="nav-text">安装：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">5.</span> <span class="nav-text">参数:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能指标："><span class="nav-number">6.</span> <span class="nav-text">性能指标：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例一："><span class="nav-number">7.</span> <span class="nav-text">示例一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例二："><span class="nav-number">8.</span> <span class="nav-text">示例二：</span></a></li></ol></div>
             
 
           </div>
