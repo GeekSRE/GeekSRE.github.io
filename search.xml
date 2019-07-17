@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SonarQube-安装部署]]></title>
+    <url>%2FSonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%2F</url>
+    <content type="text"><![CDATA[安装部署Docker方式下载镜像12docker pull postgresdocker pull sonarqube 启动postgresql1docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres 启动sonarqube1docker run --name sq --link db -e SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar -p 9000:9000 -d sonarqube 异常处理启动报错： 1[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144] 1234567vim /etc/sysctl.conf#添加：vm.max_map_count=262144#验证：sysctl -p | grep vm.max_map_count 访问SonarQube登录系统访问ip:9000 登录用户名密码：admin，admin 安装中文包Administration–Marketplace]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Linux-tree命令]]></title>
     <url>%2FLinux-tree%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[tree 概述tree命令的中文意思为“树”，功能是以树形结构列出指定目录下的所有内容，包括所有文件、子目录及子目录里的目录和文件。 安装1yum install -y tree 参数1234567891011121314151617181920-a 显示所有文件和目录。-A 使用ASNI绘图字符显示树状图而非以ASCII字符组合。-C 在文件和目录清单加上色彩，便于区分各种类型。-d 显示目录名称而非内容。-D 列出文件或目录的更改时间。-f 在每个文件或目录之前，显示完整的相对路径名称。-F 在执行文件，目录，Socket，符号连接，管道名称名称，各自加上&quot;*&quot;,&quot;/&quot;,&quot;=&quot;,&quot;@&quot;,&quot;|&quot;号。-g 列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码。-i 不以阶梯状列出文件或目录名称。-I 不显示符合范本样式的文件或目录名称。-l 如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录。-n 不在文件和目录清单加上色彩。-N 直接列出文件和目录名称，包括控制字符。-p 列出权限标示。-P 只显示符合范本样式的文件或目录名称。-q 用&quot;?&quot;号取代控制字符，列出文件和目录名称。-s 列出文件或目录大小。-t 用文件和目录的更改时间排序。-u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。-x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。 示例12345678[root@ops-jenkins-master test]# tree k8s/k8s/└── ingress ├── Dockerfile ├── nginx.tmpl └── nginx.tmpl-bak1 directory, 3 files]]></content>
