@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[申请Confluence和Jira的试用版license]]></title>
+    <url>%2F%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license%2F</url>
+    <content type="text"><![CDATA[访问https://www.atlassian.com/，登录账号 点击“licenses”，url为https://my.atlassian.com/product 创建新的认证： 获取service ID 使用admin账号登录系统，系统-系统信息可以获取service ID 激活license]]></content>
+      <tags>
+        <tag>Confluence</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SonarQube-安装部署]]></title>
     <url>%2FSonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%2F</url>
     <content type="text"><![CDATA[安装部署Docker方式下载镜像12docker pull postgresdocker pull sonarqube 启动postgresql1docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres 启动sonarqube1docker run --name sq --link db -e SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar -p 9000:9000 -d sonarqube 异常处理启动报错： 1[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144] 1234567vim /etc/sysctl.conf#添加：vm.max_map_count=262144#验证：sysctl -p | grep vm.max_map_count 访问SonarQube登录系统访问ip:9000 登录用户名密码：admin，admin 安装中文包Administration–Marketplace]]></content>
