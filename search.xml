@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nodejs-npm-cnpm]]></title>
+    <url>%2Fnodejs-npm-cnpm%2F</url>
+    <content type="text"><![CDATA[淘宝NPM镜像官网 安装nodejsnode:8.16.012345678910111213141516# 1、创建目录mkdir -p /usr/local/lib/nodejs/# 2、下载安装包wget https://nodejs.org/dist/v8.16.0/node-v8.16.0-linux-x64.tar.xz# 3、解压tar -xJvf node-v8.16.0-linux-x64.tar.xz -C /usr/local/lib/nodejs/# 4、配置环境变量vim ~/.bash_profile# NodejsVERSION=v8.16.0DISTRO=linux-x64export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH node:10.16.012345678910111213141516# 1、创建目录mkdir -p /usr/local/lib/nodejs/# 2、下载安装包wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.xz# 3、解压tar -xJvf node-v10.16.0-linux-x64.tar.xz -C /usr/local/lib/nodejs/# 4、配置环境变量vim ~/.bash_profile# NodejsVERSION=v10.16.0DISTRO=linux-x64export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH 安装cnpm1npm install -g cnpm --registry=https://registry.npm.taobao.org]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[申请Confluence和Jira的试用版license]]></title>
     <url>%2F%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license%2F</url>
     <content type="text"><![CDATA[访问https://www.atlassian.com/，登录账号 点击“licenses”，url为https://my.atlassian.com/product 创建新的认证： 获取service ID 使用admin账号登录系统，系统-系统信息可以获取service ID 激活license]]></content>
