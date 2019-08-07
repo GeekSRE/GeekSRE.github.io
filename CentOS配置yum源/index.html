@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Kubernetes,">
+  <meta name="keywords" content="Liunx,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="背景:2019年04月19日晚21:10分进行网络维护，内容如下： ​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址 故障现象：​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。 排查记录: 21:15 查看Ingres">
-<meta name="keywords" content="Kubernetes">
+<meta name="description" content="推荐使用阿里源 基础源备份1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup 下载123456789# CentOS 6wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo#">
+<meta name="keywords" content="Liunx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理">
-<meta property="og:url" content="http://yoursite.com/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/index.html">
+<meta property="og:title" content="CentOS配置yum源">
+<meta property="og:url" content="http://yoursite.com/CentOS配置yum源/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="背景:2019年04月19日晚21:10分进行网络维护，内容如下： ​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址 故障现象：​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。 排查记录: 21:15 查看Ingres">
+<meta property="og:description" content="推荐使用阿里源 基础源备份1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup 下载123456789# CentOS 6wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-29T02:19:47.256Z">
+<meta property="og:updated_time" content="2019-08-07T08:28:02.437Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理">
-<meta name="twitter:description" content="背景:2019年04月19日晚21:10分进行网络维护，内容如下： ​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址 故障现象：​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。 排查记录: 21:15 查看Ingres">
+<meta name="twitter:title" content="CentOS配置yum源">
+<meta name="twitter:description" content="推荐使用阿里源 基础源备份1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup 下载123456789# CentOS 6wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo#">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/">
+  <link rel="canonical" href="http://yoursite.com/CentOS配置yum源/">
 
 
 
 
 
-  <title>阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理 | GeekSRE</title>
+  <title>CentOS配置yum源 | GeekSRE</title>
   
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/CentOS配置yum源/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GeekSRE">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理</h1>
+          <h1 class="post-title" itemprop="name headline">CentOS配置yum源</h1>
         
 
         <div class="post-meta">
@@ -324,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-21T19:00:55+08:00">
-                2019-04-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T16:27:04+08:00">
+                2019-08-07
               </time>
             
 
@@ -334,28 +334,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index">
-                    <span itemprop="name">Kubernetes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -366,8 +344,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="阿里云WAF-Kubernetes-Ingress-架构下无法拿到客户端真实IP的问题处理/" itemprop="commentsCount"></span>
+                <a href="/CentOS配置yum源/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="CentOS配置yum源/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -389,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  597
+                  203
                 </span>
               
 
@@ -405,7 +383,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -426,39 +404,12 @@
       
 
       
-        <h5 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h5><p>2019年04月19日晚21:10分进行网络维护，内容如下：</p>
-<p>​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址</p>
-<h5 id="故障现象："><a href="#故障现象：" class="headerlink" title="故障现象："></a>故障现象：</h5><p>​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。</p>
-<h5 id="排查记录"><a href="#排查记录" class="headerlink" title="排查记录:"></a>排查记录:</h5><ol>
-<li><p>21:15 查看Ingress日志，发现Ingress拿到的IP就是WAF回源地址，为错误IP，确定非前端nodejs代码bug。</p>
-</li>
-<li><p>21:33  联系阿里云技术团队一起排查问题。</p>
-</li>
-<li><p>22:20  确认Ingress的模板文件中 the_real_ip 变量是拿的 remote_addr 字段，等待阿里技术联系Ingree研发同学，给出回复。</p>
-</li>
-<li><p>23:23 Ingree研发同学联系上后确认Ingress没问题，可能是WAF没传真实IP到Ingress。</p>
-</li>
-<li><p>23:50 在Ingress容器和前端nodejs所在宿主机tcpdump工具抓包后分析得出：</p>
-<p>(1)、WAF已经将真实客户端地址放到了 x-Forwarded-For 的字段中传给了ECS<br>(2)、ECS(容器的ingress)将真实的客户端IP，放到了x-Original-Forwarded-For；而将WAF的回源地址放到了 x-Forwarded-For</p>
-</li>
-<li><p>4月20日 00:29 将compute-full-forwarded-for配置到Ingress的ConfigMap中，问题解决。</p>
-</li>
-</ol>
-<h5 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl -n kube-system edit cm nginx-configuration</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在data标签下添加如下：</span><br><span class="line">compute-full-forwarded-for: &quot;true&quot;</span><br><span class="line">forwarded-for-header: &quot;X-Forwarded-For&quot;</span><br><span class="line">use-forwarded-headers: &quot;true&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><p>阿里云容器服务Kubernetes集群的Ingress默认ConfigMap中未配置 compute-full-forwarded-for参数，导致将ingress拿到的WAF回源IP替换为XFF，而非附加到XFF中。</p>
-<p><a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#compute-full-forwarded-for" target="_blank" rel="noopener">https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#compute-full-forwarded-for</a></p>
-<h5 id="反思："><a href="#反思：" class="headerlink" title="反思："></a>反思：</h5><ol>
-<li><p>预览环境和线上环境架构不一致：</p>
-<p>此次故障中，预览环境未使用WAF防护，直接解析到K8S集群，未提前发现此次问题，已修正，以后尽量维持环境统一，避免此类问题出现。</p>
-</li>
-<li><p>故障点定位速度慢：</p>
-<p>网络请求问题优先抓包分析，提升故障定位速度，后续夯实基础知识，提升问题排查能力。</p>
-</li>
-<li><p>Kubernetes专业知识掌握程度较低</p>
-<p>目前仅仅在使用层面上能力ok，但是其实现原理、组件实现方式等知识点薄弱，后续还需在K8S学习中多总结，多学习，争取减少故障，提升运维能力。</p>
-</li>
-</ol>
+        <p>推荐使用<a href="https://opsx.alibaba.com/?lang=zh-CN" target="_blank" rel="noopener">阿里源</a></p>
+<h5 id="基础源"><a href="#基础源" class="headerlink" title="基础源"></a>基础源</h5><h6 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<h6 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> CentOS 6</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> CentOS 7</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+<h6 id="生成缓存"><a href="#生成缓存" class="headerlink" title="生成缓存"></a>生成缓存</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+<h5 id="EPEL源"><a href="#EPEL源" class="headerlink" title="EPEL源"></a>EPEL源</h5><h6 id="备份-1"><a href="#备份-1" class="headerlink" title="备份"></a>备份</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup</span><br><span class="line">mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup</span><br></pre></td></tr></table></figure>
+<h6 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> epel(RHEL 7)</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> epel(RHEL 6)</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> epel(RHEL 5)</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-5.repo</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -476,7 +427,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Kubernetes/" rel="tag"># Kubernetes</a>
+            <a href="/tags/Liunx/" rel="tag"># Liunx</a>
           
         </div>
       
@@ -489,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Kubernetes-kubectl/" rel="next" title="Kubernetes-kubectl">
-                <i class="fa fa-chevron-left"></i> Kubernetes-kubectl
+              <a href="/代码迁移-更改Git远程仓库-从gitlab上迁移到coding/" rel="next" title="代码迁移-更改Git远程仓库-从gitlab上迁移到coding">
+                <i class="fa fa-chevron-left"></i> 代码迁移-更改Git远程仓库-从gitlab上迁移到coding
               </a>
             
           </div>
@@ -498,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Ansible-批量修改密码/" rel="prev" title="Ansible-批量修改密码">
-                Ansible-批量修改密码 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -638,7 +585,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#故障现象："><span class="nav-number">2.</span> <span class="nav-text">故障现象：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#排查记录"><span class="nav-number">3.</span> <span class="nav-text">排查记录:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#操作："><span class="nav-number">4.</span> <span class="nav-text">操作：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结论："><span class="nav-number">5.</span> <span class="nav-text">结论：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反思："><span class="nav-number">6.</span> <span class="nav-text">反思：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#基础源"><span class="nav-number">1.</span> <span class="nav-text">基础源</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#备份"><span class="nav-number">1.1.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#下载"><span class="nav-number">1.2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#生成缓存"><span class="nav-number">1.3.</span> <span class="nav-text">生成缓存</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#EPEL源"><span class="nav-number">2.</span> <span class="nav-text">EPEL源</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#备份-1"><span class="nav-number">2.1.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#下载-1"><span class="nav-number">2.2.</span> <span class="nav-text">下载</span></a></li></ol></li></ol></div>
             
 
           </div>
