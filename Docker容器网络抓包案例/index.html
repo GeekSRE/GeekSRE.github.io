@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="keywords" content="Python">
+<meta name="description" content="Docker容器网络抓包案例 使用宿主机上的tcpdump工具对容器进程抓包 获取容器PID12345# 获取容器IDdocker ps |grep xxx # 获取PIDdocker inspect --format &quot;&amp;#123;&amp;#123;.State.Pid&amp;#125;&amp;#125;&quot;  container_id/name 使用nsenter切换网络命令空间1nsenter -n -t co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python学习进阶之路">
-<meta property="og:url" content="http://yoursite.com/Python学习进阶之路/index.html">
+<meta property="og:title" content="Docker容器网络抓包案例">
+<meta property="og:url" content="http://yoursite.com/Docker容器网络抓包案例/index.html">
 <meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="Docker容器网络抓包案例 使用宿主机上的tcpdump工具对容器进程抓包 获取容器PID12345# 获取容器IDdocker ps |grep xxx # 获取PIDdocker inspect --format &quot;&amp;#123;&amp;#123;.State.Pid&amp;#125;&amp;#125;&quot;  container_id/name 使用nsenter切换网络命令空间1nsenter -n -t co">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/Python学习进阶之路/python.png">
-<meta property="og:updated_time" content="2019-08-05T06:54:55.767Z">
+<meta property="og:updated_time" content="2019-08-15T08:28:53.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python学习进阶之路">
-<meta name="twitter:image" content="http://yoursite.com/Python学习进阶之路/python.png">
+<meta name="twitter:title" content="Docker容器网络抓包案例">
+<meta name="twitter:description" content="Docker容器网络抓包案例 使用宿主机上的tcpdump工具对容器进程抓包 获取容器PID12345# 获取容器IDdocker ps |grep xxx # 获取PIDdocker inspect --format &quot;&amp;#123;&amp;#123;.State.Pid&amp;#125;&amp;#125;&quot;  container_id/name 使用nsenter切换网络命令空间1nsenter -n -t co">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/Python学习进阶之路/">
+  <link rel="canonical" href="http://yoursite.com/Docker容器网络抓包案例/">
 
 
 
 
 
-  <title>Python学习进阶之路 | GeekSRE</title>
+  <title>Docker容器网络抓包案例 | GeekSRE</title>
   
 
 
@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Python学习进阶之路/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Docker容器网络抓包案例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GeekSRE">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python学习进阶之路</h1>
+          <h1 class="post-title" itemprop="name headline">Docker容器网络抓包案例</h1>
         
 
         <div class="post-meta">
@@ -323,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T14:54:08+08:00">
-                2019-08-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T16:28:20+08:00">
+                2019-08-15
               </time>
             
 
@@ -333,28 +333,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -365,8 +343,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/Python学习进阶之路/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Python学习进阶之路/" itemprop="commentsCount"></span>
+                <a href="/Docker容器网络抓包案例/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Docker容器网络抓包案例/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -388,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  213
                 </span>
               
 
@@ -425,7 +403,12 @@
       
 
       
-        <p><img src="/Python学习进阶之路/./python.png" alt></p>
+        <p>Docker容器网络抓包案例</p>
+<p>使用宿主机上的tcpdump工具对容器进程抓包</p>
+<h5 id="获取容器PID"><a href="#获取容器PID" class="headerlink" title="获取容器PID"></a>获取容器PID</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 获取容器ID</span><br><span class="line">docker ps |grep xxx </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 获取PID</span><br><span class="line">docker inspect --format "&#123;&#123;.State.Pid&#125;&#125;"  container_id/name</span><br></pre></td></tr></table></figure>
+<h5 id="使用nsenter切换网络命令空间"><a href="#使用nsenter切换网络命令空间" class="headerlink" title="使用nsenter切换网络命令空间"></a>使用nsenter切换网络命令空间</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nsenter -n -t container_id/name</span><br></pre></td></tr></table></figure>
+<h5 id="使用tcpdump抓包"><a href="#使用tcpdump抓包" class="headerlink" title="使用tcpdump抓包"></a>使用tcpdump抓包</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -vvv -s0 -w tcpdump-contract.pcap</span><br><span class="line">tcpdump -vvv -s0 host 10.10.4.63 -w tcpdump-edge2.pcap</span><br></pre></td></tr></table></figure>
+<h5 id="完整操作记录："><a href="#完整操作记录：" class="headerlink" title="完整操作记录："></a>完整操作记录：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@iz2zeh8rkwrmvh0e3t9x29z ~]# docker ps |grep contract</span><br><span class="line">55b1fdb7a079        registry-vpc.cn-beijing.aliyuncs.com/vcg/vcg-boss-contract                   "/bin/sh -c 'java ..."   4 days ago          Up 4 days                               k8s_vcg-boss-contract_vcg-boss-contract-55cd566f74-m2m72_default_7bf56757-b9b6-11e9-afe7-00163e0e2421_0</span><br><span class="line">f372c163217f        registry-vpc.cn-beijing.aliyuncs.com/acs/pause-amd64:3.0                     "/pause"                 4 days ago          Up 4 days                               k8s_POD_vcg-boss-contract-55cd566f74-m2m72_default_7bf56757-b9b6-11e9-afe7-00163e0e2421_0</span><br><span class="line">[root@iz2zeh8rkwrmvh0e3t9x29z ~]# docker inspect --format "&#123;&#123;.State.Pid&#125;&#125;" 55b1fdb7a079</span><br><span class="line">9421</span><br><span class="line">[root@iz2zeh8rkwrmvh0e3t9x29z ~]# nsenter -n -t 9421</span><br><span class="line">[root@iz2zeh8rkwrmvh0e3t9x29z ~]# tcpdump -vvv -s0 host 10.10.4.138 -w tcpdump-contract.pcap</span><br><span class="line">tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes</span><br><span class="line">0 packets captured</span><br><span class="line">0 packets received by filter</span><br><span class="line">0 packets dropped by kernel</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -441,12 +424,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-        </div>
-      
 
       
       
@@ -456,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/阿里云产品我想退款如何操作/" rel="next" title="阿里云产品我想退款如何操作">
-                <i class="fa fa-chevron-left"></i> 阿里云产品我想退款如何操作
+              <a href="/CentOS配置yum源/" rel="next" title="CentOS配置yum源">
+                <i class="fa fa-chevron-left"></i> CentOS配置yum源
               </a>
             
           </div>
@@ -466,8 +443,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/压缩、解压工具-Zip和Tar/" rel="prev" title="压缩、解压工具-Zip和Tar">
-                压缩、解压工具-Zip和Tar <i class="fa fa-chevron-right"></i>
+              <a href="/CentOS7安装MariaDB/" rel="prev" title="CentOS7安装MariaDB">
+                CentOS7安装MariaDB <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -525,8 +502,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -586,6 +572,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取容器PID"><span class="nav-number">1.</span> <span class="nav-text">获取容器PID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用nsenter切换网络命令空间"><span class="nav-number">2.</span> <span class="nav-text">使用nsenter切换网络命令空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用tcpdump抓包"><span class="nav-number">3.</span> <span class="nav-text">使用tcpdump抓包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#完整操作记录："><span class="nav-number">4.</span> <span class="nav-text">完整操作记录：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
