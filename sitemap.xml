@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/pip-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2019-08-15T08:44:46.122Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/CentOS7%E5%AE%89%E8%A3%85MariaDB/</loc>
     
     <lastmod>2019-08-15T08:30:01.682Z</lastmod>
