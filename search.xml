@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Confluence数据库SSL警告]]></title>
+    <url>%2FConfluence%E6%95%B0%E6%8D%AE%E5%BA%93SSL%E8%AD%A6%E5%91%8A%2F</url>
+    <content type="text"><![CDATA[现象：1tail -f logs/catalina.out 可以看到有很多报警信息： 1Tue Nov 26 09:13:39 CST 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification. 1 警告:在没有SSL连接的情况下建立SSL连接不建议使用服务器的身份验证。根据MySQL5.5.45+、5.6.26+和5.7.6+要求必须建立SSL连接默认情况下，如果没有设置显式选项不使用SSL的应用程序将verifyServerCertificate属性设置为“false”。您需要通过设置useSSL=false显式禁用SSL，或设置useSSL=true，并为服务器证书提供信任存储验证 解决办法：123456789101112131415# 1、进入confluence的data-home目录；cd /data/vcg/confluence-home# 2、备份配置文件cp confluence.cfg.xml confluence.cfg.xml-bak191126# 3、修改内容vim confluence.cfg.xml# 数据库连接后增加 ?useSSL=false# 如下： &lt;property name="hibernate.connection.url"&gt;jdbc:mysql://rm-2zey0d751uapi749y35890.mysql.rds.aliyuncs.com:3306/confluence?useSSL=false&lt;/property&gt; # 4、重启confluence]]></content>
+      <tags>
+        <tag>Confluence</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[pip-学习笔记]]></title>
     <url>%2Fpip-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。 目前如果你在 python.org 下载最新版本的安装包，则是已经自带了该工具。 Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。 pip 官网：https://pypi.org/project/pip/ 你可以通过以下命令来判断是否已安装： 1pip --version 安装如果你还未安装，则可以使用以下方法来安装： 1234# 下载安装脚本curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py # 安装python get-pip.py 常用命令显示版本和路径12zhaohongye ~ ^-^ #pip --versionpip 19.2.2 from /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pip (python 3.7) 获取帮助1pip --help 升级pip123pip install -U pipeasy_install --upgrade pip 安装包123pip install SomePackage # 最新版本pip install SomePackage==1.0.4 # 指定版本pip install &apos;SomePackage&gt;=1.0.4&apos; # 最小版本 升级包1pip install --upgrade SomePackage 卸载包1pip uninstall SomePackage 配置国内源阿里云 http://mirrors.aliyun.com/pypi/simple/ 中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/ 豆瓣 (douban) http://pypi.douban.com/simple/ 清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/ 中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/ 配置方法 12345678910在文件~/.pip/pip.conf中添加或修改:[global]index-url = https://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com pip-review安装1pip install pip-review 批量更新1pip-review --auto]]></content>
