@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAKubernetes/</loc>
+    <lastmod>2020-07-07</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4DevOps%E5%AE%9E%E8%B7%B5%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2020-07-07</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2020-07-07</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/Nexus%E6%89%8B%E5%8A%A8%E4%B8%8A%E4%BC%A0%E4%BE%9D%E8%B5%96%E5%8C%85/</loc>
+    <lastmod>2020-07-03</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/Confluence%E6%95%B0%E6%8D%AE%E5%BA%93SSL%E8%AD%A6%E5%91%8A/</loc>
     <lastmod>2019-11-26</lastmod>
   </url>  <url>
