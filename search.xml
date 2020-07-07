@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Django-LDAP统一认证]]></title>
+    <url>%2FDjango-LDAP%E7%BB%9F%E4%B8%80%E8%AE%A4%E8%AF%81%2F</url>
+    <content type="text"><![CDATA[Django-Ldap统一认证 Documentation: https://django-auth-ldap.readthedocs.io/ PyPI: https://pypi.org/project/django-auth-ldap/ 安装1pip install django-auth-ldap 配置setting.py 12345678910111213141516171819202122232425262728293031323334353637383940# Django-auth-ldap 配置部分import ldapfrom django_auth_ldap.config import LDAPSearch, GroupOfNamesType, PosixGroupTypeAUTHENTICATION_BACKENDS = [ 'django_auth_ldap.backend.LDAPBackend', 'django.contrib.auth.backends.ModelBackend',]AUTH_LDAP_SERVER_URI = configs['ldap']['ldhost']AUTH_LDAP_BIND_DN = "cn=root,dc=vcg,dc=com"AUTH_LDAP_BIND_PASSWORD = '*****'AUTH_LDAP_USER_DN_TEMPLATE = "cn=%(user)s,ou=People,dc=vcg,dc=com"AUTH_LDAP_USER_ATTR_MAP = &#123; "first_name": "givenName", "last_name": "sn", "email": "mail",&#125;AUTH_LDAP_GROUP_SEARCH = LDAPSearch( "ou=Group,dc=vcg,dc=com", ldap.SCOPE_SUBTREE, "(objectClass=posixGroup)")AUTH_LDAP_GROUP_TYPE = PosixGroupType(name_attr="cn")AUTH_LDAP_REQUIRE_GROUP = "cn=vcg-tech,ou=Group,dc=vcg,dc=com"# AUTH_LDAP_DENY_GROUP = "cn=disabled,ou=groups,dc=example,dc=com"#分组权限分配：可登录、可登录后台、超级管理员AUTH_LDAP_USER_FLAGS_BY_GROUP = &#123; "is_active": "cn=vcg-tech,ou=Group,dc=vcg,dc=com", "is_staff": "cn=virgo-admin,ou=Group,dc=vcg,dc=com", "is_superuser": "cn=virgo-admin,ou=Group,dc=vcg,dc=com",&#125;AUTH_LDAP_MIRROR_GROUPS = TrueAUTH_LDAP_ALWAYS_UPDATE_USER = TrueAUTH_LDAP_FIND_GROUP_PERMS = TrueAUTH_LDAP_CACHE_TIMEOUT = 3600]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+        <tag>LDAP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[深入浅出Kubernetes]]></title>
     <url>%2F%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAKubernetes%2F</url>
     <content type="text"><![CDATA[]]></content>

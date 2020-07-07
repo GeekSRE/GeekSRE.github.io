@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/Django-LDAP%E7%BB%9F%E4%B8%80%E8%AE%A4%E8%AF%81/</loc>
+    
+    <lastmod>2020-07-07T07:33:33.611Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAKubernetes/</loc>
     
     <lastmod>2020-07-07T06:59:41.069Z</lastmod>
