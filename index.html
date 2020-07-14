@@ -294,6 +294,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-日常维护/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Jenkins-日常维护/" itemprop="url">Jenkins-日常维护</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-14T10:15:31+08:00">
+                2020-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">Jenkins</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/Jenkins-日常维护/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://yoursite.com/Jenkins-日常维护/" class="cy_cmt_count" data-xid="Jenkins-日常维护/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  119
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          插件升级
+当看到Jenkins设置解密那，显示插件有可用更新时，点击管理插件
+点击全选按钮，再点击下载待重启后安装
+
+版本升级
+当看到右上角monitor提示有新版本更新提示后，记录版本号
+
+登录jenkins服务器终端
+
+123# 使用清华源加速# 请对应替换版本号wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Jenkins-日常维护/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Django-LDAP统一认证/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -431,7 +630,12 @@
           
           Django-Ldap统一认证
 
-Documentation: https://django-aut
+Documentation: https://django-auth-ldap.readthedocs.io/
+PyPI: https://pypi.org/project/django-auth-ldap/
+
+安装1pip install django-auth-ldap
+配置setting.py
+12345678910111213141516171819202
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -952,7 +1156,10 @@ Documentation: https://django-aut
         
           
           Django中使用Celery实现异步或定时任务
-Celery 官网：http://www.cele
+Celery 官网：http://www.celeryproject.org/
+Celery 官方文档英文版：http://docs.celeryproject.org/en/latest/index.html
+Celery 官方文档中文版：http://docs.jinkan.org/docs/celery/
+Celery简介Celery是一个异
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1123,8 +1330,13 @@ Celery 官网：http://www.cele
           Nexus手动上传依赖包
 
 选择仓库Repositories
-Artifact Upload，填写信
-          ...
+Artifact Upload，填写信息，选择文件
+验证
+
+
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Nexus手动上传依赖包/#more" rel="contents">
@@ -1293,7 +1505,7 @@ Artifact Upload，填写信
           
           现象：1tail -f logs/catalina.out
 可以看到有很多报警信息：
-1Tue No
+1Tue Nov 26 09:13:39 CST 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1462,6 +1674,11 @@ Artifact Upload，填写信
         
           
           pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。
+目前如果你在 python.org 下载最新版本的安装包，则是已经自带了该工具。
+Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。
+pip 官网：https://pypi.org/project/pip/
+你可以通过以下命令来判断是否已安装：
+1pip --
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1630,7 +1847,8 @@ Artifact Upload，填写信
         
           
           CentOS7安装MariaDB
-https://mariadb.com/kb/en/library
+https://mariadb.com/kb/en/library/yum/
+配置YUM源1234567vim /etc/yum.repos.d/MariaDB.repo[mariadb]name = MariaDBbaseurl = http://yum.mariadb.org/10.1/centos7-amd64gpgkey=https://yum.maria
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1800,180 +2018,12 @@ https://mariadb.com/kb/en/library
           
           Docker容器网络抓包案例
 使用宿主机上的tcpdump工具对容器进程抓包
-获取容器PID1234
+获取容器PID12345# 获取容器IDdocker ps |grep xxx # 获取PIDdocker inspect --format "&#123;&#123;.State.Pid&#125;&#125;"  container_id/name
+使用nsenter切换网络命令空间1nsenter -n -t co
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Docker容器网络抓包案例/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/CentOS配置yum源/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/CentOS配置yum源/" itemprop="url">CentOS配置yum源</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T16:27:04+08:00">
-                2019-08-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/CentOS配置yum源/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/CentOS配置yum源/" class="cy_cmt_count" data-xid="CentOS配置yum源/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  203
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          推荐使用阿里源
-基础源备份1mv /etc/yum.repos.d/CentOS-Base.repo
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/CentOS配置yum源/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2061,7 +2111,7 @@ https://mariadb.com/kb/en/library
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

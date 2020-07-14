@@ -294,6 +294,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/CentOS配置yum源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/CentOS配置yum源/" itemprop="url">CentOS配置yum源</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T16:27:04+08:00">
+                2019-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/CentOS配置yum源/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://yoursite.com/CentOS配置yum源/" class="cy_cmt_count" data-xid="CentOS配置yum源/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  203
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </span></div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          推荐使用阿里源
+基础源备份1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+下载123456789# CentOS 6wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo#
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/CentOS配置yum源/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/代码迁移-更改Git远程仓库-从gitlab上迁移到coding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -408,7 +578,11 @@
         
           
           下载源代码1git clone git@git.test.com:test/test.git
-进入项
+进入项目1cd test
+删除.git文件1rm -rf .git
+初始化1git init
+绑定远程仓库1git remote add origin git@git.coding.net:xxx/test.git
+更新到远端123git add .git commit -m "init"git push
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -577,7 +751,10 @@
         
           
           压缩、解压工具-Zip和Tar
-ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有”.
+ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有”.zip”扩展名的压缩文件。
+安装1yum install zip -y
+语法1zip +参数 +文件名.zip +原文件
+参数12345678910111213141516171819202122232425262728293031323334-A 调整可执行的自动解压缩文件。-b&lt;工作目录&
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -940,7 +1117,10 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
 进入“工单系统”
 选择相关产品，点击“提问”本次演示为ECS实例退款
 
-选
+选择“续费/配置变更”-创建工单
+填写工单
+问题描述内容：
+123456789101112131415161718191）退款原因（以便我方改进产品不足）： 业务不再需要（2）申请退款的产品实例ID：i-2ze73nwbpiwe8oy2s8fdi-2zeeif4aj2ietoreexyzi-2zebs
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1109,7 +1289,7 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
         
           
           淘宝NPM镜像官网
-安装nodejsnode:8.16.0123456789101112131415
+安装nodejsnode:8.16.012345678910111213141516# 1、创建目录mkdir -p /usr/local/lib/nodejs/# 2、下载安装包wget https://nodejs.org/dist/v8.16.0/node-v8.16.0-linux-x64.tar.xz# 3、解压tar -xJvf node-v8.16.0-linux
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1282,8 +1462,24 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
 
 
 
-点击“licenses”
-          ...
+点击“licenses”，url为https://my.atlassian.com/product
+
+
+创建新的认证：
+
+
+获取service ID
+使用admin账号登录系统，系统-系统信息可以获取service ID
+
+
+
+激活license
+
+
+
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/申请Confluence和Jira的试用版license/#more" rel="contents">
@@ -1450,7 +1646,9 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
       
         
           
-          安装部署Docker方式下载镜像12docker pull postgresdocker pull 
+          安装部署Docker方式下载镜像12docker pull postgresdocker pull sonarqube
+启动postgresql1docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres
+启动sonarqube1docker run --name sq --link db -
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1619,7 +1817,9 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
         
           
           tree
-概述tree命令的中文意思为“树”，功能是以树形结构列出指定目录下的所有内容，包括所有文件
+概述tree命令的中文意思为“树”，功能是以树形结构列出指定目录下的所有内容，包括所有文件、子目录及子目录里的目录和文件。
+安装1yum install -y tree
+参数1234567891011121314151617181920-a 显示所有文件和目录。-A 使用ASNI绘图字符显示树状图而非以ASCII字符组合。-C 在文件和目录清单加上色彩，便于区分各种类型。-d 显示目录名
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1788,179 +1988,13 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
         
           
           参考链接
-https://help.aliyun.com/document_detail/86511
+https://help.aliyun.com/document_detail/86511.html
+在 Kubernetes 中，应用管理是需求最多、挑战最大的领域。Helm 项目提供了一个统一软件打包方式，支持版本控制，可以大大简化 Kubernetes 应用分发与部署中的复杂性。
+阿里云容器服务在应用目录管理功能中集成了 Helm 工具，并进行了功能扩展，支持官方 Reposito
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Helm-简化应用部署/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ab-Apache-HTTP压测工具/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/ab-Apache-HTTP压测工具/" itemprop="url">ab-Apache_HTTP压测工具</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T14:13:29+08:00">
-                2019-07-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/ab-Apache-HTTP压测工具/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/ab-Apache-HTTP压测工具/" class="cy_cmt_count" data-xid="ab-Apache-HTTP压测工具/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.9k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          官网：https://httpd.apache.org/docs/2.4/programs/ab.h
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ab-Apache-HTTP压测工具/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2048,7 +2082,7 @@ https://help.aliyun.com/document_detail/86511
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
