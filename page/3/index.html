@@ -1,85 +1,26 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+  <meta name="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GeekSRE">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
@@ -90,39 +31,18 @@
 <meta name="twitter:title" content="GeekSRE">
 <meta name="twitter:description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
 
+<link rel="canonical" href="http://yoursite.com/page/3/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
   };
 </script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/page/3/">
-
-
-
-
 
   <title>GeekSRE</title>
   
@@ -132,269 +52,179 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">GeekSRE</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">GeekSRE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
-            
-            公益404
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeekSRE" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content index posts-expand">
             
-  <section id="posts" class="posts-expand">
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/ab-Apache-HTTP压测工具/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/ab-Apache-HTTP压测工具/" itemprop="url">ab-Apache_HTTP压测工具</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ab-Apache-HTTP压测工具/" class="post-title-link" itemprop="url">ab-Apache_HTTP压测工具</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T14:13:29+08:00">
-                2019-07-16
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-07-16 14:13:29 / Modified: 14:13:46" itemprop="dateCreated datePublished" datetime="2019-07-16T14:13:29+08:00">2019-07-16</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/ab-Apache-HTTP压测工具/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/ab-Apache-HTTP压测工具/" class="cy_cmt_count" data-xid="ab-Apache-HTTP压测工具/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.9k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -402,192 +232,107 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h4 id="官网："><a href="#官网：" class="headerlink" title="官网："></a>官网：</h4><p><a href="https://httpd.apache.org/docs/2.4/programs/ab.html" target="_blank" rel="noopener">https://httpd.apache.org/docs/2.4/programs/ab.html</a></p>
+<h4 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h4><p>网站性能压力测试是服务器网站性能调优过程中必不可缺少的一环。只有让服务器处在高压情况下，才能真正体现出软件、硬件等各种设置不当所暴露出的问题。</p>
+<p>性能测试工具目前最常见的有以下几种：ab、http_load、webbench、siege。今天我们专门来介绍ab。</p>
+<p>ab是apache自带的压力测试工具。ab非常实用，它不仅可以对apache服务器进行网站访问压力测试，也可以对或其它类型的服务器进行压力测试。比如nginx、tomcat、IIS等。 </p>
+<h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><p>ab是apachebench命令的缩写。</p>
+<p>ab的原理：ab命令会创建多个并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此，它既可以用来测试apache的负载压力，也可以测试nginx、lighthttp、tomcat、IIS等其它Web服务器的压力。</p>
+<p>ab命令对发出负载的计算机要求很低，它既不会占用很高CPU，也不会占用很多内存。但却会给目标服务器造成巨大的负载，其原理类似CC攻击。自己测试使用也需要注意，否则一次上太多的负载。可能造成目标服务器资源耗完，严重时甚至导致死机。</p>
+<h4 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd-tools</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@ops-jenkins-master ~]# ab -V</span><br><span class="line"></span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br></pre></td></tr></table></figure>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数:"></a>参数:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -help</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">-n  在测试会话中所执行的请求个数。默认时，仅执行一个请求。</span><br><span class="line"></span><br><span class="line">-c  一次产生的请求个数。默认是一次一个。</span><br><span class="line"></span><br><span class="line">-t  测试所进行的最大秒数。其内部隐含值是-n 50000，它可以使对服务器的测试限制在一个固定的总时间以内。默认时，没有时间限制。</span><br><span class="line"></span><br><span class="line">-p  包含了需要POST的数据的文件。</span><br><span class="line"></span><br><span class="line">-P  对一个中转代理提供BASIC认证信任。用户名和密码由一个:隔开，并以base64编码形式发送。无论服务器是否需要(即, 是否发送了401认证需求代码)，此字符串都会被发送。</span><br><span class="line"></span><br><span class="line">-T  POST数据所使用的Content-type头信息。</span><br><span class="line"></span><br><span class="line">-v  设置显示信息的详细程度-4或更大值会显示头信息，3或更大值可以显示响应代码(404,200等),2或更大值可以显示警告和其他信息。</span><br><span class="line"></span><br><span class="line">-V  显示版本号并退出。</span><br><span class="line"></span><br><span class="line">-w  以HTML表的格式输出结果。默认时，它是白色背景的两列宽度的一张表。</span><br><span class="line"></span><br><span class="line">-i  执行HEAD请求，而不是GET。</span><br><span class="line"></span><br><span class="line">-x  设置&lt;table&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-X  对请求使用代理服务器。</span><br><span class="line"></span><br><span class="line">-y  设置&lt;tr&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-z  设置&lt;td&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-C  对请求附加一个Cookie:行。其典型形式是name=value的一个参数对，此参数可以重复。</span><br><span class="line"></span><br><span class="line">-H  对请求附加额外的头信息。此参数的典型形式是一个有效的头信息行，其中包含了以冒号分隔的字段和值的对(如,&quot;Accept-Encoding:zip/zop;8bit&quot;)。</span><br><span class="line"></span><br><span class="line">-A  对服务器提供BASIC认证信任。用户名和密码由一个:隔开，并以base64编码形式发送。无论服务器是否需要(即,是否发送了401认证需求代码)，此字符串都会被发送。</span><br><span class="line"></span><br><span class="line">-h  显示使用方法。</span><br><span class="line"></span><br><span class="line">-d  不显示&quot;percentage served within XX [ms] table&quot;的消息(为以前的版本提供支持)。</span><br><span class="line"></span><br><span class="line">-e  产生一个以逗号分隔的(CSV)文件，其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间。由于这种格式已经“二进制化”，所以比&apos;gnuplot&apos;格式更有用。</span><br><span class="line"></span><br><span class="line">-g  把所有测试结果写入一个&apos;gnuplot&apos;或者TSV(以Tab分隔的)文件。此文件可以方便地导入到Gnuplot,IDL,Mathematica,Igor甚至Excel中。其中的第一行为标题。</span><br><span class="line"></span><br><span class="line">-i  执行HEAD请求，而不是GET。</span><br><span class="line"></span><br><span class="line">-k  启用HTTP KeepAlive功能，即在一个HTTP会话中执行多个请求。默认时，不启用KeepAlive功能。</span><br><span class="line"></span><br><span class="line">-q  如果处理的请求数大于150，ab每处理大约10%或者100个请求时，会在stderr输出一个进度计数。此-q标记可以抑制这些信息。</span><br></pre></td></tr></table></figure>
+<h4 id="性能指标："><a href="#性能指标：" class="headerlink" title="性能指标："></a>性能指标：</h4><ul>
+<li><p><strong>吞吐率（Requests per second）</strong></p>
+<p>概念：服务器并发处理能力的量化描述，单位是reqs/s，指的是某个并发用户数下单位时间内处理的请求数。某个并发用户数下单位时间内能处理的最大请求数，称之为最大吞吐率。</p>
+<p>计算公式：总请求数 / 处理完成这些请求数所花费的时间，即<br>Request per second = Complete requests / Time taken for tests</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>并发连接数（The number of concurrent connections）</strong></p>
+<p>概念：某个时刻服务器所接受的请求数目，简单的讲，就是一个会话。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>并发用户数（The number of concurrent users，Concurrency Level）</strong></p>
+<p>概念：要注意区分这个概念和并发连接数之间的区别，一个用户可能同时会产生多个会话，也即连接数。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>用户平均请求等待时间（Time per request）</strong></p>
+<p>计算公式：处理完成所有请求数所花费的时间/ （总请求数 / 并发用户数），即<br>Time per request = Time taken for tests /（ Complete requests / Concurrency Level）</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>服务器平均请求等待时间（Time per request: across all concurrent requests）</strong></p>
+<p>计算公式：处理完成所有请求数所花费的时间 / 总请求数，即<br>Time taken for / testsComplete requests<br>可以看到，它是吞吐率的倒数。<br>同时，它也=用户平均请求等待时间/并发用户数，即<br>Time per request / Concurrency Level</p>
+</li>
+</ul>
+<h4 id="示例一："><a href="#示例一：" class="headerlink" title="示例一："></a>示例一：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 请求访问 https://www.zhaohongye.com/ ，访问 -n 100次，并发 -c 10次</span></span><br><span class="line"></span><br><span class="line">ab -c 10 -n 100 https://www.zhaohongye.com/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  请求结果</span></span><br><span class="line"></span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br><span class="line"></span><br><span class="line">Benchmarking www.zhaohongye.com (be patient).....done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Server Software:        nginx/1.12.2         # 服务器软件</span><br><span class="line">Server Hostname:        www.zhaohongye.com   # 域名</span><br><span class="line">Server Port:            443                  # 请求端口号</span><br><span class="line">SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256</span><br><span class="line"></span><br><span class="line">Document Path:          /                    # 文件路径</span><br><span class="line">Document Length:        68872 bytes          # 页面字节数</span><br><span class="line"></span><br><span class="line">Concurrency Level:      10                   # 请求并发数</span><br><span class="line">Time taken for tests:   14.797 seconds       # 总访问时间</span><br><span class="line">Complete requests:      100                  # 总请求次数</span><br><span class="line">Failed requests:        0                    # 失败请求次数</span><br><span class="line">Write errors:           0            </span><br><span class="line">Total transferred:      6901400 bytes      # 请求总数据大小（包括header头信息）</span><br><span class="line">HTML transferred:       6887200 bytes      # html页面实际总字节数</span><br><span class="line">Requests per second:    6.76 [#/sec] (mean)   # 每秒多少请求，服务器的吞吐量</span><br><span class="line">Time per request:       1479.677 [ms] (mean)   # 用户平均请求等待时间 </span><br><span class="line">Time per request:       147.968 [ms] (mean, across all concurrent requests)                     # 服务器平均处理时间，也就是服务器吞吐量的倒数 </span><br><span class="line">Transfer rate:          455.48 [Kbytes/sec] received   #每秒获取的数据长度</span><br><span class="line"></span><br><span class="line">Connection Times (ms)</span><br><span class="line">              min  mean[+/-sd] median   max</span><br><span class="line">Connect:        5   12   3.3     12      19</span><br><span class="line">Processing:   156 1429 207.5   1462    1626</span><br><span class="line">Waiting:      155 1426 207.2   1449    1623</span><br><span class="line">Total:        165 1441 207.9   1476    1636</span><br><span class="line"></span><br><span class="line">Percentage of the requests served within a certain time (ms)</span><br><span class="line"><span class="meta">  50%</span><span class="bash">   1476   <span class="comment">#50%用户请求在1476ms内返回</span></span></span><br><span class="line"><span class="meta">  66%</span><span class="bash">   1489   <span class="comment">#60%用户请求在1489ms内返回</span></span></span><br><span class="line"><span class="meta">  75%</span><span class="bash">   1524</span></span><br><span class="line"><span class="meta">  80%</span><span class="bash">   1572</span></span><br><span class="line"><span class="meta">  90%</span><span class="bash">   1594</span></span><br><span class="line"><span class="meta">  95%</span><span class="bash">   1635</span></span><br><span class="line"><span class="meta">  98%</span><span class="bash">   1636</span></span><br><span class="line"><span class="meta">  99%</span><span class="bash">   1636</span></span><br><span class="line"><span class="meta"> 100%</span><span class="bash">   1636 (longest request)</span></span><br></pre></td></tr></table></figure>
+<h4 id="示例二："><a href="#示例二：" class="headerlink" title="示例二："></a>示例二：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -k -c 600 -n 100000 -p 1000.txt -T application/x-www-form-urlencoded -H "api-key:d99caed6d0997c4d3f141249c346e9d4" -H "authorization:Bearer xx" 'http://172.16.237.108/ai/search/photo/wps1'</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1000.txt 的内容</span></span><br><span class="line"></span><br><span class="line">img_url=https://goss1.vcg.com/editorial/vcg/400/new/VCG111160779787.jpg&amp;result_size=30&amp;image_type=url</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          官网：https://httpd.apache.org/docs/2.4/programs/ab.html
-概述：网站性能压力测试是服务器网站性能调优过程中必不可缺少的一环。只有让服务器处在高压情况下，才能真正体现出软件、硬件等各种设置不当所暴露出的问题。
-性能测试工具目前最常见的有以下几种：ab、http_load、webbench、siege。今天我们专门来介绍ab。
-ab是apache自带的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ab-Apache-HTTP压测工具/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-RobotFramework执行自动化测试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-RobotFramework执行自动化测试/" itemprop="url">Jenkins-RobotFramework执行自动化测试</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-RobotFramework执行自动化测试/" class="post-title-link" itemprop="url">Jenkins-RobotFramework执行自动化测试</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-03T10:22:45+08:00">
-                2019-07-03
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
-                    <span itemprop="name">Jenkins</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-07-03 10:22:45 / Modified: 10:24:32" itemprop="dateCreated datePublished" datetime="2019-07-03T10:22:45+08:00">2019-07-03</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Jenkins-RobotFramework执行自动化测试/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-RobotFramework执行自动化测试/" class="cy_cmt_count" data-xid="Jenkins-RobotFramework执行自动化测试/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  63
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -595,204 +340,81 @@ ab是apache自带的
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>Jenkins-RobotFramework执行自动化测试</p>
+<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest1.jpg" alt></p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest2.jpg" alt></p>
+<h5 id="添加slave节点"><a href="#添加slave节点" class="headerlink" title="添加slave节点"></a>添加slave节点</h5><p>由于master节点是linux服务器，RobotFramework软件部署在windows服务器上。</p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest3.jpg" alt></p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest4.jpg" alt></p>
+<h5 id="新建freestyle项目"><a href="#新建freestyle项目" class="headerlink" title="新建freestyle项目"></a>新建freestyle项目</h5><p>指定slave节点构建</p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest4-1.jpg" alt></p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest5.jpg" alt></p>
+<p>配置通过百分比和邮件通知</p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest6.jpg" alt></p>
+<h5 id="构建效果"><a href="#构建效果" class="headerlink" title="构建效果"></a>构建效果</h5><p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest7.jpg" alt></p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest8.jpg" alt></p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest9.jpg" alt></p>
+<p><img src="/Jenkins-RobotFramework执行自动化测试/./autotest10.jpg" alt></p>
 
-      
-        
-          
-          Jenkins-RobotFramework执行自动化测试
-安装插件
-
-添加slave节点由于master节点是linux服务器，RobotFramework软件部署在windows服务器上。
-
-
-新建freestyle项目指定slave节点构建
-
-
-配置通过百分比和邮件通知
-
-构建效果
-
-
-
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-RobotFramework执行自动化测试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-API/" itemprop="url">Jenkins-API</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-API/" class="post-title-link" itemprop="url">Jenkins-API</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T16:38:05+08:00">
-                2019-07-01
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
-                    <span itemprop="name">Jenkins</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-07-01 16:38:05 / Modified: 16:44:23" itemprop="dateCreated datePublished" datetime="2019-07-01T16:38:05+08:00">2019-07-01</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Jenkins-API/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-API/" class="cy_cmt_count" data-xid="Jenkins-API/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  149
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -800,197 +422,79 @@ ab是apache自带的
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>Jenkins-API</p>
+<h5 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h5><p>在自动化平台中调用jenkins API，实现程序发版、自定义任务等</p>
+<h5 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h5><p><a href="https://python-jenkins.readthedocs.io/en/latest/api.html" target="_blank" rel="noopener">Python API</a></p>
+<ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python-jenkins</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>examples</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line"></span><br><span class="line">server = jenkins.Jenkins(<span class="string">'http://localhost:8080'</span>, username=<span class="string">'myuser'</span>, password=<span class="string">'mypassword'</span>)</span><br><span class="line">user = server.get_whoami()</span><br><span class="line">version = server.get_version()</span><br><span class="line">print(<span class="string">'Hello %s from Jenkins %s'</span> % (user[<span class="string">'fullName'</span>], version))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line">job_name=<span class="string">'k8s/cicd-test-0613'</span></span><br><span class="line">jenkins_server_url=<span class="string">'http://jenkins.visualchina.com/jenkins'</span></span><br><span class="line">user_id=<span class="string">'vcgdev'</span></span><br><span class="line">api_token=<span class="string">'***************************'</span></span><br><span class="line">server=jenkins.Jenkins(jenkins_server_url, username=user_id, password=api_token)</span><br><span class="line"><span class="comment">#String参数化构建job名为job_name的job, 参数param_dict为字典形式，如：param_dict= &#123;"param1"：“value1”， “param2”：“value2”&#125;</span></span><br><span class="line">param_dict= &#123;<span class="string">"Action"</span>:<span class="string">"程序发版"</span>,<span class="string">"Scope"</span>:<span class="string">"生产环境"</span>,<span class="string">"JenkinsApi"</span>:<span class="string">"true"</span>&#125;</span><br><span class="line">server.build_job(job_name, parameters=param_dict)</span><br><span class="line">last_build_number = server.get_job_info(job_name)[<span class="string">'lastCompletedBuild'</span>][<span class="string">'number'</span>]</span><br><span class="line">build_info = server.get_build_info(job_name, last_build_number)</span><br><span class="line">print(build_info)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h5><p><img src="/Jenkins-API/./jenkins.png" alt></p>
 
-      
-        
-          
-          Jenkins-API
-需求：在自动化平台中调用jenkins API，实现程序发版、自定义任务等
-实现：Python API
-
-安装
-1pip install python-jenkins
-
-examples
-123456import jenkinsserver = jenkins.Jenkins('http://localhost:8080', username='myuser', passw
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-API/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-GitLab-WebHook自动构建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-GitLab-WebHook自动构建/" itemprop="url">Jenkins-GitLab_WebHook自动构建</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-GitLab-WebHook自动构建/" class="post-title-link" itemprop="url">Jenkins-GitLab_WebHook自动构建</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T16:19:06+08:00">
-                2019-07-01
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
-                    <span itemprop="name">Jenkins</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-07-01 16:19:06 / Modified: 16:24:22" itemprop="dateCreated datePublished" datetime="2019-07-01T16:19:06+08:00">2019-07-01</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Jenkins-GitLab-WebHook自动构建/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-GitLab-WebHook自动构建/" class="cy_cmt_count" data-xid="Jenkins-GitLab-WebHook自动构建/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  59
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -998,202 +502,79 @@ examples
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>Jenkins-GitLab_WebHook自动构建</p>
+<p>插件：<a href="https://wiki.jenkins-ci.org/display/JENKINS/GitLab+Plugin" target="_blank" rel="noopener">GitLab Plugin</a></p>
+<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook1.jpg" alt></p>
+<h5 id="开启触发器"><a href="#开启触发器" class="headerlink" title="开启触发器"></a>开启触发器</h5><p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook2.jpg" alt></p>
+<h5 id="创建只读账号"><a href="#创建只读账号" class="headerlink" title="创建只读账号"></a>创建只读账号</h5><p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook3.jpg" alt></p>
+<h5 id="创建只读角色"><a href="#创建只读角色" class="headerlink" title="创建只读角色"></a>创建只读角色</h5><p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook4.jpg" alt></p>
+<p>分配角色给readonly账号</p>
+<p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook5.jpg" alt></p>
+<h5 id="在GitLab代码项目中配置WebHook"><a href="#在GitLab代码项目中配置WebHook" class="headerlink" title="在GitLab代码项目中配置WebHook"></a>在GitLab代码项目中配置WebHook</h5><p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook6.jpg" alt></p>
+<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook7.jpg" alt></p>
+<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook8.jpg" alt></p>
+<p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook9.jpg" alt></p>
+<h5 id="实战下构建情况"><a href="#实战下构建情况" class="headerlink" title="实战下构建情况"></a>实战下构建情况</h5><p><img src="/Jenkins-GitLab-WebHook自动构建/./webhook10.jpg" alt></p>
 
-      
-        
-          
-          Jenkins-GitLab_WebHook自动构建
-插件：GitLab Plugin
-安装插件
-开启触发器
-创建只读账号
-创建只读角色
-分配角色给readonly账号
-
-在GitLab代码项目中配置WebHook
-测试
-验证
-
-实战下构建情况
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-GitLab-WebHook自动构建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-邮件通知/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-邮件通知/" itemprop="url">Jenkins-邮件通知</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-邮件通知/" class="post-title-link" itemprop="url">Jenkins-邮件通知</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T15:41:21+08:00">
-                2019-07-01
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
-                    <span itemprop="name">Jenkins</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-07-01 15:41:21 / Modified: 15:48:12" itemprop="dateCreated datePublished" datetime="2019-07-01T15:41:21+08:00">2019-07-01</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Jenkins-邮件通知/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-邮件通知/" class="cy_cmt_count" data-xid="Jenkins-邮件通知/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  347
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1201,212 +582,111 @@ examples
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>Jenkins-邮件通知</p>
+<h4 id="默认自带邮件功能"><a href="#默认自带邮件功能" class="headerlink" title="默认自带邮件功能"></a>默认自带邮件功能</h4><ol>
+<li><h5 id="配置系统管理员邮件地址"><a href="#配置系统管理员邮件地址" class="headerlink" title="配置系统管理员邮件地址"></a>配置<code>系统管理员邮件地址</code></h5><p><img src="/Jenkins-邮件通知/./mail1.jpg" alt></p>
+</li>
+<li><h5 id="配置邮件通知，并发送测试邮件"><a href="#配置邮件通知，并发送测试邮件" class="headerlink" title="配置邮件通知，并发送测试邮件"></a>配置<code>邮件通知</code>，并发送测试邮件</h5><p><img src="/Jenkins-邮件通知/./mail2.jpg" alt></p>
+</li>
+<li><h5 id="查收邮件"><a href="#查收邮件" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/Jenkins-邮件通知/./mail3.jpg" alt></p>
+</li>
+<li><h5 id="job中配置邮件通知"><a href="#job中配置邮件通知" class="headerlink" title="job中配置邮件通知"></a>job中配置邮件通知</h5><p><img src="/Jenkins-邮件通知/./mail4.jpg" alt></p>
+</li>
+<li><h5 id="查看job日志"><a href="#查看job日志" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/Jenkins-邮件通知/./mail5.jpg" alt></p>
+</li>
+<li><h5 id="查收邮件-1"><a href="#查收邮件-1" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/Jenkins-邮件通知/./mail6.jpg" alt></p>
+</li>
+<li><h5 id="再将第四步中错误命令修复好，重新构建"><a href="#再将第四步中错误命令修复好，重新构建" class="headerlink" title="再将第四步中错误命令修复好，重新构建"></a>再将第四步中错误命令修复好，重新构建</h5></li>
+<li><h5 id="查看job日志-1"><a href="#查看job日志-1" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/Jenkins-邮件通知/./mail7.jpg" alt></p>
+</li>
+<li><h5 id="查收恢复邮件"><a href="#查收恢复邮件" class="headerlink" title="查收恢复邮件"></a>查收恢复邮件</h5><p><img src="/Jenkins-邮件通知/./mail8.jpg" alt></p>
+</li>
+</ol>
+<h4 id="使用Email-ext插件"><a href="#使用Email-ext插件" class="headerlink" title="使用Email-ext插件"></a>使用Email-ext插件</h4><p><a href="https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin" target="_blank" rel="noopener">Email-ext+plugin</a></p>
+<ol>
+<li><h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p>可以通过系统管理→管理插件→可选插件，选择<strong>Email Extension</strong>插件进行安装：</p>
+<p><img src="/Jenkins-邮件通知/./mail9.jpg" alt></p>
+</li>
+</ol>
+<ol start="2">
+<li><h5 id="配置发件人账号密码，smtp服务器地址，端口"><a href="#配置发件人账号密码，smtp服务器地址，端口" class="headerlink" title="配置发件人账号密码，smtp服务器地址，端口"></a>配置发件人账号密码，smtp服务器地址，端口</h5><p><img src="/Jenkins-邮件通知/./mail11.jpg" alt></p>
+</li>
+<li><h5 id="配置邮件文本类型，模板内容"><a href="#配置邮件文本类型，模板内容" class="headerlink" title="配置邮件文本类型，模板内容"></a>配置邮件文本类型，模板内容</h5><p><img src="/Jenkins-邮件通知/./mail12.jpg" alt></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">(本邮件是程序自动下发，请勿回复!)<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">Jenkins地址: $HUDSON_URL<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">项目名称： $PROJECT_NAME<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">构建编号： $BUILD_NUMBER<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建状态： $BUILD_STATUS<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">触发原因： $&#123;CAUSE&#125;<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建日志地址： <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$&#123;BUILD_URL&#125;console"</span>&gt;</span>$&#123;BUILD_URL&#125;console<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建地址： <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$BUILD_URL"</span>&gt;</span>$BUILD_URL<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">变更集： $&#123;JELLY_SCRIPT,template="html"&#125;<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="配置发送规则"><a href="#配置发送规则" class="headerlink" title="配置发送规则"></a>配置发送规则</h5><p><img src="/Jenkins-邮件通知/./mail13.jpg" alt></p>
+</li>
+<li><h5 id="开启邮件通知"><a href="#开启邮件通知" class="headerlink" title="开启邮件通知"></a>开启邮件通知</h5><p><code>增加构建后操作步骤</code>，选择<strong>Editable Email Notifiation</strong></p>
+<p><img src="/Jenkins-邮件通知/./mail14.jpg" alt></p>
+</li>
+<li><h5 id="配置收件人、抄送人、是否发送附件（构建日志）等"><a href="#配置收件人、抄送人、是否发送附件（构建日志）等" class="headerlink" title="配置收件人、抄送人、是否发送附件（构建日志）等"></a>配置收件人、抄送人、是否发送附件（构建日志）等</h5><p><img src="/Jenkins-邮件通知/./mail15.jpg" alt></p>
+<p><img src="/Jenkins-邮件通知/./mail16.jpg" alt></p>
+</li>
+<li><h5 id="查看job日志-2"><a href="#查看job日志-2" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/Jenkins-邮件通知/./mail17.jpg" alt></p>
+</li>
+<li><h5 id="查收邮件-2"><a href="#查收邮件-2" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/Jenkins-邮件通知/./mail18.jpg" alt></p>
+</li>
+</ol>
 
-      
-        
-          
-          Jenkins-邮件通知
-默认自带邮件功能
-配置系统管理员邮件地址
-
-配置邮件通知，并发送测试邮件
-
-查收邮件
-
-job中配置邮件通知
-
-查看job日志
-
-查收邮件
-
-再将第四步中错误命令修复好，重新构建
-查看job日志
-
-查收恢复邮件
-
-
-使用Email-ext插件Email-ext+plugin
-
-安装插件可以通过系统管理→管理插件→可选插件，选择Email Extension插件进行安装：
-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-邮件通知/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-域名解析-Nginx代理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-域名解析-Nginx代理/" itemprop="url">Jenkins-域名解析+Nginx代理</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-域名解析-Nginx代理/" class="post-title-link" itemprop="url">Jenkins-域名解析+Nginx代理</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T11:21:00+08:00">
-                2019-07-01
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
-                    <span itemprop="name">Jenkins</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-07-01 11:21:00 / Modified: 11:30:37" itemprop="dateCreated datePublished" datetime="2019-07-01T11:21:00+08:00">2019-07-01</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Jenkins-域名解析-Nginx代理/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-域名解析-Nginx代理/" class="cy_cmt_count" data-xid="Jenkins-域名解析-Nginx代理/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  142
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1414,170 +694,61 @@ job中配置邮件通知
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h4 id="配置Jenkins-URL"><a href="#配置Jenkins-URL" class="headerlink" title="配置Jenkins URL"></a>配置Jenkins URL</h4><p><img src="/Jenkins-域名解析-Nginx代理/./yuming1.jpg" alt></p>
+<h4 id="配置域名解析"><a href="#配置域名解析" class="headerlink" title="配置域名解析"></a>配置域名解析</h4><p><img src="/Jenkins-域名解析-Nginx代理/./yuming2.jpg" alt></p>
+<h4 id="添加Nginx解析"><a href="#添加Nginx解析" class="headerlink" title="添加Nginx解析"></a>添加Nginx解析</h4><p>nginx配置文件如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> jenkins.visualchina.com;</span><br><span class="line"> <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> http://jenkins.visualchina.com/jenkins;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="attribute">location</span> /jenkins &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:8080/jenkins;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded_For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">	<span class="attribute">server_name</span> jenkins.visualchina.com;</span><br><span class="line">	<span class="attribute">access_log</span>  /var/log/nginx/jenkins.visualchina.com main;</span><br><span class="line">	<span class="attribute">error_log</span>  /var/log/nginx/jenkins.visualchina.com.<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">ssl</span> <span class="literal">on</span>;                                                               <span class="comment">#ssl功能开启</span></span><br><span class="line">	<span class="attribute">ssl_certificate</span> sslfile/visualchina.pem;                         <span class="comment">#证书路径</span></span><br><span class="line">	<span class="attribute">ssl_certificate_key</span> sslfile/visualchina.key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> http://jenkins.visualchina.com/jenkins;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="attribute">location</span> /jenkins &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:8080/jenkins;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded_For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          配置Jenkins URL
-配置域名解析
-添加Nginx解析nginx配置文件如下：
-123456789101112131415161718192021222324252627282930313233343536server &#123;	listen 80;	server_name jenkins.visualchina.com; location / &#123;    rewrite ^/(
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-域名解析-Nginx代理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-用户权限管理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-用户权限管理/" itemprop="url">Jenkins-用户权限管理</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-用户权限管理/" class="post-title-link" itemprop="url">Jenkins-用户权限管理</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T10:27:37+08:00">
-                2019-07-01
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-07-01 10:27:37 / Modified: 10:29:56" itemprop="dateCreated datePublished" datetime="2019-07-01T10:27:37+08:00">2019-07-01</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/Jenkins-用户权限管理/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-用户权限管理/" class="cy_cmt_count" data-xid="Jenkins-用户权限管理/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  54
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1585,197 +756,74 @@ job中配置邮件通知
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>Jenkins-用户权限管理</p>
+<p>使用<a href="http://wiki.jenkins-ci.org/display/JENKINS/Role+Strategy+Plugin" target="_blank" rel="noopener">Role-based Authorization Strategy</a>插件实现权限管理</p>
+<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p><img src="/Jenkins-用户权限管理/./quanxian1.jpg" alt></p>
+<p>确认安装完成</p>
+<p><img src="/Jenkins-用户权限管理/./quanxian2.jpg" alt></p>
+<h4 id="激活基于角色的策略"><a href="#激活基于角色的策略" class="headerlink" title="激活基于角色的策略"></a>激活基于角色的策略</h4><p><img src="/Jenkins-用户权限管理/./quanxian3.jpg" alt></p>
+<h4 id="自定义角色权限"><a href="#自定义角色权限" class="headerlink" title="自定义角色权限"></a>自定义角色权限</h4><p><img src="/Jenkins-用户权限管理/./quanxian4.jpg" alt></p>
+<h4 id="分配角色给用户"><a href="#分配角色给用户" class="headerlink" title="分配角色给用户"></a>分配角色给用户</h4><p><img src="/Jenkins-用户权限管理/./quanxian5.jpg" alt></p>
 
-      
-        
-          
-          Jenkins-用户权限管理
-使用Role-based Authorization Strategy插件实现权限管理
-安装插件
-确认安装完成
-
-激活基于角色的策略
-自定义角色权限
-分配角色给用户
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-用户权限管理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-插件管理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-插件管理/" itemprop="url">Jenkins-插件管理</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-插件管理/" class="post-title-link" itemprop="url">Jenkins-插件管理</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T15:18:44+08:00">
-                2019-06-29
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
-                    <span itemprop="name">Jenkins</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-06-29 15:18:44 / Modified: 15:19:33" itemprop="dateCreated datePublished" datetime="2019-06-29T15:18:44+08:00">2019-06-29</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Jenkins-插件管理/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-插件管理/" class="cy_cmt_count" data-xid="Jenkins-插件管理/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  114
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1783,205 +831,91 @@ job中配置邮件通知
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h4 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h4><h5 id="Web控制台安装"><a href="#Web控制台安装" class="headerlink" title="Web控制台安装"></a>Web控制台安装</h5><ol>
+<li><p>进入“插件管理”界面</p>
+<p><img src="/Jenkins-插件管理/./chajian1.jpg" alt></p>
+</li>
+<li><p>搜索插件名称</p>
+<p><img src="/Jenkins-插件管理/./chajian2.jpg" alt></p>
+</li>
+<li><p>勾选插件，选择<code>直接安装</code></p>
+<p><img src="/Jenkins-插件管理/./chajian3.jpg" alt></p>
+</li>
+<li><p>安装完成。（部分插件安装后需重启，勾选重启Jenkins选项即可。）</p>
+</li>
+</ol>
+<h5 id="上传插件"><a href="#上传插件" class="headerlink" title="上传插件"></a>上传插件</h5><p>公司以前使用Swarm管理Docker容器，用到aliyun-container-service-deploy的jenkins插件更新应用</p>
+<ol>
+<li><p>到清华源下载插件</p>
+<p><a href="https://mirror.tuna.tsinghua.edu.cn/jenkins/plugins/aliyun-container-service-deploy/latest/" target="_blank" rel="noopener">https://mirror.tuna.tsinghua.edu.cn/jenkins/plugins/aliyun-container-service-deploy/latest/</a></p>
+</li>
+<li><p>上传插件</p>
+<p><img src="/Jenkins-插件管理/./chajian4.jpg" alt></p>
+</li>
+<li><p>等待安装</p>
+<p><img src="/Jenkins-插件管理/./chajian5.jpg" alt></p>
+</li>
+</ol>
 
-      
-        
-          
-          插件安装Web控制台安装
-进入“插件管理”界面
-
-
-搜索插件名称
-
-
-勾选插件，选择直接安装
-
-
-安装完成。（部分插件安装后需重启，勾选重启Jenkins选项即可。）
-
-
-上传插件公司以前使用Swarm管理Docker容器，用到aliyun-container-service-deploy的jenkins插件更新应用
-
-到清华源下载插件
-https://mirror.tuna.tsinghua.e
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-插件管理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-Pipeline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-Pipeline/" itemprop="url">Jenkins-Pipeline</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-Pipeline/" class="post-title-link" itemprop="url">Jenkins-Pipeline</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T13:56:14+08:00">
-                2019-06-29
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
-                    <span itemprop="name">Jenkins</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-06-29 13:56:14 / Modified: 13:57:09" itemprop="dateCreated datePublished" datetime="2019-06-29T13:56:14+08:00">2019-06-29</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Jenkins-Pipeline/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-Pipeline/" class="cy_cmt_count" data-xid="Jenkins-Pipeline/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.3k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1989,193 +923,99 @@ https://mirror.tuna.tsinghua.e
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>Jenkins-Pipeline</p>
+<h4 id="Jenkins-Pipeline总体介绍"><a href="#Jenkins-Pipeline总体介绍" class="headerlink" title="Jenkins Pipeline总体介绍"></a>Jenkins Pipeline总体介绍</h4><ul>
+<li>Pipeline，简而言之，就是一台运行于Jenkins上的工作流框架，将原本独立运行于单个或者多个节点的任务连接起来，实现单个任务难以完成的复杂流程编排与可视化。</li>
+<li>Pipeline是Jenkins2.X最核心的特性，帮助Jenkins实现从CI到CD与DevOps的转变。</li>
+<li>详细介绍可见<a href="https://jenkins.io/2.0/" target="_blank" rel="noopener">https://jenkins.io/2.0</a></li>
+</ul>
+<h4 id="Jenkins-Pipeline"><a href="#Jenkins-Pipeline" class="headerlink" title="Jenkins Pipeline"></a>Jenkins Pipeline</h4><ul>
+<li>Jenkins Pipeline是一<strong>组插件</strong>，让Jenkins可以<strong>实现持续交付管道</strong>的落地和实施。</li>
+<li>持续交付管道（CD Pipeline）是将软件从<strong>版本控制</strong>阶段到<strong>交付给用户或客户</strong>的<strong>完整过程的自动化表现</strong>。</li>
+<li>Pipeline提供了一组可扩展的工具，通过Pipeline Domain Specific Language（DSL）syntax可以达到Pipeline as Code的目的</li>
+<li>Pipeline as Code： Jenkinsfile 存储在项目的源代码库</li>
+</ul>
+<h4 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h4><ul>
+<li><p>Node</p>
+<p>Jenkins节点，或是Master，或是Agent，是执行Step的具体运行环境</p>
+</li>
+<li><p>Stage</p>
+<p>阶段，一个Pipeline可以划分为若干个Stage，每个Stage代表一组操作，如：“Build”，“Test”， “Deploy”。</p>
+<p>​        <strong>注意</strong>，Stage是一个逻辑分组的概念，可以跨多个Node。</p>
+</li>
+<li><p>step</p>
+<p>步骤，Step是 最基本的操作单元，小到创建一个目录，大到构建一个Docker镜像，由各类 Jenkins Plugin提供，例如：sh ‘make’</p>
+</li>
+</ul>
+<h4 id="Pipeline特性"><a href="#Pipeline特性" class="headerlink" title="Pipeline特性"></a>Pipeline特性</h4><ul>
+<li><strong>代码（Code）</strong>: Pipeline以代码的形式实现，通常被检入源代码控制，是团队能够编辑，审查 和迭代其CD流程。</li>
+<li><strong>可持续性（Durable）</strong>：Jenkins重启或者中断后都不会影响Pipeline Job。</li>
+<li><strong>可停顿（Pausable）</strong>:Pipeline可以选择停止并等待人工输入或者批准，然后再继续Pipeline运行。</li>
+<li><strong>多功能（Versatile）</strong>：Pipeline支持实现现实世界的复杂CD要求，包括fork/join子进程，循环和并行执行工作的能力。</li>
+<li><strong>可拓展（Extensible）</strong>：Pipeline插件支持其DSL的自定义扩展及与其他插件集成的多个选 项。</li>
+</ul>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>官网文档：<a href="https://jenkins.io/doc/book/pipeline/syntax/" target="_blank" rel="noopener">https://jenkins.io/doc/book/pipeline/syntax/</a></p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">	agent any</span><br><span class="line">	options &#123;</span><br><span class="line">		timestamps()</span><br><span class="line">	&#125;</span><br><span class="line">	environment &#123;</span><br><span class="line">		TimeStamp=<span class="string">"$&#123;currentBuild.startTimeInMillis&#125;"</span></span><br><span class="line">		Service=<span class="string">"$&#123;JOB_BASE_NAME&#125;"</span></span><br><span class="line">		Branch=<span class="string">"$&#123;env.gitlabTargetBranch&#125;"</span></span><br><span class="line">	&#125;</span><br><span class="line">	parameters &#123;</span><br><span class="line">		choice(<span class="string">name:</span> <span class="string">'Action'</span>,<span class="string">choices:</span> <span class="string">'程序发版\n程序回滚'</span>,<span class="string">description:</span> <span class="string">'请选择操作'</span>)</span><br><span class="line">		choice(<span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">choices:</span> <span class="string">'测试环境\n预发环境\n生产环境\n灾备环境'</span>,<span class="string">description:</span> <span class="string">'请选择部署环境'</span>)</span><br><span class="line">		string(<span class="string">name:</span> <span class="string">'JenkinsApi'</span>, <span class="string">defaultValue:</span> <span class="string">'false'</span>, <span class="string">description:</span> <span class="string">'是否是JenkinsAPI触发'</span>)</span><br><span class="line">		string(<span class="string">name:</span> <span class="string">'BranchOrTag'</span>, <span class="string">defaultValue:</span> <span class="string">''</span>, <span class="string">description:</span> <span class="string">'指定分支或tag发版'</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	stages &#123;</span><br><span class="line">		stage(<span class="string">'PrintEnv'</span>) &#123;</span><br><span class="line">			steps &#123;</span><br><span class="line">				sh <span class="string">"printenv"</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		stage(<span class="string">'Check Out'</span>) &#123;</span><br><span class="line">			when &#123;</span><br><span class="line">				anyOf &#123;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Branch'</span>,<span class="string">value:</span><span class="string">'master'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Branch'</span>,<span class="string">value:</span><span class="string">'test'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'测试环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'预发环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'灾备环境'</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			steps &#123;</span><br><span class="line">				sh <span class="string">"sh jenkins.sh 'CheckOut' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;' '$&#123;BranchOrTag&#125;'"</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		stage(<span class="string">'Build Package'</span>) &#123;</span><br><span class="line">			when &#123;</span><br><span class="line">				anyOf &#123;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Branch'</span>,<span class="string">value:</span><span class="string">'master'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Branch'</span>,<span class="string">value:</span><span class="string">'test'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'测试环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'预发环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'灾备环境'</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			steps &#123;</span><br><span class="line">				sh <span class="string">"sh jenkins.sh 'BuildPackage' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;'"</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		stage(<span class="string">'Build Dockerfile'</span>) &#123;</span><br><span class="line">			when &#123;</span><br><span class="line">				anyOf &#123;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Branch'</span>,<span class="string">value:</span><span class="string">'master'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Branch'</span>,<span class="string">value:</span><span class="string">'test'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'测试环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'预发环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'生产环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'灾备环境'</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			steps &#123;</span><br><span class="line">				sh <span class="string">"sh jenkins.sh 'BuildDockerfile' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;'"</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		stage(<span class="string">'Build K8S Yaml'</span>) &#123;</span><br><span class="line">			when &#123;</span><br><span class="line">				anyOf &#123;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Branch'</span>,<span class="string">value:</span><span class="string">'master'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Branch'</span>,<span class="string">value:</span><span class="string">'test'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'测试环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'预发环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'生产环境'</span>;</span><br><span class="line">					environment <span class="string">name:</span> <span class="string">'Scope'</span>,<span class="string">value:</span><span class="string">'灾备环境'</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			steps &#123;</span><br><span class="line">				sh <span class="string">"sh jenkins.sh 'BuildK8SYaml' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;' '$&#123;env.Action&#125;'"</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		stage(<span class="string">'Deploy'</span>) &#123;</span><br><span class="line">			steps &#123;</span><br><span class="line">				script &#123;</span><br><span class="line">					<span class="keyword">if</span> (<span class="string">"$&#123;Scope&#125;"</span> == <span class="string">"测试环境"</span>) &#123;</span><br><span class="line">						echo <span class="string">"测试环境发版"</span></span><br><span class="line">						sh <span class="string">"sh jenkins.sh 'DockerBuildPush' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;' '$&#123;env.Action&#125;'"</span></span><br><span class="line">						sh <span class="string">"sh jenkins.sh 'Deploy' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;'"</span></span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span> (<span class="string">"$&#123;Scope&#125;"</span> == <span class="string">"预发环境"</span>) &#123;</span><br><span class="line">						echo <span class="string">"预发环境发版"</span></span><br><span class="line">						sh <span class="string">"sh jenkins.sh 'DockerBuildPush' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;' '$&#123;env.Action&#125;'"</span></span><br><span class="line">						sh <span class="string">"sh jenkins.sh 'Deploy' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;'"</span></span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span> (<span class="string">"$&#123;Scope&#125;"</span> == <span class="string">"灾备环境"</span>) &#123;</span><br><span class="line">						echo <span class="string">"灾备环境发版"</span></span><br><span class="line">						sh <span class="string">"sh jenkins.sh 'DockerBuildPush' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;' '$&#123;env.Action&#125;'"</span></span><br><span class="line">						sh <span class="string">"sh jenkins.sh 'Deploy' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;'"</span></span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span> (<span class="string">"$&#123;Scope&#125;"</span> == <span class="string">"生产环境"</span>) &#123;</span><br><span class="line">						script &#123;</span><br><span class="line">							<span class="keyword">if</span> (<span class="string">"$&#123;JenkinsApi&#125;"</span> == <span class="string">"true"</span>) &#123;</span><br><span class="line">								sh <span class="string">"sh jenkins.sh 'DockerBuildPush' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;' '$&#123;env.Action&#125;'"</span></span><br><span class="line">								sh <span class="string">"sh jenkins.sh 'Deploy' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;'"</span></span><br><span class="line">							&#125;</span><br><span class="line">							<span class="keyword">else</span> &#123;</span><br><span class="line">								script &#123;</span><br><span class="line">									<span class="keyword">if</span> (<span class="string">"$&#123;env.Action&#125;"</span> == <span class="string">"程序回滚"</span>) &#123;</span><br><span class="line">										echo <span class="string">"生产环境回滚,等待领导确认"</span></span><br><span class="line">										script &#123;</span><br><span class="line">											input <span class="string">message:</span> <span class="string">"请确认是否回滚 $&#123;Scope&#125;： "</span>,<span class="string">ok :</span> <span class="string">'确认'</span>,<span class="string">submitter:</span> <span class="string">"admin"</span></span><br><span class="line">										&#125;</span><br><span class="line">										echo <span class="string">'已确认，即将回滚'</span></span><br><span class="line">										sh <span class="string">"sh jenkins.sh 'Deploy' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;' '$&#123;env.Action&#125;'"</span></span><br><span class="line">									&#125;</span><br><span class="line">									<span class="keyword">else</span> &#123;</span><br><span class="line">										echo <span class="string">"生产环境发版,等待领导确认"</span></span><br><span class="line">										script &#123;</span><br><span class="line">											input <span class="string">message:</span> <span class="string">"请确认是否部署 $&#123;Scope&#125;： "</span>,<span class="string">ok :</span> <span class="string">'确认'</span>,<span class="string">submitter:</span> <span class="string">"admin"</span></span><br><span class="line">										&#125;</span><br><span class="line">										echo <span class="string">'已确认，即将发布'</span></span><br><span class="line">										sh <span class="string">"sh jenkins.sh 'DockerBuildPush' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;' '$&#123;env.Action&#125;'"</span></span><br><span class="line">										sh <span class="string">"sh jenkins.sh 'Deploy' '$&#123;Service&#125;' '$&#123;Branch&#125;' '$&#123;Scope&#125;' '$&#123;TimeStamp&#125;'"</span></span><br><span class="line">									&#125;</span><br><span class="line">								&#125;</span><br><span class="line">							&#125;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          Jenkins-Pipeline
-Jenkins Pipeline总体介绍
-Pipeline，简而言之，就是一台运行于Jenkins上的工作流框架，将原本独立运行于单个或者多个节点的任务连接起来，实现单个任务难以完成的复杂流程编排与可视化。
-Pipeline是Jenkins2.X最核心的特性，帮助Jenkins实现从CI到CD与DevOps的转变。
-详细介绍可见https://jenkins.io
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-Pipeline/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-创建freestyle风格项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Jenkins-创建freestyle风格项目/" itemprop="url">Jenkins-创建freestyle风格项目</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-创建freestyle风格项目/" class="post-title-link" itemprop="url">Jenkins-创建freestyle风格项目</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T13:38:05+08:00">
-                2019-06-29
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index">
-                    <span itemprop="name">Jenkins</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-06-29 13:38:05 / Modified: 13:39:44" itemprop="dateCreated datePublished" datetime="2019-06-29T13:38:05+08:00">2019-06-29</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Jenkins-创建freestyle风格项目/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Jenkins-创建freestyle风格项目/" class="cy_cmt_count" data-xid="Jenkins-创建freestyle风格项目/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  946
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -2183,74 +1023,96 @@ Pipeline是Jenkins2.X最核心的特性，帮助Jenkins实现从CI到CD与DevOps
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>Jenkins-创建freestyle风格项目</p>
+<h4 id="创建第一个Job"><a href="#创建第一个Job" class="headerlink" title="创建第一个Job"></a>创建第一个Job</h4><ol>
+<li><p>新建Item</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins1.jpg" alt></p>
+</li>
+<li><p>输入名称、选择Job类型</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins2.jpg" alt></p>
+</li>
+<li><p>配置Job，</p>
+<p>共六部分：<code>通用</code>、<code>源码管理</code>、<code>构建触发器</code>、<code>构建环境</code>、<code>构建</code>、<code>构建后操作</code></p>
+</li>
+</ol>
+<p>   常用操作：</p>
+<p>   通用：配置参数话构建</p>
+<p>   源码管理：配置代码仓库地址（git或svn）</p>
+<p>   构建触发器：配置GitLab的webhook自动触发</p>
+<p>   构建环境：Delete workspace before build starts</p>
+<p>   <strong>构建</strong>：shell脚本或者bat脚本执行任务</p>
+<p>   构建后操作：邮件通知</p>
+<ol start="4">
+<li><p>参数化构建</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins3.jpg" alt></p>
+</li>
+<li><p>Git地址</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins4.jpg" alt></p>
+</li>
+<li><p>触发器</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins5.jpg" alt></p>
+</li>
+<li><p>构建-shell脚本</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins6.jpg" alt></p>
+</li>
+<li><p>保存退出</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins6-1.jpg" alt></p>
+</li>
+<li><p>构建</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins7.jpg" alt></p>
+</li>
+<li><p>查看构建状态</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins8.jpg" alt></p>
+</li>
+<li><p>查看构建日志</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins9.jpg" alt></p>
+</li>
+</ol>
+<h4 id="实战分享"><a href="#实战分享" class="headerlink" title="实战分享"></a>实战分享</h4><h5 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h5><ol>
+<li>项目名称为vdam-web-vip</li>
+<li>此job会根据环境不同确定git分支</li>
+<li>git clone后编译安装nodejs模块</li>
+<li>构建docker镜像，push到镜像仓库</li>
+<li>触发应用更新</li>
+</ol>
+<h5 id="部署："><a href="#部署：" class="headerlink" title="部署："></a>部署：</h5><ol>
+<li><p>创建自由风格项目</p>
+</li>
+<li><p>名称输入vdam-web-vip</p>
+</li>
+<li><p>开启参数化构建</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins12.jpg" alt></p>
+</li>
+<li><p>配置<code>构建</code>shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 确定 default.conf 和 nginx.conf文件存在</span></span></span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line">WorkDir=`pwd`</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == "测试环境" ]]; then</span><br><span class="line">  Branch="release"</span><br><span class="line">  ScopeName="test"</span><br><span class="line">  JavaServiceDomain="test-vdam-gateway-service.fotomore.com"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "预发环境" ]]; then</span><br><span class="line">  Branch="master"</span><br><span class="line">  ScopeName="pre"</span><br><span class="line">  JavaServiceDomain="vdam-gateway-service1.fotomore.com"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "生产环境" ]]; then</span><br><span class="line">  Branch="master"</span><br><span class="line">  ScopeName="pro"</span><br><span class="line">  JavaServiceDomain="vdam-gateway-service.fotomore.com"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">rm -rf vdam-web</span><br><span class="line">mkdir -p vdam-web</span><br><span class="line">cd vdam-web</span><br><span class="line">git clone -b $&#123;Branch&#125;  git@git.vcg.com:vdam/vue-vip-2019.git</span><br><span class="line">git clone -b $&#123;Branch&#125;  git@git.vcg.com:vdam/vue-admin.git</span><br><span class="line">git clone -b $&#123;Branch&#125;  git@git.vcg.com:vdam/vue-saas.git</span><br><span class="line">git clone -b $&#123;Branch&#125;  git@git.visualchina.com:vdam/vue-vip-upload.git</span><br><span class="line"></span><br><span class="line">cd vue-vip-upload</span><br><span class="line">sed -i "s/vdam-gateway.vcg.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway-service.fotomore.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway.fotomore.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway-service.caf79ccb624f24a5cabd1de8623b2e617.cn-beijing.alicontainer.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line"></span><br><span class="line">npm install --registry https://registry.npm.taobao.org</span><br><span class="line">npm run build</span><br><span class="line">mv dist ../</span><br><span class="line">cd ..</span><br><span class="line">mv dist upload</span><br><span class="line"></span><br><span class="line">cd vue-vip-2019</span><br><span class="line">sed -i "s/vdam-gateway.vcg.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway-service.fotomore.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway.fotomore.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway-service.caf79ccb624f24a5cabd1de8623b2e617.cn-beijing.alicontainer.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line"></span><br><span class="line">npm install --registry https://registry.npm.taobao.org</span><br><span class="line">npm run build</span><br><span class="line">mv dist ../</span><br><span class="line">cd ..</span><br><span class="line">mv dist vip</span><br><span class="line"></span><br><span class="line">cd vue-admin</span><br><span class="line">sed -i "s/vdam-gateway.vcg.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway-service.fotomore.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway.fotomore.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway-service.caf79ccb624f24a5cabd1de8623b2e617.cn-beijing.alicontainer.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line"></span><br><span class="line">npm install --registry https://registry.npm.taobao.org</span><br><span class="line">npm run build</span><br><span class="line">mv dist ../</span><br><span class="line">cd ..</span><br><span class="line">mv dist admin</span><br><span class="line"></span><br><span class="line">cd vue-saas</span><br><span class="line">sed -i "s/test-vdam.gateway.vcg.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway.vcg.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway-service.fotomore.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway.fotomore.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway-service.caf79ccb624f24a5cabd1de8623b2e617.cn-beijing.alicontainer.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line"></span><br><span class="line">npm install --registry https://registry.npm.taobao.org</span><br><span class="line">npm run build</span><br><span class="line">mv dist ../</span><br><span class="line">cd ..</span><br><span class="line">mv dist saas</span><br><span class="line"></span><br><span class="line">rm -rf vue-vip</span><br><span class="line">rm -rf vue-admin</span><br><span class="line">rm -rf vue-saas</span><br><span class="line"></span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">tar zcf vdam-web-vip.tar.gz vdam-web/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> cp vdam-web-vip.tar.gz /jenkins/vcgapp/vdam-web-vip/vdam-web-vip.tar.gz-<span class="variable">$&#123;Time&#125;</span></span></span><br><span class="line"></span><br><span class="line">cat &gt; Dockerfile &lt;&lt;EOF</span><br><span class="line">FROM nginx</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">ADD vdam-web-vip.tar.gz /usr/share/nginx/html/</span><br><span class="line">ADD nginx.conf /etc/nginx/nginx.conf</span><br><span class="line">ADD default.conf /etc/nginx/conf.d/</span><br><span class="line">RUN chmod -R 777 /usr/share/nginx/html/</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125; .</span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;-$Time .</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;-$Time</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;-$Time</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == "测试环境" ]]; then</span><br><span class="line">  curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjYWY3OWNjYjYyNGYyNGE1Y2FiZDFkZTg2MjNiMmU2MTciLCJpZCI6IjM5NTI2In0.S9KkUgPkymqsc1xclUHFo9zFyd_iLMrKxxEbsPB06lajpw_YSm7aOXAonq_olgP0SxmL6ydiDE5Bu3LuAXjhMCkojXQx4FlnH8uoaBOr2fT9e_RL-4LCGSQLDvoOFqQQ1csBfPi2UpT6oDh_KkxvaYoF7kqvTmpClF2XQO9X9f4</span><br><span class="line"><span class="meta">  #</span><span class="bash">curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjYWY3OWNjYjYyNGYyNGE1Y2FiZDFkZTg2MjNiMmU2MTciLCJpZCI6IjMyNzQ0In0.afM-iP1cZUVBDdIefzca6SJyIfFBPO3hqcC0HgrJPcaQLkvmFQYuHAgF6OHKgdHLa0rErRvcKgq1t_6g4DhBiql5EN9qQYAiAKEwXTpfc-0tiNfZg4w2Z4mybg-MeiduZCD0Reh1hUy-jdNNg58poR-IeKJZRhT3IlmfIp4Ssis</span></span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "预发环境" ]]; then</span><br><span class="line">  curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjMmFiNDFlZWE0YjgxNDNlZmEwMzg3OWZiNDlhOWEyODIiLCJpZCI6IjM5NTI1In0.nwNJTY-9jPhbnVe1_4fTUuCXPd5JlkRlvGgQC8GD-u1qBqsousj8wsO65s6xhksW0h1PBPVnTn8QelwgCLMLyIvN8Pv_H7uB2x4tGHudZHjrPxKURgU6cwH4SnXhd3VYOdfd-Qc3sMKAe9aG_HoKwQoC2Zj2yT3kTQEB7j7Mlv0</span><br><span class="line"><span class="meta">  #</span><span class="bash">curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjMmFiNDFlZWE0YjgxNDNlZmEwMzg3OWZiNDlhOWEyODIiLCJpZCI6IjM3MDcyIn0.Dxx3lVTAysaRBtI6jcDLMm0M0Yh239eUznxq4dpUIIjhDsKLlgtN-UJt0TIBOmAucj8XnBjI_T-mX7hy6WrHH8bKREyMz6cWrGutfBQqNYQ2j-HyScP-Q8tsqO1q4XZuuS9__BB2-mDoN0xqqFUAAITkDkmw702rfRpbIolvNu4</span></span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "生产环境" ]]; then</span><br><span class="line">  echo ""</span><br><span class="line">  curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjNDY0MTNjYjEzYmIzNDkwZGEzZTQ5NWU0MjY0ZjZkMTkiLCJpZCI6IjM3MTkzIn0.HJfnm1ujwLRYnQpsRpiXLErKi2gE_glnZBcss9c2zmHGv-_Gcl6vYLRPdmnPpvcU2cVkuKgExHUUFGdNqzkKDEeFu8lBez9c2gCWi7l81KNAFhsgtTIEm8YRpi9p92kIsutjD_AEj6UuY_jy58nvIWGeXRtuYAaWJGXFQ6B5ItE</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存退出</p>
+</li>
+<li><p>参数化构建</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins11.jpg" alt></p>
+</li>
+<li><p>验证ok</p>
+</li>
+</ol>
 
-      
-        
-          
-          Jenkins-创建freestyle风格项目
-创建第一个Job
-新建Item
-
-
-输入名称、选择Job类型
-
-
-配置Job，
-共六部分：通用、源码管理、构建触发器、构建环境、构建、构建后操作
-
-
-   常用操作：
-   通用：配置参数话构建
-   源码管理：配置代码仓库地址（git或svn）
-   构建触发器：配置GitLab的webhook自动触发
-   构建环境：Delete workspa
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Jenkins-创建freestyle风格项目/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
-  </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2258,117 +1120,141 @@ Pipeline是Jenkins2.X最核心的特性，帮助Jenkins实现从CI到CD与DevOps
           </div>
           
 
-
-          
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">GeekSRE</p>
-              <p class="site-description motion-element" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">66</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">GeekSRE</p>
+  <div class="site-description" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
           
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GeekSRE" title="GitHub → https://github.com/GeekSRE" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip@zhaohongye.com" title="E-Mail → mailto:vip@zhaohongye.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
-          
 
-          
-          
 
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+        
 
+        
+
+<div class="copyright">
   
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵宏业</span>
+</div>
+<img src="http://www.beian.gov.cn/portal/download">
+<a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">ICP证: 京ICP备17002268号</a>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 
@@ -2378,483 +1264,57 @@ Pipeline是Jenkins2.X最核心的特性，帮助Jenkins实现从CI到CD与DevOps
 
 
 
-
-        
-
-
-
-
-
-
-
-        
       </div>
     </footer>
-
-    
-
-    
-
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
   }
+});
 </script>
 
 
 
-
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-  
-    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyufM0rw3"></script>
-  
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
 
   
 
@@ -2862,5 +1322,3 @@ Pipeline是Jenkins2.X最核心的特性，帮助Jenkins实现从CI到CD与DevOps
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
-<!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>

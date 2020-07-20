@@ -1,85 +1,26 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="zh-Hans">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+  <meta name="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GeekSRE">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
@@ -90,39 +31,18 @@
 <meta name="twitter:title" content="GeekSRE">
 <meta name="twitter:description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
 
+<link rel="canonical" href="http://yoursite.com/page/2/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
   };
 </script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/page/2/">
-
-
-
-
 
   <title>GeekSRE</title>
   
@@ -132,269 +52,179 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">GeekSRE</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">GeekSRE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
+
+
+
 
 <nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
-        
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
-            
-            公益404
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 </nav>
 
 
 
- </div>
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeekSRE" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content index posts-expand">
             
-  <section id="posts" class="posts-expand">
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/CentOS配置yum源/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/CentOS配置yum源/" itemprop="url">CentOS配置yum源</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/CentOS配置yum源/" class="post-title-link" itemprop="url">CentOS配置yum源</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T16:27:04+08:00">
-                2019-08-07
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-08-07 16:27:04 / Modified: 16:28:02" itemprop="dateCreated datePublished" datetime="2019-08-07T16:27:04+08:00">2019-08-07</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/CentOS配置yum源/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/CentOS配置yum源/" class="cy_cmt_count" data-xid="CentOS配置yum源/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  203
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -402,169 +232,63 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>推荐使用<a href="https://opsx.alibaba.com/?lang=zh-CN" target="_blank" rel="noopener">阿里源</a></p>
+<h5 id="基础源"><a href="#基础源" class="headerlink" title="基础源"></a>基础源</h5><h6 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<h6 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> CentOS 6</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> CentOS 7</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+<h6 id="生成缓存"><a href="#生成缓存" class="headerlink" title="生成缓存"></a>生成缓存</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+<h5 id="EPEL源"><a href="#EPEL源" class="headerlink" title="EPEL源"></a>EPEL源</h5><h6 id="备份-1"><a href="#备份-1" class="headerlink" title="备份"></a>备份</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup</span><br><span class="line">mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup</span><br></pre></td></tr></table></figure>
+<h6 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> epel(RHEL 7)</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> epel(RHEL 6)</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> epel(RHEL 5)</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-5.repo</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          推荐使用阿里源
-基础源备份1mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-下载123456789# CentOS 6wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo#
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/CentOS配置yum源/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/代码迁移-更改Git远程仓库-从gitlab上迁移到coding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/代码迁移-更改Git远程仓库-从gitlab上迁移到coding/" itemprop="url">代码迁移-更改Git远程仓库-从gitlab上迁移到coding</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/代码迁移-更改Git远程仓库-从gitlab上迁移到coding/" class="post-title-link" itemprop="url">代码迁移-更改Git远程仓库-从gitlab上迁移到coding</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-06T10:31:03+08:00">
-                2019-08-06
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-08-06 10:31:03 / Modified: 10:31:39" itemprop="dateCreated datePublished" datetime="2019-08-06T10:31:03+08:00">2019-08-06</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/代码迁移-更改Git远程仓库-从gitlab上迁移到coding/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/代码迁移-更改Git远程仓库-从gitlab上迁移到coding/" class="cy_cmt_count" data-xid="代码迁移-更改Git远程仓库-从gitlab上迁移到coding/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  65
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -572,172 +296,63 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h5 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@git.test.com:test/test.git</span><br></pre></td></tr></table></figure>
+<h5 id="进入项目"><a href="#进入项目" class="headerlink" title="进入项目"></a>进入项目</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd test</span><br></pre></td></tr></table></figure>
+<h5 id="删除-git文件"><a href="#删除-git文件" class="headerlink" title="删除.git文件"></a>删除.git文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git</span><br></pre></td></tr></table></figure>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h5 id="绑定远程仓库"><a href="#绑定远程仓库" class="headerlink" title="绑定远程仓库"></a>绑定远程仓库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:xxx/test.git</span><br></pre></td></tr></table></figure>
+<h5 id="更新到远端"><a href="#更新到远端" class="headerlink" title="更新到远端"></a>更新到远端</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m "init"</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          下载源代码1git clone git@git.test.com:test/test.git
-进入项目1cd test
-删除.git文件1rm -rf .git
-初始化1git init
-绑定远程仓库1git remote add origin git@git.coding.net:xxx/test.git
-更新到远端123git add .git commit -m "init"git push
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/代码迁移-更改Git远程仓库-从gitlab上迁移到coding/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/压缩、解压工具-Zip和Tar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/压缩、解压工具-Zip和Tar/" itemprop="url">压缩、解压工具-Zip和Tar</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/压缩、解压工具-Zip和Tar/" class="post-title-link" itemprop="url">压缩、解压工具-Zip和Tar</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T15:28:58+08:00">
-                2019-08-05
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-08-05 15:28:58 / Modified: 15:29:35" itemprop="dateCreated datePublished" datetime="2019-08-05T15:28:58+08:00">2019-08-05</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/压缩、解压工具-Zip和Tar/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/压缩、解压工具-Zip和Tar/" class="cy_cmt_count" data-xid="压缩、解压工具-Zip和Tar/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  855
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -745,193 +360,94 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>压缩、解压工具-Zip和Tar</p>
+<h5 id="ZIP"><a href="#ZIP" class="headerlink" title="ZIP"></a>ZIP</h5><p>zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有”.zip”扩展名的压缩文件。</p>
+<h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install zip -y</span><br></pre></td></tr></table></figure>
+<h6 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip +参数 +文件名.zip +原文件</span><br></pre></td></tr></table></figure>
+<h6 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">-A 调整可执行的自动解压缩文件。</span><br><span class="line">-b&lt;工作目录&gt; 指定暂时存放文件的目录。</span><br><span class="line">-c 替每个被压缩的文件加上注释。</span><br><span class="line">-d 从压缩文件内删除指定的文件。</span><br><span class="line">-D 压缩文件内不建立目录名称。</span><br><span class="line">-f 此参数的效果和指定"-u"参数类似，但不仅更新既有文件，如果某些文件原本不存在于压缩文件内，使用本参数会一并将其加入压缩文件中。</span><br><span class="line">-F 尝试修复已损坏的压缩文件。</span><br><span class="line">-g 将文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。</span><br><span class="line">-h 在线帮助。</span><br><span class="line">-i&lt;范本样式&gt; 只压缩符合条件的文件。</span><br><span class="line">-j 只保存文件名称及其内容，而不存放任何目录名称。</span><br><span class="line">-J 删除压缩文件前面不必要的数据。</span><br><span class="line">-k 使用MS-DOS兼容格式的文件名称。</span><br><span class="line">-l 压缩文件时，把LF字符置换成LF+CR字符。</span><br><span class="line">-ll 压缩文件时，把LF+CR字符置换成LF字符。</span><br><span class="line">-L 显示版权信息。</span><br><span class="line">-m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。</span><br><span class="line">-n&lt;字尾字符串&gt; 不压缩具有特定字尾字符串的文件。</span><br><span class="line">-o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。</span><br><span class="line">-q 不显示指令执行过程。</span><br><span class="line">-r 递归处理，将指定目录下的所有文件和子目录一并处理。</span><br><span class="line">-S 包含系统和隐藏文件。</span><br><span class="line">-t&lt;日期时间&gt; 把压缩文件的日期设成指定的日期。</span><br><span class="line">-T 检查备份文件内的每个文件是否正确无误。</span><br><span class="line">-u 更换较新的文件到压缩文件内。</span><br><span class="line">-v 显示指令执行过程或显示版本信息。</span><br><span class="line">-V 保存VMS操作系统的文件属性。</span><br><span class="line">-w 在文件名称里假如版本编号，本参数仅在VMS操作系统下有效。</span><br><span class="line">-x&lt;范本样式&gt; 压缩时排除符合条件的文件。</span><br><span class="line">-X 不保存额外的文件属性。</span><br><span class="line">-y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。</span><br><span class="line">-z 替压缩文件加上注释。</span><br><span class="line"><span class="meta">-$</span><span class="bash"> 保存第一个被压缩文件所在磁盘的卷册名称。</span></span><br><span class="line">-&lt;压缩效率&gt; 压缩效率是一个介于1-9的数值。</span><br></pre></td></tr></table></figure>
+<h6 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h6><ul>
+<li><p>将 /home/html/ 这个目录下所有文件和文件夹打包为当前目录下的 html.zip：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -q -r html.zip /home/html</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果在我们在 /home/html 目录下，可以执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -q -r html.zip *</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从压缩文件 cp.zip 中删除文件 a.c</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -dv cp.zip a.c</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="UNZIP"><a href="#UNZIP" class="headerlink" title="UNZIP"></a>UNZIP</h5><h6 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install unzip -y</span><br></pre></td></tr></table></figure>
+<h6 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h6><ul>
+<li><p>解压test.zip 文件到当前目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压test.zip 文件到/root/目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip test.zip -d /root</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="TAR"><a href="#TAR" class="headerlink" title="TAR"></a>TAR</h5><h6 id="压缩命令"><a href="#压缩命令" class="headerlink" title="压缩命令"></a>压缩命令</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将 <span class="built_in">test</span> 目录压缩为 test.tar.gz </span></span><br><span class="line">tar zcvf test.tar.gz test/</span><br></pre></td></tr></table></figure>
+<p>解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf test.tar.gz</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          压缩、解压工具-Zip和Tar
-ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有”.zip”扩展名的压缩文件。
-安装1yum install zip -y
-语法1zip +参数 +文件名.zip +原文件
-参数12345678910111213141516171819202122232425262728293031323334-A 调整可执行的自动解压缩文件。-b&lt;工作目录&
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/压缩、解压工具-Zip和Tar/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Python学习进阶之路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Python学习进阶之路/" itemprop="url">Python学习进阶之路</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Python学习进阶之路/" class="post-title-link" itemprop="url">Python学习进阶之路</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T14:54:08+08:00">
-                2019-08-05
-              </time>
-            
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
+              <time title="Created: 2019-08-05 14:54:08 / Modified: 14:54:55" itemprop="dateCreated datePublished" datetime="2019-08-05T14:54:08+08:00">2019-08-05</time>
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
+                <i class="far fa-folder"></i>
               </span>
-              
-                <a href="/Python学习进阶之路/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Python学习进阶之路/" class="cy_cmt_count" data-xid="Python学习进阶之路/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
+            </span>
 
           
 
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -939,168 +455,58 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p><img src="/Python学习进阶之路/./python.png" alt></p>
 
-      
-        
-          
-          
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Python学习进阶之路/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/阿里云产品我想退款如何操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/阿里云产品我想退款如何操作/" itemprop="url">阿里云产品我想退款如何操作</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/阿里云产品我想退款如何操作/" class="post-title-link" itemprop="url">阿里云产品我想退款如何操作</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-31T09:49:12+08:00">
-                2019-07-31
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-07-31 09:49:12 / Modified: 09:49:33" itemprop="dateCreated datePublished" datetime="2019-07-31T09:49:12+08:00">2019-07-31</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/阿里云产品我想退款如何操作/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/阿里云产品我想退款如何操作/" class="cy_cmt_count" data-xid="阿里云产品我想退款如何操作/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  220
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1108,174 +514,65 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>阿里云产品退款工单怎么填</p>
+<h5 id="进入“工单系统”"><a href="#进入“工单系统”" class="headerlink" title="进入“工单系统”"></a>进入“工单系统”</h5><p><img src="/阿里云产品我想退款如何操作/./1564537171046.jpg" alt></p>
+<h5 id="选择相关产品，点击“提问”"><a href="#选择相关产品，点击“提问”" class="headerlink" title="选择相关产品，点击“提问”"></a>选择相关产品，点击“提问”</h5><p><strong>本次演示为ECS实例退款</strong></p>
+<p><img src="/阿里云产品我想退款如何操作/./1564537202981.jpg" alt></p>
+<h5 id="选择“续费-配置变更”-创建工单"><a href="#选择“续费-配置变更”-创建工单" class="headerlink" title="选择“续费/配置变更”-创建工单"></a>选择“续费/配置变更”-创建工单</h5><p><img src="/阿里云产品我想退款如何操作/./1564537232860.jpg" alt></p>
+<h5 id="填写工单"><a href="#填写工单" class="headerlink" title="填写工单"></a>填写工单</h5><p><img src="/阿里云产品我想退款如何操作/./1564537617373.jpg" alt></p>
+<p>问题描述内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1）退款原因（以便我方改进产品不足）： 业务不再需要</span><br><span class="line">（2）申请退款的产品实例ID：</span><br><span class="line">i-2ze73nwbpiwe8oy2s8fd</span><br><span class="line">i-2zeeif4aj2ietoreexyz</span><br><span class="line">i-2zebsfqkvhcijbbtuqqj</span><br><span class="line">i-2zeixwbfspqnyju4qvdk</span><br><span class="line">i-2zeacxjlg8xlgh1kp053</span><br><span class="line">i-2zeawy8pclj79pt1amvx</span><br><span class="line">i-2ze095o6ifge7szwor5j</span><br><span class="line">i-2zea9n9e5ru6ebvf4nuv</span><br><span class="line">i-2zea410j2fhwth7wp0s6</span><br><span class="line">i-25z4mycbd</span><br><span class="line">i-25m8j9t4v</span><br><span class="line">i-251nzqk8t</span><br><span class="line">i-25zq6kyad</span><br><span class="line">i-25yentipk</span><br><span class="line">（3）已使用时长所对应的费用不退回，请您确认已知晓； 确认</span><br><span class="line">（4）代金券支付部分无法退回，请您确认已知晓： 确认</span><br><span class="line">（5）主机或实例是否已备份？若已备份，请回复“数据已备份”；若无需备份，请回复“数据无需备份” 。（退款后服务器实例立即被清除，数据不再保留，请提前备份数据）  数据已备份。</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          阿里云产品退款工单怎么填
-进入“工单系统”
-选择相关产品，点击“提问”本次演示为ECS实例退款
-
-选择“续费/配置变更”-创建工单
-填写工单
-问题描述内容：
-123456789101112131415161718191）退款原因（以便我方改进产品不足）： 业务不再需要（2）申请退款的产品实例ID：i-2ze73nwbpiwe8oy2s8fdi-2zeeif4aj2ietoreexyzi-2zebs
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/阿里云产品我想退款如何操作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/nodejs-npm-cnpm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/nodejs-npm-cnpm/" itemprop="url">nodejs-npm-cnpm</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/nodejs-npm-cnpm/" class="post-title-link" itemprop="url">nodejs-npm-cnpm</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-30T15:30:37+08:00">
-                2019-07-30
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-07-30 15:30:37 / Modified: 15:32:00" itemprop="dateCreated datePublished" datetime="2019-07-30T15:30:37+08:00">2019-07-30</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/nodejs-npm-cnpm/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/nodejs-npm-cnpm/" class="cy_cmt_count" data-xid="nodejs-npm-cnpm/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  181
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1283,168 +580,61 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p><a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝NPM镜像官网</a></p>
+<h5 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h5><h6 id="node-8-16-0"><a href="#node-8-16-0" class="headerlink" title="node:8.16.0"></a>node:8.16.0</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、创建目录</span></span><br><span class="line">mkdir -p /usr/local/lib/nodejs/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、下载安装包</span></span><br><span class="line">wget https://nodejs.org/dist/v8.16.0/node-v8.16.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、解压</span></span><br><span class="line">tar -xJvf node-v8.16.0-linux-x64.tar.xz -C /usr/local/lib/nodejs/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、配置环境变量</span></span><br><span class="line">vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Nodejs</span></span><br><span class="line">VERSION=v8.16.0</span><br><span class="line">DISTRO=linux-x64</span><br><span class="line">export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h5 id="node-10-16-0"><a href="#node-10-16-0" class="headerlink" title="node:10.16.0"></a>node:10.16.0</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、创建目录</span></span><br><span class="line">mkdir -p /usr/local/lib/nodejs/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、下载安装包</span></span><br><span class="line">wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、解压</span></span><br><span class="line">tar -xJvf node-v10.16.0-linux-x64.tar.xz -C /usr/local/lib/nodejs/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、配置环境变量</span></span><br><span class="line">vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Nodejs</span></span><br><span class="line">VERSION=v10.16.0</span><br><span class="line">DISTRO=linux-x64</span><br><span class="line">export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h5 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          淘宝NPM镜像官网
-安装nodejsnode:8.16.012345678910111213141516# 1、创建目录mkdir -p /usr/local/lib/nodejs/# 2、下载安装包wget https://nodejs.org/dist/v8.16.0/node-v8.16.0-linux-x64.tar.xz# 3、解压tar -xJvf node-v8.16.0-linux
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/nodejs-npm-cnpm/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/申请Confluence和Jira的试用版license/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/申请Confluence和Jira的试用版license/" itemprop="url">申请Confluence和Jira的试用版license</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/申请Confluence和Jira的试用版license/" class="post-title-link" itemprop="url">申请Confluence和Jira的试用版license</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T17:16:33+08:00">
-                2019-07-23
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-07-23 17:16:33 / Modified: 17:18:39" itemprop="dateCreated datePublished" datetime="2019-07-23T17:16:33+08:00">2019-07-23</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/申请Confluence和Jira的试用版license/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/申请Confluence和Jira的试用版license/" class="cy_cmt_count" data-xid="申请Confluence和Jira的试用版license/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  53
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1452,188 +642,78 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <ol>
+<li><p>访问<a href="https://www.atlassian.com/，登录账号" target="_blank" rel="noopener">https://www.atlassian.com/，登录账号</a></p>
+<p><img src="/申请Confluence和Jira的试用版license/./image2019-7-23_16-56-18.png" alt></p>
+<p><img src="/申请Confluence和Jira的试用版license/./image2019-7-23_16-58-42.png" alt></p>
+</li>
+<li><p>点击“licenses”，url为<a href="https://my.atlassian.com/product" target="_blank" rel="noopener">https://my.atlassian.com/product</a></p>
+<p><img src="/申请Confluence和Jira的试用版license/./image2019-7-23_17-0-29.png" alt></p>
+</li>
+<li><p>创建新的认证：</p>
+<p><img src="/申请Confluence和Jira的试用版license/./image2019-7-23_17-2-25.png" alt></p>
+</li>
+<li><p>获取service ID</p>
+<p>使用admin账号登录系统，<strong>系统</strong>-<strong>系统信息</strong>可以获取service ID</p>
+<p><img src="/申请Confluence和Jira的试用版license/./1563872961498.jpg" alt></p>
+<p><img src="/申请Confluence和Jira的试用版license/./1563872994300.jpg" alt></p>
+</li>
+<li><p>激活license</p>
+<p><img src="/申请Confluence和Jira的试用版license/./1563873215131.jpg" alt></p>
+<p><img src="/申请Confluence和Jira的试用版license/./1563873261297.jpg" alt></p>
+</li>
+</ol>
 
-      
-        
-          
-          
-访问https://www.atlassian.com/，登录账号
-
-
-
-点击“licenses”，url为https://my.atlassian.com/product
-
-
-创建新的认证：
-
-
-获取service ID
-使用admin账号登录系统，系统-系统信息可以获取service ID
-
-
-
-激活license
-
-
-
-
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/申请Confluence和Jira的试用版license/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/SonarQube-安装部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/SonarQube-安装部署/" itemprop="url">SonarQube-安装部署</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/SonarQube-安装部署/" class="post-title-link" itemprop="url">SonarQube-安装部署</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-17T14:45:39+08:00">
-                2019-07-17
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-07-17 14:45:39 / Modified: 14:46:13" itemprop="dateCreated datePublished" datetime="2019-07-17T14:45:39+08:00">2019-07-17</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/SonarQube-安装部署/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/SonarQube-安装部署/" class="cy_cmt_count" data-xid="SonarQube-安装部署/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  116
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1641,169 +721,73 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h4 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h4><h5 id="Docker方式"><a href="#Docker方式" class="headerlink" title="Docker方式"></a>Docker方式</h5><h6 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull postgres</span><br><span class="line">docker pull sonarqube</span><br></pre></td></tr></table></figure>
+<h6 id="启动postgresql"><a href="#启动postgresql" class="headerlink" title="启动postgresql"></a>启动postgresql</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres</span><br></pre></td></tr></table></figure>
+<h6 id="启动sonarqube"><a href="#启动sonarqube" class="headerlink" title="启动sonarqube"></a>启动sonarqube</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name sq --link db -e SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar -p 9000:9000 -d sonarqube</span><br></pre></td></tr></table></figure>
+<h6 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h6><p>启动报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br></pre></td></tr></table></figure>
+<p><img src="/SonarQube-安装部署/./sonarqube1.jpg" alt></p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> </li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">添加：</span></span><br><span class="line">vm.max_map_count=262144</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">验证：</span></span><br><span class="line">sysctl -p | grep vm.max_map_count</span><br></pre></td></tr></table></figure>
+<h4 id="访问SonarQube"><a href="#访问SonarQube" class="headerlink" title="访问SonarQube"></a>访问SonarQube</h4><h5 id="登录系统"><a href="#登录系统" class="headerlink" title="登录系统"></a>登录系统</h5><p>访问ip:9000</p>
+<p><img src="/SonarQube-安装部署/./sonarqube2.jpg" alt></p>
+<p>登录用户名密码：admin，admin</p>
+<p><img src="/SonarQube-安装部署/./sonarqube2-1.jpg" alt></p>
+<h5 id="安装中文包"><a href="#安装中文包" class="headerlink" title="安装中文包"></a>安装中文包</h5><p>Administration–Marketplace</p>
+<p><img src="/SonarQube-安装部署/./sonarqube3.jpg" alt></p>
 
-      
-        
-          
-          安装部署Docker方式下载镜像12docker pull postgresdocker pull sonarqube
-启动postgresql1docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres
-启动sonarqube1docker run --name sq --link db -
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/SonarQube-安装部署/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Linux-tree命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Linux-tree命令/" itemprop="url">Linux-tree命令</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Linux-tree命令/" class="post-title-link" itemprop="url">Linux-tree命令</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T16:59:32+08:00">
-                2019-07-16
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-07-16 16:59:32 / Modified: 16:59:47" itemprop="dateCreated datePublished" datetime="2019-07-16T16:59:32+08:00">2019-07-16</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/Linux-tree命令/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Linux-tree命令/" class="cy_cmt_count" data-xid="Linux-tree命令/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  493
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1811,170 +795,62 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>tree</p>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>tree命令的中文意思为“树”，功能是以树形结构列出指定目录下的所有内容，包括所有文件、子目录及子目录里的目录和文件。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y tree</span><br></pre></td></tr></table></figure>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">-a 显示所有文件和目录。</span><br><span class="line">-A 使用ASNI绘图字符显示树状图而非以ASCII字符组合。</span><br><span class="line">-C 在文件和目录清单加上色彩，便于区分各种类型。</span><br><span class="line">-d 显示目录名称而非内容。</span><br><span class="line">-D 列出文件或目录的更改时间。</span><br><span class="line">-f 在每个文件或目录之前，显示完整的相对路径名称。</span><br><span class="line">-F 在执行文件，目录，Socket，符号连接，管道名称名称，各自加上&quot;*&quot;,&quot;/&quot;,&quot;=&quot;,&quot;@&quot;,&quot;|&quot;号。</span><br><span class="line">-g 列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码。</span><br><span class="line">-i 不以阶梯状列出文件或目录名称。</span><br><span class="line">-I 不显示符合范本样式的文件或目录名称。</span><br><span class="line">-l 如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录。</span><br><span class="line">-n 不在文件和目录清单加上色彩。</span><br><span class="line">-N 直接列出文件和目录名称，包括控制字符。</span><br><span class="line">-p 列出权限标示。</span><br><span class="line">-P 只显示符合范本样式的文件或目录名称。</span><br><span class="line">-q 用&quot;?&quot;号取代控制字符，列出文件和目录名称。</span><br><span class="line">-s 列出文件或目录大小。</span><br><span class="line">-t 用文件和目录的更改时间排序。</span><br><span class="line">-u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。</span><br><span class="line">-x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。</span><br></pre></td></tr></table></figure>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@ops-jenkins-master test]# tree k8s/</span><br><span class="line">k8s/</span><br><span class="line">└── ingress</span><br><span class="line">    ├── Dockerfile</span><br><span class="line">    ├── nginx.tmpl</span><br><span class="line">    └── nginx.tmpl-bak</span><br><span class="line"></span><br><span class="line">1 directory, 3 files</span><br></pre></td></tr></table></figure>
 
-      
-        
-          
-          tree
-概述tree命令的中文意思为“树”，功能是以树形结构列出指定目录下的所有内容，包括所有文件、子目录及子目录里的目录和文件。
-安装1yum install -y tree
-参数1234567891011121314151617181920-a 显示所有文件和目录。-A 使用ASNI绘图字符显示树状图而非以ASCII字符组合。-C 在文件和目录清单加上色彩，便于区分各种类型。-d 显示目录名
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Linux-tree命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Helm-简化应用部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="GeekSRE">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Helm-简化应用部署/" itemprop="url">Helm-简化应用部署</a></h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Helm-简化应用部署/" class="post-title-link" itemprop="url">Helm-简化应用部署</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
+              <span class="post-meta-item-text">Posted on</span>
               
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T14:18:08+08:00">
-                2019-07-16
-              </time>
-            
 
-            
-
-            
-          </span>
+              <time title="Created: 2019-07-16 14:18:08 / Modified: 14:18:45" itemprop="dateCreated datePublished" datetime="2019-07-16T14:18:08+08:00">2019-07-16</time>
+            </span>
 
           
 
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/Helm-简化应用部署/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://yoursite.com/Helm-简化应用部署/" class="cy_cmt_count" data-xid="Helm-简化应用部署/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  927
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </span></div>
+        </div>
       </header>
-    
 
     
     
@@ -1982,61 +858,78 @@ ZIPzip是个使用广泛的压缩程序，文件经它压缩后会另外产生�
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>参考链接</p>
+<p><a href="https://help.aliyun.com/document_detail/86511.html" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/86511.html</a></p>
+<p>在 Kubernetes 中，应用管理是需求最多、挑战最大的领域。Helm 项目提供了一个统一软件打包方式，支持版本控制，可以大大简化 Kubernetes 应用分发与部署中的复杂性。</p>
+<p>阿里云容器服务在应用目录管理功能中集成了 Helm 工具，并进行了功能扩展，支持官方 Repository，让您快速部署应用。您可以通过命令行或容器服务控制台界面两种方式进行部署。</p>
+<h4 id="Helm-基本概念"><a href="#Helm-基本概念" class="headerlink" title="Helm 基本概念"></a>Helm 基本概念</h4><p>Helm 是由 <a href="https://helm.sh/docs/" target="_blank" rel="noopener">Deis</a> 发起的一个开源工具，有助于简化部署和管理 Kubernetes 应用。</p>
+<p>Helm 可以理解为 Kubernetes 的包管理工具，可以方便地发现、共享和使用为 Kubernetes 构建的应用，它包含几个基本概念</p>
+<ul>
+<li><strong>Chart</strong>：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义，类似 Homebrew 中的 formula、APT 的 dpkg 或者 Yum 的 rpm 文件。</li>
+<li><strong>Release</strong>：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。</li>
+<li><strong>Repository</strong>：用于发布和存储 Chart 的存储库。</li>
+</ul>
+<h4 id="Helm-组件"><a href="#Helm-组件" class="headerlink" title="Helm 组件"></a>Helm 组件</h4><p>Helm 采用客户端/服务器架构，由如下组件组成：</p>
+<ul>
+<li>Helm CLI 是 Helm 客户端，可以在 Kubernetes 集群的 master 节点或者本地执行。</li>
+<li>Tiller 是服务器端组件，在 Kubernetes 集群上运行，并管理 Kubernetes 应用程序的生命周期。</li>
+<li>Repository 是 Chart 存储库，Helm 客户端通过 HTTP 协议来访问存储库中 Chart 的索引文件和压缩包。</li>
+</ul>
+<h4 id="安装配置-Helm-CLI"><a href="#安装配置-Helm-CLI" class="headerlink" title="安装配置 Helm CLI"></a>安装配置 Helm CLI</h4><ol>
+<li><p>安装和配置kubectl</p>
+</li>
+<li><p>安装heml</p>
+<p><a href="https://github.com/helm/helm/releases" target="_blank" rel="noopener">https://github.com/helm/helm/releases</a></p>
+<p>安装方法，参见 <a href="https://github.com/kubernetes/helm/blob/master/docs/install.md?spm=a2c4g.11186623.2.27.44516a3fjdfubX&amp;file=install.md" target="_blank" rel="noopener">Install Helm</a>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 1、获取安装包</span><br><span class="line">wget https://get.helm.sh/helm-v2.14.2-linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 2、解压</span><br><span class="line">tar zxf helm-v2.14.2-linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 3、Find the helm binary in the unpacked directory, and move it to its desired destination</span><br><span class="line">mv linux-amd64/helm /usr/local/bin/helm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 4、验证</span><br><span class="line">helm help</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 Helm 的 Repository。这里我们使用了阿里云容器服务提供的 Charts 存储库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">helm init --client-only --stable-repo-url https://aliacs-app-catalog.oss-cn-hangzhou.aliyuncs.com/charts/</span><br><span class="line">helm repo add incubator https://aliacs-app-catalog.oss-cn-hangzhou.aliyuncs.com/charts-incubator/</span><br><span class="line">helm repo update</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Helm基础操作"><a href="#Helm基础操作" class="headerlink" title="Helm基础操作"></a>Helm基础操作</h4><ul>
+<li><p>若要查看在集群上安装的 Charts 列表，请键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm list</span><br></pre></td></tr></table></figure>
+<p>或者缩写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若要查看存储库配置，请键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm repo list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若要查看或搜索存储库中的 Helm charts，请键入以下任一命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">helm search </span><br><span class="line">helm search 存储库名称 #如 stable 或 incubator</span><br><span class="line">helm search chart名称 #如 wordpress 或 spark</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若要更新 charts 列表以获取最新版本，请键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm repo update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm delete --purge &quot;myspark&quot;</span><br></pre></td></tr></table></figure>
+<p>有关 Helm 使用的详细信息，请参阅 <a href="https://github.com/kubernetes/helm" target="_blank" rel="noopener">Helm项目</a>。</p>
+</li>
+</ul>
+<h4 id="使用第三方的-Chart-存储库"><a href="#使用第三方的-Chart-存储库" class="headerlink" title="使用第三方的 Chart 存储库"></a>使用第三方的 Chart 存储库</h4><p>您除了可以使用预置的阿里云的 Chart 存储库，也可以使用第三方的 Chart 存储库（前提是网络是可达的）。使用如下命令格式添加第三方 Chart 存储库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">helm repo add 存储库名 存储库URL</span><br><span class="line">helm repo update</span><br></pre></td></tr></table></figure>
+<p>关于 Helm 相关命令的说明，您可以参阅 <a href="https://docs.helm.sh/helm/#helm-repo-add" target="_blank" rel="noopener">Helm 文档</a></p>
+<h4 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h4><p>Helm 催生了社区的发展壮大，越来越多的软件提供商，如 Bitnami 等公司，开始提供高质量的 Charts。您可以在 <code>https://kubeapps.com/</code> 中寻找和发现已有的 Charts。</p>
 
-      
-        
-          
-          参考链接
-https://help.aliyun.com/document_detail/86511.html
-在 Kubernetes 中，应用管理是需求最多、挑战最大的领域。Helm 项目提供了一个统一软件打包方式，支持版本控制，可以大大简化 Kubernetes 应用分发与部署中的复杂性。
-阿里云容器服务在应用目录管理功能中集成了 Helm 工具，并进行了功能扩展，支持官方 Reposito
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Helm-简化应用部署/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
 
     
-
     
-
     
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
-  </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2044,117 +937,141 @@ https://help.aliyun.com/document_detail/86511.html
           </div>
           
 
-
-          
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">GeekSRE</p>
-              <p class="site-description motion-element" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">66</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">GeekSRE</p>
+  <div class="site-description" itemprop="description">Geek丨从贬义走向褒义，从离经叛道走向时代潮流</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
           
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/GeekSRE" title="GitHub → https://github.com/GeekSRE" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:vip@zhaohongye.com" title="E-Mail → mailto:vip@zhaohongye.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
-          
 
-          
-          
 
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+        
 
+        
+
+<div class="copyright">
   
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵宏业</span>
+</div>
+<img src="http://www.beian.gov.cn/portal/download">
+<a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">ICP证: 京ICP备17002268号</a>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
 
@@ -2164,483 +1081,57 @@ https://help.aliyun.com/document_detail/86511.html
 
 
 
-
-        
-
-
-
-
-
-
-
-        
       </div>
     </footer>
-
-    
-
-    
-
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
   }
+});
 </script>
 
 
 
-
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-  
-    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyufM0rw3"></script>
-  
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
 
   
 
@@ -2648,5 +1139,3 @@ https://help.aliyun.com/document_detail/86511.html
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
-<!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
