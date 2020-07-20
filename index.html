@@ -389,7 +389,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-20 18:37:01" itemprop="dateModified" datetime="2020-07-20T18:37:01+08:00">2020-07-20</time>
+                <time title="Modified: 2020-07-20 18:48:08" itemprop="dateModified" datetime="2020-07-20T18:48:08+08:00">2020-07-20</time>
               </span>
 
           
@@ -403,9 +403,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-<div class="pdfobject-container" data-target="./深入浅出Kubernetes.pdf" data-height="500px"></div>
-
+          <p>do what you loveeee<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/深入浅出Kubernetes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -447,10 +453,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-07 14:55:47 / Modified: 14:56:48" itemprop="dateCreated datePublished" datetime="2020-07-07T14:55:47+08:00">2020-07-07</time>
+              <time title="Created: 2020-07-07 14:55:47" itemprop="dateCreated datePublished" datetime="2020-07-07T14:55:47+08:00">2020-07-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-20 18:48:37" itemprop="dateModified" datetime="2020-07-20T18:48:37+08:00">2020-07-20</time>
+              </span>
 
           
 
@@ -463,8 +475,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <div class="pdfobject-container" data-target="./阿里巴巴DevOps实践手册.pdf" data-height="500px"></div>
-
+          <p>do what you loveeee<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/阿里巴巴DevOps实践手册/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -506,10 +525,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-07 14:47:21 / Modified: 14:51:18" itemprop="dateCreated datePublished" datetime="2020-07-07T14:47:21+08:00">2020-07-07</time>
+              <time title="Created: 2020-07-07 14:47:21" itemprop="dateCreated datePublished" datetime="2020-07-07T14:47:21+08:00">2020-07-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-20 18:48:54" itemprop="dateModified" datetime="2020-07-20T18:48:54+08:00">2020-07-20</time>
+              </span>
 
           
 
@@ -522,57 +547,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Django中使用Celery实现异步或定时任务</p>
-<p><strong>Celery 官网：<a href="http://www.celeryproject.org/" target="_blank" rel="noopener">http://www.celeryproject.org/</a></strong></p>
-<p><strong>Celery 官方文档英文版</strong>：<a href="http://docs.celeryproject.org/en/latest/index.html" target="_blank" rel="noopener"><strong>http://docs.celeryproject.org/en/latest/index.html</strong></a></p>
-<p><strong>Celery 官方文档中文版：<a href="http://docs.jinkan.org/docs/celery/" target="_blank" rel="noopener">http://docs.jinkan.org/docs/celery/</a></strong></p>
-<h3 id="Celery简介"><a href="#Celery简介" class="headerlink" title="Celery简介"></a>Celery简介</h3><p>Celery是一个异步任务的调度工具。</p>
-<p>Celery 是 Distributed Task Queue，分布式任务队列，分布式决定了可以有多个 worker 的存在，队列表示其是异步操作，即存在一个产生任务提出需求的工头，和一群等着被分配工作的码农。</p>
-<p>在 Python 中定义 Celery 的时候，我们要引入 Broker，中文翻译过来就是“中间人”的意思，在这里 Broker 起到一个中间人的角色。在工头提出任务的时候，把所有的任务放到 Broker 里面，在 Broker 的另外一头，一群码农等着取出一个个任务准备着手做。</p>
-<p>这种模式注定了整个系统会是个开环系统，工头对于码农们把任务做的怎样是不知情的。所以我们要引入 Backend 来保存每次任务的结果。这个 Backend 有点像我们的 Broker，也是存储任务的信息用的，只不过这里存的是那些任务的返回结果。我们可以选择只让错误执行的任务返回结果到 Backend，这样我们取回结果，便可以知道有多少任务执行失败了。</p>
-<p>Celery(芹菜)是一个异步任务队列/基于分布式消息传递的作业队列。它侧重于实时操作，但对调度支持也很好。Celery用于生产系统每天处理数以百万计的任务。Celery是用Python编写的，但该协议可以在任何语言实现。它也可以与其他语言通过webhooks实现。Celery建议的消息队列是RabbitMQ，但提供有限支持Redis, Beanstalk, MongoDB, CouchDB, 和数据库（使用SQLAlchemy的或Django的 ORM） 。Celery是易于集成Django, Pylons and Flask，使用 django-celery, celery-pylons and Flask-Celery 附加包即可。</p>
-<h3 id="架构组成"><a href="#架构组成" class="headerlink" title="架构组成"></a>架构组成</h3><p><img src="/Django-Celery异步任务调度工具/./celery00.png" alt="celery00"></p>
-<p>Celery的架构由三部分组成，<strong><em>消息中间件</em></strong>（message broker），<strong><em>任务执行单元\</em></strong>（worker）和<strong><em>任务执行结果存储</em></strong>（task result store）组成。</p>
-<p><img src="/Django-Celery异步任务调度工具/./celery01.png" alt="celery01"></p>
-<p>可以看到，Celery 主要包含以下几个模块：</p>
-<ul>
-<li><p>任务模块 Task</p>
-<p>包含异步任务和定时任务。其中，<strong>异步任务通常在业务逻辑中被触发并发往任务队列，而定时任务由 Celery Beat 进程周期性地将任务发往任务队列</strong>。</p>
-</li>
-<li><p>消息中间件 Broker</p>
-<p>Broker，即为任务调度队列，<strong>接收任务生产者发来的消息（即任务），将任务存入队列</strong>。Celery 本身不提供队列服务，官方推荐使用 RabbitMQ 和 <a href="http://lib.csdn.net/base/redis" target="_blank" rel="noopener">Redis</a> 等。</p>
-</li>
-<li><p>任务执行单元 Worker</p>
-<p>Worker 是执行任务的处理单元，<strong>它实时监控消息队列，获取队列中调度的任务，并执行它</strong>。</p>
-</li>
-<li><p>任务结果存储 Backend</p>
-<p>Backend 用于<strong>存储任务的执行结果</strong>，以供查询。同消息中间件一样，存储也可使用 RabbitMQ, <a href="http://lib.csdn.net/base/redis" target="_blank" rel="noopener">redis</a> 和 <a href="http://lib.csdn.net/base/mongodb" target="_blank" rel="noopener">MongoDB</a> 等。</p>
-</li>
-</ul>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install celery</span><br><span class="line">pip install django-celery-beta  #任务发送</span><br><span class="line">pip install django-celery-results  #结果存储</span><br></pre></td></tr></table></figure>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>确保目录如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- proj/</span><br><span class="line">  - manage.py</span><br><span class="line">  - proj/</span><br><span class="line">    - __init__.py</span><br><span class="line">    - settings.py</span><br><span class="line">    - urls.py</span><br></pre></td></tr></table></figure>
-<p>新建<strong>proj/proj/celery.py</strong>文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab, timedelta</span><br><span class="line"></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'proj.settings'</span>)</span><br><span class="line">app = Celery(<span class="string">'proj'</span>)</span><br><span class="line"></span><br><span class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>, namespace=<span class="string">'CELERY'</span>)</span><br><span class="line"></span><br><span class="line">app.autodiscover_tasks() <span class="comment"># 自动发现任务文件每个app下的task.py</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.task(bind=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">debug_task</span><span class="params">(self)</span>:</span></span><br><span class="line">    print(<span class="string">'Request: &#123;0!r&#125;'</span>.format(self.request))</span><br></pre></td></tr></table></figure>
-<p>编辑<strong>proj/proj/<strong>init</strong>.py</strong>文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</span><br><span class="line"></span><br><span class="line">__all__ = (<span class="string">'celery_app'</span>,)</span><br></pre></td></tr></table></figure>
-<p>编辑<strong>proj/proj/settings.py</strong>文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">    ...,</span><br><span class="line">    <span class="string">'django_celery_beat'</span>,</span><br><span class="line">    <span class="string">'django_celery_results'</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Celery</span></span><br><span class="line">CELERY_URL = <span class="string">'redis://:'</span> + configs[<span class="string">'redis'</span>][<span class="string">'RedisPassword'</span>] + <span class="string">'@'</span> + configs[<span class="string">'redis'</span>][<span class="string">'RedisHost'</span>] + <span class="string">':'</span> + str(</span><br><span class="line">    configs[<span class="string">'redis'</span>][<span class="string">'RedisPort'</span>]) + <span class="string">'/'</span> + str(configs[<span class="string">'redis'</span>][<span class="string">'RedisDb'</span>])</span><br><span class="line"><span class="comment"># CELERY_URL = "redis://:&#123; 密码 &#125;@&#123; redis地址 &#125;:6379/4"</span></span><br><span class="line">BROKER_URL = CELERY_URL</span><br><span class="line">CELERY_BROKER_URL = CELERY_URL</span><br><span class="line"><span class="comment"># CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'</span></span><br><span class="line"><span class="comment"># CELERY_RESULT_BACKEND = CELERY_URL</span></span><br><span class="line">CELERY_RESULT_BACKEND = <span class="string">'django-db'</span>  <span class="comment"># 使用django orm 作为结果存储</span></span><br><span class="line"></span><br><span class="line">CELERY_ACCEPT_CONTENT = [<span class="string">'application/json'</span>]</span><br><span class="line">CELERY_TASK_SERIALIZER = <span class="string">'json'</span></span><br><span class="line">CELERY_RESULT_SERIALIZER = <span class="string">'json'</span></span><br><span class="line">CELERY_TIMEZONE = <span class="string">'Asia/Shanghai'</span></span><br><span class="line">CELERY_ENABLE_UTC = <span class="literal">True</span></span><br><span class="line">CELERYD_CONCURRENCY = <span class="number">10</span></span><br></pre></td></tr></table></figure>
-<h4 id="同步数据库"><a href="#同步数据库" class="headerlink" title="同步数据库"></a>同步数据库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 1. 创建更改的文件</span><br><span class="line">python manage.py makemigrations</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span> 2. 将生成的py文件应用到数据库</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
-<h4 id="创建超级管理员"><a href="#创建超级管理员" class="headerlink" title="创建超级管理员"></a>创建超级管理员</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 按照提示输入用户名和对应的密码就好了邮箱可以留空，用户名和密码必填</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span> 修改 用户密码可以用：</span><br><span class="line">python manage.py changepassword username</span><br></pre></td></tr></table></figure>
-<h4 id="增加定时任务"><a href="#增加定时任务" class="headerlink" title="增加定时任务"></a>增加定时任务</h4><p>编辑<strong>proj/proj/celery.py</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">app.conf.update(</span><br><span class="line">    CELERYBEAT_SCHEDULE=&#123;</span><br><span class="line">        <span class="string">'task_update_ali_ecs'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'assets.tasks.task_update_ali_ecs'</span>,</span><br><span class="line">            <span class="string">'schedule'</span>: timedelta(minutes=<span class="number">60</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'task_update_ali_rds'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'assets.tasks.task_update_ali_rds'</span>,</span><br><span class="line">            <span class="string">'schedule'</span>: timedelta(minutes=<span class="number">60</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'task_update_ali_slb'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'assets.tasks.task_update_ali_slb'</span>,</span><br><span class="line">            <span class="string">'schedule'</span>: timedelta(minutes=<span class="number">60</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'task_update_tx_cns'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'assets.tasks.task_update_tx_cns'</span>,</span><br><span class="line">            <span class="string">'schedule'</span>: timedelta(minutes=<span class="number">60</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">'add-every-monday-morning'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'tasks.add'</span>,</span><br><span class="line">            <span class="string">'schedule'</span>: crontab(hour=<span class="number">7</span>, minute=<span class="number">30</span>, day_of_week=<span class="number">1</span>),</span><br><span class="line">            <span class="string">'args'</span>: (<span class="number">16</span>, <span class="number">16</span>),</span><br><span class="line">    		&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">#https://docs.celeryproject.org/en/stable/userguide/periodic-tasks.html#crontab-schedules</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># schedule 可以填写timedelta表示循环时间，隔多久执行一次</span></span><br><span class="line"><span class="comment">#          也可以填写 crontab  表示某个时间去执行，例如示例中，表示 Executes every Monday morning at 7:30 a.m.</span></span><br></pre></td></tr></table></figure>
-<h4 id="新增任务的代码"><a href="#新增任务的代码" class="headerlink" title="新增任务的代码"></a>新增任务的代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from django_celery_beat.models import PeriodicTask, ClockedSchedule</span><br><span class="line"></span><br><span class="line">#比如创建一个发版任务</span><br><span class="line"># 1.新创建时间clockschedule</span><br><span class="line">clock, create = ClockedSchedule.objects.get_or_create(clocked_time=db_deploy_time)</span><br><span class="line"></span><br><span class="line"># 2.创建任务</span><br><span class="line">PeriodicTask.objects.create(</span><br><span class="line">                                clocked=clock,</span><br><span class="line">                                name=&apos;vrigo-deploy_&apos; + db_data[&apos;service_list&apos;] + &apos;-&apos; + str(db_deploy_time),</span><br><span class="line">                                task=&apos;services.tasks.task_build_job&apos;,</span><br><span class="line">                                args=json.dumps([services, int(id)]),</span><br><span class="line">                                start_time=datetime.datetime.now(),</span><br><span class="line">                                one_off=True,</span><br><span class="line">                            )</span><br></pre></td></tr></table></figure>
-<p><strong>services/tasks.py</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab</span><br><span class="line"><span class="keyword">from</span> services.api.jenkins <span class="keyword">import</span> JenkinsApi</span><br><span class="line"><span class="keyword">from</span> services.views <span class="keyword">import</span> task_result_to_db</span><br><span class="line"><span class="keyword">from</span> users.api.mail <span class="keyword">import</span> send_mail</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">task_build_job</span><span class="params">(service,id)</span>:</span></span><br><span class="line">    obj = JenkinsApi()</span><br><span class="line">    data = obj.build_job(service)   <span class="comment">#触发jenkins job</span></span><br><span class="line">    <span class="comment"># id = kwargs.get("id", 10)</span></span><br><span class="line">    to_db = task_result_to_db(id, data)  <span class="comment">#将结果存入db中</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">celery -A proj beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler</span><br><span class="line"></span><br><span class="line">celery worker -A virgo -l info</span><br><span class="line"></span><br><span class="line">python3 manage.py runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
-<p><img src="/Django-Celery异步任务调度工具/./celery02.png" alt></p>
-<h3 id="flower"><a href="#flower" class="headerlink" title="flower"></a>flower</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flower</span><br></pre></td></tr></table></figure>
-<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery flower -A virgo -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler</span><br></pre></td></tr></table></figure>
-<p><img src="/Django-Celery异步任务调度工具/./celery03.png" alt></p>
-<p><img src="/Django-Celery异步任务调度工具/./celery04.png" alt></p>
-<p><img src="/Django-Celery异步任务调度工具/./celery05.png" alt></p>
-
+          <p>do what you loveeee<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Django-Celery异步任务调度工具/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -614,10 +597,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-07-03 10:51:51 / Modified: 10:53:58" itemprop="dateCreated datePublished" datetime="2020-07-03T10:51:51+08:00">2020-07-03</time>
+              <time title="Created: 2020-07-03 10:51:51" itemprop="dateCreated datePublished" datetime="2020-07-03T10:51:51+08:00">2020-07-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-20 18:49:14" itemprop="dateModified" datetime="2020-07-20T18:49:14+08:00">2020-07-20</time>
+              </span>
 
           
 
@@ -630,15 +619,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Nexus手动上传依赖包</p>
-<ol>
-<li>选择仓库Repositories</li>
-<li>Artifact Upload，填写信息，选择文件</li>
-<li>验证</li>
-</ol>
-<p><img src="/Nexus手动上传依赖包/./WechatIMG1.png" alt="WechatIMG1"></p>
-<p><img src="/Nexus手动上传依赖包/./WechatIMG2.png" alt="WechatIMG2"></p>
-
+          <p>do what you loveeee<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Nexus手动上传依赖包/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -680,10 +669,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-26 09:37:27 / Modified: 09:47:16" itemprop="dateCreated datePublished" datetime="2019-11-26T09:37:27+08:00">2019-11-26</time>
+              <time title="Created: 2019-11-26 09:37:27" itemprop="dateCreated datePublished" datetime="2019-11-26T09:37:27+08:00">2019-11-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-20 18:49:35" itemprop="dateModified" datetime="2020-07-20T18:49:35+08:00">2020-07-20</time>
+              </span>
 
           
 
@@ -696,12 +691,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="现象："><a href="#现象：" class="headerlink" title="现象："></a>现象：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f logs/catalina.out</span><br></pre></td></tr></table></figure>
-<p><img src="/Confluence数据库SSL警告/image-20191126092908807.png" alt="image-20191126092908807"><br>可以看到有很多报警信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tue Nov 26 09:13:39 CST 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">警告:在没有SSL连接的情况下建立SSL连接不建议使用服务器的身份验证。根据MySQL5.5.45+、5.6.26+和5.7.6+要求必须建立SSL连接默认情况下，如果没有设置显式选项不使用SSL的应用程序将verifyServerCertificate属性设置为“false”。您需要通过设置useSSL=false显式禁用SSL，或设置useSSL=true，并为服务器证书提供信任存储验证</span><br></pre></td></tr></table></figure>
-<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 1、进入confluence的data-home目录；</span><br><span class="line">cd /data/vcg/confluence-home</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 2、备份配置文件</span><br><span class="line">cp confluence.cfg.xml confluence.cfg.xml-bak191126</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 3、修改内容</span><br><span class="line"></span><br><span class="line">vim confluence.cfg.xml</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 数据库连接后增加 ?useSSL=false</span><br><span class="line"><span class="meta">#</span> 如下：</span><br><span class="line">    &lt;property name="hibernate.connection.url"&gt;jdbc:mysql://rm-2zey0d751uapi749y35890.mysql.rds.aliyuncs.com:3306/confluence?useSSL=false&lt;/property&gt;</span><br><span class="line">    </span><br><span class="line"><span class="meta">#</span> 4、重启confluence</span><br></pre></td></tr></table></figure>
-
+          <p>do what you loveeee<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Confluence数据库SSL警告/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -743,10 +741,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-08-15 16:44:30 / Modified: 16:44:46" itemprop="dateCreated datePublished" datetime="2019-08-15T16:44:30+08:00">2019-08-15</time>
+              <time title="Created: 2019-08-15 16:44:30" itemprop="dateCreated datePublished" datetime="2019-08-15T16:44:30+08:00">2019-08-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-20 18:50:12" itemprop="dateModified" datetime="2020-07-20T18:50:12+08:00">2020-07-20</time>
+              </span>
 
           
 
@@ -759,30 +763,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。</p>
-<p>目前如果你在 <a href="https://www.python.org/" target="_blank" rel="noopener">python.org</a> 下载最新版本的安装包，则是已经自带了该工具。</p>
-<p>Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。</p>
-<p>pip 官网：<a href="https://pypi.org/project/pip/" target="_blank" rel="noopener">https://pypi.org/project/pip/</a></p>
-<p>你可以通过以下命令来判断是否已安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --version</span><br></pre></td></tr></table></figure>
-<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>如果你还未安装，则可以使用以下方法来安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载安装脚本</span></span><br><span class="line">curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   </span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure>
-<h5 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h5><h6 id="显示版本和路径"><a href="#显示版本和路径" class="headerlink" title="显示版本和路径"></a>显示版本和路径</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zhaohongye ~ ^-^ #pip --version</span><br><span class="line">pip 19.2.2 from /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pip (python 3.7)</span><br></pre></td></tr></table></figure>
-<h6 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a><strong>获取帮助</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --help</span><br></pre></td></tr></table></figure>
-<h6 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install -U pip</span><br><span class="line"></span><br><span class="line">easy_install --upgrade pip</span><br></pre></td></tr></table></figure>
-<h6 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a><strong>安装包</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install SomePackage              # 最新版本</span><br><span class="line">pip install SomePackage==1.0.4       # 指定版本</span><br><span class="line">pip install &apos;SomePackage&gt;=1.0.4&apos;     # 最小版本</span><br></pre></td></tr></table></figure>
-<h6 id="升级包"><a href="#升级包" class="headerlink" title="升级包"></a>升级包</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade SomePackage</span><br></pre></td></tr></table></figure>
-<h6 id="卸载包"><a href="#卸载包" class="headerlink" title="卸载包"></a>卸载包</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall SomePackage</span><br></pre></td></tr></table></figure>
-<h5 id="配置国内源"><a href="#配置国内源" class="headerlink" title="配置国内源"></a>配置国内源</h5><p>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a></p>
-<p>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
-<p>豆瓣 (douban) <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a></p>
-<p>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
-<p>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a></p>
-<p><strong>配置方法</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在文件</span><br><span class="line"></span><br><span class="line">~/.pip/pip.conf</span><br><span class="line">中添加或修改:</span><br><span class="line"></span><br><span class="line">[global]</span><br><span class="line">index-url = https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
-<h5 id="pip-review"><a href="#pip-review" class="headerlink" title="pip-review"></a>pip-review</h5><h6 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pip-review</span><br></pre></td></tr></table></figure>
-<h6 id="批量更新"><a href="#批量更新" class="headerlink" title="批量更新"></a>批量更新</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip-review --auto</span><br></pre></td></tr></table></figure>
-
+          <p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/pip-学习笔记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -824,10 +813,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-08-15 16:29:47 / Modified: 16:30:01" itemprop="dateCreated datePublished" datetime="2019-08-15T16:29:47+08:00">2019-08-15</time>
+              <time title="Created: 2019-08-15 16:29:47" itemprop="dateCreated datePublished" datetime="2019-08-15T16:29:47+08:00">2019-08-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-20 18:50:35" itemprop="dateModified" datetime="2020-07-20T18:50:35+08:00">2020-07-20</time>
+              </span>
 
           
 
@@ -840,16 +835,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>CentOS7安装MariaDB</p>
-<p><a href="https://mariadb.com/kb/en/library/yum/" target="_blank" rel="noopener">https://mariadb.com/kb/en/library/yum/</a></p>
-<h5 id="配置YUM源"><a href="#配置YUM源" class="headerlink" title="配置YUM源"></a>配置YUM源</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/MariaDB.repo</span><br><span class="line"></span><br><span class="line">[mariadb]</span><br><span class="line">name = MariaDB</span><br><span class="line">baseurl = http://yum.mariadb.org/10.1/centos7-amd64</span><br><span class="line">gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
-<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install MariaDB-server MariaDB-client</span><br></pre></td></tr></table></figure>
-<p>启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mariadb</span><br></pre></td></tr></table></figure>
-<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><h6 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB</span><br><span class="line">      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!</span><br><span class="line"></span><br><span class="line">In order to log into MariaDB to secure it, we&apos;ll need the current</span><br><span class="line">password for the root user.  If you&apos;ve just installed MariaDB, and</span><br><span class="line">you haven&apos;t set the root password yet, the password will be blank,</span><br><span class="line">so you should just press enter here.</span><br><span class="line"></span><br><span class="line">Enter current password for root (enter for none):</span><br><span class="line">OK, successfully used password, moving on...</span><br><span class="line"></span><br><span class="line">Setting the root password ensures that nobody can log into the MariaDB</span><br><span class="line">root user without the proper authorisation.</span><br><span class="line"></span><br><span class="line">Set root password? [Y/n] y</span><br><span class="line">New password:</span><br><span class="line">Re-enter new password:</span><br><span class="line">Password updated successfully!</span><br><span class="line">Reloading privilege tables..</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">By default, a MariaDB installation has an anonymous user, allowing anyone</span><br><span class="line">to log into MariaDB without having to have a user account created for</span><br><span class="line">them.  This is intended only for testing, and to make the installation</span><br><span class="line">go a bit smoother.  You should remove them before moving into a</span><br><span class="line">production environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? [Y/n] y</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from &apos;localhost&apos;.  This</span><br><span class="line">ensures that someone cannot guess at the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? [Y/n] n</span><br><span class="line"> ... skipping.</span><br><span class="line"></span><br><span class="line">By default, MariaDB comes with a database named &apos;test&apos; that anyone can</span><br><span class="line">access.  This is also intended only for testing, and should be removed</span><br><span class="line">before moving into a production environment.</span><br><span class="line"></span><br><span class="line">Remove test database and access to it? [Y/n] y</span><br><span class="line"> - Dropping test database...</span><br><span class="line"> ... Success!</span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes made so far</span><br><span class="line">will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? [Y/n] y</span><br><span class="line"> ... Success!</span><br><span class="line"></span><br><span class="line">Cleaning up...</span><br><span class="line"></span><br><span class="line">All done!  If you&apos;ve completed all of the above steps, your MariaDB</span><br><span class="line">installation should now be secure.</span><br><span class="line"></span><br><span class="line">Thanks for using MariaDB!</span><br></pre></td></tr></table></figure>
-<h6 id="配置远程登录"><a href="#配置远程登录" class="headerlink" title="配置远程登录"></a>配置远程登录</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录数据库</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line"><span class="comment"># 授权</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'virgo'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span><br></pre></td></tr></table></figure>
-
+          <p>do what you loveeee<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/CentOS7安装MariaDB/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -891,10 +885,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-08-15 16:28:20 / Modified: 16:28:53" itemprop="dateCreated datePublished" datetime="2019-08-15T16:28:20+08:00">2019-08-15</time>
+              <time title="Created: 2019-08-15 16:28:20" itemprop="dateCreated datePublished" datetime="2019-08-15T16:28:20+08:00">2019-08-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-20 18:50:51" itemprop="dateModified" datetime="2020-07-20T18:50:51+08:00">2020-07-20</time>
+              </span>
 
           
 
@@ -907,13 +907,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Docker容器网络抓包案例</p>
-<p>使用宿主机上的tcpdump工具对容器进程抓包</p>
-<h5 id="获取容器PID"><a href="#获取容器PID" class="headerlink" title="获取容器PID"></a>获取容器PID</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 获取容器ID</span><br><span class="line">docker ps |grep xxx </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 获取PID</span><br><span class="line">docker inspect --format "&#123;&#123;.State.Pid&#125;&#125;"  container_id/name</span><br></pre></td></tr></table></figure>
-<h5 id="使用nsenter切换网络命令空间"><a href="#使用nsenter切换网络命令空间" class="headerlink" title="使用nsenter切换网络命令空间"></a>使用nsenter切换网络命令空间</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nsenter -n -t container_id/name</span><br></pre></td></tr></table></figure>
-<h5 id="使用tcpdump抓包"><a href="#使用tcpdump抓包" class="headerlink" title="使用tcpdump抓包"></a>使用tcpdump抓包</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -vvv -s0 -w tcpdump-contract.pcap</span><br><span class="line">tcpdump -vvv -s0 host 10.10.4.63 -w tcpdump-edge2.pcap</span><br></pre></td></tr></table></figure>
-<h5 id="完整操作记录："><a href="#完整操作记录：" class="headerlink" title="完整操作记录："></a>完整操作记录：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@iz2zeh8rkwrmvh0e3t9x29z ~]# docker ps |grep contract</span><br><span class="line">55b1fdb7a079        registry-vpc.cn-beijing.aliyuncs.com/vcg/vcg-boss-contract                   "/bin/sh -c 'java ..."   4 days ago          Up 4 days                               k8s_vcg-boss-contract_vcg-boss-contract-55cd566f74-m2m72_default_7bf56757-b9b6-11e9-afe7-00163e0e2421_0</span><br><span class="line">f372c163217f        registry-vpc.cn-beijing.aliyuncs.com/acs/pause-amd64:3.0                     "/pause"                 4 days ago          Up 4 days                               k8s_POD_vcg-boss-contract-55cd566f74-m2m72_default_7bf56757-b9b6-11e9-afe7-00163e0e2421_0</span><br><span class="line">[root@iz2zeh8rkwrmvh0e3t9x29z ~]# docker inspect --format "&#123;&#123;.State.Pid&#125;&#125;" 55b1fdb7a079</span><br><span class="line">9421</span><br><span class="line">[root@iz2zeh8rkwrmvh0e3t9x29z ~]# nsenter -n -t 9421</span><br><span class="line">[root@iz2zeh8rkwrmvh0e3t9x29z ~]# tcpdump -vvv -s0 host 10.10.4.138 -w tcpdump-contract.pcap</span><br><span class="line">tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes</span><br><span class="line">0 packets captured</span><br><span class="line">0 packets received by filter</span><br><span class="line">0 packets dropped by kernel</span><br></pre></td></tr></table></figure>
-
+          <p>do what you loveeee<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Docker容器网络抓包案例/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1051,7 +1053,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">赵宏业</span>
 </div>
-<img src="http://www.beian.gov.cn/portal/download">
 <a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">ICP证: 京ICP备17002268号</a>
 
         

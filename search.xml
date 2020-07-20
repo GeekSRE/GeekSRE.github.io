@@ -72,7 +72,7 @@
   <entry>
     <title>CentOS7安装MariaDB</title>
     <url>/CentOS7%E5%AE%89%E8%A3%85MariaDB/</url>
-    <content><![CDATA[<p>CentOS7安装MariaDB</p>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br>CentOS7安装MariaDB</p>
 <p><a href="https://mariadb.com/kb/en/library/yum/" target="_blank" rel="noopener">https://mariadb.com/kb/en/library/yum/</a></p>
 <h5 id="配置YUM源"><a href="#配置YUM源" class="headerlink" title="配置YUM源"></a>配置YUM源</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/MariaDB.repo</span><br><span class="line"></span><br><span class="line">[mariadb]</span><br><span class="line">name = MariaDB</span><br><span class="line">baseurl = http://yum.mariadb.org/10.1/centos7-amd64</span><br><span class="line">gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
 <h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install MariaDB-server MariaDB-client</span><br></pre></td></tr></table></figure>
@@ -148,7 +148,8 @@
   <entry>
     <title>Confluence数据库SSL警告</title>
     <url>/Confluence%E6%95%B0%E6%8D%AE%E5%BA%93SSL%E8%AD%A6%E5%91%8A/</url>
-    <content><![CDATA[<h3 id="现象："><a href="#现象：" class="headerlink" title="现象："></a>现象：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f logs/catalina.out</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a></p>
+<h3 id="现象："><a href="#现象：" class="headerlink" title="现象："></a>现象：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -f logs/catalina.out</span><br></pre></td></tr></table></figure>
 <p><img src="/Confluence数据库SSL警告/image-20191126092908807.png" alt="image-20191126092908807"><br>可以看到有很多报警信息：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Tue Nov 26 09:13:39 CST 2019 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">警告:在没有SSL连接的情况下建立SSL连接不建议使用服务器的身份验证。根据MySQL5.5.45+、5.6.26+和5.7.6+要求必须建立SSL连接默认情况下，如果没有设置显式选项不使用SSL的应用程序将verifyServerCertificate属性设置为“false”。您需要通过设置useSSL=false显式禁用SSL，或设置useSSL=true，并为服务器证书提供信任存储验证</span><br></pre></td></tr></table></figure>
@@ -191,7 +192,7 @@
   <entry>
     <title>Django-Celery异步任务调度工具</title>
     <url>/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<p>Django中使用Celery实现异步或定时任务</p>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br>Django中使用Celery实现异步或定时任务</p>
 <p><strong>Celery 官网：<a href="http://www.celeryproject.org/" target="_blank" rel="noopener">http://www.celeryproject.org/</a></strong></p>
 <p><strong>Celery 官方文档英文版</strong>：<a href="http://docs.celeryproject.org/en/latest/index.html" target="_blank" rel="noopener"><strong>http://docs.celeryproject.org/en/latest/index.html</strong></a></p>
 <p><strong>Celery 官方文档中文版：<a href="http://docs.jinkan.org/docs/celery/" target="_blank" rel="noopener">http://docs.jinkan.org/docs/celery/</a></strong></p>
@@ -312,7 +313,7 @@
   <entry>
     <title>Docker容器网络抓包案例</title>
     <url>/Docker%E5%AE%B9%E5%99%A8%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8C%85%E6%A1%88%E4%BE%8B/</url>
-    <content><![CDATA[<p>Docker容器网络抓包案例</p>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br>Docker容器网络抓包案例</p>
 <p>使用宿主机上的tcpdump工具对容器进程抓包</p>
 <h5 id="获取容器PID"><a href="#获取容器PID" class="headerlink" title="获取容器PID"></a>获取容器PID</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> 获取容器ID</span><br><span class="line">docker ps |grep xxx </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 获取PID</span><br><span class="line">docker inspect --format "&#123;&#123;.State.Pid&#125;&#125;"  container_id/name</span><br></pre></td></tr></table></figure>
 <h5 id="使用nsenter切换网络命令空间"><a href="#使用nsenter切换网络命令空间" class="headerlink" title="使用nsenter切换网络命令空间"></a>使用nsenter切换网络命令空间</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nsenter -n -t container_id/name</span><br></pre></td></tr></table></figure>
@@ -1380,7 +1381,7 @@
   <entry>
     <title>Nexus手动上传依赖包</title>
     <url>/Nexus%E6%89%8B%E5%8A%A8%E4%B8%8A%E4%BC%A0%E4%BE%9D%E8%B5%96%E5%8C%85/</url>
-    <content><![CDATA[<p>Nexus手动上传依赖包</p>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br>Nexus手动上传依赖包</p>
 <ol>
 <li>选择仓库Repositories</li>
 <li>Artifact Upload，填写信息，选择文件</li>
@@ -1615,8 +1616,7 @@
   <entry>
     <title>pip-学习笔记</title>
     <url>/pip-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。</p>
-<p>目前如果你在 <a href="https://www.python.org/" target="_blank" rel="noopener">python.org</a> 下载最新版本的安装包，则是已经自带了该工具。</p>
+    <content><![CDATA[<p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。<br><a id="more"></a><br>目前如果你在 <a href="https://www.python.org/" target="_blank" rel="noopener">python.org</a> 下载最新版本的安装包，则是已经自带了该工具。</p>
 <p>Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。</p>
 <p>pip 官网：<a href="https://pypi.org/project/pip/" target="_blank" rel="noopener">https://pypi.org/project/pip/</a></p>
 <p>你可以通过以下命令来判断是否已安装：</p>
@@ -1912,8 +1912,7 @@
   <entry>
     <title>深入浅出Kubernetes</title>
     <url>/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAKubernetes/</url>
-    <content><![CDATA[<a id="more"></a>
-<div class="pdfobject-container" data-target="./深入浅出Kubernetes.pdf" data-height="500px"></div>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br><div class="pdfobject-container" data-target="./深入浅出Kubernetes.pdf" data-height="500px"></div></p>
 ]]></content>
   </entry>
   <entry>
@@ -2094,7 +2093,7 @@
   <entry>
     <title>阿里巴巴DevOps实践手册</title>
     <url>/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4DevOps%E5%AE%9E%E8%B7%B5%E6%89%8B%E5%86%8C/</url>
-    <content><![CDATA[<div class="pdfobject-container" data-target="./阿里巴巴DevOps实践手册.pdf" data-height="500px"></div>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br><div class="pdfobject-container" data-target="./阿里巴巴DevOps实践手册.pdf" data-height="500px"></div></p>
 ]]></content>
   </entry>
 </search>
