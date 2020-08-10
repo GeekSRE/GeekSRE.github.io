@@ -193,6 +193,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Docker-镜像image/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Docker-镜像image/" class="post-title-link" itemprop="url">Docker-镜像image</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-04-23 11:17:48 / Modified: 11:24:43" itemprop="dateCreated datePublished" datetime="2019-04-23T11:17:48+08:00">2019-04-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Docker镜像是启动容器的基石。</p>
+<h4 id="什么是Docker镜像"><a href="#什么是Docker镜像" class="headerlink" title="什么是Docker镜像"></a>什么是Docker镜像</h4><hr>
+<p>Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称这样的文件为镜像。一个镜像可以迭代在另一个镜像的顶部。位于下方的镜像称之为父镜像，最底层的镜像称之为<strong>基础镜像</strong>。最后，当从一个镜像启动容器时，Docker会在最顶层加载一个读写文件系统作为容器。</p>
+<p><img src="/Docker-镜像image/Docker镜像.JPEG" alt="Docker镜像"></p>
+<p>Docker的这种机制我们称之为<strong>写时复制</strong>。</p>
+<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<p>该命令可以用于查找当前系统中所有存在的镜像列表。</p>
+<p>Ps：本地镜像默认保存在Docker宿主机的/var/lib/docker目录下。所有的镜像都是保存在仓库中，而仓库位于Registry中。默认的Registry是Docker公司运营的Docker Hub。每个镜像仓库都可以存放很多的镜像。</p>
+<h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
+<p>上述命令会拉取镜像到本地。</p>
+<p>为了区分同一个仓库中不同的镜像，Docker提供了一种tag的功能。我们可以给每个版本的镜像添加一个唯一的tag来标识该镜像。此时，镜像的名称如下：仓库名称:tag。我们在运行镜像或拉取镜像时，可以直接指定对应的标签。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry-vpc.cn-beijing.aliyuncs.com/vcgcs/jdk8:util</span><br></pre></td></tr></table></figure>
+<h4 id="查找镜像"><a href="#查找镜像" class="headerlink" title="查找镜像"></a>查找镜像</h4><hr>
+<p>从Docker Hub查找有哪些公共的可用镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search keywords</span><br></pre></td></tr></table></figure>
+<h4 id="构建Docker镜像"><a href="#构建Docker镜像" class="headerlink" title="构建Docker镜像"></a>构建Docker镜像</h4><hr>
+<p><strong>docker build</strong> 命令用于使用 Dockerfile 创建镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t runoob/ubuntu:v1 .</span><br></pre></td></tr></table></figure>
+<p>使用URL <strong>github.com/creack/docker-firefox</strong> 的 Dockerfile 创建镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build github.com/creack/docker-firefox</span><br></pre></td></tr></table></figure>
+<p>也可以通过 -f Dockerfile 文件的位置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -f /path/to/a/Dockerfile .</span><br></pre></td></tr></table></figure>
+<h4 id="登录镜像仓库"><a href="#登录镜像仓库" class="headerlink" title="登录镜像仓库"></a>登录镜像仓库</h4><p>使用阿里云容器镜像服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login --username="ops@vcg.com" --password="******" registry-vpc.cn-beijing.aliyuncs.com</span><br></pre></td></tr></table></figure>
+<h4 id="推送镜像到仓库"><a href="#推送镜像到仓库" class="headerlink" title="推送镜像到仓库"></a>推送镜像到仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcgcs/jdk8:util</span><br></pre></td></tr></table></figure>
+<h4 id="修改镜像Tag"><a href="#修改镜像Tag" class="headerlink" title="修改镜像Tag"></a>修改镜像Tag</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images  # 获取ImageId</span><br><span class="line">docker tag [ImageId] registry.cn-beijing.aliyuncs.com/vcg/500px-vcg-com:[镜像版本号]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Ansible-批量修改密码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1294,87 +1389,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Ansible-快速添加免密码认证/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Ansible-快速添加免密码认证/" class="post-title-link" itemprop="url">Ansible-快速添加免密码认证</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-08 17:33:28" itemprop="dateCreated datePublished" datetime="2019-04-08T17:33:28+08:00">2019-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-16 16:45:06" itemprop="dateModified" datetime="2019-04-16T16:45:06+08:00">2019-04-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ansible/" itemprop="url" rel="index"><span itemprop="name">Ansible</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="生成管理机的私钥和公钥"><a href="#生成管理机的私钥和公钥" class="headerlink" title="生成管理机的私钥和公钥"></a>生成管理机的私钥和公钥</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<h4 id="添加主机信息到主机清单中"><a href="#添加主机信息到主机清单中" class="headerlink" title="添加主机信息到主机清单中"></a>添加主机信息到主机清单中</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ansible/hosts</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>添加分组</span><br><span class="line">[test-k8s]</span><br><span class="line">172.20.21.249</span><br><span class="line">172.20.21.250</span><br><span class="line">172.20.21.251</span><br><span class="line">172.20.21.252</span><br><span class="line">172.20.21.253</span><br><span class="line">172.20.21.254</span><br><span class="line">172.20.21.255</span><br><span class="line">172.20.22.0</span><br><span class="line">172.20.22.1</span><br><span class="line">172.20.22.2</span><br></pre></td></tr></table></figure>
-<h4 id="配置playbook"><a href="#配置playbook" class="headerlink" title="配置playbook"></a>配置playbook</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ansible/ssh-addkey.yml</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- hosts: pro-k8s</span><br><span class="line">  gather_facts: no</span><br><span class="line"></span><br><span class="line">  tasks:</span><br><span class="line"></span><br><span class="line">  - name: install ssh key</span><br><span class="line">    authorized_key: user=root</span><br><span class="line">                    key="&#123;&#123; lookup('file', '/root/.ssh/id_rsa.pub') &#125;&#125;"</span><br><span class="line">                    state=present</span><br></pre></td></tr></table></figure>
-<h4 id="运行playbook"><a href="#运行playbook" class="headerlink" title="运行playbook"></a>运行playbook</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook -i /etc/ansible/hosts -k /etc/ansible/ssh-addkey.yml</span><br></pre></td></tr></table></figure>
-<p>输入服务器密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">SSH password:</span><br><span class="line"></span><br><span class="line">PLAY [pro-k8s] ***************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [install ssh key] *******************************************************************************************************************</span><br><span class="line">changed: [172.21.5.197]</span><br><span class="line">changed: [172.21.5.196]</span><br><span class="line">changed: [172.21.5.199]</span><br><span class="line">changed: [172.21.5.192]</span><br><span class="line">changed: [172.21.5.195]</span><br><span class="line">changed: [172.21.5.193]</span><br><span class="line">changed: [172.21.2.240]</span><br><span class="line">changed: [172.21.5.198]</span><br><span class="line">changed: [172.21.2.238]</span><br><span class="line">changed: [172.21.5.194]</span><br><span class="line">changed: [172.21.2.236]</span><br><span class="line">changed: [172.21.2.235]</span><br><span class="line">changed: [172.21.2.237]</span><br><span class="line">changed: [172.21.2.239]</span><br><span class="line">changed: [172.21.2.234]</span><br><span class="line">changed: [172.21.0.159]</span><br><span class="line">changed: [172.21.0.155]</span><br><span class="line">changed: [172.21.2.241]</span><br><span class="line">changed: [172.21.0.154]</span><br><span class="line">changed: [172.21.0.153]</span><br><span class="line">changed: [172.21.0.158]</span><br><span class="line">changed: [172.21.0.152]</span><br><span class="line">changed: [172.21.0.160]</span><br><span class="line">changed: [172.21.0.156]</span><br><span class="line">changed: [172.21.0.157]</span><br><span class="line">changed: [172.21.2.232]</span><br><span class="line">changed: [172.21.2.233]</span><br><span class="line">changed: [172.21.0.151]</span><br><span class="line">changed: [172.21.5.191]</span><br><span class="line"></span><br><span class="line">PLAY RECAP *******************************************************************************************************************************</span><br><span class="line">172.21.0.151               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.152               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.153               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.154               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.155               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.156               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.157               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.158               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.159               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.160               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.232               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.233               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.234               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.235               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.236               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.237               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.238               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.239               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.240               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.241               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.191               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.192               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.193               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.194               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.195               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.196               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.197               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.198               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.199               : ok=1    changed=1    unreachable=0    failed=0</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1444,7 +1458,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

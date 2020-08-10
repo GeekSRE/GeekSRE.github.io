@@ -193,6 +193,69 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/奇葩需求-jenkins脚本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/奇葩需求-jenkins脚本/" class="post-title-link" itemprop="url">奇葩需求-jenkins脚本</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-30 16:28:08 / Modified: 16:28:37" itemprop="dateCreated datePublished" datetime="2019-05-30T16:28:08+08:00">2019-05-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>jenkins 项目中的shell脚本：</p>
+<p>实现 自动构建后 访问微服务可以获取 Kubernetes pod镜像地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line">WorkDir=`pwd`</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == "测试环境" ]]; then</span><br><span class="line">  Branch="release"</span><br><span class="line">  ScopeName="test"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "预发环境" ]]; then</span><br><span class="line">  Branch="master"</span><br><span class="line">  ScopeName="pre"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "生产环境" ]]; then</span><br><span class="line">  Branch="master"</span><br><span class="line">  ScopeName="pro"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">cat &gt; Dockerfile &lt;&lt;EOF</span><br><span class="line">FROM registry-vpc.cn-beijing.aliyuncs.com/vcgcs/flask</span><br><span class="line">WORKDIR /usr/src/app</span><br><span class="line">ADD . .</span><br><span class="line">CMD python manager.py</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &gt; manager.py &lt;&lt;EOF</span><br><span class="line">from flask import Flask</span><br><span class="line">from flask import request</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route('/',methods=["GET"])</span><br><span class="line">def cicd_test():</span><br><span class="line">    if request.method == 'GET':</span><br><span class="line">        test = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/test-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read()</span><br><span class="line">        pre = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/pre-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read()</span><br><span class="line">        pro = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/pro-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read()</span><br><span class="line">        return "test环境的镜像地址: %s ,pre环境的镜像地址: %s , pro环境的镜像地址: %s"  % (test,pre,pro)</span><br><span class="line"></span><br><span class="line">if __name__ == '__main__':</span><br><span class="line">    app.run(host='0.0.0.0',port='5001',debug=True)</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time .</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == "测试环境" ]]; then</span><br><span class="line">  su - cicd-test -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "预发环境" ]]; then</span><br><span class="line">  su - cicd-pre -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "生产环境" ]]; then</span><br><span class="line">  su - cicd-pro -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>效果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:test-20190530160557 ,pre环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:pre-20190530162226 , pro环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:pro-20190530162233</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Nginx-日志切割/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -966,101 +1029,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Docker-镜像image/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Docker-镜像image/" class="post-title-link" itemprop="url">Docker-镜像image</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-23 11:17:48 / Modified: 11:24:43" itemprop="dateCreated datePublished" datetime="2019-04-23T11:17:48+08:00">2019-04-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Docker镜像是启动容器的基石。</p>
-<h4 id="什么是Docker镜像"><a href="#什么是Docker镜像" class="headerlink" title="什么是Docker镜像"></a>什么是Docker镜像</h4><hr>
-<p>Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称这样的文件为镜像。一个镜像可以迭代在另一个镜像的顶部。位于下方的镜像称之为父镜像，最底层的镜像称之为<strong>基础镜像</strong>。最后，当从一个镜像启动容器时，Docker会在最顶层加载一个读写文件系统作为容器。</p>
-<p><img src="/Docker-镜像image/Docker镜像.JPEG" alt="Docker镜像"></p>
-<p>Docker的这种机制我们称之为<strong>写时复制</strong>。</p>
-<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-<p>该命令可以用于查找当前系统中所有存在的镜像列表。</p>
-<p>Ps：本地镜像默认保存在Docker宿主机的/var/lib/docker目录下。所有的镜像都是保存在仓库中，而仓库位于Registry中。默认的Registry是Docker公司运营的Docker Hub。每个镜像仓库都可以存放很多的镜像。</p>
-<h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
-<p>上述命令会拉取镜像到本地。</p>
-<p>为了区分同一个仓库中不同的镜像，Docker提供了一种tag的功能。我们可以给每个版本的镜像添加一个唯一的tag来标识该镜像。此时，镜像的名称如下：仓库名称:tag。我们在运行镜像或拉取镜像时，可以直接指定对应的标签。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry-vpc.cn-beijing.aliyuncs.com/vcgcs/jdk8:util</span><br></pre></td></tr></table></figure>
-<h4 id="查找镜像"><a href="#查找镜像" class="headerlink" title="查找镜像"></a>查找镜像</h4><hr>
-<p>从Docker Hub查找有哪些公共的可用镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search keywords</span><br></pre></td></tr></table></figure>
-<h4 id="构建Docker镜像"><a href="#构建Docker镜像" class="headerlink" title="构建Docker镜像"></a>构建Docker镜像</h4><hr>
-<p><strong>docker build</strong> 命令用于使用 Dockerfile 创建镜像。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t runoob/ubuntu:v1 .</span><br></pre></td></tr></table></figure>
-<p>使用URL <strong>github.com/creack/docker-firefox</strong> 的 Dockerfile 创建镜像。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build github.com/creack/docker-firefox</span><br></pre></td></tr></table></figure>
-<p>也可以通过 -f Dockerfile 文件的位置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -f /path/to/a/Dockerfile .</span><br></pre></td></tr></table></figure>
-<h4 id="登录镜像仓库"><a href="#登录镜像仓库" class="headerlink" title="登录镜像仓库"></a>登录镜像仓库</h4><p>使用阿里云容器镜像服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login --username="ops@vcg.com" --password="******" registry-vpc.cn-beijing.aliyuncs.com</span><br></pre></td></tr></table></figure>
-<h4 id="推送镜像到仓库"><a href="#推送镜像到仓库" class="headerlink" title="推送镜像到仓库"></a>推送镜像到仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcgcs/jdk8:util</span><br></pre></td></tr></table></figure>
-<h4 id="修改镜像Tag"><a href="#修改镜像Tag" class="headerlink" title="修改镜像Tag"></a>修改镜像Tag</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images  # 获取ImageId</span><br><span class="line">docker tag [ImageId] registry.cn-beijing.aliyuncs.com/vcg/500px-vcg-com:[镜像版本号]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1130,7 +1098,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

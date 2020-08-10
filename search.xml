@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020新版云效-流水线体验</title>
+    <url>/2020%E6%96%B0%E7%89%88%E4%BA%91%E6%95%88-%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<h4 id="云效介绍"><a href="#云效介绍" class="headerlink" title="云效介绍"></a>云效介绍</h4><p>「云效」，企业级一站式DevOps解决方案，源于阿里巴巴先进的管理理念和工程实践，致力于成为数字企业的研发效能引擎!云效提供从“需求 -&gt;开发-&gt;测试-&gt;发布-&gt;运维-&gt;运营”端到端的协同服务和研发工具，支持公共云、专有云和混合云多种部署形态，通过人工智能、自动化 技术的应用助力开发者提升研发效能，持续快速交付有效价值。</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-edEx83d3-1597029365252)(./yunxiao.png)]</p>
+<h4 id="新版流水线体验"><a href="#新版流水线体验" class="headerlink" title="新版流水线体验"></a>新版流水线体验</h4><h5 id="登录云效平台"><a href="#登录云效平台" class="headerlink" title="登录云效平台"></a>登录云效平台</h5><p>新地址：<a href="https://devops.aliyun.com/" target="_blank" rel="noopener">https://devops.aliyun.com/</a></p>
+<h5 id="切换至流水线模块"><a href="#切换至流水线模块" class="headerlink" title="切换至流水线模块"></a>切换至<strong>流水线</strong>模块</h5><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-NQlrOvAT-1597029365255)(./yunxiao1.png)]</p>
+<p>可以看到，流水线创建共分四个步骤：</p>
+<ol>
+<li>选择模版</li>
+<li>选择源</li>
+<li>配置任务</li>
+<li>运行成功</li>
+</ol>
+<h5 id="外链图片转存失败-源站可能有防盗链机制-建议将图片保存下来直接上传-img-ZY5Tdr5f-1597029365258-yunxiao2-png"><a href="#外链图片转存失败-源站可能有防盗链机制-建议将图片保存下来直接上传-img-ZY5Tdr5f-1597029365258-yunxiao2-png" class="headerlink" title="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ZY5Tdr5f-1597029365258)(./yunxiao2.png)]"></a>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ZY5Tdr5f-1597029365258)(./yunxiao2.png)]</h5><h5 id="选择模版"><a href="#选择模版" class="headerlink" title="选择模版"></a>选择模版</h5><p>本次演示 服务语言类型为Python，构建Docker镜像后发布到镜像仓库</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-zfhX4kdg-1597029365261)(./yunxiao3.png)]</p>
+<h5 id="配置代码源"><a href="#配置代码源" class="headerlink" title="配置代码源"></a>配置代码源</h5><p>镜像源选择公司自建Gitlab，配置个人证书，用于拉取代码</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-2jEzbcts-1597029365265)(./yunxiao4.png)]</p>
+<h5 id="配置镜像仓库信息"><a href="#配置镜像仓库信息" class="headerlink" title="配置镜像仓库信息"></a>配置镜像仓库信息</h5><p>需新建服务授权，拿到镜像服务的授权后，配置仓库地址，镜像Tag信息。</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ZjhExoKe-1597029365270)(./yunxiao5.png)]</p>
+<h5 id="运行流水线"><a href="#运行流水线" class="headerlink" title="运行流水线"></a>运行流水线</h5><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-hDSRKvos-1597029365272)(./yunxiao6.png)]</p>
+<h5 id="查看运行结果"><a href="#查看运行结果" class="headerlink" title="查看运行结果"></a>查看运行结果</h5><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-FtPK2SbW-1597029365274)(./yunxiao8.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-n1JRJNFV-1597029365275)(./yunxiao9.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-4RPzZ8XI-1597029365276)(./yunxiao10.png)]</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Ansible-快速添加免密码认证</title>
     <url>/Ansible-%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0%E5%85%8D%E5%AF%86%E7%A0%81%E8%AE%A4%E8%AF%81/</url>
     <content><![CDATA[<h4 id="生成管理机的私钥和公钥"><a href="#生成管理机的私钥和公钥" class="headerlink" title="生成管理机的私钥和公钥"></a>生成管理机的私钥和公钥</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 2048 -P '' -f /root/.ssh/id_rsa</span><br></pre></td></tr></table></figure>

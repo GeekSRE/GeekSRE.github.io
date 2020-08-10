@@ -193,6 +193,144 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-创建freestyle风格项目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-创建freestyle风格项目/" class="post-title-link" itemprop="url">Jenkins-创建freestyle风格项目</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-06-29 13:38:05 / Modified: 13:39:44" itemprop="dateCreated datePublished" datetime="2019-06-29T13:38:05+08:00">2019-06-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Jenkins-创建freestyle风格项目</p>
+<h4 id="创建第一个Job"><a href="#创建第一个Job" class="headerlink" title="创建第一个Job"></a>创建第一个Job</h4><ol>
+<li><p>新建Item</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins1.jpg" alt></p>
+</li>
+<li><p>输入名称、选择Job类型</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins2.jpg" alt></p>
+</li>
+<li><p>配置Job，</p>
+<p>共六部分：<code>通用</code>、<code>源码管理</code>、<code>构建触发器</code>、<code>构建环境</code>、<code>构建</code>、<code>构建后操作</code></p>
+</li>
+</ol>
+<p>   常用操作：</p>
+<p>   通用：配置参数话构建</p>
+<p>   源码管理：配置代码仓库地址（git或svn）</p>
+<p>   构建触发器：配置GitLab的webhook自动触发</p>
+<p>   构建环境：Delete workspace before build starts</p>
+<p>   <strong>构建</strong>：shell脚本或者bat脚本执行任务</p>
+<p>   构建后操作：邮件通知</p>
+<ol start="4">
+<li><p>参数化构建</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins3.jpg" alt></p>
+</li>
+<li><p>Git地址</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins4.jpg" alt></p>
+</li>
+<li><p>触发器</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins5.jpg" alt></p>
+</li>
+<li><p>构建-shell脚本</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins6.jpg" alt></p>
+</li>
+<li><p>保存退出</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins6-1.jpg" alt></p>
+</li>
+<li><p>构建</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins7.jpg" alt></p>
+</li>
+<li><p>查看构建状态</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins8.jpg" alt></p>
+</li>
+<li><p>查看构建日志</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins9.jpg" alt></p>
+</li>
+</ol>
+<h4 id="实战分享"><a href="#实战分享" class="headerlink" title="实战分享"></a>实战分享</h4><h5 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h5><ol>
+<li>项目名称为vdam-web-vip</li>
+<li>此job会根据环境不同确定git分支</li>
+<li>git clone后编译安装nodejs模块</li>
+<li>构建docker镜像，push到镜像仓库</li>
+<li>触发应用更新</li>
+</ol>
+<h5 id="部署："><a href="#部署：" class="headerlink" title="部署："></a>部署：</h5><ol>
+<li><p>创建自由风格项目</p>
+</li>
+<li><p>名称输入vdam-web-vip</p>
+</li>
+<li><p>开启参数化构建</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins12.jpg" alt></p>
+</li>
+<li><p>配置<code>构建</code>shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 确定 default.conf 和 nginx.conf文件存在</span></span></span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line">WorkDir=`pwd`</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == "测试环境" ]]; then</span><br><span class="line">  Branch="release"</span><br><span class="line">  ScopeName="test"</span><br><span class="line">  JavaServiceDomain="test-vdam-gateway-service.fotomore.com"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "预发环境" ]]; then</span><br><span class="line">  Branch="master"</span><br><span class="line">  ScopeName="pre"</span><br><span class="line">  JavaServiceDomain="vdam-gateway-service1.fotomore.com"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "生产环境" ]]; then</span><br><span class="line">  Branch="master"</span><br><span class="line">  ScopeName="pro"</span><br><span class="line">  JavaServiceDomain="vdam-gateway-service.fotomore.com"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">rm -rf vdam-web</span><br><span class="line">mkdir -p vdam-web</span><br><span class="line">cd vdam-web</span><br><span class="line">git clone -b $&#123;Branch&#125;  git@git.vcg.com:vdam/vue-vip-2019.git</span><br><span class="line">git clone -b $&#123;Branch&#125;  git@git.vcg.com:vdam/vue-admin.git</span><br><span class="line">git clone -b $&#123;Branch&#125;  git@git.vcg.com:vdam/vue-saas.git</span><br><span class="line">git clone -b $&#123;Branch&#125;  git@git.visualchina.com:vdam/vue-vip-upload.git</span><br><span class="line"></span><br><span class="line">cd vue-vip-upload</span><br><span class="line">sed -i "s/vdam-gateway.vcg.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway-service.fotomore.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway.fotomore.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway-service.caf79ccb624f24a5cabd1de8623b2e617.cn-beijing.alicontainer.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line"></span><br><span class="line">npm install --registry https://registry.npm.taobao.org</span><br><span class="line">npm run build</span><br><span class="line">mv dist ../</span><br><span class="line">cd ..</span><br><span class="line">mv dist upload</span><br><span class="line"></span><br><span class="line">cd vue-vip-2019</span><br><span class="line">sed -i "s/vdam-gateway.vcg.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway-service.fotomore.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway.fotomore.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line">sed -i "s/vdam-gateway-service.caf79ccb624f24a5cabd1de8623b2e617.cn-beijing.alicontainer.com/$JavaServiceDomain/g" setBaseUrl.ts</span><br><span class="line"></span><br><span class="line">npm install --registry https://registry.npm.taobao.org</span><br><span class="line">npm run build</span><br><span class="line">mv dist ../</span><br><span class="line">cd ..</span><br><span class="line">mv dist vip</span><br><span class="line"></span><br><span class="line">cd vue-admin</span><br><span class="line">sed -i "s/vdam-gateway.vcg.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway-service.fotomore.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway.fotomore.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway-service.caf79ccb624f24a5cabd1de8623b2e617.cn-beijing.alicontainer.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line"></span><br><span class="line">npm install --registry https://registry.npm.taobao.org</span><br><span class="line">npm run build</span><br><span class="line">mv dist ../</span><br><span class="line">cd ..</span><br><span class="line">mv dist admin</span><br><span class="line"></span><br><span class="line">cd vue-saas</span><br><span class="line">sed -i "s/test-vdam.gateway.vcg.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway.vcg.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway-service.fotomore.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway.fotomore.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line">sed -i "s/vdam-gateway-service.caf79ccb624f24a5cabd1de8623b2e617.cn-beijing.alicontainer.com/$JavaServiceDomain/g" src/config/index.js</span><br><span class="line"></span><br><span class="line">npm install --registry https://registry.npm.taobao.org</span><br><span class="line">npm run build</span><br><span class="line">mv dist ../</span><br><span class="line">cd ..</span><br><span class="line">mv dist saas</span><br><span class="line"></span><br><span class="line">rm -rf vue-vip</span><br><span class="line">rm -rf vue-admin</span><br><span class="line">rm -rf vue-saas</span><br><span class="line"></span><br><span class="line">cd ..</span><br><span class="line"></span><br><span class="line">tar zcf vdam-web-vip.tar.gz vdam-web/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> cp vdam-web-vip.tar.gz /jenkins/vcgapp/vdam-web-vip/vdam-web-vip.tar.gz-<span class="variable">$&#123;Time&#125;</span></span></span><br><span class="line"></span><br><span class="line">cat &gt; Dockerfile &lt;&lt;EOF</span><br><span class="line">FROM nginx</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">ADD vdam-web-vip.tar.gz /usr/share/nginx/html/</span><br><span class="line">ADD nginx.conf /etc/nginx/nginx.conf</span><br><span class="line">ADD default.conf /etc/nginx/conf.d/</span><br><span class="line">RUN chmod -R 777 /usr/share/nginx/html/</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125; .</span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;-$Time .</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;-$Time</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/vdam-web-vips:$&#123;ScopeName&#125;-$Time</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == "测试环境" ]]; then</span><br><span class="line">  curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjYWY3OWNjYjYyNGYyNGE1Y2FiZDFkZTg2MjNiMmU2MTciLCJpZCI6IjM5NTI2In0.S9KkUgPkymqsc1xclUHFo9zFyd_iLMrKxxEbsPB06lajpw_YSm7aOXAonq_olgP0SxmL6ydiDE5Bu3LuAXjhMCkojXQx4FlnH8uoaBOr2fT9e_RL-4LCGSQLDvoOFqQQ1csBfPi2UpT6oDh_KkxvaYoF7kqvTmpClF2XQO9X9f4</span><br><span class="line"><span class="meta">  #</span><span class="bash">curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjYWY3OWNjYjYyNGYyNGE1Y2FiZDFkZTg2MjNiMmU2MTciLCJpZCI6IjMyNzQ0In0.afM-iP1cZUVBDdIefzca6SJyIfFBPO3hqcC0HgrJPcaQLkvmFQYuHAgF6OHKgdHLa0rErRvcKgq1t_6g4DhBiql5EN9qQYAiAKEwXTpfc-0tiNfZg4w2Z4mybg-MeiduZCD0Reh1hUy-jdNNg58poR-IeKJZRhT3IlmfIp4Ssis</span></span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "预发环境" ]]; then</span><br><span class="line">  curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjMmFiNDFlZWE0YjgxNDNlZmEwMzg3OWZiNDlhOWEyODIiLCJpZCI6IjM5NTI1In0.nwNJTY-9jPhbnVe1_4fTUuCXPd5JlkRlvGgQC8GD-u1qBqsousj8wsO65s6xhksW0h1PBPVnTn8QelwgCLMLyIvN8Pv_H7uB2x4tGHudZHjrPxKURgU6cwH4SnXhd3VYOdfd-Qc3sMKAe9aG_HoKwQoC2Zj2yT3kTQEB7j7Mlv0</span><br><span class="line"><span class="meta">  #</span><span class="bash">curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjMmFiNDFlZWE0YjgxNDNlZmEwMzg3OWZiNDlhOWEyODIiLCJpZCI6IjM3MDcyIn0.Dxx3lVTAysaRBtI6jcDLMm0M0Yh239eUznxq4dpUIIjhDsKLlgtN-UJt0TIBOmAucj8XnBjI_T-mX7hy6WrHH8bKREyMz6cWrGutfBQqNYQ2j-HyScP-Q8tsqO1q4XZuuS9__BB2-mDoN0xqqFUAAITkDkmw702rfRpbIolvNu4</span></span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "生产环境" ]]; then</span><br><span class="line">  echo ""</span><br><span class="line">  curl https://cs.console.aliyun.com/hook/trigger?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbHVzdGVySWQiOiJjNDY0MTNjYjEzYmIzNDkwZGEzZTQ5NWU0MjY0ZjZkMTkiLCJpZCI6IjM3MTkzIn0.HJfnm1ujwLRYnQpsRpiXLErKi2gE_glnZBcss9c2zmHGv-_Gcl6vYLRPdmnPpvcU2cVkuKgExHUUFGdNqzkKDEeFu8lBez9c2gCWi7l81KNAFhsgtTIEm8YRpi9p92kIsutjD_AEj6UuY_jy58nvIWGeXRtuYAaWJGXFQ6B5ItE</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存退出</p>
+</li>
+<li><p>参数化构建</p>
+<p><img src="/Jenkins-创建freestyle风格项目/./jenkins11.jpg" alt></p>
+</li>
+<li><p>验证ok</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -909,69 +1047,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/奇葩需求-jenkins脚本/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="Geek丨从贬义走向褒义，从离经叛道走向时代潮流">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/奇葩需求-jenkins脚本/" class="post-title-link" itemprop="url">奇葩需求-jenkins脚本</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-05-30 16:28:08 / Modified: 16:28:37" itemprop="dateCreated datePublished" datetime="2019-05-30T16:28:08+08:00">2019-05-30</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>jenkins 项目中的shell脚本：</p>
-<p>实现 自动构建后 访问微服务可以获取 Kubernetes pod镜像地址</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line">WorkDir=`pwd`</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == "测试环境" ]]; then</span><br><span class="line">  Branch="release"</span><br><span class="line">  ScopeName="test"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "预发环境" ]]; then</span><br><span class="line">  Branch="master"</span><br><span class="line">  ScopeName="pre"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "生产环境" ]]; then</span><br><span class="line">  Branch="master"</span><br><span class="line">  ScopeName="pro"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">cat &gt; Dockerfile &lt;&lt;EOF</span><br><span class="line">FROM registry-vpc.cn-beijing.aliyuncs.com/vcgcs/flask</span><br><span class="line">WORKDIR /usr/src/app</span><br><span class="line">ADD . .</span><br><span class="line">CMD python manager.py</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &gt; manager.py &lt;&lt;EOF</span><br><span class="line">from flask import Flask</span><br><span class="line">from flask import request</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route('/',methods=["GET"])</span><br><span class="line">def cicd_test():</span><br><span class="line">    if request.method == 'GET':</span><br><span class="line">        test = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/test-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read()</span><br><span class="line">        pre = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/pre-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read()</span><br><span class="line">        pro = os.popen("/usr/src/app/kubectl --kubeconfig /usr/src/app/pro-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F '- image:' '&#123;print \$2&#125;'").read()</span><br><span class="line">        return "test环境的镜像地址: %s ,pre环境的镜像地址: %s , pro环境的镜像地址: %s"  % (test,pre,pro)</span><br><span class="line"></span><br><span class="line">if __name__ == '__main__':</span><br><span class="line">    app.run(host='0.0.0.0',port='5001',debug=True)</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time .</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == "测试环境" ]]; then</span><br><span class="line">  su - cicd-test -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "预发环境" ]]; then</span><br><span class="line">  su - cicd-pre -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == "生产环境" ]]; then</span><br><span class="line">  su - cicd-pro -c "kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>效果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:test-20190530160557 ,pre环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:pre-20190530162226 , pro环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:pro-20190530162233</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1041,7 +1116,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
