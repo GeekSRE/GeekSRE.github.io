@@ -165,8 +165,22 @@
 <p><a href="https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY" target="_blank" rel="noopener">https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY</a></p>
 </blockquote>
 <p>解决办法：<br>升级Widget Connector 组件</p>
-<h4 id="培训文档"><a href="#培训文档" class="headerlink" title="培训文档"></a>培训文档</h4><div class="pdfobject-container" data-target="Confluence基础培训_中文版.pdf" data-height="500px"></div>
-<div class="pdfobject-container" data-target="Confluence高级培训_中文版.pdf" data-height="500px"></div>
+<h4 id="培训文档"><a href="#培训文档" class="headerlink" title="培训文档"></a>培训文档</h4>
+
+	<div class="row">
+    <embed src="Confluence基础培训_中文版.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+
+	<div class="row">
+    <embed src="Confluence高级培训_中文版.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
 ]]></content>
       <tags>
         <tag>Confluence</tag>
@@ -1939,7 +1953,14 @@
   <entry>
     <title>深入浅出Kubernetes</title>
     <url>/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAKubernetes/</url>
-    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br><div class="pdfobject-container" data-target="./深入浅出Kubernetes.pdf" data-height="500px"></div></p>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br>
+
+	<div class="row">
+    <embed src="./深入浅出Kubernetes.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+</p>
 ]]></content>
   </entry>
   <entry>
@@ -2120,7 +2141,14 @@
   <entry>
     <title>阿里巴巴DevOps实践手册</title>
     <url>/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4DevOps%E5%AE%9E%E8%B7%B5%E6%89%8B%E5%86%8C/</url>
-    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br><div class="pdfobject-container" data-target="./阿里巴巴DevOps实践手册.pdf" data-height="500px"></div></p>
+    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br>
+
+	<div class="row">
+    <embed src="./阿里巴巴DevOps实践手册.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+</p>
 ]]></content>
   </entry>
 </search>
