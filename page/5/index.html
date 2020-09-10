@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="GeekSRE">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:locale">
+<meta property="article:author" content="GeekSRE">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/page/5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>GeekSRE</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">GeekSRE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeekSRE" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Shell%E8%84%9A%E6%9C%AC-%E5%AE%9A%E6%9C%9F%E5%88%A0%E9%99%A4%E5%BC%82%E5%B8%B8Pod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Shell%E8%84%9A%E6%9C%AC-%E5%AE%9A%E6%9C%9F%E5%88%A0%E9%99%A4%E5%BC%82%E5%B8%B8Pod/" class="post-title-link" itemprop="url">Shell脚本-定期删除异常Pod</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-06-03 14:26:44 / Modified: 14:31:14" itemprop="dateCreated datePublished" datetime="2019-06-03T14:26:44+08:00">2019-06-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><p>有的Pod重启次数过多</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[cicd-test@ops-jenkins-master ~]$ kubectl get pods |awk &#x27;&#123;if ($4 &gt;= 1) print $0 &#125;&#x27;</span><br><span class="line">NAME                                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">cmsservice-vcg-com-57974bc4cf-vq6mk             1/1     Running   1          6m18s</span><br><span class="line">edgeservice-vcg-com-755b96fb78-v96s5            1/1     Running   1          3d23h</span><br><span class="line">edgeserviceweb-vcg-com-5655fc9899-8lxql         1/1     Running   1          3d23h</span><br><span class="line">node-visualchina-web-8575cf78dc-8jr2k           1/1     Running   1          4h11m</span><br><span class="line">vdam-gateway-service-6b7d864d67-rdzrg           1/1     Running   1          3h36m</span><br><span class="line">vdam-passport-service-7c97d84b58-xhn6k          1/1     Running   6          3d22h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">Author:zhy</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Version:1.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Date:20190603</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#######</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">删除重启次数超过5次的POD</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line"></span><br><span class="line">echo $Time &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line"></span><br><span class="line">if [[ `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $0 &#125;&#x27; |grep -v &#x27;NAME&#x27; |wc -l` -eq 0 ]];then</span><br><span class="line">  echo &#x27;无重启次数超过5次的POD&#x27;</span><br><span class="line">  echo &#x27;无重启次数超过5次的POD&#x27;  &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">else</span><br><span class="line">  echo &#x27;将要删除如下pod：&#x27;</span><br><span class="line">  echo &#x27;将要删除如下pod：&#x27; &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">  /usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27;| grep -v &#x27;NAME&#x27;</span><br><span class="line">  echo `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27;| grep -v &#x27;NAME&#x27;` &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">  for i in `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27; | grep -v &#x27;NAME&#x27;`;</span><br><span class="line">  do</span><br><span class="line">    echo $i</span><br><span class="line">    /usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config delete pod $i</span><br><span class="line">  done</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E5%A5%87%E8%91%A9%E9%9C%80%E6%B1%82-jenkins%E8%84%9A%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E5%A5%87%E8%91%A9%E9%9C%80%E6%B1%82-jenkins%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">奇葩需求-jenkins脚本</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-30 16:28:08 / Modified: 16:28:37" itemprop="dateCreated datePublished" datetime="2019-05-30T16:28:08+08:00">2019-05-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>jenkins 项目中的shell脚本：</p>
+<p>实现 自动构建后 访问微服务可以获取 Kubernetes pod镜像地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line">WorkDir=`pwd`</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;测试环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;release&quot;</span><br><span class="line">  ScopeName=&quot;test&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;预发环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;master&quot;</span><br><span class="line">  ScopeName=&quot;pre&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;生产环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;master&quot;</span><br><span class="line">  ScopeName=&quot;pro&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">cat &gt; Dockerfile &lt;&lt;EOF</span><br><span class="line">FROM registry-vpc.cn-beijing.aliyuncs.com/vcgcs/flask</span><br><span class="line">WORKDIR /usr/src/app</span><br><span class="line">ADD . .</span><br><span class="line">CMD python manager.py</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &gt; manager.py &lt;&lt;EOF</span><br><span class="line">from flask import Flask</span><br><span class="line">from flask import request</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;,methods=[&quot;GET&quot;])</span><br><span class="line">def cicd_test():</span><br><span class="line">    if request.method == &#x27;GET&#x27;:</span><br><span class="line">        test = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/test-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        pre = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/pre-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        pro = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/pro-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        return &quot;test环境的镜像地址: %s ,pre环境的镜像地址: %s , pro环境的镜像地址: %s&quot;  % (test,pre,pro)</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    app.run(host=&#x27;0.0.0.0&#x27;,port=&#x27;5001&#x27;,debug=True)</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time .</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;测试环境&quot; ]]; then</span><br><span class="line">  su - cicd-test -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;预发环境&quot; ]]; then</span><br><span class="line">  su - cicd-pre -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;生产环境&quot; ]]; then</span><br><span class="line">  su - cicd-pro -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>效果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:test-20190530160557 ,pre环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:pre-20190530162226 , pro环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:pro-20190530162233</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Nginx-%E6%97%A5%E5%BF%97%E5%88%87%E5%89%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Nginx-%E6%97%A5%E5%BF%97%E5%88%87%E5%89%B2/" class="post-title-link" itemprop="url">Nginx-日志切割</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-27 16:54:19 / Modified: 16:54:35" itemprop="dateCreated datePublished" datetime="2019-05-27T16:54:19+08:00">2019-05-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>nginx日志按天进行切割，通过写shell脚本，创建以日期命名文件</p>
+<hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义nginx 日志路径</span></span><br><span class="line">LOG_PATH=&quot;/var/gb/logs/&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义nginx 访问日志文件名称</span></span><br><span class="line">ACCESS_LOG=&quot;access.log&quot;</span><br><span class="line">ERROR_LOG=&quot;error.log&quot;</span><br><span class="line"></span><br><span class="line">for i in `find  $LOG_PATH -name &quot;$ACCESS_LOG&quot;`; do</span><br><span class="line">    cd $(dirname $i)</span><br><span class="line">    # 切割access日志</span><br><span class="line">    if [[ -f $ACCESS_LOG ]]; then</span><br><span class="line">        cp &#123;,$(date +%F)-&#125;$&#123;ACCESS_LOG&#125;</span><br><span class="line">        : &gt; $ACCESS_LOG</span><br><span class="line">    fi</span><br><span class="line">    </span><br><span class="line">    # 如果error日志&gt;20m，切</span><br><span class="line">    if [[ -f $ERROR_LOG ]]; then</span><br><span class="line">        ERROR_SIZE=`ls -l $ERROR_LOG | awk &#x27;&#123; print $5 &#125;&#x27;`</span><br><span class="line">        if [[ $ERROR_SIZE -gt 20971520 ]]; then</span><br><span class="line">            cp &#123;,$(date +%F)-&#125;$&#123;ERROR_LOG&#125;</span><br><span class="line">            : &gt; $&#123;ERROR_LOG&#125;</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查找nginx 日志目录下7天前的日志并删除</span></span><br><span class="line">find $&#123;LOG_PATH&#125; -type f -name &quot;*-$&#123;ACCESS_LOG&#125;&quot; -mtime +7 -delete</span><br><span class="line">find $&#123;LOG_PATH&#125; -type f -name &quot;*-$&#123;ERROR_LOG&#125;&quot;  -mtime +7 -delete</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96%E6%B7%BB%E5%8A%A0live2d%E5%8A%A8%E7%94%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96%E6%B7%BB%E5%8A%A0live2d%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">Hexo博客美化添加live2d动画</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-27 16:07:34 / Modified: 16:08:08" itemprop="dateCreated datePublished" datetime="2019-05-27T16:07:34+08:00">2019-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md"><strong>hexo-helper-live2d GitHub地址</strong></a></p>
+<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><ol>
+<li><p>在hexo根目录执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择动画模型</p>
+<p><a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">模型地址</a></p>
+<ul>
+<li>live2d-widget-model-chitose</li>
+<li>live2d-widget-model-epsilon2_1</li>
+<li>live2d-widget-model-gf</li>
+<li>live2d-widget-model-haru</li>
+<li>live2d-widget-model-haruto</li>
+<li>live2d-widget-model-hibiki</li>
+<li>live2d-widget-model-hijiki</li>
+<li>live2d-widget-model-izumi</li>
+<li>live2d-widget-model-koharu</li>
+<li>live2d-widget-model-miku</li>
+<li>live2d-widget-model-ni-j</li>
+<li>live2d-widget-model-nico</li>
+<li>live2d-widget-model-nietzsche</li>
+<li>live2d-widget-model-nipsilon</li>
+<li>live2d-widget-model-nito</li>
+<li>live2d-widget-model-shizuku</li>
+<li>live2d-widget-model-tororo</li>
+<li>live2d-widget-model-tsumiki</li>
+<li>live2d-widget-model-unitychan</li>
+<li>live2d-widget-model-wanko</li>
+<li>live2d-widget-model-z16</li>
+</ul>
+</li>
+<li><p>本次选择安装live2d-widget-model-haruto</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live2d-widget-model-haruto</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="拷贝资源"><a href="#拷贝资源" class="headerlink" title="拷贝资源"></a>拷贝资源</h5><ol>
+<li><p>在hexo根目录live2d_models</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p live2d_models</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cp模型文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r node_modules&#x2F;live2d-widget-model-haruto&#x2F; live2d_models&#x2F;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="编辑主配置"><a href="#编辑主配置" class="headerlink" title="编辑主配置"></a>编辑主配置</h5><p>编辑_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw&#x2F;</span><br><span class="line">  pluginJsPath: lib&#x2F;</span><br><span class="line">  pluginModelPath: assets&#x2F;</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-haruto</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br></pre></td></tr></table></figure>
+<h5 id="重新部署"><a href="#重新部署" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>我部署到GitHub上的域名正常，服务器上的没生效，重启进程后生效。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Next%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%80%8F%E6%98%8E%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Next%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%80%8F%E6%98%8E%E5%8C%96/" class="post-title-link" itemprop="url">Next主题增加动态背景并设置透明化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-27 15:16:18 / Modified: 15:16:51" itemprop="dateCreated datePublished" datetime="2019-05-27T15:16:18+08:00">2019-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="编辑主题配置"><a href="#编辑主题配置" class="headerlink" title="编辑主题配置"></a>编辑主题配置</h5><p>编辑 themes/next/_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#canvas_nest: false</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: true</span><br><span class="line">  onmobile: true # display on mobile or not</span><br><span class="line">  color: &#39;0,0,255&#39; # RGB values, use &#39;,&#39; to separate</span><br><span class="line">  opacity: 0.5 # the opacity of line: 0~1</span><br><span class="line">  zIndex: -1 # z-index property of the background</span><br><span class="line">  count: 99 # the number of lines</span><br></pre></td></tr></table></figure>
+<h5 id="重新部署"><a href="#重新部署" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Hexo-Next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Hexo-Next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">Hexo-Next主题添加搜索功能</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-27 14:19:49 / Modified: 14:20:44" itemprop="dateCreated datePublished" datetime="2019-05-27T14:19:49+08:00">2019-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p>博客根目录执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<h5 id="修改主配置"><a href="#修改主配置" class="headerlink" title="修改主配置"></a>修改主配置</h5><p>编辑配置文件：_config.yaml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<h5 id="修改主题配置"><a href="#修改主题配置" class="headerlink" title="修改主题配置"></a>修改主题配置</h5><p>编辑 themes/next/_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+<h5 id="重新部署"><a href="#重新部署" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Kubernetes-HostAliases/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Kubernetes-HostAliases/" class="post-title-link" itemprop="url">Kubernetes-HostAliases</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-09 16:33:12 / Modified: 16:33:40" itemprop="dateCreated datePublished" datetime="2019-05-09T16:33:12+08:00">2019-05-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/">https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/</a></p>
+</blockquote>
+<p>k8s上微服务之间可以通过service的域名来互相访问。域名的解析是一般是通过在集群中的kube-dns来完成的。</p>
+<p>如需向Pod的/etc/hosts文件添加条目实现解析需求时，可以使用Pod Spec中的HostAliases字段添加自定义条目。</p>
+<p>例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">service/networking/hostaliases-pod.yaml</span> </span><br><span class="line"></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">hostaliases-pod</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">restartPolicy:</span> <span class="string">Never</span></span><br><span class="line">  <span class="attr">hostAliases:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">ip:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">    <span class="attr">hostnames:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;foo.local&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;bar.local&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">ip:</span> <span class="string">&quot;10.1.2.3&quot;</span></span><br><span class="line">    <span class="attr">hostnames:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;foo.remote&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;bar.remote&quot;</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">cat-hosts</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">busybox</span></span><br><span class="line">    <span class="attr">command:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">cat</span></span><br><span class="line">    <span class="attr">args:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;/etc/hosts&quot;</span></span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1beta2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">vcg-gateway</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">vcg-gateway</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">vcg-gateway</span></span><br><span class="line">  <span class="attr">strategy:</span></span><br><span class="line">    <span class="attr">rollingUpdate:</span></span><br><span class="line">      <span class="attr">maxSurge:</span> <span class="number">25</span><span class="string">%</span></span><br><span class="line">      <span class="attr">maxUnavailable:</span> <span class="number">25</span><span class="string">%</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">RollingUpdate</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">vcg-gateway</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">env:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">aliyun_logs_vcg-gateway</span></span><br><span class="line">              <span class="attr">value:</span> <span class="string">stdout</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">&gt;-</span></span><br><span class="line">            <span class="string">registry-vpc.cn-beijing.aliyuncs.com/vcg/vcg-gateway:pro-20190423162116</span></span><br><span class="line">          <span class="attr">imagePullPolicy:</span> <span class="string">Always</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">vcg-gateway</span></span><br><span class="line">          <span class="attr">resources:</span></span><br><span class="line">            <span class="attr">limits:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">4Gi</span></span><br><span class="line">            <span class="attr">requests:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">500m</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">1000Mi</span></span><br><span class="line">      <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">      <span class="attr">hostAliases:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">hostnames:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">www.vcg.com</span></span><br><span class="line">          <span class="attr">ip:</span> <span class="number">39.97</span><span class="number">.197</span><span class="number">.135</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">hostnames:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">www1.visualchina.com</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">www1.vcg.com</span></span><br><span class="line">          <span class="attr">ip:</span> <span class="number">39.97</span><span class="number">.21</span><span class="number">.16</span></span><br><span class="line">      <span class="attr">imagePullSecrets:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">registry-vpc.cn-beijing.aliyuncs.com</span></span><br><span class="line">      <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line">      <span class="attr">schedulerName:</span> <span class="string">default-scheduler</span></span><br><span class="line">      <span class="attr">securityContext:</span> &#123;&#125;</span><br><span class="line">      <span class="attr">terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Kubernetes-Secrets/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Kubernetes-Secrets/" class="post-title-link" itemprop="url">Kubernetes-Secrets</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-05 15:01:47 / Modified: 15:02:14" itemprop="dateCreated datePublished" datetime="2019-05-05T15:01:47+08:00">2019-05-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h4><p>若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。</p>
+<p>密钥有多种类型，例如：</p>
+<ul>
+<li>Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。</li>
+<li>Opaque：base64 编码格式的 Secret，用来存储密码、证书等敏感信息。</li>
+</ul>
+<p>Opaque 类型的数据是一个 map 类型，要求value 是 base64 编码格式</p>
+<p>您也可通过命令行手动创建密钥，请参见 <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/configuration/secret/">kubernetes secret</a> 了解更多信息。</p>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret</span><br><span class="line"></span><br><span class="line">Create a secret using specified subcommand.</span><br><span class="line"></span><br><span class="line">Available Commands:</span><br><span class="line">  docker-registry Create a secret for use with a Docker registry</span><br><span class="line">  generic         Create a secret from a local file, directory or literal value</span><br><span class="line">  tls             Create a TLS secret</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  kubectl create secret [flags] [options]</span><br></pre></td></tr></table></figure>
+<h5 id="查看证书"><a href="#查看证书" class="headerlink" title="查看证书"></a>查看证书</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets</span><br><span class="line">NAME                               TYPE                                  DATA   AGE</span><br><span class="line">default-token-msfm9                kubernetes.io/service-account-token   3      24d</span><br><span class="line">registry.cn-beijing.aliyuncs.com   kubernetes.io/dockerconfigjson        1      24d</span><br><span class="line">veer-https                         kubernetes.io/tls                     2      3h25m</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl describe secrets veer-https</span><br><span class="line">Name:         veer-https</span><br><span class="line">Namespace:    default</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line"></span><br><span class="line">Type:  kubernetes.io/tls</span><br><span class="line"></span><br><span class="line">Data</span><br><span class="line">====</span><br><span class="line">tls.crt:  3941 bytes</span><br><span class="line">tls.key:  1676 bytes</span><br></pre></td></tr></table></figure>
+<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete secret $NAME</span><br></pre></td></tr></table></figure>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><h5 id="创建SSL证书"><a href="#创建SSL证书" class="headerlink" title="创建SSL证书"></a>创建SSL证书</h5><ol>
+<li><h6 id="准备公钥、私钥文件"><a href="#准备公钥、私钥文件" class="headerlink" title="准备公钥、私钥文件"></a>准备公钥、私钥文件</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ ls</span><br><span class="line">veer.key  veer.pem</span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="创建secret"><a href="#创建secret" class="headerlink" title="创建secret"></a>创建secret</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret tls veer-https --cert=./veer.pem --key=./veer.key</span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets veer-https</span><br><span class="line">NAME         TYPE                DATA   AGE</span><br><span class="line">veer-https   kubernetes.io/tls   2      3h22m</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Nginx-ingress-controller%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Nginx-ingress-controller%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">Nginx-ingress controller部署</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-05 14:31:36 / Modified: 14:41:32" itemprop="dateCreated datePublished" datetime="2019-05-05T14:31:36+08:00">2019-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller">https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller</a></p>
+</blockquote>
+<p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口，概念示意可参考下方说明。你可以给Ingress配置提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机等。用户通过POST Ingress资源到API server的方式来请求ingress。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">internet</span><br><span class="line">     |</span><br><span class="line">[ Ingress ]</span><br><span class="line">--|-----|--</span><br><span class="line">[ Services ]</span><br></pre></td></tr></table></figure>
+<p>Ingress controller负责实现Ingress。Ingress controller在Kubernetes集群中默认不会自动启用，您可以在一个pod中部署任意类型的自定义Ingress Controller。本文将以Nginx-ingress controller为例，说明Controller部署和Ingress定义。更多外部类型的Ingresss Controller参考<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Kubernetes官方文档</a>。</p>
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><ol>
+<li><h5 id="从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录："><a href="#从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录：" class="headerlink" title="从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录："></a>从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/nginxinc/kubernetes-ingress/archive/v1.4.5.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf v1.4.5.tar.gz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：本文说明在1.12.3版本的集群上如何部署nginx-ingress controller，如集群版本不同，选择其他适合的ginx-ingress controller安装部署文件。</p>
+</li>
+</ol>
+<ol start="2">
+<li><h5 id="进入解压缩后的nginx-ingress-controller安装目录；"><a href="#进入解压缩后的nginx-ingress-controller安装目录；" class="headerlink" title="进入解压缩后的nginx-ingress controller安装目录；"></a>进入解压缩后的nginx-ingress controller安装目录；</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd kubernetes-ingress-1.4.5&#x2F;deployments</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="安装nginx-ingress-controller"><a href="#安装nginx-ingress-controller" class="headerlink" title="安装nginx-ingress controller"></a>安装nginx-ingress controller</h4><ol>
+<li><h5 id="为nginx-ingress-controller创建一个namespace和service-account："><a href="#为nginx-ingress-controller创建一个namespace和service-account：" class="headerlink" title="为nginx-ingress controller创建一个namespace和service account："></a>为nginx-ingress controller创建一个namespace和service account：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;ns-and-sa.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："><a href="#为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：" class="headerlink" title="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："></a>为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;default-server-secret.yaml</span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：建议使用合适的TLS证书和key替换default-server-secret.yaml文件中自签发的证书和key。</p>
+</li>
+</ol>
+<ol start="3">
+<li><h5 id="创建config-map保存NGINX的自定义配置："><a href="#创建config-map保存NGINX的自定义配置：" class="headerlink" title="创建config map保存NGINX的自定义配置："></a>创建config map保存NGINX的自定义配置：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;nginx-config.yaml</span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：目前提供的config map中的data为空，您可以按需添加自定义配置。</p>
+</li>
+</ol>
+<ol start="4">
+<li><h5 id="为第1步中创建的service-account配置RBAC："><a href="#为第1步中创建的service-account配置RBAC：" class="headerlink" title="为第1步中创建的service account配置RBAC："></a>为第1步中创建的service account配置RBAC：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f rbac&#x2F;rbac.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="以Deployment的方式部署nginx-ingress-controller"><a href="#以Deployment的方式部署nginx-ingress-controller" class="headerlink" title="以Deployment的方式部署nginx-ingress controller:"></a>以Deployment的方式部署nginx-ingress controller:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment&#x2F;nginx-ingress.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常："><a href="#执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常：" class="headerlink" title="执行如下命令，确定部署nginx-ingress controller的Deployment运行正常："></a>执行如下命令，确定部署nginx-ingress controller的Deployment运行正常：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> kubectl get deployment -n nginx-ingress</span><br><span class="line"> </span><br><span class="line">NAME            DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line"> nginx-ingress   1         1         1            1           24d</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="创建ingress的LoadBalance"><a href="#创建ingress的LoadBalance" class="headerlink" title="创建ingress的LoadBalance"></a>创建ingress的LoadBalance</h5><p>在 Kubernetes集群中，每个Pod都具有唯一的内部 IP 地址，但是Deployment中的Pod随时可能被删除或创建，导致Pod IP地址不断变化。因此需要创建一个Service对外暴露Pod中的应用。Service具有唯一的固定IP地址且能够为后端添加的成员Pod提供负载均衡。在京东云Kubernetes集群中您可以使用LoadBalance类型的Service，为Service关联创建一个应用负载均衡，并通过负载均衡绑定的公网IP，将Service后端关联的nginx-ingress controller应用暴露到公网：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-ingress</span>       <span class="comment">#建议Service使用与nginx-ingress controller对应的Deployment名称相同的名称</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">nginx-ingress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">LoadBalancer</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">http</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">443</span></span><br><span class="line">     <span class="attr">targetPort:</span> <span class="number">443</span></span><br><span class="line">     <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">     <span class="attr">name:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx-ingress</span></span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：本例使用80和443端口绑定nginx-ingress controller应用</p>
+<p>将上述Service定义到ingress.yaml文件，执行如下命令创建对应的Service：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f ingress.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="获取公网IP"><a href="#获取公网IP" class="headerlink" title="获取公网IP"></a>获取公网IP</h5><p>等待一段时间，确定Service已经配置完成，并获取Service上配置的External IP字段</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME            TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                      AGE</span><br><span class="line">nginx-ingress   LoadBalancer   192.168.58.218   114.67.80.218   80:32436/TCP,443:30110/TCP   3h13m</span><br></pre></td></tr></table></figure>
+<p> <strong>说明</strong>：Service的External IP将作为nginx-ingress controller的VIP，为集群中使用nginx-ingress controller的Ingress提供公网访问入口</p>
+</li>
+<li><h5 id="关联的External-IP作为公网入口IP"><a href="#关联的External-IP作为公网入口IP" class="headerlink" title="关联的External IP作为公网入口IP"></a>关联的External IP作为公网入口IP</h5><p>最后，在Ingress controller的Deployment部署文件nginx-ingress.yaml中增加一对环境变量”-args -external-service=nginx-ingress”,配置Ingress controller使用Service名称关联的External IP作为公网入口IP：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">args:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-nginx-configmaps=$(POD_NAMESPACE)/nginx-config</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-external-service=nginx-ingress</span>       <span class="comment">#新增内容</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment/nginx-ingress.yaml        #重新部署nginx-ingress controller</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="验证Pod"><a href="#验证Pod" class="headerlink" title="验证Pod"></a>验证Pod</h5><p>执行如下命令确定nginx-ingress controller相关的Pod运行正常，即可完成nginx ingress controller部署：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">nginx-ingress-f67b87b88-5cspd   1&#x2F;1     Running   0          3h11m</span><br><span class="line">nginx-ingress-f67b87b88-n7qnw   1&#x2F;1     Running   0          3h13m</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="示例应用"><a href="#示例应用" class="headerlink" title="示例应用"></a>示例应用</h4><p>例如：配置www2.veer.com的ingress配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">cms-veer</span>       <span class="comment"># 变量：名字</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">www2.veer.com</span>   <span class="comment"># 变量：url</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="attr">paths:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">backend:</span></span><br><span class="line">              <span class="attr">serviceName:</span> <span class="string">node-vcg-veer-pre</span> <span class="comment"># 变量：后端应用service</span></span><br><span class="line">              <span class="attr">servicePort:</span> <span class="number">80</span>      <span class="comment"># 变量：后端应用service端口</span></span><br><span class="line">            <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">www2.veer.com</span>       </span><br><span class="line">      <span class="attr">secretName:</span> <span class="string">veer-https</span>    <span class="comment"># 变量：ssl证书</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">Confluence安装-维护-迁移实践</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-29 10:59:43" itemprop="dateCreated datePublished" datetime="2019-04-29T10:59:43+08:00">2019-04-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-06 13:58:16" itemprop="dateModified" datetime="2019-08-06T13:58:16+08:00">2019-08-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>Confluence</strong>介绍</p>
+<p><strong>Confluence</strong>是由澳大利亚软件公司<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Atlassian">Atlassian</a>开发和发布的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Collaboration_software">协作软件</a>程序</p>
+<p>Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。</p>
+<p>Confluence为团队提供一个协作环境。在这里，团队成员齐心协力，各擅其能，协同地编写文档和管理项目。从此打破不同团队、不同部门以及个人之间信息孤岛的僵局，Confluence真正实现了组织资源共享。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><hr>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://confluence.atlassian.com/conf612/installing-confluence-on-linux-from-archive-file-958778538.html">https://confluence.atlassian.com/conf612/installing-confluence-on-linux-from-archive-file-958778538.html</a></p>
+</blockquote>
+<h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>Download the <code>tar.gz</code> file for your operating system - <a target="_blank" rel="noopener" href="https://www.atlassian.com/software/confluence/download?_ga=2.242479878.561576652.1556502870-546260764.1556502870">https://www.atlassian.com/software/confluence/download</a>. </p>
+<p>本次演示我下载的文件包为：atlassian-confluence-6.12.0.zip</p>
+<h5 id="安装jdk环境"><a href="#安装jdk环境" class="headerlink" title="安装jdk环境"></a>安装jdk环境</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y java-1.8.0-openjdk.x86_64</span><br><span class="line">java -version   # 验证</span><br></pre></td></tr></table></figure>
+<h5 id="创建Confluence用户"><a href="#创建Confluence用户" class="headerlink" title="创建Confluence用户"></a>创建Confluence用户</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -create-home --comment &quot;Account for running Confluence&quot; --shell /bin/bash confluence</span><br></pre></td></tr></table></figure>
+<h5 id="解压安装包、创建配置、配置权限"><a href="#解压安装包、创建配置、配置权限" class="headerlink" title="解压安装包、创建配置、配置权限"></a>解压安装包、创建配置、配置权限</h5><p>目录规划：</p>
+<p>​        安装目录：/data/vcg/confluence</p>
+<p>​        数据目录：/data/vcg/confluence-home</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;root&#x2F;atlassian-confluence-6.12.0.zip &#x2F;data&#x2F;vcg&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install unzip -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;data&#x2F;vcg&#x2F;</span><br><span class="line">unzip atlassian-confluence-6.12.0.zip</span><br><span class="line">mv atlassian-confluence-6.12.0 confluence</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/vcg/confluence-home</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chown -R confluence /data/vcg/confluence/</span><br><span class="line">chmod -R u=rwx,go-rwx /data/vcg/confluence/</span><br><span class="line">chown -R confluence /data/vcg/confluence-home/</span><br><span class="line">chmod -R u=rwx,go-rwx /data/vcg/confluence-home/</span><br></pre></td></tr></table></figure>
+<h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5><p>vcg这边使用的阿里云RDS数据库，未手动安装MySQL</p>
+<p>数据库使用MySQL，需安装驱动软件。<br>获取mysql-connector-java的安装包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp mysql-connector-java-5.1.45-bin.jar &#x2F;data&#x2F;vcg&#x2F;confluence&#x2F;confluence&#x2F;WEB-INF&#x2F;lib&#x2F;</span><br></pre></td></tr></table></figure>
+<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;confluence.home=/data/vcg/confluence-home/&quot; &gt; confluence/confluence/WEB-INF/classes/confluence-init.properties</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问ip:8090 继续配置Confluence</span><br></pre></td></tr></table></figure>
+<h4 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h4><h5 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h5><p>登录老Confluence界面，进入”站点管理”—“备份已还原”，点击”备份”，如图</p>
+<p>数据备份路径为：/data/vcg/confluence-home/backups/</p>
+<p><img src="/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/confluence1.png" alt="image-20190429104530362"></p>
+<h5 id="拷贝备份数据包到新服务器"><a href="#拷贝备份数据包到新服务器" class="headerlink" title="拷贝备份数据包到新服务器"></a>拷贝备份数据包到新服务器</h5><p>备份必须复制至<code>/data/vcg/confluence-home/restore</code>目录中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /data/vcg/confluence-home/backups/xmlexport-20190225-205713-119.zip  root@&#x27;xxxx&#x27;:/data/vcg/confluence-home/restore/</span><br></pre></td></tr></table></figure>
+<h5 id="部署新的Confluence"><a href="#部署新的Confluence" class="headerlink" title="部署新的Confluence"></a>部署新的Confluence</h5><h5 id="备份恢复"><a href="#备份恢复" class="headerlink" title="备份恢复"></a>备份恢复</h5><p>登录新的Confluence的”站点管理”—“备份已还原”。</p>
+<p><img src="/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/confluence2.png" alt="2"></p>
+<h4 id="维护"><a href="#维护" class="headerlink" title="维护"></a>维护</h4><h5 id="备份数据定期删除"><a href="#备份数据定期删除" class="headerlink" title="备份数据定期删除"></a>备份数据定期删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">0 15 * * * find /data/vcg/confluence-home/backups/* -type f -mtime +5 -exec rm &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<h5 id="漏洞补丁-被植入挖矿程序"><a href="#漏洞补丁-被植入挖矿程序" class="headerlink" title="漏洞补丁(被植入挖矿程序)"></a>漏洞补丁(被植入挖矿程序)</h5><blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY">https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY</a></p>
+</blockquote>
+<p>解决办法：<br>升级Widget Connector 组件</p>
+<h4 id="培训文档"><a href="#培训文档" class="headerlink" title="培训文档"></a>培训文档</h4><div class="pdfobject-container" data-target="Confluence基础培训_中文版.pdf" data-height="500px"></div>
+<div class="pdfobject-container" data-target="Confluence高级培训_中文版.pdf" data-height="500px"></div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">GeekSRE</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

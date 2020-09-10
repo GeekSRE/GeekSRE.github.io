@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="do what you loveeee">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django-Celery异步任务调度工具">
+<meta property="og:url" content="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="do what you loveeee">
+<meta property="og:locale">
+<meta property="og:image" content="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/celery00.png">
+<meta property="og:image" content="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/celery01.png">
+<meta property="og:image" content="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/celery02.png">
+<meta property="og:image" content="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/celery03.png">
+<meta property="og:image" content="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/celery04.png">
+<meta property="og:image" content="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/celery05.png">
+<meta property="article:published_time" content="2020-07-07T06:47:21.000Z">
+<meta property="article:modified_time" content="2020-07-20T10:48:54.348Z">
+<meta property="article:author" content="GeekSRE">
+<meta property="article:tag" content="Django">
+<meta property="article:tag" content="Celery">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/celery00.png">
+
+<link rel="canonical" href="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Django-Celery异步任务调度工具 | GeekSRE</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">GeekSRE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeekSRE" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Django-Celery异步任务调度工具
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-07 14:47:21" itemprop="dateCreated datePublished" datetime="2020-07-07T14:47:21+08:00">2020-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-20 18:48:54" itemprop="dateModified" datetime="2020-07-20T18:48:54+08:00">2020-07-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>do what you loveeee<br><a id="more"></a><br>Django中使用Celery实现异步或定时任务</p>
+<p><strong>Celery 官网：<a target="_blank" rel="noopener" href="http://www.celeryproject.org/">http://www.celeryproject.org/</a></strong></p>
+<p><strong>Celery 官方文档英文版</strong>：<a target="_blank" rel="noopener" href="http://docs.celeryproject.org/en/latest/index.html"><strong>http://docs.celeryproject.org/en/latest/index.html</strong></a></p>
+<p><strong>Celery 官方文档中文版：<a target="_blank" rel="noopener" href="http://docs.jinkan.org/docs/celery/">http://docs.jinkan.org/docs/celery/</a></strong></p>
+<h3 id="Celery简介"><a href="#Celery简介" class="headerlink" title="Celery简介"></a>Celery简介</h3><p>Celery是一个异步任务的调度工具。</p>
+<p>Celery 是 Distributed Task Queue，分布式任务队列，分布式决定了可以有多个 worker 的存在，队列表示其是异步操作，即存在一个产生任务提出需求的工头，和一群等着被分配工作的码农。</p>
+<p>在 Python 中定义 Celery 的时候，我们要引入 Broker，中文翻译过来就是“中间人”的意思，在这里 Broker 起到一个中间人的角色。在工头提出任务的时候，把所有的任务放到 Broker 里面，在 Broker 的另外一头，一群码农等着取出一个个任务准备着手做。</p>
+<p>这种模式注定了整个系统会是个开环系统，工头对于码农们把任务做的怎样是不知情的。所以我们要引入 Backend 来保存每次任务的结果。这个 Backend 有点像我们的 Broker，也是存储任务的信息用的，只不过这里存的是那些任务的返回结果。我们可以选择只让错误执行的任务返回结果到 Backend，这样我们取回结果，便可以知道有多少任务执行失败了。</p>
+<p>Celery(芹菜)是一个异步任务队列/基于分布式消息传递的作业队列。它侧重于实时操作，但对调度支持也很好。Celery用于生产系统每天处理数以百万计的任务。Celery是用Python编写的，但该协议可以在任何语言实现。它也可以与其他语言通过webhooks实现。Celery建议的消息队列是RabbitMQ，但提供有限支持Redis, Beanstalk, MongoDB, CouchDB, 和数据库（使用SQLAlchemy的或Django的 ORM） 。Celery是易于集成Django, Pylons and Flask，使用 django-celery, celery-pylons and Flask-Celery 附加包即可。</p>
+<h3 id="架构组成"><a href="#架构组成" class="headerlink" title="架构组成"></a>架构组成</h3><p><img src="/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/./celery00.png" alt="celery00"></p>
+<p>Celery的架构由三部分组成，<strong><em>消息中间件</em></strong>（message broker），<strong><em>任务执行单元\</em></strong>（worker）和<strong><em>任务执行结果存储</em></strong>（task result store）组成。</p>
+<p><img src="/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/./celery01.png" alt="celery01"></p>
+<p>可以看到，Celery 主要包含以下几个模块：</p>
+<ul>
+<li><p>任务模块 Task</p>
+<p>包含异步任务和定时任务。其中，<strong>异步任务通常在业务逻辑中被触发并发往任务队列，而定时任务由 Celery Beat 进程周期性地将任务发往任务队列</strong>。</p>
+</li>
+<li><p>消息中间件 Broker</p>
+<p>Broker，即为任务调度队列，<strong>接收任务生产者发来的消息（即任务），将任务存入队列</strong>。Celery 本身不提供队列服务，官方推荐使用 RabbitMQ 和 <a target="_blank" rel="noopener" href="http://lib.csdn.net/base/redis">Redis</a> 等。</p>
+</li>
+<li><p>任务执行单元 Worker</p>
+<p>Worker 是执行任务的处理单元，<strong>它实时监控消息队列，获取队列中调度的任务，并执行它</strong>。</p>
+</li>
+<li><p>任务结果存储 Backend</p>
+<p>Backend 用于<strong>存储任务的执行结果</strong>，以供查询。同消息中间件一样，存储也可使用 RabbitMQ, <a target="_blank" rel="noopener" href="http://lib.csdn.net/base/redis">redis</a> 和 <a target="_blank" rel="noopener" href="http://lib.csdn.net/base/mongodb">MongoDB</a> 等。</p>
+</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install celery</span><br><span class="line">pip install django-celery-beta  #任务发送</span><br><span class="line">pip install django-celery-results  #结果存储</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>确保目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- proj&#x2F;</span><br><span class="line">  - manage.py</span><br><span class="line">  - proj&#x2F;</span><br><span class="line">    - __init__.py</span><br><span class="line">    - settings.py</span><br><span class="line">    - urls.py</span><br></pre></td></tr></table></figure>
+<p>新建<strong>proj/proj/celery.py</strong>文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab, timedelta</span><br><span class="line"></span><br><span class="line">os.environ.setdefault(<span class="string">&#x27;DJANGO_SETTINGS_MODULE&#x27;</span>, <span class="string">&#x27;proj.settings&#x27;</span>)</span><br><span class="line">app = Celery(<span class="string">&#x27;proj&#x27;</span>)</span><br><span class="line"></span><br><span class="line">app.config_from_object(<span class="string">&#x27;django.conf:settings&#x27;</span>, namespace=<span class="string">&#x27;CELERY&#x27;</span>)</span><br><span class="line"></span><br><span class="line">app.autodiscover_tasks() <span class="comment"># 自动发现任务文件每个app下的task.py</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.task(bind=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">debug_task</span>(<span class="params">self</span>):</span></span><br><span class="line">    print(<span class="string">&#x27;Request: &#123;0!r&#125;&#x27;</span>.format(self.request))</span><br></pre></td></tr></table></figure>
+<p>编辑<strong>proj/proj/<strong>init</strong>.py</strong>文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_app</span><br><span class="line"></span><br><span class="line">__all__ = (<span class="string">&#x27;celery_app&#x27;</span>,)</span><br></pre></td></tr></table></figure>
+<p>编辑<strong>proj/proj/settings.py</strong>文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">    ...,</span><br><span class="line">    <span class="string">&#x27;django_celery_beat&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django_celery_results&#x27;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Celery</span></span><br><span class="line">CELERY_URL = <span class="string">&#x27;redis://:&#x27;</span> + configs[<span class="string">&#x27;redis&#x27;</span>][<span class="string">&#x27;RedisPassword&#x27;</span>] + <span class="string">&#x27;@&#x27;</span> + configs[<span class="string">&#x27;redis&#x27;</span>][<span class="string">&#x27;RedisHost&#x27;</span>] + <span class="string">&#x27;:&#x27;</span> + str(</span><br><span class="line">    configs[<span class="string">&#x27;redis&#x27;</span>][<span class="string">&#x27;RedisPort&#x27;</span>]) + <span class="string">&#x27;/&#x27;</span> + str(configs[<span class="string">&#x27;redis&#x27;</span>][<span class="string">&#x27;RedisDb&#x27;</span>])</span><br><span class="line"><span class="comment"># CELERY_URL = &quot;redis://:&#123; 密码 &#125;@&#123; redis地址 &#125;:6379/4&quot;</span></span><br><span class="line">BROKER_URL = CELERY_URL</span><br><span class="line">CELERY_BROKER_URL = CELERY_URL</span><br><span class="line"><span class="comment"># CELERY_BEAT_SCHEDULER = &#x27;django_celery_beat.schedulers:DatabaseScheduler&#x27;</span></span><br><span class="line"><span class="comment"># CELERY_RESULT_BACKEND = CELERY_URL</span></span><br><span class="line">CELERY_RESULT_BACKEND = <span class="string">&#x27;django-db&#x27;</span>  <span class="comment"># 使用django orm 作为结果存储</span></span><br><span class="line"></span><br><span class="line">CELERY_ACCEPT_CONTENT = [<span class="string">&#x27;application/json&#x27;</span>]</span><br><span class="line">CELERY_TASK_SERIALIZER = <span class="string">&#x27;json&#x27;</span></span><br><span class="line">CELERY_RESULT_SERIALIZER = <span class="string">&#x27;json&#x27;</span></span><br><span class="line">CELERY_TIMEZONE = <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line">CELERY_ENABLE_UTC = <span class="literal">True</span></span><br><span class="line">CELERYD_CONCURRENCY = <span class="number">10</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="同步数据库"><a href="#同步数据库" class="headerlink" title="同步数据库"></a>同步数据库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 创建更改的文件</span></span><br><span class="line">python manage.py makemigrations</span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 将生成的py文件应用到数据库</span></span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+<h4 id="创建超级管理员"><a href="#创建超级管理员" class="headerlink" title="创建超级管理员"></a>创建超级管理员</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 按照提示输入用户名和对应的密码就好了邮箱可以留空，用户名和密码必填</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改 用户密码可以用：</span></span><br><span class="line">python manage.py changepassword username</span><br></pre></td></tr></table></figure>
+<h4 id="增加定时任务"><a href="#增加定时任务" class="headerlink" title="增加定时任务"></a>增加定时任务</h4><p>编辑<strong>proj/proj/celery.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">app.conf.update(</span><br><span class="line">    CELERYBEAT_SCHEDULE=&#123;</span><br><span class="line">        <span class="string">&#x27;task_update_ali_ecs&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;assets.tasks.task_update_ali_ecs&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;schedule&#x27;</span>: timedelta(minutes=<span class="number">60</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;task_update_ali_rds&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;assets.tasks.task_update_ali_rds&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;schedule&#x27;</span>: timedelta(minutes=<span class="number">60</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;task_update_ali_slb&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;assets.tasks.task_update_ali_slb&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;schedule&#x27;</span>: timedelta(minutes=<span class="number">60</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;task_update_tx_cns&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;assets.tasks.task_update_tx_cns&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;schedule&#x27;</span>: timedelta(minutes=<span class="number">60</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;add-every-monday-morning&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;task&#x27;</span>: <span class="string">&#x27;tasks.add&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;schedule&#x27;</span>: crontab(hour=<span class="number">7</span>, minute=<span class="number">30</span>, day_of_week=<span class="number">1</span>),</span><br><span class="line">            <span class="string">&#x27;args&#x27;</span>: (<span class="number">16</span>, <span class="number">16</span>),</span><br><span class="line">    		&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">#https://docs.celeryproject.org/en/stable/userguide/periodic-tasks.html#crontab-schedules</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># schedule 可以填写timedelta表示循环时间，隔多久执行一次</span></span><br><span class="line"><span class="comment">#          也可以填写 crontab  表示某个时间去执行，例如示例中，表示 Executes every Monday morning at 7:30 a.m.</span></span><br></pre></td></tr></table></figure>
+<h4 id="新增任务的代码"><a href="#新增任务的代码" class="headerlink" title="新增任务的代码"></a>新增任务的代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from django_celery_beat.models import PeriodicTask, ClockedSchedule</span><br><span class="line"></span><br><span class="line">#比如创建一个发版任务</span><br><span class="line"># 1.新创建时间clockschedule</span><br><span class="line">clock, create &#x3D; ClockedSchedule.objects.get_or_create(clocked_time&#x3D;db_deploy_time)</span><br><span class="line"></span><br><span class="line"># 2.创建任务</span><br><span class="line">PeriodicTask.objects.create(</span><br><span class="line">                                clocked&#x3D;clock,</span><br><span class="line">                                name&#x3D;&#39;vrigo-deploy_&#39; + db_data[&#39;service_list&#39;] + &#39;-&#39; + str(db_deploy_time),</span><br><span class="line">                                task&#x3D;&#39;services.tasks.task_build_job&#39;,</span><br><span class="line">                                args&#x3D;json.dumps([services, int(id)]),</span><br><span class="line">                                start_time&#x3D;datetime.datetime.now(),</span><br><span class="line">                                one_off&#x3D;True,</span><br><span class="line">                            )</span><br></pre></td></tr></table></figure>
+<p><strong>services/tasks.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab</span><br><span class="line"><span class="keyword">from</span> services.api.jenkins <span class="keyword">import</span> JenkinsApi</span><br><span class="line"><span class="keyword">from</span> services.views <span class="keyword">import</span> task_result_to_db</span><br><span class="line"><span class="keyword">from</span> users.api.mail <span class="keyword">import</span> send_mail</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">task_build_job</span>(<span class="params">service,id</span>):</span></span><br><span class="line">    obj = JenkinsApi()</span><br><span class="line">    data = obj.build_job(service)   <span class="comment">#触发jenkins job</span></span><br><span class="line">    <span class="comment"># id = kwargs.get(&quot;id&quot;, 10)</span></span><br><span class="line">    to_db = task_result_to_db(id, data)  <span class="comment">#将结果存入db中</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">celery -A proj beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler</span><br><span class="line"></span><br><span class="line">celery worker -A virgo -l info</span><br><span class="line"></span><br><span class="line">python3 manage.py runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
+<p><img src="/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/./celery02.png" alt></p>
+<h3 id="flower"><a href="#flower" class="headerlink" title="flower"></a>flower</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flower</span><br></pre></td></tr></table></figure>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery flower -A virgo -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler</span><br></pre></td></tr></table></figure>
+<p><img src="/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/./celery03.png" alt></p>
+<p><img src="/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/./celery04.png" alt></p>
+<p><img src="/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/./celery05.png" alt></p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Django/" rel="tag"># Django</a>
+              <a href="/tags/Celery/" rel="tag"># Celery</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Nexus%E6%89%8B%E5%8A%A8%E4%B8%8A%E4%BC%A0%E4%BE%9D%E8%B5%96%E5%8C%85/" rel="prev" title="Nexus手动上传依赖包">
+      <i class="fa fa-chevron-left"></i> Nexus手动上传依赖包
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4DevOps%E5%AE%9E%E8%B7%B5%E6%89%8B%E5%86%8C/" rel="next" title="阿里巴巴DevOps实践手册">
+      阿里巴巴DevOps实践手册 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Celery%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Celery简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E7%BB%84%E6%88%90"><span class="nav-number">2.</span> <span class="nav-text">架构组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">同步数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98"><span class="nav-number">4.2.</span> <span class="nav-text">创建超级管理员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-number">4.3.</span> <span class="nav-text">增加定时任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">4.4.</span> <span class="nav-text">新增任务的代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flower"><span class="nav-number">6.</span> <span class="nav-text">flower</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-1"><span class="nav-number">6.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">6.2.</span> <span class="nav-text">启动</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">GeekSRE</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
