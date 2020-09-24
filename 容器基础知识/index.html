@@ -20,17 +20,23 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="GeekSRE">
-<meta property="og:type" content="website">
-<meta property="og:title" content="GeekSRE">
-<meta property="og:url" content="http://yoursite.com/archives/2019/page/6/index.html">
+  <meta name="description" content="Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="容器基础知识">
+<meta property="og:url" content="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="GeekSRE">
+<meta property="og:description" content="Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
 <meta property="og:locale">
+<meta property="og:image" content="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/zh-cn_image_0257565965.png">
+<meta property="og:image" content="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/zh-cn_image_0258868444.png">
+<meta property="article:published_time" content="2020-09-24T03:07:07.000Z">
+<meta property="article:modified_time" content="2020-09-24T03:12:31.392Z">
 <meta property="article:author" content="GeekSRE">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/zh-cn_image_0257565965.png">
 
-<link rel="canonical" href="http://yoursite.com/archives/2019/page/6/">
+<link rel="canonical" href="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
 
 
 <script id="page-configurations">
@@ -38,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>Archive | GeekSRE</title>
+  <title>容器基础知识 | GeekSRE</title>
   
 
 
@@ -186,235 +192,141 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">Nice! 69 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          容器基础知识
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-24 11:07:07 / Modified: 11:12:31" itemprop="dateCreated datePublished" datetime="2020-09-24T11:07:07+08:00">2020-09-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
+        <p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。<br><a id="more"></a></p>
+<h4 id="容器与Docker"><a href="#容器与Docker" class="headerlink" title="容器与Docker"></a>容器与Docker</h4><p>容器技术起源于Linux，是一种内核虚拟化技术，提供轻量级的虚拟化，以便隔离进程和资源。尽管容器技术已经出现很久，却是随着Docker的出现而变得广为人知。Docker是第一个使容器能在不同机器之间移植的系统。它不仅简化了打包应用的流程，也简化了打包应用的库和依赖，甚至整个操作系统的文件系统能被打包成一个简单的可移植的包，这个包可以被用来在任何其他运行Docker的机器上使用。</p>
+<p>容器和虚拟机具有相似的资源隔离和分配方式，容器虚拟化了操作系统而不是硬件，更加便携和高效。</p>
+<p><img src="/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/./zh-cn_image_0257565965.png" alt="img"></p>
+<p>相比于使用虚拟机，容器有如下优点：</p>
+<ul>
+<li><p>更高效的利用系统资源</p>
+<p>由于容器不需要进行硬件虚拟以及运行完整操作系统等额外开销，容器对系统资源的利用率更高。无论是应用执行速度、内存损耗或者文件存储速度，都要比传统虚拟机技术更高效。因此，相比虚拟机技术，一个相同配置的主机，往往可以运行更多数量的应用。</p>
+</li>
+<li><p>更快速的启动时间</p>
+<p>传统的虚拟机技术启动应用服务往往需要数分钟，而Docker容器应用，由于直接运行于宿主内核，无需启动完整的操作系统，因此可以做到秒级、甚至毫秒级的启动时间，大大节约了开发、测试、部署的时间。</p>
+</li>
+<li><p>一致的运行环境</p>
+<p>开发过程中一个常见的问题是环境一致性问题。由于开发环境、测试环境、生产环境不一致，导致有些问题并未在开发过程中被发现。而Docker的镜像提供了除内核外完整的运行时环境，确保了应用运行环境一致性。</p>
+</li>
+<li><p>更轻松的迁移</p>
+<p>由于Docker确保了执行环境的一致性，使得应用的迁移更加容易。Docker可以在很多平台上运行，无论是物理机、虚拟机，其运行结果是一致的。因此可以很轻易的将在一个平台上运行的应用，迁移到另一个平台上，而不用担心运行环境的变化导致应用无法正常运行的情况。</p>
+</li>
+<li><p>更轻松的维护和扩展</p>
+<p>Docker使用的分层存储以及镜像的技术，使得应用重复部分的复用更为容易，也使得应用的维护更新更加简单，基于基础镜像进一步扩展镜像也变得非常简单。此外，Docker团队同各个开源项目团队一起维护了一大批高质量的官方镜像，既可以直接在生产环境使用，又可以作为基础进一步定制，大大的降低了应用服务的镜像制作成本。</p>
+</li>
+</ul>
+<h4 id="Docker容器典型使用流程"><a href="#Docker容器典型使用流程" class="headerlink" title="Docker容器典型使用流程"></a>Docker容器典型使用流程</h4><p>Docker容器有如下三个主要概念。</p>
+<ul>
+<li><strong>镜像</strong>：Docker镜像里包含了已打包的应用程序及其所依赖的环境。它包含应用程序可用的文件系统和其他元数据，如镜像运行时的可执行文件路径。</li>
+<li><strong>镜像仓库</strong>：Docker镜像仓库用于存放Docker镜像，以及促进不同人和不同电脑之间共享这些镜像。当编译镜像时，要么可以在编译它的电脑上运行，要么可以先上传镜像到一个镜像仓库，然后下载到另外一台电脑上并运行它。某些仓库是公开的，允许所有人从中拉取镜像，同时也有一些是私有的，仅部分人和机器可接入。</li>
+<li><strong>容器</strong>：Docker容器通常是一个Linux容器，它基于Docker镜像被创建。一个运行中的容器是一个运行在Docker主机上的进程，但它和主机，以及所有运行在主机上的其他进程都是隔离的。这个进程也是资源受限的，意味着它只能访问和使用分配给它的资源（CPU、内存等）。</li>
+</ul>
+<p>典型的使用流程如下图所示。</p>
+<p>图2 Docker容器典型使用流程</p>
+<p><img src="/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/./zh-cn_image_0258868444.png" alt="img"></p>
+<ol>
+<li><p>首先开发者在开发环境机器上开发应用并制作镜像。</p>
+<p>Docker执行命令，构建镜像并存储在机器上。</p>
+</li>
+<li><p>开发者发送上传镜像命令。</p>
+<p>Docker收到命令后，将本地镜像上传到镜像仓库。</p>
+</li>
+<li><p>开发者向生产环境机器发送运行镜像命令。</p>
+<p>生产环境机器收到命令后，Docker会从镜像仓库拉取镜像到机器上，然后基于镜像运行容器。</p>
+</li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-16T14:27:48+08:00"
-              content="2019-04-16">
-          04-16
-        </time>
-      </div>
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1/" itemprop="url">
-            <span itemprop="name">暴力破解攻击和防御</span>
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
           </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-16T14:23:34+08:00"
-              content="2019-04-16">
-          04-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Elasticsearch%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/" itemprop="url">
-            <span itemprop="name">Elasticsearch服务安全加固</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-16T14:11:32+08:00"
-              content="2019-04-16">
-          04-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA/" itemprop="url">
-            <span itemprop="name">Linux操作系统加固</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-08T17:33:28+08:00"
-              content="2019-04-08">
-          04-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Ansible-%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0%E5%85%8D%E5%AF%86%E7%A0%81%E8%AE%A4%E8%AF%81/" itemprop="url">
-            <span itemprop="name">Ansible-快速添加免密码认证</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-07T10:08:04+08:00"
-              content="2019-04-07">
-          04-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Cookie-Session/" itemprop="url">
-            <span itemprop="name">Cookie & Session</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-05T17:15:18+08:00"
-              content="2019-04-05">
-          04-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Nginx-%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/" itemprop="url">
-            <span itemprop="name">Nginx_配置SSL证书</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-05T17:00:20+08:00"
-              content="2019-04-05">
-          04-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Archer-SQL%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B9%B3%E5%8F%B0/" itemprop="url">
-            <span itemprop="name">Archer</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-05T00:31:11+08:00"
-              content="2019-04-05">
-          04-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Hexo-%E5%8D%9A%E5%AE%A2/" itemprop="url">
-            <span itemprop="name">Hexo</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-05T00:17:52+08:00"
-              content="2019-04-05">
-          04-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Kubernetes-Nginx-Ingress/" itemprop="url">
-            <span itemprop="name">Kubernetes_Nginx-Ingress</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-04-03T10:01:56+08:00"
-              content="2019-04-03">
-          04-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
+        </div>
     </div>
   </div>
-  
-  
-  
 
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/ali-kt/" rel="prev" title="ali_kt">
+      <i class="fa fa-chevron-left"></i> ali_kt
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/5/">5</a><span class="page-number current">6</span>
-  </nav>
+  
+  
 
 
 
@@ -466,6 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E4%B8%8EDocker"><span class="nav-number">1.</span> <span class="nav-text">容器与Docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker%E5%AE%B9%E5%99%A8%E5%85%B8%E5%9E%8B%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">Docker容器典型使用流程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

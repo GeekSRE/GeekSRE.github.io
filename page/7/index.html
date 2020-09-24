@@ -192,6 +192,194 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Elasticsearch%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Elasticsearch%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/" class="post-title-link" itemprop="url">Elasticsearch服务安全加固</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-04-16 14:23:34 / Modified: 16:47:57" itemprop="dateCreated datePublished" datetime="2019-04-16T14:23:34+08:00">2019-04-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Elasticsearch/" itemprop="url" rel="index"><span itemprop="name">Elasticsearch</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>引用自阿里云<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/49913.html">https://help.aliyun.com/knowledge_detail/49913.html</a>&gt;</p>
+</blockquote>
+<p>Elasticsearch 是一个基于 Lucene 的搜索服务，它提供了 RESTful web 接口的分布式、多用户全文搜索引擎 。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是第二大最流行的企业搜索引擎。</p>
+<p>Elasticsearch 应用于云计算中，具有实时搜索、稳定、可靠、快速、安装使用方便等优势；但也存在一些安全隐患：默认安装完成后，Elasticsearch 可以使用 9200 端口通告 web 的方式访问查看数据信息。</p>
+<h3 id="漏洞详情"><a href="#漏洞详情" class="headerlink" title="漏洞详情"></a>漏洞详情</h3><p>Elasticsearch 中存在以下高危漏洞。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">CVE</th>
+<th style="text-align:left">受影响版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">远程命令执行</td>
+<td style="text-align:left">CVE-2014-3120</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">Elasticsearch 的脚本执行 (scripting) 功能，可以很方便地对查询出来的数据进行再加工处理。但是，其使用的 MVEL 脚本引擎没有做过任何防护（或者沙盒包装），可以直接执行任意代码。</td>
+</tr>
+<tr>
+<td style="text-align:left">远程代码执行</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">1.3.0-1.3.7，1.4.0-1.4</td>
+<td style="text-align:left">Elasticsearch 使用 Groovy 作为脚本语言，虽然加入了沙盒进行控制，危险的代码会被拦截。但是由于沙盒限制不严格，仅通过黑白名单来判断，导致攻击者可以绕过沙盒，执行远程代码。</td>
+</tr>
+<tr>
+<td style="text-align:left">未授权访问</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">Elasticsearch 在安装了 River 机制之后可以同步多种数据库数据（包括关系型的MySQL、MongoDB 等）。如果 <code>http://localhost:9200/cat/indices</code>中 <code>indices</code> 包含了 <code>_river</code>，则代表 Elasticsearch 已安装 River 机制。而通过泄露的 <code>http://localhost:9200/_rvier/_search</code> URL 地址，攻击者可以获取到敏感信息。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="漏洞成因与危害"><a href="#漏洞成因与危害" class="headerlink" title="漏洞成因与危害"></a>漏洞成因与危害</h3><p>由于 Elasticsearch 的 HTTP 连接没有提供任何的权限控制措施，一旦部署在公共网络就容易有数据泄露的风险。</p>
+<h3 id="安全加固方案"><a href="#安全加固方案" class="headerlink" title="安全加固方案"></a>安全加固方案</h3><h4 id="使用最新的-Elasticsearch-版本"><a href="#使用最新的-Elasticsearch-版本" class="headerlink" title="使用最新的 Elasticsearch 版本"></a>使用最新的 Elasticsearch 版本</h4><p>通过正规渠道（如 <a target="_blank" rel="noopener" href="https://www.elastic.co/downloads">Elastic 官网</a>）下载 Elasticsearch 的最新版本。</p>
+<ul>
+<li>下载完成后，将下载文件的 sha1 值和下载时官网页面提供的 sha1 值进行对比，避免下载过程中被恶意攻击者拦截破坏文件，甚至注入恶意代码。</li>
+<li>不要随便安装第三方的插件，插件有可能引入安全漏洞甚至本身自带后门，需谨慎使用。</li>
+<li>关注 Elastic 网站，及时更新 Elasticsearch 至最新版本。Elasticsearch 每次版本发布都会优化和改进一部分功能，尤其是安全漏洞的补丁。同时，仔细阅读 Elasticsearch 的版本更新记录。</li>
+</ul>
+<p><strong>注意</strong>：更新升级前，建议您先进行快照备份，及本地测试。</p>
+<h4 id="（推荐）网络访问控制"><a href="#（推荐）网络访问控制" class="headerlink" title="（推荐）网络访问控制"></a>（推荐）网络访问控制</h4><p>Elasticsearch 默认端口是 9200。</p>
+<ul>
+<li>不要把 Elasticsearch 的 9200 端口服务发布到互联网上。</li>
+<li>使用 <a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/25475.html">阿里云安全组防火墙</a> 或本地操作系统防火墙对访问源 IP 进行隔离控制。</li>
+</ul>
+<h4 id="绑定访问源-IP"><a href="#绑定访问源-IP" class="headerlink" title="绑定访问源 IP"></a>绑定访问源 IP</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">network.bind_host: 192.168.0.1</span><br><span class="line"># 设置绑定的 IP 地址，可以是 IPv4 或 IPv6 地址，默认为 0.0.0.0。</span><br><span class="line">network.publish_host: 192.168.0.1</span><br><span class="line"># 设置其它节点和该节点交互的 IP 地址，如果不设置它会自动判断，值必须是个真实的 IP 地址。</span><br><span class="line">network.host: 192.168.0.1</span><br><span class="line"># 同时设置上述两个参数：bind_host 和 publish_host。</span><br></pre></td></tr></table></figure>
+<h4 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ransport.tcp.port: 9300</span><br><span class="line"># 设置节点间交互的 TCP 端口，默认是 9300。</span><br><span class="line">transport.tcp.compress: true</span><br><span class="line"># 设置是否压缩 TCP 传输时的数据，默认为 false，即不压缩。</span><br><span class="line">http.port: 9200</span><br><span class="line"># 设置对外服务的 HTTP 端口，默认为 9200。</span><br></pre></td></tr></table></figure>
+<h4 id="关闭-HTTP-访问"><a href="#关闭-HTTP-访问" class="headerlink" title="关闭 HTTP 访问"></a>关闭 HTTP 访问</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.enabled: false</span><br><span class="line"># 是否使用 HTTP 协议对外提供服务，默认为 true，即开启。</span><br></pre></td></tr></table></figure>
+<h4 id="使用-Shield-安全插件"><a href="#使用-Shield-安全插件" class="headerlink" title="使用 Shield 安全插件"></a>使用 Shield 安全插件</h4><p>Shield 是 Elastic 公司为 Elasticsearch 开发的一个安全插件。在安装此插件后，Shield 会拦截所有对 Elasticsearch 的请求，并进行认证与加密，保障 Elasticsearch 及相关系统的安全性。Shield 是商业插件，需要 Elasticsearch 的商业许可。第一次安装许可的时候，会提供 30 天的免费试用权限。30 天后，Shield 将会屏蔽 clusterhealth, cluster stats, index stats 等 API，其余功能不受影响。</p>
+<h5 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h5><p>使用 Shield 可以定义一系列已知的用户，并用其认证用户请求。这些用户存在于抽象的“域”中。一个“域”可以是下面几种类型：</p>
+<ul>
+<li>LDAP 服务</li>
+<li>ActiveDirectory 服务</li>
+<li>本地 <code>esusers</code> 配置文件（类似 <code>/etc/passwd</code>)</li>
+</ul>
+<h5 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h5><p>Shield 的权限控制包含下面几种元素：</p>
+<ul>
+<li>被保护的资源 <strong>SecuredResource</strong>：权限所应用到的对象，比如某个 index，cluster 等。</li>
+<li>特权 <strong>Priviliege</strong>：角色对对象可以执行的一种或多种操作，比如 read，write 等。还可以是 <code>indicies:/data/read/perlocate</code> 等对某种对象特有的操作。</li>
+<li>许可 <strong>Permissions</strong>：对被保护的资源拥有的一个或多个特权，如 <code>read on the&quot;products&quot; index</code>。</li>
+<li>角色 <strong>Role</strong>：一组许可的集成，具有独立的名称。</li>
+<li>用户 <strong>Users</strong>：用户实体，可以被赋予多种角色，他们可以对被保护的资源执行相应角色所拥有的各种特权。</li>
+</ul>
+<h5 id="安装-Shield"><a href="#安装-Shield" class="headerlink" title="安装 Shield"></a>安装 Shield</h5><p>执行安装步骤前，请确保满足以下安装环境条件：</p>
+<ul>
+<li>您安装了 Java7 或更新版本。</li>
+<li>您将 Elasticsearch 1.5.0+ 解压安装到了本机上。如果您使用 APT 或 YUM 安装，默认的安装目录可能在 <code>/usr/share/elasticsearch</code>。</li>
+</ul>
+<p>参照以下步骤完成安装：</p>
+<ol>
+<li><p>进入 Elasticsearch 安装目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;share&#x2F;elasticsearch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 Elasticsearch 许可插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;plugin -i elasticsearch&#x2F;license&#x2F;latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 Shield 插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;plugin -i elasticsearch&#x2F;shield&#x2F;latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 Shield 配置文件移动或链接至 <code>/etc/elasticsearch/shield</code> 目录中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;config&#x2F;shield &#x2F;etc&#x2F;elasticsearch&#x2F;shield</span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：Elasticsearch 服务在启动时会在 <code>/etc/elasticsearch/shield</code> 目录下寻找 Shield 配置文件，而这些配置文件在安装 Shield 时会出现在 <code>/usr/share/elasticsearch/config/shield</code> 中，因此需要将配置文件移动或链接至该目录。</p>
+</li>
+<li><p>重启 Elasticsearch 服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service elasticsearch restart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个 Elasticsearch 管理员账户，填写新密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;shield&#x2F;esusersuseradd es_admin -r admin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接使用 RESTFUL API 访问 Elasticsearch 的请求都会被拒绝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XGET&#39;http:&#x2F;&#x2F;localhost:9200&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+<p>需要在请求中添加用户名和密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -u es_admin -XGET &#39;http:&#x2F;&#x2F;localhost:9200&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>更多信息，请参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.elastic.co/downloads/shield">Shield 官方安装指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/shield/current/getting-started.html">Shield 官方使用配置指南</a></li>
+</ul>
+<h4 id="修改默认的-Elasticsearch-集群名称"><a href="#修改默认的-Elasticsearch-集群名称" class="headerlink" title="修改默认的 Elasticsearch 集群名称"></a>修改默认的 Elasticsearch 集群名称</h4><p>Elasticsearch 默认的集群名称是 elasticsearch，请在您的生产环境中将其修改成其他名称。确保在不同的环境和不同的集群下使用不同的名称；并且在监控集群节点时，如果有未知节点加入，一定要及时预警。</p>
+<h4 id="不要以-root-身份运行-Elasticsearch"><a href="#不要以-root-身份运行-Elasticsearch" class="headerlink" title="不要以 root 身份运行 Elasticsearch"></a>不要以 root 身份运行 Elasticsearch</h4><p>不要以 root 身份来运行 Elasticsearch，不要和其他服务共用相同的用户，并把用户的权限最小化。</p>
+<p>应用示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u es-user ES_JAVA_OPTS&#x3D;&quot;-Xms1024m -Xmx1024m&quot;&#x2F;opt&#x2F;elasticsearch&#x2F;bin&#x2F;elasticsearc</span><br></pre></td></tr></table></figure>
+<h4 id="正确设置-Elasticsearch-的数据目录"><a href="#正确设置-Elasticsearch-的数据目录" class="headerlink" title="正确设置 Elasticsearch 的数据目录"></a>正确设置 Elasticsearch 的数据目录</h4><p>请确保为 Elasticsearch 的目录分配了合理的读写权限，避免使用共享文件系统。确保只有 Elasticsearch 的启动用户才有权访问目录。日志目录也需要正确配置，避免泄露敏感信息。</p>
+<h4 id="定期对-Elasticsearch-进行备份"><a href="#定期对-Elasticsearch-进行备份" class="headerlink" title="定期对 Elasticsearch 进行备份"></a>定期对 Elasticsearch 进行备份</h4><p>使用 Elasticsearch 提供的备份还原机制，定期对 Elasticsearch 的数据进行快照备份。</p>
+<h4 id="禁用批量删除索引"><a href="#禁用批量删除索引" class="headerlink" title="禁用批量删除索引"></a>禁用批量删除索引</h4><p>Elasticsearch 支持使用全部（<code>_all</code>）和通配符（<code>*</code>）来批量删除索引。在生产环境，该操作存在一定风险，你可以通过设置 <code>action.destructive_requires_name: true</code> 参数来禁用它。</p>
+<h4 id="启用日志记录功能"><a href="#启用日志记录功能" class="headerlink" title="启用日志记录功能"></a>启用日志记录功能</h4><p>Elasticsearch 的 <code>config</code> 文件夹里面有两个配置文件：</p>
+<ul>
+<li><code>elasticsearch.yml</code>：基本配置文件。</li>
+<li><code>logging.yml</code>：日志配置文件。由于 Elasticsearch 使用 log4j 来记录日志的，<code>logging.yml</code> 中的设置请按普通 log4j 配置文件进行设置。</li>
+</ul>
+<p>启用日志功能需要修改 <code>elasticsearch.yml</code> 配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.logs: &#x2F;path&#x2F;to&#x2F;logs# 设置日志文件的存储路径，默认是 Elasticsearch 根目录下的 logs 文件夹</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -988,7 +1176,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1001,7 +1189,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

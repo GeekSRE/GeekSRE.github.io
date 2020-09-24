@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    <lastmod>2020-09-24</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite.com/ali-kt/</loc>
     <lastmod>2020-09-02</lastmod>
   </url>

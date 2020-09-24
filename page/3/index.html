@@ -192,6 +192,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">SonarQube-安装部署</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-07-17 14:45:39 / Modified: 14:46:13" itemprop="dateCreated datePublished" datetime="2019-07-17T14:45:39+08:00">2019-07-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h4><h5 id="Docker方式"><a href="#Docker方式" class="headerlink" title="Docker方式"></a>Docker方式</h5><h6 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull postgres</span><br><span class="line">docker pull sonarqube</span><br></pre></td></tr></table></figure>
+<h6 id="启动postgresql"><a href="#启动postgresql" class="headerlink" title="启动postgresql"></a>启动postgresql</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres</span><br></pre></td></tr></table></figure>
+<h6 id="启动sonarqube"><a href="#启动sonarqube" class="headerlink" title="启动sonarqube"></a>启动sonarqube</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name sq --link db -e SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar -p 9000:9000 -d sonarqube</span><br></pre></td></tr></table></figure>
+<h6 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h6><p>启动报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br></pre></td></tr></table></figure>
+<p><img src="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/./sonarqube1.jpg" alt></p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> </li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">添加：</span></span><br><span class="line">vm.max_map_count=262144</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">验证：</span></span><br><span class="line">sysctl -p | grep vm.max_map_count</span><br></pre></td></tr></table></figure>
+<h4 id="访问SonarQube"><a href="#访问SonarQube" class="headerlink" title="访问SonarQube"></a>访问SonarQube</h4><h5 id="登录系统"><a href="#登录系统" class="headerlink" title="登录系统"></a>登录系统</h5><p>访问ip:9000</p>
+<p><img src="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/./sonarqube2.jpg" alt></p>
+<p>登录用户名密码：admin，admin</p>
+<p><img src="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/./sonarqube2-1.jpg" alt></p>
+<h5 id="安装中文包"><a href="#安装中文包" class="headerlink" title="安装中文包"></a>安装中文包</h5><p>Administration–Marketplace</p>
+<p><img src="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/./sonarqube3.jpg" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Linux-tree%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -952,98 +1026,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Jenkins-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Jenkins-插件管理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-06-29 15:18:44 / Modified: 15:19:33" itemprop="dateCreated datePublished" datetime="2019-06-29T15:18:44+08:00">2019-06-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h4><h5 id="Web控制台安装"><a href="#Web控制台安装" class="headerlink" title="Web控制台安装"></a>Web控制台安装</h5><ol>
-<li><p>进入“插件管理”界面</p>
-<p><img src="/Jenkins-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/./chajian1.jpg" alt></p>
-</li>
-<li><p>搜索插件名称</p>
-<p><img src="/Jenkins-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/./chajian2.jpg" alt></p>
-</li>
-<li><p>勾选插件，选择<code>直接安装</code></p>
-<p><img src="/Jenkins-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/./chajian3.jpg" alt></p>
-</li>
-<li><p>安装完成。（部分插件安装后需重启，勾选重启Jenkins选项即可。）</p>
-</li>
-</ol>
-<h5 id="上传插件"><a href="#上传插件" class="headerlink" title="上传插件"></a>上传插件</h5><p>公司以前使用Swarm管理Docker容器，用到aliyun-container-service-deploy的jenkins插件更新应用</p>
-<ol>
-<li><p>到清华源下载插件</p>
-<p><a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/jenkins/plugins/aliyun-container-service-deploy/latest/">https://mirror.tuna.tsinghua.edu.cn/jenkins/plugins/aliyun-container-service-deploy/latest/</a></p>
-</li>
-<li><p>上传插件</p>
-<p><img src="/Jenkins-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/./chajian4.jpg" alt></p>
-</li>
-<li><p>等待安装</p>
-<p><img src="/Jenkins-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/./chajian5.jpg" alt></p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1113,7 +1095,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1126,7 +1108,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
