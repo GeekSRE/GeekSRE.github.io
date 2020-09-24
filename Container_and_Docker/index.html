@@ -22,21 +22,21 @@
 
   <meta name="description" content="Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="容器基础知识">
-<meta property="og:url" content="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:title" content="Container and Docker">
+<meta property="og:url" content="http://yoursite.com/Container_and_Docker/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
 <meta property="og:locale">
-<meta property="og:image" content="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/zh-cn_image_0257565965.png">
-<meta property="og:image" content="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/zh-cn_image_0258868444.png">
+<meta property="og:image" content="http://yoursite.com/Container_and_Docker/zh-cn_image_0257565965.png">
+<meta property="og:image" content="http://yoursite.com/Container_and_Docker/zh-cn_image_0258868444.png">
 <meta property="article:published_time" content="2020-09-24T03:07:07.000Z">
-<meta property="article:modified_time" content="2020-09-24T03:12:31.392Z">
+<meta property="article:modified_time" content="2020-09-24T09:02:31.862Z">
 <meta property="article:author" content="GeekSRE">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/zh-cn_image_0257565965.png">
+<meta name="twitter:image" content="http://yoursite.com/Container_and_Docker/zh-cn_image_0257565965.png">
 
-<link rel="canonical" href="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+<link rel="canonical" href="http://yoursite.com/Container_and_Docker/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>容器基础知识 | GeekSRE</title>
+  <title>Container and Docker | GeekSRE</title>
   
 
 
@@ -199,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Container_and_Docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -212,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          容器基础知识
+          Container and Docker
         </h1>
 
         <div class="post-meta">
@@ -223,7 +223,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-09-24 11:07:07 / Modified: 11:12:31" itemprop="dateCreated datePublished" datetime="2020-09-24T11:07:07+08:00">2020-09-24</time>
+              <time title="Created: 2020-09-24 11:07:07 / Modified: 17:02:31" itemprop="dateCreated datePublished" datetime="2020-09-24T11:07:07+08:00">2020-09-24</time>
             </span>
 
           
@@ -240,7 +240,7 @@
         <p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。<br><a id="more"></a></p>
 <h4 id="容器与Docker"><a href="#容器与Docker" class="headerlink" title="容器与Docker"></a>容器与Docker</h4><p>容器技术起源于Linux，是一种内核虚拟化技术，提供轻量级的虚拟化，以便隔离进程和资源。尽管容器技术已经出现很久，却是随着Docker的出现而变得广为人知。Docker是第一个使容器能在不同机器之间移植的系统。它不仅简化了打包应用的流程，也简化了打包应用的库和依赖，甚至整个操作系统的文件系统能被打包成一个简单的可移植的包，这个包可以被用来在任何其他运行Docker的机器上使用。</p>
 <p>容器和虚拟机具有相似的资源隔离和分配方式，容器虚拟化了操作系统而不是硬件，更加便携和高效。</p>
-<p><img src="/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/./zh-cn_image_0257565965.png" alt="img"></p>
+<p><img src="/Container_and_Docker/./zh-cn_image_0257565965.png" alt="img"></p>
 <p>相比于使用虚拟机，容器有如下优点：</p>
 <ul>
 <li><p>更高效的利用系统资源</p>
@@ -267,7 +267,7 @@
 </ul>
 <p>典型的使用流程如下图所示。</p>
 <p>图2 Docker容器典型使用流程</p>
-<p><img src="/%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/./zh-cn_image_0258868444.png" alt="img"></p>
+<p><img src="/Container_and_Docker/./zh-cn_image_0258868444.png" alt="img"></p>
 <ol>
 <li><p>首先开发者在开发环境机器上开发应用并制作镜像。</p>
 <p>Docker执行命令，构建镜像并存储在机器上。</p>
@@ -285,25 +285,6 @@
     
     
     
-        
-
-  <div class="followme">
-    <p>Welcome to my other publishing channels</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
 
       <footer class="post-footer">
           <div class="post-tags">
