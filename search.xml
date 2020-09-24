@@ -1339,8 +1339,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>Kubernetes</title>
     <url>/Kubernetes/</url>
-    <content><![CDATA[<p><a href="https://kubernetes.io/">Kubernetes</a>是一个很容易地部署和管理容器化的应用软件系统，使用Kubernetes能够方便对容器进行调度和编排。</p>
-<a id="more"></a>
+    <content><![CDATA[<p>Kubernetes是Google开源的一个容器编排引擎，它支持自动化部署、大规模可伸缩、应用容器化管理。<br><a id="more"></a></p>
 <h4 id="Kubernetes是什么"><a href="#Kubernetes是什么" class="headerlink" title="Kubernetes是什么"></a>Kubernetes是什么</h4><p><a href="https://kubernetes.io/">Kubernetes</a>是一个很容易地部署和管理容器化的应用软件系统，使用Kubernetes能够方便对容器进行调度和编排。</p>
 <p>对应用开发者而言，可以把Kubernetes看成一个集群操作系统。Kubernetes提供服务发现、伸缩、负载均衡、自愈甚至选举等功能，让开发者从基础设施相关配置等解脱出来。</p>
 <p>Kubernetes可以把大量的服务器看做一台巨大的服务器，在一台大服务器上面运行应用程序。无论Kubernetes的集群有多少台服务器，在Kubernetes上部署应用程序的方法永远一样。</p>
