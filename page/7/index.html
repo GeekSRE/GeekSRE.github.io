@@ -192,6 +192,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1/" class="post-title-link" itemprop="url">暴力破解攻击和防御</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-04-16 14:27:48 / Modified: 16:49:51" itemprop="dateCreated datePublished" datetime="2019-04-16T14:27:48+08:00">2019-04-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>引用自阿里云<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/56269.html">https://help.aliyun.com/knowledge_detail/56269.html</a></p>
+</blockquote>
+<h3 id="什么是暴力破解攻击"><a href="#什么是暴力破解攻击" class="headerlink" title="什么是暴力破解攻击"></a>什么是暴力破解攻击</h3><p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。</p>
+<h4 id="攻击行为类型"><a href="#攻击行为类型" class="headerlink" title="攻击行为类型"></a>攻击行为类型</h4><p>根据暴力破解的穷举方式，其攻击行为可以分为：</p>
+<ul>
+<li><strong>字典攻击法</strong>。大多攻击者并没有高性能的破解算法和CPU/GPU，为节省时间和提高效率，会利用社会工程学或其它方式建立破译字典，使用字典中已存在的用户名、密码进行猜破。</li>
+<li><strong>穷举法</strong>。攻击者首先列出密码组合的可能性（如数字、大写字母、小写字母、特殊字符等），然后按密码长度从1位、2位….构成不同的账号和密码对，然后逐个猜试。该方法需要高性能的破解算法和CPU/GPU作支持。</li>
+<li><strong>组合式攻击法</strong>。使用字典攻击和穷举法的组合攻击方式。</li>
+</ul>
+<p>理论上，只要拥有性能足够强的计算机和足够长的时间，大多密码均可以被破解出来。</p>
+<h4 id="攻击业务类型"><a href="#攻击业务类型" class="headerlink" title="攻击业务类型"></a>攻击业务类型</h4><ul>
+<li>针对Windows操作系统的远程桌面管理协议（RDP）、Linux操作系统的管理协议（SSH）的暴力破解攻击</li>
+<li>针对具有登录认证机制的软件服务（如Mysql、SQLserver、FTP、Web前后端登录接口等应用服务）的暴力破解攻击</li>
+</ul>
+<p>对于防御者而言，给攻击者留得时间越长，其组合出正确的用户名和密码的可能性就越大。因此，时间在检测暴力破解攻击时很重要。</p>
+<h3 id="暴力破解攻击有什么危害"><a href="#暴力破解攻击有什么危害" class="headerlink" title="暴力破解攻击有什么危害"></a>暴力破解攻击有什么危害</h3><p>通过自动化工具发起的暴力破解攻击可以获取用户账号和密码。</p>
+<h3 id="如何防御暴力破解攻击"><a href="#如何防御暴力破解攻击" class="headerlink" title="如何防御暴力破解攻击"></a>如何防御暴力破解攻击</h3><ul>
+<li>制定密码复杂度策略，并进行服务加固。密码的长度要大于 8 位，且最好大于 20 位；密码应由数字、大小写字母和特殊符号混合组成；密码的最长有效期为 90 天。</li>
+<li>配置好网络访问控制。严格限制将高危服务管理端口直接发布到互联网；建议您使用 VPN 和堡垒机的方式集中管理和审计。</li>
+<li>提高内部全员安全意识，禁止借用或共享使用账号。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Elasticsearch%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1176,20 +1269,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

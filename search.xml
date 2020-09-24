@@ -1337,6 +1337,113 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </tags>
   </entry>
   <entry>
+    <title>Kubernetes</title>
+    <url>/Kubernetes/</url>
+    <content><![CDATA[<p><a href="https://kubernetes.io/">Kubernetes</a>是一个很容易地部署和管理容器化的应用软件系统，使用Kubernetes能够方便对容器进行调度和编排。</p>
+<a id="more"></a>
+<h4 id="Kubernetes是什么"><a href="#Kubernetes是什么" class="headerlink" title="Kubernetes是什么"></a>Kubernetes是什么</h4><p><a href="https://kubernetes.io/">Kubernetes</a>是一个很容易地部署和管理容器化的应用软件系统，使用Kubernetes能够方便对容器进行调度和编排。</p>
+<p>对应用开发者而言，可以把Kubernetes看成一个集群操作系统。Kubernetes提供服务发现、伸缩、负载均衡、自愈甚至选举等功能，让开发者从基础设施相关配置等解脱出来。</p>
+<p>Kubernetes可以把大量的服务器看做一台巨大的服务器，在一台大服务器上面运行应用程序。无论Kubernetes的集群有多少台服务器，在Kubernetes上部署应用程序的方法永远一样。</p>
+<p>图1 在Kubernetes集群上运行应用程序</p>
+<p><img src="/Kubernetes/./zh-cn_image_0258869759.png" alt="img"></p>
+<h4 id="Kubernetes集群架构"><a href="#Kubernetes集群架构" class="headerlink" title="Kubernetes集群架构"></a>Kubernetes集群架构</h4><p>Kubernetes集群包含master节点和node节点，应用部署在node节点上，且可以通过配置选择应用部署在某些特定的节点上。</p>
+<p>Kubernetes集群的架构如下所示。</p>
+<p>图2 Kubernetes集群架构</p>
+<p><img src="/Kubernetes/./zh-cn_image_0267028603.png" alt="img"></p>
+<p><strong>Master节点</strong></p>
+<p>Master节点是集群的控制节点，由API Server、Scheduler、Controller Manager和ETCD四个组件构成。</p>
+<ul>
+<li>API Server：各组件互相通讯的中转站，接受外部请求，并将信息写到ETCD中。</li>
+<li>Controller Manager：执行集群级功能，例如复制组件，跟踪Node节点，处理节点故障等等。</li>
+<li>Scheduler：负责应用调度的组件，根据各种条件（如可用的资源、节点的亲和性等）将容器调度到Node上运行。</li>
+<li>ETCD：一个分布式数据存储组件，负责存储集群的配置信息。</li>
+</ul>
+<p>在生产环境中，为了保障集群的高可用，通常会部署多个master，如CCE集群的高可用模式就是3个master节点。</p>
+<p><strong>Node节点</strong></p>
+<p>Node节点是集群的计算节点，即运行容器化应用的节点。</p>
+<ul>
+<li>kubelet：kubelet主要负责同Container Runtime打交道，并与API Server交互，管理节点上的容器。</li>
+<li>kube-proxy：应用组件间的访问代理，解决节点上应用的访问问题。</li>
+<li>Container Runtime：容器运行时，如Docker，最主要的功能是下载镜像和运行容器。</li>
+</ul>
+<h4 id="Kubernetes的扩展性"><a href="#Kubernetes的扩展性" class="headerlink" title="Kubernetes的扩展性"></a>Kubernetes的扩展性</h4><p>Kubernetes开放了容器运行时接口（CRI）、容器网络接口（CNI）和容器存储接口（CSI），这些接口让Kubernetes的扩展性变得最大化，而Kubernetes本身则专注于容器调度。</p>
+<ul>
+<li>CRI（Container Runtime Interface）：容器运行时接口，提供计算资源，CRI隔离了各个容器引擎之间的差异，而通过统一的接口与各个容器引擎之间进行互动。</li>
+<li>CNI（Container Network Interface）：容器网络接口，提供网络资源，通过CNI接口，Kubernetes可以支持不同网络环境。例如华为云CCE就是开发的CNI插件支持Kubernetes集群运行在华为云VPC网络中。</li>
+<li>CSI（Container Storage Interface）：容器存储接口，提供存储资源，通过CSI接口，Kubernetes可以支持各种类型的存储。例如华为云CCE就可以方便的对接华为云块存储（EVS）、文件存储（SFS）和对象存储（OBS）。</li>
+</ul>
+<h4 id="Kubernetes中的基本对象"><a href="#Kubernetes中的基本对象" class="headerlink" title="Kubernetes中的基本对象"></a>Kubernetes中的基本对象</h4><p>上面介绍Kubernetes集群的构成，下面将介绍Kubernetes中基本对象及它们之间的一些关系。</p>
+<p>图3 Kubernetes基本对象</p>
+<p><img src="/Kubernetes/./zh-cn_image_0258869062.png" alt="img"></p>
+<ul>
+<li><p>Pod</p>
+<p>Pod是Kubernetes创建或部署的最小单位。一个Pod封装一个或多个容器（container）、存储资源（volume）、一个独立的网络IP以及管理控制容器运行方式的策略选项。</p>
+</li>
+<li><p>Deployment</p>
+<p>Deployment是对Pod的服务化封装。一个Deployment可以包含一个或多个Pod，每个Pod的角色相同，所以系统会自动为Deployment的多个Pod分发请求。</p>
+</li>
+<li><p>StatefulSet</p>
+<p>StatefulSet 是用来管理有状态应用的对象。和Deployment相同的是，StatefulSet管理了基于相同容器定义的一组Pod。但和 Deployment 不同的是，StatefulSet为它们的每个Pod维护了一个固定的ID。这些Pod是基于相同的声明来创建的，但是不能相互替换：无论怎么调度，每个Pod都有一个永久不变的ID。</p>
+</li>
+<li><p>Job</p>
+<p>Job是用来控制批处理型任务的对象。批处理业务与长期伺服业务（Deployment）的主要区别是批处理业务的运行有头有尾，而长期伺服业务在用户不停止的情况下永远运行。Job管理的Pod根据用户的设置把任务成功完成就自动退出（Pod自动删除）。</p>
+</li>
+<li><p>CronJob</p>
+<p>CronJob是基于时间控制的Job，类似于Linux系统的crontab，在指定的时间周期运行指定的任务。</p>
+</li>
+<li><p>DaemonSet</p>
+<p>DaemonSet 是这样一种对象（守护进程），它在集群的每个节点上运行一个 Pod，且保证只有一个 Pod，这非常适合一些系统层面的应用，例如日志收集、资源监控等，这类应用需要每个节点都运行，且不需要太多实例，一个比较好的例子就是 Kubernetes 的 kube-proxy。</p>
+</li>
+<li><p>Service</p>
+<p>Service是用来解决Pod访问问题的。Service有一个固定IP地址，Service将访问流量转发给Pod，而且Service可以给这些Pod做负载均衡。</p>
+</li>
+<li><p>Ingress</p>
+<p>Service是基于四层TCP和UDP协议转发的，Ingress可以基于七层的HTTP和HTTPS协议转发，可以通过域名和路径做到更细粒度的划分。</p>
+</li>
+<li><p>ConfigMap</p>
+<p>ConfigMap是一种用于存储应用所需配置信息的资源类型，用于保存配置数据的键值对。通过ConfigMap可以方便的做到配置解耦，使得不同环境有不同的配置。</p>
+</li>
+<li><p>Secret</p>
+<p>Secret是一种加密存储的资源对象，您可以将认证信息、证书、私钥等保存在Secret中，而不需要把这些敏感数据暴露到镜像或者Pod定义中，从而更加安全和灵活。</p>
+</li>
+<li><p>PersistentVolume（PV）</p>
+<p>PV指持久化数据存储卷，主要定义的是一个持久化存储在宿主机上的目录，比如一个NFS的挂载目录。</p>
+</li>
+<li><p>PersistentVolumeClaim（PVC）</p>
+<p>Kubernetes提供PVC专门用于持久化存储的申请，PVC可以让您无需关心底层存储资源如何创建、释放等动作，而只需要申明您需要何种类型的存储资源、多大的存储空间。</p>
+</li>
+</ul>
+<h4 id="搭建Kubernetes集群"><a href="#搭建Kubernetes集群" class="headerlink" title="搭建Kubernetes集群"></a>搭建Kubernetes集群</h4><p><a href="https://kubernetes.io/docs/setup/">Kubernetes网站</a>上有多种搭建Kubernetes集群的方法，例如minikube、kubeadm等。</p>
+<h4 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h4><p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a>是Kubernetes集群的命令行工具，您可以将kubectl安装在任意一台机器上，通过kubectl命令操作Kubernetes集群。</p>
+<p>连接后您可以执行kubectl cluster-info查看集群的信息，如下所示。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl cluster-info</span></span><br><span class="line">Kubernetes master is running at https://*.*.*.*:5443</span><br><span class="line">CoreDNS is running at https://*.*.*.*:5443/api/v1/namespaces/kube-system/services/coredns:dns/proxy</span><br><span class="line"></span><br><span class="line">To further debug and diagnose cluster problems, use &#x27;kubectl cluster-info dump&#x27;.</span><br></pre></td></tr></table></figure>
+<p>执行kubectl get nodes可以查看集群中的Node节点信息。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl get nodes</span></span><br><span class="line">NAME            STATUS    ROLES     AGE       VERSION</span><br><span class="line">192.168.0.153   Ready     &lt;none&gt;    7m        v1.15.6-r1-20.3.0.2.B001-15.30.2</span><br><span class="line">192.168.0.207   Ready     &lt;none&gt;    7m        v1.15.6-r1-20.3.0.2.B001-15.30.2</span><br><span class="line">192.168.0.221   Ready     &lt;none&gt;    7m        v1.15.6-r1-20.3.0.2.B001-15.30.2</span><br></pre></td></tr></table></figure>
+<h4 id="Kubernetes对象的描述"><a href="#Kubernetes对象的描述" class="headerlink" title="Kubernetes对象的描述"></a>Kubernetes对象的描述</h4><p>kubernetes中资源可以使用YAML描述（如果您对YAML格式不了解，可以参考<a href="https://support.huaweicloud.com/devg-cci/cci_05_1001.html">YAML语法</a>），也可以使用JSON。其内容可以分为如下四个部分。</p>
+<ul>
+<li>typeMeta：对象类型的元信息，声明对象使用哪个API版本，哪个类型的对象。</li>
+<li>objectMeta：对象的元信息，包括对象名称、使用的标签等。</li>
+<li>spec：对象的期望状态，例如对象使用什么镜像、有多少副本等。</li>
+<li>status：对象的实际状态，只能在对象创建后看到，创建对象时无需指定。</li>
+</ul>
+<p>图4 YAML描述文件</p>
+<p><img src="/Kubernetes/./zh-cn_image_0267047098.png" alt></p>
+<h4 id="在Kubernetes上运行应用"><a href="#在Kubernetes上运行应用" class="headerlink" title="在Kubernetes上运行应用"></a>在Kubernetes上运行应用</h4><p>将<a href="https://support.huaweicloud.com/basics-cce/kubernetes_0003.html#kubernetes_0003__fig370933922411">图4</a>中的内容去除status存为一个名为nginx-deployment.yaml的文件，如下所示。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span>  <span class="string">nginx</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span>  <span class="string">nginx</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span>  <span class="string">nginx</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span>  <span class="string">nginx</span></span><br><span class="line">        <span class="attr">image:</span>  <span class="string">nginx:alpine</span></span><br><span class="line">        <span class="attr">resources:</span></span><br><span class="line">          <span class="attr">requests:</span></span><br><span class="line">            <span class="attr">cpu:</span> <span class="string">100m</span></span><br><span class="line">            <span class="attr">memory:</span> <span class="string">200Mi</span></span><br><span class="line">          <span class="attr">limits:</span></span><br><span class="line">            <span class="attr">cpu:</span> <span class="string">100m</span></span><br><span class="line">            <span class="attr">memory:</span> <span class="string">200Mi</span></span><br><span class="line">      <span class="attr">imagePullSecrets:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">default-secret</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用kubectl连接集群后，执行如下命令。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl create -f nginx-deployment.yaml </span></span><br><span class="line">deployment.apps/nginx created</span><br></pre></td></tr></table></figure>
+<p>命令执行后，Kubernetes集群中会创建3个Pod，使用如下命令可以查询到Deployment和Pod。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> kubectl get deploy</span></span><br><span class="line">NAME    READY   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line">nginx   3/3     3            3           9s</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> kubectl get pods</span></span><br><span class="line">NAME                     READY   STATUS    RESTARTS   AGE</span><br><span class="line">nginx-685898579b-qrt4d   1/1     Running   0          15s</span><br><span class="line">nginx-685898579b-t9zd2   1/1     Running   0          15s</span><br><span class="line">nginx-685898579b-w59jn   1/1     Running   0          15s</span><br></pre></td></tr></table></figure>
+<p>到此为止，您了解容器和Docker、Kubernetes集群、Kubernetes基本概念，并通过一个示例了解kubectl的最基本使用，本文后续将向您深入介绍Kubernetes对象的概念以及使用方法，并介绍对象之间的关系。</p>
+]]></content>
+      <categories>
+        <category>kubernetes</category>
+      </categories>
+      <tags>
+        <tag>kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux-tree命令</title>
     <url>/Linux-tree%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p>tree</p>

@@ -192,6 +192,127 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Nginx-ingress-controller%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Nginx-ingress-controller%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">Nginx-ingress controller部署</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-05 14:31:36 / Modified: 14:41:32" itemprop="dateCreated datePublished" datetime="2019-05-05T14:31:36+08:00">2019-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller">https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller</a></p>
+</blockquote>
+<p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口，概念示意可参考下方说明。你可以给Ingress配置提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机等。用户通过POST Ingress资源到API server的方式来请求ingress。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">internet</span><br><span class="line">     |</span><br><span class="line">[ Ingress ]</span><br><span class="line">--|-----|--</span><br><span class="line">[ Services ]</span><br></pre></td></tr></table></figure>
+<p>Ingress controller负责实现Ingress。Ingress controller在Kubernetes集群中默认不会自动启用，您可以在一个pod中部署任意类型的自定义Ingress Controller。本文将以Nginx-ingress controller为例，说明Controller部署和Ingress定义。更多外部类型的Ingresss Controller参考<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Kubernetes官方文档</a>。</p>
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><ol>
+<li><h5 id="从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录："><a href="#从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录：" class="headerlink" title="从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录："></a>从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/nginxinc/kubernetes-ingress/archive/v1.4.5.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf v1.4.5.tar.gz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：本文说明在1.12.3版本的集群上如何部署nginx-ingress controller，如集群版本不同，选择其他适合的ginx-ingress controller安装部署文件。</p>
+</li>
+</ol>
+<ol start="2">
+<li><h5 id="进入解压缩后的nginx-ingress-controller安装目录；"><a href="#进入解压缩后的nginx-ingress-controller安装目录；" class="headerlink" title="进入解压缩后的nginx-ingress controller安装目录；"></a>进入解压缩后的nginx-ingress controller安装目录；</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd kubernetes-ingress-1.4.5&#x2F;deployments</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="安装nginx-ingress-controller"><a href="#安装nginx-ingress-controller" class="headerlink" title="安装nginx-ingress controller"></a>安装nginx-ingress controller</h4><ol>
+<li><h5 id="为nginx-ingress-controller创建一个namespace和service-account："><a href="#为nginx-ingress-controller创建一个namespace和service-account：" class="headerlink" title="为nginx-ingress controller创建一个namespace和service account："></a>为nginx-ingress controller创建一个namespace和service account：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;ns-and-sa.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："><a href="#为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：" class="headerlink" title="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："></a>为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;default-server-secret.yaml</span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：建议使用合适的TLS证书和key替换default-server-secret.yaml文件中自签发的证书和key。</p>
+</li>
+</ol>
+<ol start="3">
+<li><h5 id="创建config-map保存NGINX的自定义配置："><a href="#创建config-map保存NGINX的自定义配置：" class="headerlink" title="创建config map保存NGINX的自定义配置："></a>创建config map保存NGINX的自定义配置：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;nginx-config.yaml</span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：目前提供的config map中的data为空，您可以按需添加自定义配置。</p>
+</li>
+</ol>
+<ol start="4">
+<li><h5 id="为第1步中创建的service-account配置RBAC："><a href="#为第1步中创建的service-account配置RBAC：" class="headerlink" title="为第1步中创建的service account配置RBAC："></a>为第1步中创建的service account配置RBAC：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f rbac&#x2F;rbac.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="以Deployment的方式部署nginx-ingress-controller"><a href="#以Deployment的方式部署nginx-ingress-controller" class="headerlink" title="以Deployment的方式部署nginx-ingress controller:"></a>以Deployment的方式部署nginx-ingress controller:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment&#x2F;nginx-ingress.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常："><a href="#执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常：" class="headerlink" title="执行如下命令，确定部署nginx-ingress controller的Deployment运行正常："></a>执行如下命令，确定部署nginx-ingress controller的Deployment运行正常：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> kubectl get deployment -n nginx-ingress</span><br><span class="line"> </span><br><span class="line">NAME            DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line"> nginx-ingress   1         1         1            1           24d</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="创建ingress的LoadBalance"><a href="#创建ingress的LoadBalance" class="headerlink" title="创建ingress的LoadBalance"></a>创建ingress的LoadBalance</h5><p>在 Kubernetes集群中，每个Pod都具有唯一的内部 IP 地址，但是Deployment中的Pod随时可能被删除或创建，导致Pod IP地址不断变化。因此需要创建一个Service对外暴露Pod中的应用。Service具有唯一的固定IP地址且能够为后端添加的成员Pod提供负载均衡。在京东云Kubernetes集群中您可以使用LoadBalance类型的Service，为Service关联创建一个应用负载均衡，并通过负载均衡绑定的公网IP，将Service后端关联的nginx-ingress controller应用暴露到公网：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-ingress</span>       <span class="comment">#建议Service使用与nginx-ingress controller对应的Deployment名称相同的名称</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">nginx-ingress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">LoadBalancer</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">http</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">443</span></span><br><span class="line">     <span class="attr">targetPort:</span> <span class="number">443</span></span><br><span class="line">     <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">     <span class="attr">name:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx-ingress</span></span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：本例使用80和443端口绑定nginx-ingress controller应用</p>
+<p>将上述Service定义到ingress.yaml文件，执行如下命令创建对应的Service：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f ingress.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="获取公网IP"><a href="#获取公网IP" class="headerlink" title="获取公网IP"></a>获取公网IP</h5><p>等待一段时间，确定Service已经配置完成，并获取Service上配置的External IP字段</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME            TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                      AGE</span><br><span class="line">nginx-ingress   LoadBalancer   192.168.58.218   114.67.80.218   80:32436/TCP,443:30110/TCP   3h13m</span><br></pre></td></tr></table></figure>
+<p> <strong>说明</strong>：Service的External IP将作为nginx-ingress controller的VIP，为集群中使用nginx-ingress controller的Ingress提供公网访问入口</p>
+</li>
+<li><h5 id="关联的External-IP作为公网入口IP"><a href="#关联的External-IP作为公网入口IP" class="headerlink" title="关联的External IP作为公网入口IP"></a>关联的External IP作为公网入口IP</h5><p>最后，在Ingress controller的Deployment部署文件nginx-ingress.yaml中增加一对环境变量”-args -external-service=nginx-ingress”,配置Ingress controller使用Service名称关联的External IP作为公网入口IP：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">args:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-nginx-configmaps=$(POD_NAMESPACE)/nginx-config</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-external-service=nginx-ingress</span>       <span class="comment">#新增内容</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment/nginx-ingress.yaml        #重新部署nginx-ingress controller</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="验证Pod"><a href="#验证Pod" class="headerlink" title="验证Pod"></a>验证Pod</h5><p>执行如下命令确定nginx-ingress controller相关的Pod运行正常，即可完成nginx ingress controller部署：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">nginx-ingress-f67b87b88-5cspd   1&#x2F;1     Running   0          3h11m</span><br><span class="line">nginx-ingress-f67b87b88-n7qnw   1&#x2F;1     Running   0          3h13m</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="示例应用"><a href="#示例应用" class="headerlink" title="示例应用"></a>示例应用</h4><p>例如：配置www2.veer.com的ingress配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">cms-veer</span>       <span class="comment"># 变量：名字</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">www2.veer.com</span>   <span class="comment"># 变量：url</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="attr">paths:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">backend:</span></span><br><span class="line">              <span class="attr">serviceName:</span> <span class="string">node-vcg-veer-pre</span> <span class="comment"># 变量：后端应用service</span></span><br><span class="line">              <span class="attr">servicePort:</span> <span class="number">80</span>      <span class="comment"># 变量：后端应用service端口</span></span><br><span class="line">            <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">www2.veer.com</span>       </span><br><span class="line">      <span class="attr">secretName:</span> <span class="string">veer-https</span>    <span class="comment"># 变量：ssl证书</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1134,99 +1255,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1/" class="post-title-link" itemprop="url">暴力破解攻击和防御</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-16 14:27:48 / Modified: 16:49:51" itemprop="dateCreated datePublished" datetime="2019-04-16T14:27:48+08:00">2019-04-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>引用自阿里云<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/56269.html">https://help.aliyun.com/knowledge_detail/56269.html</a></p>
-</blockquote>
-<h3 id="什么是暴力破解攻击"><a href="#什么是暴力破解攻击" class="headerlink" title="什么是暴力破解攻击"></a>什么是暴力破解攻击</h3><p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。</p>
-<h4 id="攻击行为类型"><a href="#攻击行为类型" class="headerlink" title="攻击行为类型"></a>攻击行为类型</h4><p>根据暴力破解的穷举方式，其攻击行为可以分为：</p>
-<ul>
-<li><strong>字典攻击法</strong>。大多攻击者并没有高性能的破解算法和CPU/GPU，为节省时间和提高效率，会利用社会工程学或其它方式建立破译字典，使用字典中已存在的用户名、密码进行猜破。</li>
-<li><strong>穷举法</strong>。攻击者首先列出密码组合的可能性（如数字、大写字母、小写字母、特殊字符等），然后按密码长度从1位、2位….构成不同的账号和密码对，然后逐个猜试。该方法需要高性能的破解算法和CPU/GPU作支持。</li>
-<li><strong>组合式攻击法</strong>。使用字典攻击和穷举法的组合攻击方式。</li>
-</ul>
-<p>理论上，只要拥有性能足够强的计算机和足够长的时间，大多密码均可以被破解出来。</p>
-<h4 id="攻击业务类型"><a href="#攻击业务类型" class="headerlink" title="攻击业务类型"></a>攻击业务类型</h4><ul>
-<li>针对Windows操作系统的远程桌面管理协议（RDP）、Linux操作系统的管理协议（SSH）的暴力破解攻击</li>
-<li>针对具有登录认证机制的软件服务（如Mysql、SQLserver、FTP、Web前后端登录接口等应用服务）的暴力破解攻击</li>
-</ul>
-<p>对于防御者而言，给攻击者留得时间越长，其组合出正确的用户名和密码的可能性就越大。因此，时间在检测暴力破解攻击时很重要。</p>
-<h3 id="暴力破解攻击有什么危害"><a href="#暴力破解攻击有什么危害" class="headerlink" title="暴力破解攻击有什么危害"></a>暴力破解攻击有什么危害</h3><p>通过自动化工具发起的暴力破解攻击可以获取用户账号和密码。</p>
-<h3 id="如何防御暴力破解攻击"><a href="#如何防御暴力破解攻击" class="headerlink" title="如何防御暴力破解攻击"></a>如何防御暴力破解攻击</h3><ul>
-<li>制定密码复杂度策略，并进行服务加固。密码的长度要大于 8 位，且最好大于 20 位；密码应由数字、大小写字母和特殊符号混合组成；密码的最长有效期为 90 天。</li>
-<li>配置好网络访问控制。严格限制将高危服务管理端口直接发布到互联网；建议您使用 VPN 和堡垒机的方式集中管理和审计。</li>
-<li>提高内部全员安全意识，禁止借用或共享使用账号。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1296,20 +1324,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
