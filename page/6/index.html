@@ -192,6 +192,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Kubernetes-Secrets/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Kubernetes-Secrets/" class="post-title-link" itemprop="url">Kubernetes-Secrets</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-05 15:01:47 / Modified: 15:02:14" itemprop="dateCreated datePublished" datetime="2019-05-05T15:01:47+08:00">2019-05-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h4><p>若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。</p>
+<p>密钥有多种类型，例如：</p>
+<ul>
+<li>Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。</li>
+<li>Opaque：base64 编码格式的 Secret，用来存储密码、证书等敏感信息。</li>
+</ul>
+<p>Opaque 类型的数据是一个 map 类型，要求value 是 base64 编码格式</p>
+<p>您也可通过命令行手动创建密钥，请参见 <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/configuration/secret/">kubernetes secret</a> 了解更多信息。</p>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret</span><br><span class="line"></span><br><span class="line">Create a secret using specified subcommand.</span><br><span class="line"></span><br><span class="line">Available Commands:</span><br><span class="line">  docker-registry Create a secret for use with a Docker registry</span><br><span class="line">  generic         Create a secret from a local file, directory or literal value</span><br><span class="line">  tls             Create a TLS secret</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  kubectl create secret [flags] [options]</span><br></pre></td></tr></table></figure>
+<h5 id="查看证书"><a href="#查看证书" class="headerlink" title="查看证书"></a>查看证书</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets</span><br><span class="line">NAME                               TYPE                                  DATA   AGE</span><br><span class="line">default-token-msfm9                kubernetes.io/service-account-token   3      24d</span><br><span class="line">registry.cn-beijing.aliyuncs.com   kubernetes.io/dockerconfigjson        1      24d</span><br><span class="line">veer-https                         kubernetes.io/tls                     2      3h25m</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl describe secrets veer-https</span><br><span class="line">Name:         veer-https</span><br><span class="line">Namespace:    default</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line"></span><br><span class="line">Type:  kubernetes.io/tls</span><br><span class="line"></span><br><span class="line">Data</span><br><span class="line">====</span><br><span class="line">tls.crt:  3941 bytes</span><br><span class="line">tls.key:  1676 bytes</span><br></pre></td></tr></table></figure>
+<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete secret $NAME</span><br></pre></td></tr></table></figure>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><h5 id="创建SSL证书"><a href="#创建SSL证书" class="headerlink" title="创建SSL证书"></a>创建SSL证书</h5><ol>
+<li><h6 id="准备公钥、私钥文件"><a href="#准备公钥、私钥文件" class="headerlink" title="准备公钥、私钥文件"></a>准备公钥、私钥文件</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ ls</span><br><span class="line">veer.key  veer.pem</span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="创建secret"><a href="#创建secret" class="headerlink" title="创建secret"></a>创建secret</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret tls veer-https --cert=./veer.pem --key=./veer.key</span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets veer-https</span><br><span class="line">NAME         TYPE                DATA   AGE</span><br><span class="line">veer-https   kubernetes.io/tls   2      3h22m</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Nginx-ingress-controller%E9%83%A8%E7%BD%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1055,210 +1133,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E5%9F%9F%E5%90%8DSSL%E8%AF%81%E4%B9%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%9F%9F%E5%90%8DSSL%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">域名SSL证书</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-16 15:04:09" itemprop="dateCreated datePublished" datetime="2019-04-16T15:04:09+08:00">2019-04-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-23 09:51:30" itemprop="dateModified" datetime="2019-04-23T09:51:30+08:00">2019-04-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/SSL%E8%AF%81%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">SSL证书</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><ul>
-<li><p>什么是数字证书？</p>
-<p>数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。</p>
-<p>数字证书还有一个重要的特征：只在特定的时间段内有效。</p>
-</li>
-<li><p>什么是SSL？</p>
-<p>SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。</p>
-</li>
-<li><p>什么是SSL证书？</p>
-<p>SSL证书采用SSL协议进行通信，是由权威机构颁发给网站的可信凭证。</p>
-<p>SSL证书采用SSL协议进行通信。SSL证书部署到Web服务器后，Web服务器访问将启用HTTPS协议。您的网站将会通过 HTTPS 加密协议来传输数据，可帮助Web服务器和网站间建立可信的加密链接，从而保证网络数据传输的安全。</p>
-</li>
-<li><p>什么是HTTPS？</p>
-<p>HTTPS是一种基于SSL协议的网站加密传输协议。</p>
-<p>网站安装SSL证书后，使用HTTPS加密协议访问，可激活客户端浏览器到网站服务器之间的<strong>SSL加密通道</strong>（SSL协议），从而实现高强度双向加密传输，防止传输数据被泄露或篡改。HTTPS 也就是HTTP + SSL，是HTTP的安全版。</p>
-</li>
-<li><p>什么是CA认证中心？</p>
-<p>CA认证中心（CA机构），即证书授权中心（Certificate Authority），或称证书授权机构。</p>
-<p>CA认证中心作为电子商务交易中受信任的第三方，承担公钥体系中公钥合法性检验的责任。</p>
-</li>
-</ul>
-<h2 id="SSL证书类型配置表"><a href="#SSL证书类型配置表" class="headerlink" title="SSL证书类型配置表"></a>SSL证书类型配置表</h2><p>证书根据不同的验证级别，分为以下三类：</p>
-<ul>
-<li>域名型SSL（DV SSL）</li>
-<li>企业型SSL（OV SSL）</li>
-<li>增强型SSL（EV SSL）</li>
-</ul>
-<p>根据保护域名的数量需求，SSL 证书又分为：</p>
-<ul>
-<li>单域名版：只保护一个域名，例如 <a target="_blank" rel="noopener" href="http://www.abc.com">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
-<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a target="_blank" rel="noopener" href="http://www.abc.com">www.abc.com</a> , <a target="_blank" rel="noopener" href="http://www.bcd.com">www.bcd.com</a>, pay.efg.com 等</li>
-<li>通配符版：一张证书保护同一个主域名下同一级的所有子域名，不限个数，形如 *.abc.com 。注意，通配符版只有 DVSSL 和 OVSSL 具有， EVSSL 不具有通配符版本。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">证书品牌</th>
-<th style="text-align:left">证书类型</th>
-<th style="text-align:left">保护域名的类型</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">GeoTrust</td>
-<td style="text-align:left">专业版OV SSL</td>
-<td style="text-align:left">1个带通配符的域名1个明细域名多个明细域名</td>
-<td style="text-align:left">提供加密功能，对申请者的身份进行严格的审核验证，可提供可信身份证明。多个域名例上限为300个。如: buy1.example.com, buy2.example.com, next.buy.example2.com, 上述3个明细子域名计算为3个域名。</td>
-</tr>
-<tr>
-<td style="text-align:left">高级版EV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">GlobalSign</td>
-<td style="text-align:left">专业版OV SSL</td>
-<td style="text-align:left">通配符域名</td>
-<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
-</tr>
-<tr>
-<td style="text-align:left">CFCA</td>
-<td style="text-align:left">专业版OV SSL</td>
-<td style="text-align:left">通配符域名1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
-</tr>
-<tr>
-<td style="text-align:left">高级版EV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">Symantec</td>
-<td style="text-align:left">专业版OV SSL</td>
-<td style="text-align:left">通配符域名1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
-</tr>
-<tr>
-<td style="text-align:left">通配符DV SSL</td>
-<td style="text-align:left">通配符域名</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">增强型OV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">提供站点加密功能，需要核验组织注册信息，证书中会显示组织名称。组织信息验证通过后，3个工作日内颁发证书。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">高级版EV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">增强型EV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">增强型EV SSL提供站点加密功能，浏览器绿色地址栏显示组织信息强化信任。组织信息验证通过后7个工作日内颁发证书。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">免费型DV SSL</td>
-<td style="text-align:left">1个域名</td>
-<td style="text-align:left">免费新根证书，切入DigiCert PKI体系，兼容性操作系统版本IOS 5.0+、Android 2.3.3+、JRE 1.6.5+、WIN 7+。最多保护一个明细子域名，不支持通配符，一个阿里云帐户最多签发20张免费证书。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="SSL证书购买"><a href="#SSL证书购买" class="headerlink" title="SSL证书购买"></a>SSL证书购买</h2><p>登录阿里云控制台，进入SSL证书服务。</p>
-<p><img src="/%E5%9F%9F%E5%90%8DSSL%E8%AF%81%E4%B9%A6/免费SSL证书购买.jpg" alt="免费SSL证书购买"></p>
-<h2 id="SSL证书更新"><a href="#SSL证书更新" class="headerlink" title="SSL证书更新"></a>SSL证书更新</h2><p>公司域名SSL证书即将到期，替换SSL证书需知道哪些二级域名使用了HTTPS访问，并且获取SSL证书过期时间，来验证证书是否更新。</p>
-<h5 id="获取域名下的解析信息"><a href="#获取域名下的解析信息" class="headerlink" title="获取域名下的解析信息"></a>获取域名下的解析信息</h5><p>登录域名服务商控制条—云解析—域名解析列表—导出解析记录</p>
-<p>将二级域名的记录写入domains.txt文件备用</p>
-<h5 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for domain in `cat domains.txt` #读取存储了需要监测的域名的文件</span><br><span class="line">do</span><br><span class="line">    curl $domain.vcg.com:443 1&gt;/dev/null 2&gt;/dev/null --connect-timeout 3</span><br><span class="line">    if [[ $? -eq 0  ]]; then</span><br><span class="line">      END_TIME=$(echo | openssl s_client -servername $domain.vcg.com  -connect $domain.vcg.com:443 2&gt;/dev/null | openssl x509 -noout -dates |grep &#x27;After&#x27;| awk -F &#x27;=&#x27; &#x27;&#123;print $2&#125;&#x27;| awk -F &#x27; +&#x27; &#x27;&#123;print $1,$2,$4 &#125;&#x27; )</span><br><span class="line">      echo &quot;$domain.vcg.com 的SSL证书到期时间为 $END_TIME  &quot;  &gt;&gt; result1.txt</span><br><span class="line">    else</span><br><span class="line">      echo &quot;$domain.vcg.com 没https &quot; &gt;&gt; result1.txt</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<h5 id="根据输出文件查看SSL证书过期时间，进行证书替换工作"><a href="#根据输出文件查看SSL证书过期时间，进行证书替换工作" class="headerlink" title="根据输出文件查看SSL证书过期时间，进行证书替换工作"></a>根据输出文件查看SSL证书过期时间，进行证书替换工作</h5><h5 id="SSL证书更新的配置路径"><a href="#SSL证书更新的配置路径" class="headerlink" title="SSL证书更新的配置路径"></a>SSL证书更新的配置路径</h5><ul>
-<li>阿里云OSS-对象存储</li>
-<li>阿里云WAF-Web防火墙</li>
-<li>阿里云SLB-负载均衡</li>
-<li>Nginx</li>
-</ul>
-<p>##### </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1324,7 +1202,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

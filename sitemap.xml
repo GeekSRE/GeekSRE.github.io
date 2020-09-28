@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/Jenkins%25E4%25BB%258B%25E7%25BB%258D/</loc>
+    
+    <lastmod>2020-09-28T06:33:23.614Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020%25E6%2596%25B0%25E7%2589%2588%25E4%25BA%2591%25E6%2595%2588-%25E6%25B5%2581%25E6%25B0%25B4%25E7%25BA%25BF%25E4%25BD%2593%25E9%25AA%258C/</loc>
+    
+    <lastmod>2020-09-25T01:38:06.440Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/Django-Celery%25E5%25BC%2582%25E6%25AD%25A5%25E4%25BB%25BB%25E5%258A%25A1%25E8%25B0%2583%25E5%25BA%25A6%25E5%25B7%25A5%25E5%2585%25B7/</loc>
+    
+    <lastmod>2020-09-25T01:37:28.290Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/Nexus%25E6%2589%258B%25E5%258A%25A8%25E4%25B8%258A%25E4%25BC%25A0%25E4%25BE%259D%25E8%25B5%2596%25E5%258C%2585/</loc>
+    
+    <lastmod>2020-09-25T01:36:45.595Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2020-09-25T01:34:31.632Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/Kubernetes/</loc>
     
     <lastmod>2020-09-24T09:22:58.074Z</lastmod>
@@ -16,23 +51,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2020-09-10T03:13:20.280Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/ali-kt/</loc>
     
     <lastmod>2020-09-02T07:15:32.345Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020%25E6%2596%25B0%25E7%2589%2588%25E4%25BA%2591%25E6%2595%2588-%25E6%25B5%2581%25E6%25B0%25B4%25E7%25BA%25BF%25E4%25BD%2593%25E9%25AA%258C/</loc>
-    
-    <lastmod>2020-08-10T03:25:10.998Z</lastmod>
     
   </url>
   
@@ -61,20 +82,6 @@
     <loc>http://yoursite.com/Confluence%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593SSL%25E8%25AD%25A6%25E5%2591%258A/</loc>
     
     <lastmod>2020-07-20T10:49:35.771Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/Nexus%25E6%2589%258B%25E5%258A%25A8%25E4%25B8%258A%25E4%25BC%25A0%25E4%25BE%259D%25E8%25B5%2596%25E5%258C%2585/</loc>
-    
-    <lastmod>2020-07-20T10:49:14.418Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/Django-Celery%25E5%25BC%2582%25E6%25AD%25A5%25E4%25BB%25BB%25E5%258A%25A1%25E8%25B0%2583%25E5%25BA%25A6%25E5%25B7%25A5%25E5%2585%25B7/</loc>
-    
-    <lastmod>2020-07-20T10:48:54.348Z</lastmod>
     
   </url>
   
