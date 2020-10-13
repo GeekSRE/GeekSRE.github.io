@@ -246,8 +246,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>GitLab 是一个用于仓库管理系统的开源项目，使用<a href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。</p>
-<p>官网：<a href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
+          <p>GitLab 是一个用于仓库管理系统的开源项目，使用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
 <hr>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h5 id="配置Yum源"><a href="#配置Yum源" class="headerlink" title="配置Yum源"></a>配置Yum源</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/gitlab_gitlab-ee.repo</span><br><span class="line">[gitlab-ce]</span><br><span class="line">name=Gitlab CE Repository</span><br><span class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
 <h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y postfix</span><br><span class="line">yum install gitlab-ce -y</span><br></pre></td></tr></table></figure>
@@ -257,7 +257,7 @@
 <h5 id="检查是否配置成功"><a href="#检查是否配置成功" class="headerlink" title="检查是否配置成功"></a>检查是否配置成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:ldap:check（列出前100个用户）</span><br></pre></td></tr></table></figure>
 <h5 id="重启gitlab服务"><a href="#重启gitlab服务" class="headerlink" title="重启gitlab服务"></a>重启gitlab服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
 <h5 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h5><p>访问ip:80端口 配置root密码，至此部署完成。</p>
-<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><h5 id="升级规范和建议"><a href="#升级规范和建议" class="headerlink" title="升级规范和建议"></a>升级规范和建议</h5><p><a href="https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations">https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations</a></p>
+<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><h5 id="升级规范和建议"><a href="#升级规范和建议" class="headerlink" title="升级规范和建议"></a>升级规范和建议</h5><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations">https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations</a></p>
 <p>首先升级到主要版本中的最新可用次要版本</p>
 <p>例如：8.13.4 升级到 11.3.4 ，升级路径为 8.13.4 -&gt; 8.17.7 -&gt; 9.5.10 -&gt; 10.8.7 -&gt; 11.3.4</p>
 <p>​    即：<code>8.17.7</code>是版本<code>8</code>中的最后一个版本, <code>9.5.10</code>是版本<code>9</code>中的最后一个版本, <code>10.8.7</code>是版本<code>10</code>中的最后一个版本</p>
@@ -377,8 +377,8 @@
 </ul>
 <p>根据保护域名的数量需求，SSL 证书又分为：</p>
 <ul>
-<li>单域名版：只保护一个域名，例如 <a href="http://www.abc.com">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
-<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a href="http://www.abc.com">www.abc.com</a> , <a href="http://www.bcd.com">www.bcd.com</a>, pay.efg.com 等</li>
+<li>单域名版：只保护一个域名，例如 <a target="_blank" rel="noopener" href="http://www.abc.com">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
+<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a target="_blank" rel="noopener" href="http://www.abc.com">www.abc.com</a> , <a target="_blank" rel="noopener" href="http://www.bcd.com">www.bcd.com</a>, pay.efg.com 等</li>
 <li>通配符版：一张证书保护同一个主域名下同一级的所有子域名，不限个数，形如 *.abc.com 。注意，通配符版只有 DVSSL 和 OVSSL 具有， EVSSL 不具有通配符版本。</li>
 </ul>
 <table>
@@ -543,7 +543,7 @@
 
       
           <blockquote>
-<p>引用自阿里云<a href="https://help.aliyun.com/knowledge_detail/56269.html">https://help.aliyun.com/knowledge_detail/56269.html</a></p>
+<p>引用自阿里云<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/56269.html">https://help.aliyun.com/knowledge_detail/56269.html</a></p>
 </blockquote>
 <h3 id="什么是暴力破解攻击"><a href="#什么是暴力破解攻击" class="headerlink" title="什么是暴力破解攻击"></a>什么是暴力破解攻击</h3><p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。</p>
 <h4 id="攻击行为类型"><a href="#攻击行为类型" class="headerlink" title="攻击行为类型"></a>攻击行为类型</h4><p>根据暴力破解的穷举方式，其攻击行为可以分为：</p>
@@ -632,7 +632,7 @@
 
       
           <blockquote>
-<p>引用自阿里云<a href="https://help.aliyun.com/knowledge_detail/49913.html">https://help.aliyun.com/knowledge_detail/49913.html</a>&gt;</p>
+<p>引用自阿里云<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/49913.html">https://help.aliyun.com/knowledge_detail/49913.html</a>&gt;</p>
 </blockquote>
 <p>Elasticsearch 是一个基于 Lucene 的搜索服务，它提供了 RESTful web 接口的分布式、多用户全文搜索引擎 。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是第二大最流行的企业搜索引擎。</p>
 <p>Elasticsearch 应用于云计算中，具有实时搜索、稳定、可靠、快速、安装使用方便等优势；但也存在一些安全隐患：默认安装完成后，Elasticsearch 可以使用 9200 端口通告 web 的方式访问查看数据信息。</p>
@@ -651,4 +651,891 @@
 <td style="text-align:left">远程命令执行</td>
 <td style="text-align:left">CVE-2014-3120</td>
 <td style="text-align:left">-</td>
-<td style="text-align:left">Elasticsearch 的脚本执行 (scripting) 功能，可以很方便地对查询出来的数据进行再加工处理。但是，其使用的 MVEL 脚本引擎没有做过任何防护（或者沙盒包装），可以直接执行任�
+<td style="text-align:left">Elasticsearch 的脚本执行 (scripting) 功能，可以很方便地对查询出来的数据进行再加工处理。但是，其使用的 MVEL 脚本引擎没有做过任何防护（或者沙盒包装），可以直接执行任意代码。</td>
+</tr>
+<tr>
+<td style="text-align:left">远程代码执行</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">1.3.0-1.3.7，1.4.0-1.4</td>
+<td style="text-align:left">Elasticsearch 使用 Groovy 作为脚本语言，虽然加入了沙盒进行控制，危险的代码会被拦截。但是由于沙盒限制不严格，仅通过黑白名单来判断，导致攻击者可以绕过沙盒，执行远程代码。</td>
+</tr>
+<tr>
+<td style="text-align:left">未授权访问</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">Elasticsearch 在安装了 River 机制之后可以同步多种数据库数据（包括关系型的MySQL、MongoDB 等）。如果 <code>http://localhost:9200/cat/indices</code>中 <code>indices</code> 包含了 <code>_river</code>，则代表 Elasticsearch 已安装 River 机制。而通过泄露的 <code>http://localhost:9200/_rvier/_search</code> URL 地址，攻击者可以获取到敏感信息。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="漏洞成因与危害"><a href="#漏洞成因与危害" class="headerlink" title="漏洞成因与危害"></a>漏洞成因与危害</h3><p>由于 Elasticsearch 的 HTTP 连接没有提供任何的权限控制措施，一旦部署在公共网络就容易有数据泄露的风险。</p>
+<h3 id="安全加固方案"><a href="#安全加固方案" class="headerlink" title="安全加固方案"></a>安全加固方案</h3><h4 id="使用最新的-Elasticsearch-版本"><a href="#使用最新的-Elasticsearch-版本" class="headerlink" title="使用最新的 Elasticsearch 版本"></a>使用最新的 Elasticsearch 版本</h4><p>通过正规渠道（如 <a target="_blank" rel="noopener" href="https://www.elastic.co/downloads">Elastic 官网</a>）下载 Elasticsearch 的最新版本。</p>
+<ul>
+<li>下载完成后，将下载文件的 sha1 值和下载时官网页面提供的 sha1 值进行对比，避免下载过程中被恶意攻击者拦截破坏文件，甚至注入恶意代码。</li>
+<li>不要随便安装第三方的插件，插件有可能引入安全漏洞甚至本身自带后门，需谨慎使用。</li>
+<li>关注 Elastic 网站，及时更新 Elasticsearch 至最新版本。Elasticsearch 每次版本发布都会优化和改进一部分功能，尤其是安全漏洞的补丁。同时，仔细阅读 Elasticsearch 的版本更新记录。</li>
+</ul>
+<p><strong>注意</strong>：更新升级前，建议您先进行快照备份，及本地测试。</p>
+<h4 id="（推荐）网络访问控制"><a href="#（推荐）网络访问控制" class="headerlink" title="（推荐）网络访问控制"></a>（推荐）网络访问控制</h4><p>Elasticsearch 默认端口是 9200。</p>
+<ul>
+<li>不要把 Elasticsearch 的 9200 端口服务发布到互联网上。</li>
+<li>使用 <a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/25475.html">阿里云安全组防火墙</a> 或本地操作系统防火墙对访问源 IP 进行隔离控制。</li>
+</ul>
+<h4 id="绑定访问源-IP"><a href="#绑定访问源-IP" class="headerlink" title="绑定访问源 IP"></a>绑定访问源 IP</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">network.bind_host: 192.168.0.1</span><br><span class="line"># 设置绑定的 IP 地址，可以是 IPv4 或 IPv6 地址，默认为 0.0.0.0。</span><br><span class="line">network.publish_host: 192.168.0.1</span><br><span class="line"># 设置其它节点和该节点交互的 IP 地址，如果不设置它会自动判断，值必须是个真实的 IP 地址。</span><br><span class="line">network.host: 192.168.0.1</span><br><span class="line"># 同时设置上述两个参数：bind_host 和 publish_host。</span><br></pre></td></tr></table></figure>
+<h4 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ransport.tcp.port: 9300</span><br><span class="line"># 设置节点间交互的 TCP 端口，默认是 9300。</span><br><span class="line">transport.tcp.compress: true</span><br><span class="line"># 设置是否压缩 TCP 传输时的数据，默认为 false，即不压缩。</span><br><span class="line">http.port: 9200</span><br><span class="line"># 设置对外服务的 HTTP 端口，默认为 9200。</span><br></pre></td></tr></table></figure>
+<h4 id="关闭-HTTP-访问"><a href="#关闭-HTTP-访问" class="headerlink" title="关闭 HTTP 访问"></a>关闭 HTTP 访问</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.enabled: false</span><br><span class="line"># 是否使用 HTTP 协议对外提供服务，默认为 true，即开启。</span><br></pre></td></tr></table></figure>
+<h4 id="使用-Shield-安全插件"><a href="#使用-Shield-安全插件" class="headerlink" title="使用 Shield 安全插件"></a>使用 Shield 安全插件</h4><p>Shield 是 Elastic 公司为 Elasticsearch 开发的一个安全插件。在安装此插件后，Shield 会拦截所有对 Elasticsearch 的请求，并进行认证与加密，保障 Elasticsearch 及相关系统的安全性。Shield 是商业插件，需要 Elasticsearch 的商业许可。第一次安装许可的时候，会提供 30 天的免费试用权限。30 天后，Shield 将会屏蔽 clusterhealth, cluster stats, index stats 等 API，其余功能不受影响。</p>
+<h5 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h5><p>使用 Shield 可以定义一系列已知的用户，并用其认证用户请求。这些用户存在于抽象的“域”中。一个“域”可以是下面几种类型：</p>
+<ul>
+<li>LDAP 服务</li>
+<li>ActiveDirectory 服务</li>
+<li>本地 <code>esusers</code> 配置文件（类似 <code>/etc/passwd</code>)</li>
+</ul>
+<h5 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h5><p>Shield 的权限控制包含下面几种元素：</p>
+<ul>
+<li>被保护的资源 <strong>SecuredResource</strong>：权限所应用到的对象，比如某个 index，cluster 等。</li>
+<li>特权 <strong>Priviliege</strong>：角色对对象可以执行的一种或多种操作，比如 read，write 等。还可以是 <code>indicies:/data/read/perlocate</code> 等对某种对象特有的操作。</li>
+<li>许可 <strong>Permissions</strong>：对被保护的资源拥有的一个或多个特权，如 <code>read on the&quot;products&quot; index</code>。</li>
+<li>角色 <strong>Role</strong>：一组许可的集成，具有独立的名称。</li>
+<li>用户 <strong>Users</strong>：用户实体，可以被赋予多种角色，他们可以对被保护的资源执行相应角色所拥有的各种特权。</li>
+</ul>
+<h5 id="安装-Shield"><a href="#安装-Shield" class="headerlink" title="安装 Shield"></a>安装 Shield</h5><p>执行安装步骤前，请确保满足以下安装环境条件：</p>
+<ul>
+<li>您安装了 Java7 或更新版本。</li>
+<li>您将 Elasticsearch 1.5.0+ 解压安装到了本机上。如果您使用 APT 或 YUM 安装，默认的安装目录可能在 <code>/usr/share/elasticsearch</code>。</li>
+</ul>
+<p>参照以下步骤完成安装：</p>
+<ol>
+<li><p>进入 Elasticsearch 安装目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;share&#x2F;elasticsearch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 Elasticsearch 许可插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;plugin -i elasticsearch&#x2F;license&#x2F;latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 Shield 插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;plugin -i elasticsearch&#x2F;shield&#x2F;latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 Shield 配置文件移动或链接至 <code>/etc/elasticsearch/shield</code> 目录中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;config&#x2F;shield &#x2F;etc&#x2F;elasticsearch&#x2F;shield</span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong>：Elasticsearch 服务在启动时会在 <code>/etc/elasticsearch/shield</code> 目录下寻找 Shield 配置文件，而这些配置文件在安装 Shield 时会出现在 <code>/usr/share/elasticsearch/config/shield</code> 中，因此需要将配置文件移动或链接至该目录。</p>
+</li>
+<li><p>重启 Elasticsearch 服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service elasticsearch restart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个 Elasticsearch 管理员账户，填写新密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;shield&#x2F;esusersuseradd es_admin -r admin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接使用 RESTFUL API 访问 Elasticsearch 的请求都会被拒绝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XGET&#39;http:&#x2F;&#x2F;localhost:9200&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+<p>需要在请求中添加用户名和密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -u es_admin -XGET &#39;http:&#x2F;&#x2F;localhost:9200&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>更多信息，请参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.elastic.co/downloads/shield">Shield 官方安装指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/shield/current/getting-started.html">Shield 官方使用配置指南</a></li>
+</ul>
+<h4 id="修改默认的-Elasticsearch-集群名称"><a href="#修改默认的-Elasticsearch-集群名称" class="headerlink" title="修改默认的 Elasticsearch 集群名称"></a>修改默认的 Elasticsearch 集群名称</h4><p>Elasticsearch 默认的集群名称是 elasticsearch，请在您的生产环境中将其修改成其他名称。确保在不同的环境和不同的集群下使用不同的名称；并且在监控集群节点时，如果有未知节点加入，一定要及时预警。</p>
+<h4 id="不要以-root-身份运行-Elasticsearch"><a href="#不要以-root-身份运行-Elasticsearch" class="headerlink" title="不要以 root 身份运行 Elasticsearch"></a>不要以 root 身份运行 Elasticsearch</h4><p>不要以 root 身份来运行 Elasticsearch，不要和其他服务共用相同的用户，并把用户的权限最小化。</p>
+<p>应用示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u es-user ES_JAVA_OPTS&#x3D;&quot;-Xms1024m -Xmx1024m&quot;&#x2F;opt&#x2F;elasticsearch&#x2F;bin&#x2F;elasticsearc</span><br></pre></td></tr></table></figure>
+<h4 id="正确设置-Elasticsearch-的数据目录"><a href="#正确设置-Elasticsearch-的数据目录" class="headerlink" title="正确设置 Elasticsearch 的数据目录"></a>正确设置 Elasticsearch 的数据目录</h4><p>请确保为 Elasticsearch 的目录分配了合理的读写权限，避免使用共享文件系统。确保只有 Elasticsearch 的启动用户才有权访问目录。日志目录也需要正确配置，避免泄露敏感信息。</p>
+<h4 id="定期对-Elasticsearch-进行备份"><a href="#定期对-Elasticsearch-进行备份" class="headerlink" title="定期对 Elasticsearch 进行备份"></a>定期对 Elasticsearch 进行备份</h4><p>使用 Elasticsearch 提供的备份还原机制，定期对 Elasticsearch 的数据进行快照备份。</p>
+<h4 id="禁用批量删除索引"><a href="#禁用批量删除索引" class="headerlink" title="禁用批量删除索引"></a>禁用批量删除索引</h4><p>Elasticsearch 支持使用全部（<code>_all</code>）和通配符（<code>*</code>）来批量删除索引。在生产环境，该操作存在一定风险，你可以通过设置 <code>action.destructive_requires_name: true</code> 参数来禁用它。</p>
+<h4 id="启用日志记录功能"><a href="#启用日志记录功能" class="headerlink" title="启用日志记录功能"></a>启用日志记录功能</h4><p>Elasticsearch 的 <code>config</code> 文件夹里面有两个配置文件：</p>
+<ul>
+<li><code>elasticsearch.yml</code>：基本配置文件。</li>
+<li><code>logging.yml</code>：日志配置文件。由于 Elasticsearch 使用 log4j 来记录日志的，<code>logging.yml</code> 中的设置请按普通 log4j 配置文件进行设置。</li>
+</ul>
+<p>启用日志功能需要修改 <code>elasticsearch.yml</code> 配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.logs: &#x2F;path&#x2F;to&#x2F;logs# 设置日志文件的存储路径，默认是 Elasticsearch 根目录下的 logs 文件夹</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA/" class="post-title-link" itemprop="url">Linux操作系统加固</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-04-16 14:11:32 / Modified: 16:46:45" itemprop="dateCreated datePublished" datetime="2019-04-16T14:11:32+08:00">2019-04-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>引自阿里云<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/49809.html">https://help.aliyun.com/knowledge_detail/49809.html</a>&gt;</p>
+</blockquote>
+<p>本帮助手册旨在指导系统管理人员或安全检查人员进行Linux操作系统的安全合规性检查和加固。</p>
+<hr>
+<h3 id="1-账号和口令"><a href="#1-账号和口令" class="headerlink" title="1. 账号和口令"></a>1. 账号和口令</h3><h4 id="1-1-禁用或删除无用账号"><a href="#1-1-禁用或删除无用账号" class="headerlink" title="1.1 禁用或删除无用账号"></a>1.1 禁用或删除无用账号</h4><p>减少系统无用账号，降低安全风险。</p>
+<p><strong>操作步骤</strong></p>
+<ul>
+<li>使用命令 <code>userdel &lt;用户名&gt;</code> 删除不必要的账号。</li>
+<li>使用命令 <code>passwd -l &lt;用户名&gt;</code> 锁定不必要的账号。</li>
+<li>使用命令 <code>passwd -u &lt;用户名&gt;</code> 解锁必要的账号。</li>
+</ul>
+<h4 id="1-2-检查特殊账号"><a href="#1-2-检查特殊账号" class="headerlink" title="1.2 检查特殊账号"></a>1.2 检查特殊账号</h4><p>检查是否存在空口令和root权限的账号。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>查看空口令和root权限账号，确认是否存在异常账号：<ul>
+<li>使用命令 <code>awk -F: &#39;($2==&quot;&quot;)&#39; /etc/shadow</code> 查看空口令账号。</li>
+<li>使用命令 <code>awk -F: &#39;($3==0)&#39; /etc/passwd</code> 查看UID为零的账号。</li>
+</ul>
+</li>
+<li>加固空口令账号：<ul>
+<li>使用命令 <code>passwd &lt;用户名&gt;</code> 为空口令账号设定密码。</li>
+<li>确认UID为零的账号只有root账号。</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-3-添加口令策略"><a href="#1-3-添加口令策略" class="headerlink" title="1.3 添加口令策略"></a>1.3 添加口令策略</h4><p>加强口令的复杂度等，降低被猜解的可能性。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li><p>使用命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/login.defs</span><br></pre></td></tr></table></figure>
+<p>修改配置文件。</p>
+<ul>
+<li><code>PASS_MAX_DAYS 90 #新建用户的密码最长使用天数</code></li>
+<li><code>PASS_MIN_DAYS 0 #新建用户的密码最短使用天数</code></li>
+<li><code>PASS_WARN_AGE 7 #新建用户的密码到期提前提醒天数</code></li>
+</ul>
+</li>
+<li><p>使用chage命令修改用户设置。<br>例如，<code>chage -m 0 -M 30 -E 2000-01-01 -W 7 &lt;用户名&gt;</code>表示将此用户的密码最长使用天数设为30，最短使用天数设为0，密码2000年1月1日过期，过期前七天警告用户。</p>
+</li>
+<li><p>设置连续输错三次密码，账号锁定五分钟。使用命令 <code>vi /etc/pam.d/common-auth</code>修改配置文件，在配置文件中添加 <code>auth required pam_tally.so onerr=fail deny=3 unlock_time=300</code>。</p>
+</li>
+</ol>
+<h4 id="1-4-限制用户su"><a href="#1-4-限制用户su" class="headerlink" title="1.4 限制用户su"></a>1.4 限制用户su</h4><p>限制能su到root的用户。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令 <code>vi /etc/pam.d/su</code>修改配置文件，在配置文件中添加行。例如，只允许test组用户su到root，则添加 <code>auth required pam_wheel.so group=test</code>。</p>
+<h4 id="1-4-禁止root用户直接登录"><a href="#1-4-禁止root用户直接登录" class="headerlink" title="1.4 禁止root用户直接登录"></a>1.4 禁止root用户直接登录</h4><p>限制root用户直接登录。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>创建普通权限账号并配置密码,防止无法远程登录;</li>
+<li>使用命令 <code>vi /etc/ssh/sshd_config</code>修改配置文件将PermitRootLogin的值改成no，并保存，然后使用<code>service sshd restart</code>重启服务。</li>
+</ol>
+<h3 id="2-服务"><a href="#2-服务" class="headerlink" title="2. 服务"></a>2. 服务</h3><h4 id="2-1-关闭不必要的服务"><a href="#2-1-关闭不必要的服务" class="headerlink" title="2.1 关闭不必要的服务"></a>2.1 关闭不必要的服务</h4><p>关闭不必要的服务（如普通服务和xinetd服务），降低风险。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令<code>systemctl disable &lt;服务名&gt;</code>设置服务在开机时不自动启动。</p>
+<p><strong>说明</strong>： 对于部分老版本的Linux操作系统（如CentOS 6），可以使用命令<code>chkconfig --level &lt;init级别&gt; &lt;服务名&gt; off</code>设置服务在指定init级别下开机时不自动启动。</p>
+<h4 id="2-2-SSH服务安全"><a href="#2-2-SSH服务安全" class="headerlink" title="2.2 SSH服务安全"></a>2.2 SSH服务安全</h4><p>对SSH服务进行安全加固，防止暴力破解成功。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令 <code>vim /etc/ssh/sshd_config</code> 编辑配置文件。</p>
+<ul>
+<li>不允许root账号直接登录系统。<br>设置 PermitRootLogin 的值为 no。</li>
+<li>修改SSH使用的协议版本。<br>设置 Protocol 的版本为 2。</li>
+<li>修改允许密码错误次数（默认6次）。<br>设置 MaxAuthTries 的值为 3。</li>
+</ul>
+<p>配置文件修改完成后，重启sshd服务生效。</p>
+<h3 id="3-文件系统"><a href="#3-文件系统" class="headerlink" title="3. 文件系统"></a>3. 文件系统</h3><h4 id="3-1-设置umask值"><a href="#3-1-设置umask值" class="headerlink" title="3.1 设置umask值"></a>3.1 设置umask值</h4><p>设置默认的umask值，增强安全性。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令 <code>vi /etc/profile</code> 修改配置文件，添加行 <code>umask 027</code>， 即新创建的文件属主拥有读写执行权限，同组用户拥有读和执行权限，其他用户无权限。</p>
+<h4 id="3-2-设置登录超时"><a href="#3-2-设置登录超时" class="headerlink" title="3.2 设置登录超时"></a>3.2 设置登录超时</h4><p>设置系统登录后，连接超时时间，增强安全性。</p>
+<p><strong>操作步骤</strong></p>
+<p>使用命令 <code>vi /etc/profile</code> 修改配置文件，将以 <code>TMOUT=</code> 开头的行注释，设置为<code>TMOUT=180</code>，即超时时间为三分钟。</p>
+<h3 id="4-日志"><a href="#4-日志" class="headerlink" title="4. 日志"></a>4. 日志</h3><h4 id="4-1-syslogd日志"><a href="#4-1-syslogd日志" class="headerlink" title="4.1 syslogd日志"></a>4.1 syslogd日志</h4><p>启用日志功能，并配置日志记录。</p>
+<p><strong>操作步骤</strong></p>
+<p>Linux系统默认启用以下类型日志：</p>
+<ul>
+<li>系统日志（默认）/var/log/messages</li>
+<li>cron日志（默认）/var/log/cron</li>
+<li>安全日志（默认）/var/log/secure</li>
+</ul>
+<p><strong>注意</strong>：部分系统可能使用syslog-ng日志，配置文件为：/etc/syslog-ng/syslog-ng.conf。</p>
+<p>您可以根据需求配置详细日志。</p>
+<h4 id="4-2-记录所有用户的登录和操作日志"><a href="#4-2-记录所有用户的登录和操作日志" class="headerlink" title="4.2 记录所有用户的登录和操作日志"></a>4.2 记录所有用户的登录和操作日志</h4><p>通过脚本代码实现记录所有用户的登录操作日志，防止出现安全事件后无据可查。</p>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li><p>运行 <code>[root@xxx /]# vim /etc/profile</code>打开配置文件。</p>
+</li>
+<li><p>在配置文件中输入以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">history</span><br><span class="line">USER=`whoami`</span><br><span class="line">USER_IP=`who -u am i 2&gt;/dev/null| awk &#x27;&#123;print $NF&#125;&#x27;|sed -e &#x27;s/[()]//g&#x27;`</span><br><span class="line">if [ &quot;$USER_IP&quot; = &quot;&quot; ]; then</span><br><span class="line">USER_IP=`hostname`</span><br><span class="line">fi</span><br><span class="line">if [ ! -d /var/log/history ]; then</span><br><span class="line">mkdir /var/log/history</span><br><span class="line">chmod 777 /var/log/history</span><br><span class="line">fi</span><br><span class="line">if [ ! -d /var/log/history/$&#123;LOGNAME&#125; ]; then</span><br><span class="line">mkdir /var/log/history/$&#123;LOGNAME&#125;</span><br><span class="line">chmod 300 /var/log/history/$&#123;LOGNAME&#125;</span><br><span class="line">fi</span><br><span class="line">export HISTSIZE=4096</span><br><span class="line">DT=`date +&quot;%Y%m%d_%H:%M:%S&quot;`</span><br><span class="line">export HISTFILE=&quot;/var/log/history/$&#123;LOGNAME&#125;/$&#123;USER&#125;@$&#123;USER_IP&#125;_$DT&quot;</span><br><span class="line">chmod 600 /var/log/history/$&#123;LOGNAME&#125;/*history* 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行 <code>[root@xxx /]# source /etc/profile</code> 加载配置生效。<br><strong>注意</strong>： /var/log/history 是记录日志的存放位置，可以自定义。</p>
+</li>
+</ol>
+<p>通过上述步骤，可以在 /var/log/history 目录下以每个用户为名新建一个文件夹，每次用户退出后都会产生以用户名、登录IP、时间的日志文件，包含此用户本次的所有操作（root用户除外）。</p>
+<p>同时，建议您使用OSS服务收集存储日志。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Ansible-%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0%E5%85%8D%E5%AF%86%E7%A0%81%E8%AE%A4%E8%AF%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Ansible-%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0%E5%85%8D%E5%AF%86%E7%A0%81%E8%AE%A4%E8%AF%81/" class="post-title-link" itemprop="url">Ansible-快速添加免密码认证</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-08 17:33:28" itemprop="dateCreated datePublished" datetime="2019-04-08T17:33:28+08:00">2019-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-16 16:45:06" itemprop="dateModified" datetime="2019-04-16T16:45:06+08:00">2019-04-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ansible/" itemprop="url" rel="index"><span itemprop="name">Ansible</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="生成管理机的私钥和公钥"><a href="#生成管理机的私钥和公钥" class="headerlink" title="生成管理机的私钥和公钥"></a>生成管理机的私钥和公钥</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 2048 -P &#x27;&#x27; -f /root/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<h4 id="添加主机信息到主机清单中"><a href="#添加主机信息到主机清单中" class="headerlink" title="添加主机信息到主机清单中"></a>添加主机信息到主机清单中</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ansible/hosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">添加分组</span></span><br><span class="line">[test-k8s]</span><br><span class="line">172.20.21.249</span><br><span class="line">172.20.21.250</span><br><span class="line">172.20.21.251</span><br><span class="line">172.20.21.252</span><br><span class="line">172.20.21.253</span><br><span class="line">172.20.21.254</span><br><span class="line">172.20.21.255</span><br><span class="line">172.20.22.0</span><br><span class="line">172.20.22.1</span><br><span class="line">172.20.22.2</span><br></pre></td></tr></table></figure>
+<h4 id="配置playbook"><a href="#配置playbook" class="headerlink" title="配置playbook"></a>配置playbook</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ansible/ssh-addkey.yml</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- hosts: pro-k8s</span><br><span class="line">  gather_facts: no</span><br><span class="line"></span><br><span class="line">  tasks:</span><br><span class="line"></span><br><span class="line">  - name: install ssh key</span><br><span class="line">    authorized_key: user=root</span><br><span class="line">                    key=&quot;&#123;&#123; lookup(&#x27;file&#x27;, &#x27;/root/.ssh/id_rsa.pub&#x27;) &#125;&#125;&quot;</span><br><span class="line">                    state=present</span><br></pre></td></tr></table></figure>
+<h4 id="运行playbook"><a href="#运行playbook" class="headerlink" title="运行playbook"></a>运行playbook</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook -i /etc/ansible/hosts -k /etc/ansible/ssh-addkey.yml</span><br></pre></td></tr></table></figure>
+<p>输入服务器密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">SSH password:</span><br><span class="line"></span><br><span class="line">PLAY [pro-k8s] ***************************************************************************************************************************</span><br><span class="line"></span><br><span class="line">TASK [install ssh key] *******************************************************************************************************************</span><br><span class="line">changed: [172.21.5.197]</span><br><span class="line">changed: [172.21.5.196]</span><br><span class="line">changed: [172.21.5.199]</span><br><span class="line">changed: [172.21.5.192]</span><br><span class="line">changed: [172.21.5.195]</span><br><span class="line">changed: [172.21.5.193]</span><br><span class="line">changed: [172.21.2.240]</span><br><span class="line">changed: [172.21.5.198]</span><br><span class="line">changed: [172.21.2.238]</span><br><span class="line">changed: [172.21.5.194]</span><br><span class="line">changed: [172.21.2.236]</span><br><span class="line">changed: [172.21.2.235]</span><br><span class="line">changed: [172.21.2.237]</span><br><span class="line">changed: [172.21.2.239]</span><br><span class="line">changed: [172.21.2.234]</span><br><span class="line">changed: [172.21.0.159]</span><br><span class="line">changed: [172.21.0.155]</span><br><span class="line">changed: [172.21.2.241]</span><br><span class="line">changed: [172.21.0.154]</span><br><span class="line">changed: [172.21.0.153]</span><br><span class="line">changed: [172.21.0.158]</span><br><span class="line">changed: [172.21.0.152]</span><br><span class="line">changed: [172.21.0.160]</span><br><span class="line">changed: [172.21.0.156]</span><br><span class="line">changed: [172.21.0.157]</span><br><span class="line">changed: [172.21.2.232]</span><br><span class="line">changed: [172.21.2.233]</span><br><span class="line">changed: [172.21.0.151]</span><br><span class="line">changed: [172.21.5.191]</span><br><span class="line"></span><br><span class="line">PLAY RECAP *******************************************************************************************************************************</span><br><span class="line">172.21.0.151               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.152               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.153               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.154               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.155               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.156               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.157               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.158               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.159               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.0.160               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.232               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.233               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.234               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.235               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.236               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.237               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.238               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.239               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.240               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.2.241               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.191               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.192               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.193               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.194               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.195               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.196               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.197               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.198               : ok=1    changed=1    unreachable=0    failed=0</span><br><span class="line">172.21.5.199               : ok=1    changed=1    unreachable=0    failed=0</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Cookie-Session/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Cookie-Session/" class="post-title-link" itemprop="url">Cookie & Session</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-07 10:08:04" itemprop="dateCreated datePublished" datetime="2019-04-07T10:08:04+08:00">2019-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-16 16:40:59" itemprop="dateModified" datetime="2019-04-16T16:40:59+08:00">2019-04-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liwenzhou/p/8343243.html">https://www.cnblogs.com/liwenzhou/p/8343243.html</a></p>
+</blockquote>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h4 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么"></a>Cookie是什么</h4><p>保存在浏览器端的键值对</p>
+<h4 id="为什么要有Cookie"><a href="#为什么要有Cookie" class="headerlink" title="为什么要有Cookie"></a>为什么要有Cookie</h4><p>因为HTTP请求是无状态的</p>
+<h4 id="Cookie的原理"><a href="#Cookie的原理" class="headerlink" title="Cookie的原理"></a>Cookie的原理</h4><p>服务端可以在返回响应的时候 做手脚<br>在浏览器上写入键值对，就是Cookie，浏览器发送请求的时候会自动携带该网站保存在浏览器中的键值对</p>
+<h4 id="Cookie的使用场景"><a href="#Cookie的使用场景" class="headerlink" title="Cookie的使用场景"></a>Cookie的使用场景</h4><ol>
+<li>保存登录信息</li>
+<li>保存用户的搜索关键词</li>
+</ol>
+<h4 id="Django中操作Cookie"><a href="#Django中操作Cookie" class="headerlink" title="Django中操作Cookie"></a>Django中操作Cookie</h4><h5 id="获取Cookie"><a href="#获取Cookie" class="headerlink" title="获取Cookie"></a>获取Cookie</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">request.COOKIES[<span class="string">&#x27;key&#x27;</span>]</span><br><span class="line">request.get_signed_cookie(key, default=RAISE_ERROR, salt=<span class="string">&#x27;&#x27;</span>, max_age=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">    default: 默认值</span><br><span class="line">    salt: 加密盐</span><br><span class="line">    max_age: 后台控制过期时间</span><br></pre></td></tr></table></figure>
+<h5 id="设置Cookie"><a href="#设置Cookie" class="headerlink" title="设置Cookie"></a>设置Cookie</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">rep = HttpResponse(...)</span><br><span class="line">rep ＝ render(request, ...)</span><br><span class="line"></span><br><span class="line">rep.set_cookie(key,value,...)</span><br><span class="line">rep.set_signed_cookie(key,value,salt=<span class="string">&#x27;加密盐&#x27;</span>, max_age=<span class="literal">None</span>, ...)</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">     key, 键</span><br><span class="line">     value=<span class="string">&#x27;&#x27;</span>, 值</span><br><span class="line">     max_age=<span class="literal">None</span>, 超时时间</span><br><span class="line">     expires=<span class="literal">None</span>, 超时时间(IE requires expires, so set it <span class="keyword">if</span> hasn<span class="string">&#x27;t been already.)</span></span><br><span class="line"><span class="string">     path=&#x27;</span>/<span class="string">&#x27;, Cookie生效的路径，/ 表示根路径，特殊的：根路径的cookie可以被任何url的页面访问</span></span><br><span class="line"><span class="string">     domain=None, Cookie生效的域名</span></span><br><span class="line"><span class="string">     secure=False, https传输</span></span><br><span class="line"><span class="string">     httponly=False 只能http协议传输，无法被JavaScript获取（不是绝对，底层抓包可以获取到也可以被覆盖）</span></span><br></pre></td></tr></table></figure>
+<h5 id="删除Cookie"><a href="#删除Cookie" class="headerlink" title="删除Cookie"></a>删除Cookie</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span>(<span class="params">request</span>):</span></span><br><span class="line">    rep = redirect(<span class="string">&quot;/login/&quot;</span>)</span><br><span class="line">    rep.delete_cookie(<span class="string">&quot;user&quot;</span>)  <span class="comment"># 删除用户浏览器上之前设置的usercookie值</span></span><br><span class="line">    <span class="keyword">return</span> rep</span><br></pre></td></tr></table></figure>
+<h5 id="完整views-py示例："><a href="#完整views-py示例：" class="headerlink" title="完整views.py示例："></a>完整views.py示例：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render,redirect</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse,HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_login</span>(<span class="params">func</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">a</span>(<span class="params">request,*args,**kwargs</span>):</span></span><br><span class="line">        Cookies = request.COOKIES.get(<span class="string">&quot;is_login&quot;</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;yes&#x27;</span> != Cookies:</span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">&#x27;/test01/login&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> func(request,*args,**kwargs)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;index界面&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">home</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;home&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">&#x27;test01/login.html&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span>(<span class="params">request</span>):</span></span><br><span class="line">    rep = redirect(<span class="string">&#x27;/test01/login&#x27;</span>)</span><br><span class="line">    rep.delete_cookie(<span class="string">&#x27;is_login&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> rep</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_username</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        username = request.POST.get(<span class="string">&#x27;username&#x27;</span>,<span class="literal">None</span>)</span><br><span class="line">        password = request.POST.get(<span class="string">&#x27;password&#x27;</span>,<span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">if</span> username == <span class="string">&#x27;z&#x27;</span> <span class="keyword">and</span> password == <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            rep = render(request,<span class="string">&#x27;test01/home.html&#x27;</span>,&#123;<span class="string">&#x27;username&#x27;</span>:username&#125;)</span><br><span class="line">            <span class="comment">#rep.set_cookie(&#x27;is_login&#x27;,&#x27;yes&#x27;)</span></span><br><span class="line">            rep.set_signed_cookie(<span class="string">&#x27;is_login&#x27;</span>, <span class="string">&#x27;yes&#x27;</span>, expires=<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            rep = redirect(<span class="string">&#x27;/test01/login&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        rep =  redirect(<span class="string">&#x27;/test01/login&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rep</span><br></pre></td></tr></table></figure>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>Cookie虽然在一定程度上解决了“保持状态”的需求，但是由于Cookie本身最大支持4096字节，以及Cookie本身保存在客户端，可能被拦截或窃取，因此就需要有一种新的东西，它能支持更多的字节，并且他保存在服务器，有较高的安全性。这就是Session。</p>
+<p>问题来了，基于HTTP协议的无状态特征，服务器根本就不知道访问者是“谁”。那么上述的Cookie就起到桥接的作用。</p>
+<p>我们可以给每个客户端的Cookie分配一个唯一的id，这样用户在访问时，通过Cookie，服务器就知道来的人是“谁”。然后我们再根据不同的Cookie的id，在服务器上保存一段时间的私密资料，如“账号密码”等等。</p>
+<p>总结而言：Cookie弥补了HTTP无状态的不足，让服务器知道来的人是“谁”；但是Cookie以文本的形式保存在本地，自身安全性较差；所以我们就通过Cookie识别不同的用户，对应的在Session里保存私密的信息以及超过4096字节的文本。<br>另外，上述所说的Cookie和Session其实是共通性的东西，不限于语言和框架。</p>
+<h4 id="Django中操作Session"><a href="#Django中操作Session" class="headerlink" title="Django中操作Session"></a>Django中操作Session</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取、设置、删除Session中数据</span></span><br><span class="line">request.session[<span class="string">&#x27;k1&#x27;</span>]</span><br><span class="line">request.session.get(<span class="string">&#x27;k1&#x27;</span>,<span class="literal">None</span>)</span><br><span class="line">request.session[<span class="string">&#x27;k1&#x27;</span>] = <span class="number">123</span></span><br><span class="line">request.session.setdefault(<span class="string">&#x27;k1&#x27;</span>,<span class="number">123</span>) <span class="comment"># 存在则不设置</span></span><br><span class="line"><span class="keyword">del</span> request.session[<span class="string">&#x27;k1&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有 键、值、键值对</span></span><br><span class="line">request.session.keys()</span><br><span class="line">request.session.values()</span><br><span class="line">request.session.items()</span><br><span class="line">request.session.iterkeys()</span><br><span class="line">request.session.itervalues()</span><br><span class="line">request.session.iteritems()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会话session的key</span></span><br><span class="line">request.session.session_key</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将所有Session失效日期小于当前日期的数据删除</span></span><br><span class="line">request.session.clear_expired()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查会话session的key在数据库中是否存在</span></span><br><span class="line">request.session.exists(<span class="string">&quot;session_key&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除当前会话的所有Session数据</span></span><br><span class="line">request.session.delete()</span><br><span class="line">　　</span><br><span class="line"><span class="comment"># 删除当前的会话数据并删除会话的Cookie。</span></span><br><span class="line">request.session.flush() </span><br><span class="line">    这用于确保前面的会话数据不可以再次被用户的浏览器访问</span><br><span class="line">    例如，django.contrib.auth.logout() 函数中就会调用它。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置会话Session和Cookie的超时时间</span></span><br><span class="line">request.session.set_expiry(value)</span><br><span class="line">    * 如果value是个整数，session会在些秒数后失效。</span><br><span class="line">    * 如果value是个datatime或timedelta，session就会在这个时间后失效。</span><br><span class="line">    * 如果value是<span class="number">0</span>,用户关闭浏览器session就会失效。</span><br><span class="line">    * 如果value是<span class="literal">None</span>,session会依赖全局session失效策略。</span><br></pre></td></tr></table></figure>
+<h4 id="Seesion版验证登录"><a href="#Seesion版验证登录" class="headerlink" title="Seesion版验证登录"></a>Seesion版验证登录</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_login</span>(<span class="params">func</span>):</span></span><br><span class="line"><span class="meta">    @wraps(func)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span>(<span class="params">request, *args, **kwargs</span>):</span></span><br><span class="line">        next_url = request.get_full_path()</span><br><span class="line">        <span class="keyword">if</span> request.session.get(<span class="string">&quot;user&quot;</span>):</span><br><span class="line">            <span class="keyword">return</span> func(request, *args, **kwargs)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">&quot;/login/?next=&#123;&#125;&quot;</span>.format(next_url))</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        user = request.POST.get(<span class="string">&quot;user&quot;</span>)</span><br><span class="line">        pwd = request.POST.get(<span class="string">&quot;pwd&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> user == <span class="string">&quot;alex&quot;</span> <span class="keyword">and</span> pwd == <span class="string">&quot;alex1234&quot;</span>:</span><br><span class="line">            <span class="comment"># 设置session</span></span><br><span class="line">            request.session[<span class="string">&quot;user&quot;</span>] = user</span><br><span class="line">            <span class="comment"># 获取跳到登陆页面之前的URL</span></span><br><span class="line">            next_url = request.GET.get(<span class="string">&quot;next&quot;</span>)</span><br><span class="line">            <span class="comment"># 如果有，就跳转回登陆之前的URL</span></span><br><span class="line">            <span class="keyword">if</span> next_url:</span><br><span class="line">                <span class="keyword">return</span> redirect(next_url)</span><br><span class="line">            <span class="comment"># 否则默认跳转到index页面</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> redirect(<span class="string">&quot;/index/&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&quot;login.html&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="comment"># 删除所有当前请求相关的session</span></span><br><span class="line">    request.session.delete()</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&quot;/login/&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@check_login</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>(<span class="params">request</span>):</span></span><br><span class="line">    current_user = request.session.get(<span class="string">&quot;user&quot;</span>, <span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&quot;index.html&quot;</span>, &#123;<span class="string">&quot;user&quot;</span>: current_user&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Django中的Session配置"><a href="#Django中的Session配置" class="headerlink" title="Django中的Session配置"></a>Django中的Session配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 数据库Session</span><br><span class="line">SESSION_ENGINE = <span class="string">&#x27;django.contrib.sessions.backends.db&#x27;</span>   <span class="comment"># 引擎（默认）</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 缓存Session</span><br><span class="line">SESSION_ENGINE = <span class="string">&#x27;django.contrib.sessions.backends.cache&#x27;</span>  <span class="comment"># 引擎</span></span><br><span class="line">SESSION_CACHE_ALIAS = <span class="string">&#x27;default&#x27;</span>                            <span class="comment"># 使用的缓存别名（默认内存缓存，也可以是memcache），此处别名依赖缓存的设置</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 文件Session</span><br><span class="line">SESSION_ENGINE = <span class="string">&#x27;django.contrib.sessions.backends.file&#x27;</span>    <span class="comment"># 引擎</span></span><br><span class="line">SESSION_FILE_PATH = <span class="literal">None</span>                                    <span class="comment"># 缓存文件路径，如果为None，则使用tempfile模块获取一个临时地址tempfile.gettempdir() </span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 缓存+数据库</span><br><span class="line">SESSION_ENGINE = <span class="string">&#x27;django.contrib.sessions.backends.cached_db&#x27;</span>        <span class="comment"># 引擎</span></span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 加密Cookie Session</span><br><span class="line">SESSION_ENGINE = <span class="string">&#x27;django.contrib.sessions.backends.signed_cookies&#x27;</span>   <span class="comment"># 引擎</span></span><br><span class="line"></span><br><span class="line">其他公用设置项：</span><br><span class="line">SESSION_COOKIE_NAME ＝ <span class="string">&quot;sessionid&quot;</span>                       <span class="comment"># Session的cookie保存在浏览器上时的key，即：sessionid＝随机字符串（默认）</span></span><br><span class="line">SESSION_COOKIE_PATH ＝ <span class="string">&quot;/&quot;</span>                               <span class="comment"># Session的cookie保存的路径（默认）</span></span><br><span class="line">SESSION_COOKIE_DOMAIN = <span class="literal">None</span>                             <span class="comment"># Session的cookie保存的域名（默认）</span></span><br><span class="line">SESSION_COOKIE_SECURE = <span class="literal">False</span>                            <span class="comment"># 是否Https传输cookie（默认）</span></span><br><span class="line">SESSION_COOKIE_HTTPONLY = <span class="literal">True</span>                           <span class="comment"># 是否Session的cookie只支持http传输（默认）</span></span><br><span class="line">SESSION_COOKIE_AGE = <span class="number">1209600</span>                             <span class="comment"># Session的cookie失效日期（2周）（默认）</span></span><br><span class="line">SESSION_EXPIRE_AT_BROWSER_CLOSE = <span class="literal">False</span>                  <span class="comment"># 是否关闭浏览器使得Session过期（默认）</span></span><br><span class="line">SESSION_SAVE_EVERY_REQUEST = <span class="literal">False</span>                       <span class="comment"># 是否每次请求都保存Session，默认修改之后才保存（默认）</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Nginx-%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Nginx-%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/" class="post-title-link" itemprop="url">Nginx_配置SSL证书</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-05 17:15:18" itemprop="dateCreated datePublished" datetime="2019-04-05T17:15:18+08:00">2019-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-16 16:47:07" itemprop="dateModified" datetime="2019-04-16T16:47:07+08:00">2019-04-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><h4 id="获取证书并上传到Ngx服务器"><a href="#获取证书并上传到Ngx服务器" class="headerlink" title="获取证书并上传到Ngx服务器"></a>获取证书并上传到Ngx服务器</h4></li>
+</ol>
+<ol start="2">
+<li><h4 id="检查Ngx是否安装–with-http-ssl-module模块"><a href="#检查Ngx是否安装–with-http-ssl-module模块" class="headerlink" title="检查Ngx是否安装–with-http_ssl_module模块"></a>检查Ngx是否安装–with-http_ssl_module模块</h4></li>
+</ol>
+<ol start="3">
+<li><h4 id="修改nginx配置文件"><a href="#修改nginx配置文件" class="headerlink" title="修改nginx配置文件"></a>修改nginx配置文件</h4></li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> <span class="regexp">*.zhaohongye.com</span>;</span><br><span class="line">	<span class="comment">#return 301 https://$host$request_uri;</span></span><br><span class="line">	<span class="attribute">return</span> <span class="number">301</span> https://zhaohongye.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">	<span class="attribute">server_name</span> zhaohongye.com www.zhaohongye.com;</span><br><span class="line">	<span class="attribute">access_log</span>  /var/log/nginx/zhy.log main;</span><br><span class="line">	<span class="attribute">error_log</span>  /var/log/nginx/zhy.<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">ssl</span> <span class="literal">on</span>;   <span class="comment">#ssl功能开启</span></span><br><span class="line">	<span class="attribute">ssl_certificate</span> sslfile/2027481_zhaohongye.com.pem;</span><br><span class="line">	<span class="attribute">ssl_certificate_key</span> sslfile/2027481_zhaohongye.com.key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="attribute">location</span> / &#123;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">		<span class="attribute">proxy_redirect</span>          http:// https://;</span><br><span class="line">		<span class="attribute">proxy_pass</span>              http://127.0.0.1:4000; </span><br><span class="line">		<span class="attribute">client_max_body_size</span>    <span class="number">10M</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Host <span class="variable">$host</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Server <span class="variable">$host</span>;</span><br><span class="line">		<span class="comment"># Required for new HTTP-based CLI</span></span><br><span class="line">		<span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">		<span class="attribute">proxy_request_buffering</span> <span class="literal">off</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><h4 id="https访问验证"><a href="#https访问验证" class="headerlink" title="https访问验证"></a>https访问验证</h4></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Archer-SQL%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B9%B3%E5%8F%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Archer-SQL%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B9%B3%E5%8F%B0/" class="post-title-link" itemprop="url">Archer</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-05 17:00:20" itemprop="dateCreated datePublished" datetime="2019-04-05T17:00:20+08:00">2019-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-16 16:45:50" itemprop="dateModified" datetime="2019-04-16T16:45:50+08:00">2019-04-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Archer/" itemprop="url" rel="index"><span itemprop="name">Archer</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ARCHER-—-自动化SQL操作平台"><a href="#ARCHER-—-自动化SQL操作平台" class="headerlink" title="ARCHER — 自动化SQL操作平台"></a>ARCHER — 自动化SQL操作平台</h1><p>基于inception的自动化SQL操作平台，支持SQL执行、LDAP认证、发邮件、OSC、SQL查询、SQL优化建议、权限管理等功能，支持docker镜像。</p>
+<p>GitHub项目地址：<a target="_blank" rel="noopener" href="https://github.com/jly8866/archer">https://github.com/jly8866/archer</a></p>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
+<li>自动审核<br>发起SQL上线，工单提交，由inception自动审核，审核通过后需要由审核人进行人工审核</li>
+<li>人工审核<br>inception自动审核通过的工单，由其他研发工程师或研发经理来审核，DBA操作执行SQL<br>为什么要有人工审核？<br>这是遵循运维领域线上操作的流程意识，一个工程师要进行线上数据库SQL更新，最好由另外一个工程师来把关<br>很多时候DBA并不知道SQL的业务含义，所以人工审核最好由其他研发工程师或研发经理来审核. 这是archer的设计理念</li>
+<li>回滚数据展示<br>工单内可展示回滚语句，支持一键提交回滚工单</li>
+<li>定时执行SQL<br>审核通过的工单可由DBA选择定时执行，执行前可修改执行时间，可随时终止</li>
+<li>pt-osc执行<br>支持pt-osc执行进度展示，并且可以点击中止pt-osc进程</li>
+<li>MySQL查询<br>库、表、关键字自动补全<br>查询结果集限制、查询结果导出、表结构展示、多结果集展示</li>
+<li>MySQL查询权限管理<br>基于inception解析查询语句，查询权限支持限制到表级<br>查询权限申请、审核和管理，支持审核流程配置，多级审核</li>
+<li>MySQL查询动态脱敏<br>基于inception解析查询语句，配合脱敏字段配置、脱敏规则(正则表达式)实现敏感数据动态脱敏</li>
+<li>慢日志管理<br>基于percona-toolkit的pt_query_digest分析和存储慢日志，并在web端展现</li>
+<li>邮件通知<br>可配置邮件提醒，对上线申请、权限申请、审核结果等进行通知<br>对异常登录进行通知</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h4 id="安装docker-、git"><a href="#安装docker-、git" class="headerlink" title="安装docker 、git"></a>安装docker 、git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y docker git</span><br></pre></td></tr></table></figure>
+<h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull hhyo&#x2F;inception</span><br><span class="line">docker pull hhyo&#x2F;archer</span><br><span class="line">docker pull mysql:5.6.35</span><br></pre></td></tr></table></figure>
+<h4 id="创建archer配置文件"><a href="#创建archer配置文件" class="headerlink" title="创建archer配置文件"></a>创建archer配置文件</h4><p>服务目录定为 /vcg/archer/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;vcg&#x2F;archer&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;vcg&#x2F;archer&#x2F;inc.cnf</span><br><span class="line"></span><br><span class="line">[inception]</span><br><span class="line">general_log&#x3D;1</span><br><span class="line">general_log_file&#x3D;inception.log</span><br><span class="line">port&#x3D;6669</span><br><span class="line">socket&#x3D;&#x2F;tmp&#x2F;inc.socket</span><br><span class="line">character-set-client-handshake&#x3D;0</span><br><span class="line">character-set-server&#x3D;utf8</span><br><span class="line">inception_remote_system_password&#x3D;root</span><br><span class="line">inception_remote_system_user&#x3D;wzf1</span><br><span class="line">inception_remote_backup_port&#x3D;3306</span><br><span class="line">inception_remote_backup_host&#x3D;127.0.0.1</span><br><span class="line">inception_support_charset&#x3D;utf8,utf8mb4</span><br><span class="line">inception_enable_nullable&#x3D;0</span><br><span class="line">inception_check_primary_key&#x3D;1</span><br><span class="line">inception_check_column_comment&#x3D;1</span><br><span class="line">inception_check_table_comment&#x3D;1</span><br><span class="line">inception_osc_on&#x3D;OFF</span><br><span class="line">inception_osc_bin_dir&#x3D;&#x2F;usr&#x2F;bin</span><br><span class="line">inception_osc_min_table_size&#x3D;1</span><br><span class="line">inception_osc_chunk_time&#x3D;0.1</span><br><span class="line">inception_enable_blob_type&#x3D;1</span><br><span class="line">inception_check_column_default_value&#x3D;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;jly8866&#x2F;archer&#x2F;blob&#x2F;master&#x2F;archer&#x2F;settings.py</span><br><span class="line">修改其中的数据库地址、用户名、密码</span><br></pre></td></tr></table></figure>
+<h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --name inception -v &#x2F;vcg&#x2F;archer&#x2F;inc.cnf:&#x2F;etc&#x2F;inc.cnf -p 6669:6669 -dti hhyo&#x2F;inception</span><br><span class="line"></span><br><span class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:5.6.35</span><br><span class="line"></span><br><span class="line">docker run --name archer -v &#x2F;vcg&#x2F;archer&#x2F;settings.py:&#x2F;opt&#x2F;archer&#x2F;archer&#x2F;settings.py  -e NGINX_PORT&#x3D;9123 -p 9123:9123 -dti hhyo&#x2F;archer</span><br></pre></td></tr></table></figure>
+<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line"></span><br><span class="line">CREATE DATABASE IF NOT EXISTS archer_github DEFAULT CHARSET utf8 COLLATE utf8_general_ci;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker exec -ti archer &#x2F;bin&#x2F;bash</span><br><span class="line">  cd &#x2F;opt&#x2F;archer</span><br><span class="line">  source &#x2F;opt&#x2F;venv4archer&#x2F;bin&#x2F;activate</span><br><span class="line">  # 初始化数据库</span><br><span class="line">  python3 manage.py makemigrations sql</span><br><span class="line">  python3 manage.py migrate</span><br><span class="line">  # 创建管理员账号</span><br><span class="line">  python3 manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+<h4 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h4><p>地址： <a href="http://xxxx::9123/">http://xxxx::9123/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Hexo-%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Hexo-%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Hexo</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-05 00:31:11" itemprop="dateCreated datePublished" datetime="2019-04-05T00:31:11+08:00">2019-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-16 16:47:45" itemprop="dateModified" datetime="2019-04-16T16:47:45+08:00">2019-04-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>快速、简洁且高效的博客框架<br>官网: <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io</a></p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="超快速度"><a href="#超快速度" class="headerlink" title="超快速度"></a>超快速度</h3><p>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
+<h3 id="支持-Markdown"><a href="#支持-Markdown" class="headerlink" title="支持 Markdown"></a>支持 Markdown</h3><p>Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
+<h3 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h3><p>只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p>
+<h3 id="丰富的插件"><a href="#丰富的插件" class="headerlink" title="丰富的插件"></a>丰富的插件</h3><p>Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="命令缩写"><a href="#命令缩写" class="headerlink" title="命令缩写"></a>命令缩写</h3><p>hexo支持指令缩写，例如：hexo generate和hexo g是等效的。<br>d = deploy 部署<br>g = generate 生成静态页面<br>l = log 启动日记记录，使用覆盖记录格式<br>n = new 新建文章<br>o = output 设置输出路径<br>p = port 重设端口<br>s = server 启动服务器<br>w = watch 监视文件变动</p>
+<h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="修改首页博客为预览模式"><a href="#修改首页博客为预览模式" class="headerlink" title="修改首页博客为预览模式"></a>修改首页博客为预览模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim themes/next/_config.yml</span><br><span class="line"></span><br><span class="line">auto_excerpt:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span> </span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure>
+<p>将 auto_excerpt的enable参数由false改为true</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">GeekSRE</p>
+  <div class="site-description" itemprop="description">GeekSRE</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

@@ -240,7 +240,7 @@
 
       
         <p>do what you loveeee<br><a id="more"></a><br>CentOS7安装MariaDB</p>
-<p><a href="https://mariadb.com/kb/en/library/yum/">https://mariadb.com/kb/en/library/yum/</a></p>
+<p><a target="_blank" rel="noopener" href="https://mariadb.com/kb/en/library/yum/">https://mariadb.com/kb/en/library/yum/</a></p>
 <h5 id="配置YUM源"><a href="#配置YUM源" class="headerlink" title="配置YUM源"></a>配置YUM源</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/MariaDB.repo</span><br><span class="line"></span><br><span class="line">[mariadb]</span><br><span class="line">name = MariaDB</span><br><span class="line">baseurl = http://yum.mariadb.org/10.1/centos7-amd64</span><br><span class="line">gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
 <h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install MariaDB-server MariaDB-client</span><br></pre></td></tr></table></figure>
 <p>启动</p>

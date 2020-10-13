@@ -249,9 +249,9 @@
 
       
         <p>Celery是一个异步任务的调度工具。<br><a id="more"></a><br>Django中使用Celery实现异步或定时任务</p>
-<p><strong>Celery 官网：<a href="http://www.celeryproject.org/">http://www.celeryproject.org/</a></strong></p>
-<p><strong>Celery 官方文档英文版</strong>：<a href="http://docs.celeryproject.org/en/latest/index.html"><strong>http://docs.celeryproject.org/en/latest/index.html</strong></a></p>
-<p><strong>Celery 官方文档中文版：<a href="http://docs.jinkan.org/docs/celery/">http://docs.jinkan.org/docs/celery/</a></strong></p>
+<p><strong>Celery 官网：<a target="_blank" rel="noopener" href="http://www.celeryproject.org/">http://www.celeryproject.org/</a></strong></p>
+<p><strong>Celery 官方文档英文版</strong>：<a target="_blank" rel="noopener" href="http://docs.celeryproject.org/en/latest/index.html"><strong>http://docs.celeryproject.org/en/latest/index.html</strong></a></p>
+<p><strong>Celery 官方文档中文版：<a target="_blank" rel="noopener" href="http://docs.jinkan.org/docs/celery/">http://docs.jinkan.org/docs/celery/</a></strong></p>
 <h3 id="Celery简介"><a href="#Celery简介" class="headerlink" title="Celery简介"></a>Celery简介</h3><p>Celery是一个异步任务的调度工具。</p>
 <p>Celery 是 Distributed Task Queue，分布式任务队列，分布式决定了可以有多个 worker 的存在，队列表示其是异步操作，即存在一个产生任务提出需求的工头，和一群等着被分配工作的码农。</p>
 <p>在 Python 中定义 Celery 的时候，我们要引入 Broker，中文翻译过来就是“中间人”的意思，在这里 Broker 起到一个中间人的角色。在工头提出任务的时候，把所有的任务放到 Broker 里面，在 Broker 的另外一头，一群码农等着取出一个个任务准备着手做。</p>
@@ -266,13 +266,13 @@
 <p>包含异步任务和定时任务。其中，<strong>异步任务通常在业务逻辑中被触发并发往任务队列，而定时任务由 Celery Beat 进程周期性地将任务发往任务队列</strong>。</p>
 </li>
 <li><p>消息中间件 Broker</p>
-<p>Broker，即为任务调度队列，<strong>接收任务生产者发来的消息（即任务），将任务存入队列</strong>。Celery 本身不提供队列服务，官方推荐使用 RabbitMQ 和 <a href="http://lib.csdn.net/base/redis">Redis</a> 等。</p>
+<p>Broker，即为任务调度队列，<strong>接收任务生产者发来的消息（即任务），将任务存入队列</strong>。Celery 本身不提供队列服务，官方推荐使用 RabbitMQ 和 <a target="_blank" rel="noopener" href="http://lib.csdn.net/base/redis">Redis</a> 等。</p>
 </li>
 <li><p>任务执行单元 Worker</p>
 <p>Worker 是执行任务的处理单元，<strong>它实时监控消息队列，获取队列中调度的任务，并执行它</strong>。</p>
 </li>
 <li><p>任务结果存储 Backend</p>
-<p>Backend 用于<strong>存储任务的执行结果</strong>，以供查询。同消息中间件一样，存储也可使用 RabbitMQ, <a href="http://lib.csdn.net/base/redis">redis</a> 和 <a href="http://lib.csdn.net/base/mongodb">MongoDB</a> 等。</p>
+<p>Backend 用于<strong>存储任务的执行结果</strong>，以供查询。同消息中间件一样，存储也可使用 RabbitMQ, <a target="_blank" rel="noopener" href="http://lib.csdn.net/base/redis">redis</a> 和 <a target="_blank" rel="noopener" href="http://lib.csdn.net/base/mongodb">MongoDB</a> 等。</p>
 </li>
 </ul>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install celery</span><br><span class="line">pip install django-celery-beta  #任务发送</span><br><span class="line">pip install django-celery-results  #结果存储</span><br><span class="line"></span><br></pre></td></tr></table></figure>

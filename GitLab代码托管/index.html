@@ -249,8 +249,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>GitLab 是一个用于仓库管理系统的开源项目，使用<a href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。</p>
-<p>官网：<a href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
+        <p>GitLab 是一个用于仓库管理系统的开源项目，使用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
 <hr>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h5 id="配置Yum源"><a href="#配置Yum源" class="headerlink" title="配置Yum源"></a>配置Yum源</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/gitlab_gitlab-ee.repo</span><br><span class="line">[gitlab-ce]</span><br><span class="line">name=Gitlab CE Repository</span><br><span class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
 <h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y postfix</span><br><span class="line">yum install gitlab-ce -y</span><br></pre></td></tr></table></figure>
@@ -260,7 +260,7 @@
 <h5 id="检查是否配置成功"><a href="#检查是否配置成功" class="headerlink" title="检查是否配置成功"></a>检查是否配置成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:ldap:check（列出前100个用户）</span><br></pre></td></tr></table></figure>
 <h5 id="重启gitlab服务"><a href="#重启gitlab服务" class="headerlink" title="重启gitlab服务"></a>重启gitlab服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
 <h5 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h5><p>访问ip:80端口 配置root密码，至此部署完成。</p>
-<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><h5 id="升级规范和建议"><a href="#升级规范和建议" class="headerlink" title="升级规范和建议"></a>升级规范和建议</h5><p><a href="https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations">https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations</a></p>
+<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><h5 id="升级规范和建议"><a href="#升级规范和建议" class="headerlink" title="升级规范和建议"></a>升级规范和建议</h5><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations">https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations</a></p>
 <p>首先升级到主要版本中的最新可用次要版本</p>
 <p>例如：8.13.4 升级到 11.3.4 ，升级路径为 8.13.4 -&gt; 8.17.7 -&gt; 9.5.10 -&gt; 10.8.7 -&gt; 11.3.4</p>
 <p>​    即：<code>8.17.7</code>是版本<code>8</code>中的最后一个版本, <code>9.5.10</code>是版本<code>9</code>中的最后一个版本, <code>10.8.7</code>是版本<code>10</code>中的最后一个版本</p>

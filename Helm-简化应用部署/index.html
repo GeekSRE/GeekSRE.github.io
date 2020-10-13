@@ -234,10 +234,10 @@
 
       
         <p>参考链接</p>
-<p><a href="https://help.aliyun.com/document_detail/86511.html">https://help.aliyun.com/document_detail/86511.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/86511.html">https://help.aliyun.com/document_detail/86511.html</a></p>
 <p>在 Kubernetes 中，应用管理是需求最多、挑战最大的领域。Helm 项目提供了一个统一软件打包方式，支持版本控制，可以大大简化 Kubernetes 应用分发与部署中的复杂性。</p>
 <p>阿里云容器服务在应用目录管理功能中集成了 Helm 工具，并进行了功能扩展，支持官方 Repository，让您快速部署应用。您可以通过命令行或容器服务控制台界面两种方式进行部署。</p>
-<h4 id="Helm-基本概念"><a href="#Helm-基本概念" class="headerlink" title="Helm 基本概念"></a>Helm 基本概念</h4><p>Helm 是由 <a href="https://helm.sh/docs/">Deis</a> 发起的一个开源工具，有助于简化部署和管理 Kubernetes 应用。</p>
+<h4 id="Helm-基本概念"><a href="#Helm-基本概念" class="headerlink" title="Helm 基本概念"></a>Helm 基本概念</h4><p>Helm 是由 <a target="_blank" rel="noopener" href="https://helm.sh/docs/">Deis</a> 发起的一个开源工具，有助于简化部署和管理 Kubernetes 应用。</p>
 <p>Helm 可以理解为 Kubernetes 的包管理工具，可以方便地发现、共享和使用为 Kubernetes 构建的应用，它包含几个基本概念</p>
 <ul>
 <li><strong>Chart</strong>：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义，类似 Homebrew 中的 formula、APT 的 dpkg 或者 Yum 的 rpm 文件。</li>
@@ -254,8 +254,8 @@
 <li><p>安装和配置kubectl</p>
 </li>
 <li><p>安装heml</p>
-<p><a href="https://github.com/helm/helm/releases">https://github.com/helm/helm/releases</a></p>
-<p>安装方法，参见 <a href="https://github.com/kubernetes/helm/blob/master/docs/install.md?spm=a2c4g.11186623.2.27.44516a3fjdfubX&amp;file=install.md">Install Helm</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/helm/helm/releases">https://github.com/helm/helm/releases</a></p>
+<p>安装方法，参见 <a target="_blank" rel="noopener" href="https://github.com/kubernetes/helm/blob/master/docs/install.md?spm=a2c4g.11186623.2.27.44516a3fjdfubX&amp;file=install.md">Install Helm</a>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、获取安装包</span></span><br><span class="line">wget https://get.helm.sh/helm-v2.14.2-linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、解压</span></span><br><span class="line">tar zxf helm-v2.14.2-linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、Find the helm binary <span class="keyword">in</span> the unpacked directory, and move it to its desired destination</span></span><br><span class="line">mv linux-amd64/helm /usr/local/bin/helm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、验证</span></span><br><span class="line">helm help</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置 Helm 的 Repository。这里我们使用了阿里云容器服务提供的 Charts 存储库。</p>
@@ -279,12 +279,12 @@
 </li>
 <li><p>删除应用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm delete --purge &quot;myspark&quot;</span><br></pre></td></tr></table></figure>
-<p>有关 Helm 使用的详细信息，请参阅 <a href="https://github.com/kubernetes/helm">Helm项目</a>。</p>
+<p>有关 Helm 使用的详细信息，请参阅 <a target="_blank" rel="noopener" href="https://github.com/kubernetes/helm">Helm项目</a>。</p>
 </li>
 </ul>
 <h4 id="使用第三方的-Chart-存储库"><a href="#使用第三方的-Chart-存储库" class="headerlink" title="使用第三方的 Chart 存储库"></a>使用第三方的 Chart 存储库</h4><p>您除了可以使用预置的阿里云的 Chart 存储库，也可以使用第三方的 Chart 存储库（前提是网络是可达的）。使用如下命令格式添加第三方 Chart 存储库。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">helm repo add 存储库名 存储库URL</span><br><span class="line">helm repo update</span><br></pre></td></tr></table></figure>
-<p>关于 Helm 相关命令的说明，您可以参阅 <a href="https://docs.helm.sh/helm/#helm-repo-add">Helm 文档</a></p>
+<p>关于 Helm 相关命令的说明，您可以参阅 <a target="_blank" rel="noopener" href="https://docs.helm.sh/helm/#helm-repo-add">Helm 文档</a></p>
 <h4 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h4><p>Helm 催生了社区的发展壮大，越来越多的软件提供商，如 Bitnami 等公司，开始提供高质量的 Charts。您可以在 <code>https://kubeapps.com/</code> 中寻找和发现已有的 Charts。</p>
 
     </div>
