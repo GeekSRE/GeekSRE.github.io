@@ -238,10 +238,10 @@
 
       
         <p>阿里开源 KT Connnect，轻量级云原生测试环境治理平台来啦！<br><a id="more"></a></p>
-<h4 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h4><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/751321?scm=20140722.184.2.173">https://developer.aliyun.com/article/751321?scm=20140722.184.2.173</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.v2ex.com/t/584314">https://www.v2ex.com/t/584314</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alibaba/kt-connect">https://github.com/alibaba/kt-connect</a></p>
-<p><a target="_blank" rel="noopener" href="https://alibaba.github.io/kt-connect/#/">https://alibaba.github.io/kt-connect/#/</a></p>
+<h4 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h4><p><a href="https://developer.aliyun.com/article/751321?scm=20140722.184.2.173">https://developer.aliyun.com/article/751321?scm=20140722.184.2.173</a></p>
+<p><a href="https://www.v2ex.com/t/584314">https://www.v2ex.com/t/584314</a></p>
+<p><a href="https://github.com/alibaba/kt-connect">https://github.com/alibaba/kt-connect</a></p>
+<p><a href="https://alibaba.github.io/kt-connect/#/">https://alibaba.github.io/kt-connect/#/</a></p>
 <p>目前越来越多的开发者开始采纳 Kubernetes 管理基础设施环境，并通过 Kubernetes 完成日常的开发，测试以及生产发布活动，为了能够有效的帮助开发者提升在 Kubernetes 场景下的本地开发测试效率，阿里巴巴研发效能云效团队面向原生 Kubernetes 开源了一款轻量级的开发者工具 KT Connect。</p>
 <h3 id="1、KT-Connect-是什么"><a href="#1、KT-Connect-是什么" class="headerlink" title="1、KT Connect 是什么"></a>1、KT Connect 是什么</h3><p>KT Connect （ Kubernetes Developer Tool ） 是轻量级的面向 Kubernetes 用户的开发测试环境治理辅助工具。其核心是通过建立本地到集群以及集群到本地的双向通道，从而提升在持续交付生命周期中开发环节的效率问题以及开发测试环境的复用问题：</p>
 <p><img src="/ali-kt/./kt1.png" alt></p>
@@ -260,11 +260,11 @@
 <li>可视化：基于同一的 Dashboard 以及可视化能力，让用户更直观的了解测试环境的使用情况。</li>
 <li>可扩展性：KT Connect 中提供了详细的元数据信息，用户可以快速基于 Kubernetes API 扩展 Dashboard 以及功能；</li>
 </ul>
-<h3 id="3、安装"><a href="#3、安装" class="headerlink" title="3、安装"></a>3、安装</h3><h4 id="安装-kubectl"><a href="#安装-kubectl" class="headerlink" title="安装 kubectl"></a>安装 kubectl</h4><p>安装文档：<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></p>
+<h3 id="3、安装"><a href="#3、安装" class="headerlink" title="3、安装"></a>3、安装</h3><h4 id="安装-kubectl"><a href="#安装-kubectl" class="headerlink" title="安装 kubectl"></a>安装 kubectl</h4><p>安装文档：<a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></p>
 <h4 id="配置K8S集群凭证"><a href="#配置K8S集群凭证" class="headerlink" title="配置K8S集群凭证"></a>配置K8S集群凭证</h4><p>在用户家目录创建 .kube目录，并将config文件放入该目录</p>
 <h4 id="安装-KT"><a href="#安装-KT" class="headerlink" title="安装 KT"></a>安装 KT</h4><h5 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h5><h6 id="Install-sshuttle"><a href="#Install-sshuttle" class="headerlink" title="Install sshuttle"></a>Install sshuttle</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install sshuttle</span><br></pre></td></tr></table></figure>
 <h6 id="Download-And-Install-KT"><a href="#Download-And-Install-KT" class="headerlink" title="Download And Install KT"></a>Download And Install KT</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -OL https:&#x2F;&#x2F;rdc-incubators.oss-cn-beijing.aliyuncs.com&#x2F;stable&#x2F;ktctl_darwin_amd64.tar.gz</span><br><span class="line"></span><br><span class="line">tar -xzvf ktctl_darwin_amd64.tar.gz</span><br><span class="line">mv ktctl_darwin_amd64 &#x2F;usr&#x2F;local&#x2F;bin&#x2F;ktctl</span><br><span class="line"></span><br><span class="line">ktctl -h</span><br></pre></td></tr></table></figure>
-<h5 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h5><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/kt-connect/releases下载安装包![](./kt2.png)">https://github.com/alibaba/kt-connect/releases下载安装包![](./kt2.png)</a></p>
+<h5 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h5><p><a href="https://github.com/alibaba/kt-connect/releases下载安装包![](./kt2.png)">https://github.com/alibaba/kt-connect/releases下载安装包![](./kt2.png)</a></p>
 <p>解压安装包获取ktctl.exe文件。</p>
 <h3 id="4、连接"><a href="#4、连接" class="headerlink" title="4、连接"></a>4、连接</h3><h4 id="Mac-1"><a href="#Mac-1" class="headerlink" title="Mac"></a>Mac</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ktctl connect</span><br></pre></td></tr></table></figure>
 <h4 id="Windows-1"><a href="#Windows-1" class="headerlink" title="Windows"></a>Windows</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ktctl connect --method=socks5 --dump2hosts</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 新开CMD窗口</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置环境变量</span></span><br><span class="line">export http_proxy=socks5://127.0.0.1:2223</span><br></pre></td></tr></table></figure>

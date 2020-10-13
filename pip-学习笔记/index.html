@@ -239,9 +239,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。<br><a id="more"></a><br>目前如果你在 <a target="_blank" rel="noopener" href="https://www.python.org/">python.org</a> 下载最新版本的安装包，则是已经自带了该工具。</p>
+        <p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。<br><a id="more"></a><br>目前如果你在 <a href="https://www.python.org/">python.org</a> 下载最新版本的安装包，则是已经自带了该工具。</p>
 <p>Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。</p>
-<p>pip 官网：<a target="_blank" rel="noopener" href="https://pypi.org/project/pip/">https://pypi.org/project/pip/</a></p>
+<p>pip 官网：<a href="https://pypi.org/project/pip/">https://pypi.org/project/pip/</a></p>
 <p>你可以通过以下命令来判断是否已安装：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --version</span><br></pre></td></tr></table></figure>
 <h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>如果你还未安装，则可以使用以下方法来安装：</p>
@@ -252,11 +252,11 @@
 <h6 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a><strong>安装包</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install SomePackage              # 最新版本</span><br><span class="line">pip install SomePackage&#x3D;&#x3D;1.0.4       # 指定版本</span><br><span class="line">pip install &#39;SomePackage&gt;&#x3D;1.0.4&#39;     # 最小版本</span><br></pre></td></tr></table></figure>
 <h6 id="升级包"><a href="#升级包" class="headerlink" title="升级包"></a>升级包</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade SomePackage</span><br></pre></td></tr></table></figure>
 <h6 id="卸载包"><a href="#卸载包" class="headerlink" title="卸载包"></a>卸载包</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall SomePackage</span><br></pre></td></tr></table></figure>
-<h5 id="配置国内源"><a href="#配置国内源" class="headerlink" title="配置国内源"></a>配置国内源</h5><p>阿里云 <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></p>
-<p>中国科技大学 <a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
-<p>豆瓣 (douban) <a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></p>
-<p>清华大学 <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
-<p>中国科学技术大学 <a target="_blank" rel="noopener" href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<h5 id="配置国内源"><a href="#配置国内源" class="headerlink" title="配置国内源"></a>配置国内源</h5><p>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></p>
+<p>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<p>豆瓣 (douban) <a href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></p>
+<p>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
+<p>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></p>
 <p><strong>配置方法</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在文件</span><br><span class="line"></span><br><span class="line">~&#x2F;.pip&#x2F;pip.conf</span><br><span class="line">中添加或修改:</span><br><span class="line"></span><br><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;</span><br><span class="line"></span><br><span class="line">[install]</span><br><span class="line">trusted-host&#x3D;mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
 <h5 id="pip-review"><a href="#pip-review" class="headerlink" title="pip-review"></a>pip-review</h5><h6 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pip-review</span><br></pre></td></tr></table></figure>

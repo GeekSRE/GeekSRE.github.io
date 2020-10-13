@@ -244,14 +244,14 @@
 
       
         <p><strong>Confluence</strong>介绍</p>
-<p><strong>Confluence</strong>是由澳大利亚软件公司<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Atlassian">Atlassian</a>开发和发布的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Collaboration_software">协作软件</a>程序</p>
+<p><strong>Confluence</strong>是由澳大利亚软件公司<a href="https://en.wikipedia.org/wiki/Atlassian">Atlassian</a>开发和发布的<a href="https://en.wikipedia.org/wiki/Collaboration_software">协作软件</a>程序</p>
 <p>Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。</p>
 <p>Confluence为团队提供一个协作环境。在这里，团队成员齐心协力，各擅其能，协同地编写文档和管理项目。从此打破不同团队、不同部门以及个人之间信息孤岛的僵局，Confluence真正实现了组织资源共享。</p>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><hr>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://confluence.atlassian.com/conf612/installing-confluence-on-linux-from-archive-file-958778538.html">https://confluence.atlassian.com/conf612/installing-confluence-on-linux-from-archive-file-958778538.html</a></p>
+<p><a href="https://confluence.atlassian.com/conf612/installing-confluence-on-linux-from-archive-file-958778538.html">https://confluence.atlassian.com/conf612/installing-confluence-on-linux-from-archive-file-958778538.html</a></p>
 </blockquote>
-<h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>Download the <code>tar.gz</code> file for your operating system - <a target="_blank" rel="noopener" href="https://www.atlassian.com/software/confluence/download?_ga=2.242479878.561576652.1556502870-546260764.1556502870">https://www.atlassian.com/software/confluence/download</a>. </p>
+<h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>Download the <code>tar.gz</code> file for your operating system - <a href="https://www.atlassian.com/software/confluence/download?_ga=2.242479878.561576652.1556502870-546260764.1556502870">https://www.atlassian.com/software/confluence/download</a>. </p>
 <p>本次演示我下载的文件包为：atlassian-confluence-6.12.0.zip</p>
 <h5 id="安装jdk环境"><a href="#安装jdk环境" class="headerlink" title="安装jdk环境"></a>安装jdk环境</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y java-1.8.0-openjdk.x86_64</span><br><span class="line">java -version   # 验证</span><br></pre></td></tr></table></figure>
 <h5 id="创建Confluence用户"><a href="#创建Confluence用户" class="headerlink" title="创建Confluence用户"></a>创建Confluence用户</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -create-home --comment &quot;Account for running Confluence&quot; --shell /bin/bash confluence</span><br></pre></td></tr></table></figure>
@@ -278,7 +278,7 @@
 <p><img src="/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/confluence2.png" alt="2"></p>
 <h4 id="维护"><a href="#维护" class="headerlink" title="维护"></a>维护</h4><h5 id="备份数据定期删除"><a href="#备份数据定期删除" class="headerlink" title="备份数据定期删除"></a>备份数据定期删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">0 15 * * * find /data/vcg/confluence-home/backups/* -type f -mtime +5 -exec rm &#123;&#125; \;</span><br></pre></td></tr></table></figure>
 <h5 id="漏洞补丁-被植入挖矿程序"><a href="#漏洞补丁-被植入挖矿程序" class="headerlink" title="漏洞补丁(被植入挖矿程序)"></a>漏洞补丁(被植入挖矿程序)</h5><blockquote>
-<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY">https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY</a></p>
+<p><a href="https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY">https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY</a></p>
 </blockquote>
 <p>解决办法：<br>升级Widget Connector 组件</p>
 <h4 id="培训文档"><a href="#培训文档" class="headerlink" title="培训文档"></a>培训文档</h4><div class="pdfobject-container" data-target="Confluence基础培训_中文版.pdf" data-height="500px"></div>
