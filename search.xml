@@ -1841,7 +1841,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>ali_safe-centos_7&amp;8_hostBase</title>
     <url>/ali-safe-centos-7-8-hostBase/</url>
-    <content><![CDATA[<h4 id="阿里云标准-CentOS-Linux-7-8安全基线检查"><a href="#阿里云标准-CentOS-Linux-7-8安全基线检查" class="headerlink" title="阿里云标准-CentOS Linux 7/8安全基线检查"></a>阿里云标准-CentOS Linux 7/8安全基线检查</h4><p><strong>注意：操作时建议做好记录或备份</strong></p>
+    <content><![CDATA[<p>阿里云标准-CentOS Linux 7/8安全基线检查<br><a id="more"></a><br><strong>注意：操作时建议做好记录或备份</strong></p>
 <h5 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h5><ul>
 <li><p>确保root是唯一的UID为0的帐户</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">描述:</span><br><span class="line">除root以外其他UID为0的用户都应该删除，或者为其分配新的UID</span><br><span class="line"></span><br><span class="line">加固建议:</span><br><span class="line">除root以外其他UID为0的用户(查看命令&#96;cat &#x2F;etc&#x2F;passwd | awk -F: &#39;($3 &#x3D;&#x3D; 0) &#123; print $1 &#125;&#39;|grep -v &#39;^root$&#39;&#96;)都应该删除，或者为其分配新的UID</span><br></pre></td></tr></table></figure>
