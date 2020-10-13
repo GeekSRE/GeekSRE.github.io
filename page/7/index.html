@@ -192,6 +192,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/GitLab%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/GitLab%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/" class="post-title-link" itemprop="url">GitLab代码托管</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-16 16:28:46" itemprop="dateCreated datePublished" datetime="2019-04-16T16:28:46+08:00">2019-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-04-23 10:02:42" itemprop="dateModified" datetime="2019-04-23T10:02:42+08:00">2019-04-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GitLab/" itemprop="url" rel="index"><span itemprop="name">GitLab</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>GitLab 是一个用于仓库管理系统的开源项目，使用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
+<hr>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h5 id="配置Yum源"><a href="#配置Yum源" class="headerlink" title="配置Yum源"></a>配置Yum源</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/gitlab_gitlab-ee.repo</span><br><span class="line">[gitlab-ce]</span><br><span class="line">name=Gitlab CE Repository</span><br><span class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
+<h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y postfix</span><br><span class="line">yum install gitlab-ce -y</span><br></pre></td></tr></table></figure>
+<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p>配置文件：/etc/gitlab/gitlab.rb    (建议每次修改前备份此文件)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">	external_url &#x27;https://git.visualchina.com&#x27;    # 域名配置</span><br><span class="line">	gitlab_rails[&#x27;time_zone&#x27;] = &#x27;Asia/Shanghai&#x27;   # 时区</span><br><span class="line">	</span><br><span class="line">	nginx[&#x27;redirect_http_to_https&#x27;] = true        # SSL证书</span><br><span class="line">	nginx[&#x27;ssl_certificate&#x27;] = &quot;/data/vcg/ssl/visualchina.pem&quot;</span><br><span class="line">	nginx[&#x27;ssl_certificate_key&#x27;] = &quot;/data/vcg/ssl/visualchina.key&quot;</span><br><span class="line">	</span><br><span class="line">	gitlab_rails[&#x27;ldap_enabled&#x27;] = true</span><br><span class="line">gitlab_rails[&#x27;ldap_servers&#x27;] = YAML.load &lt;&lt;-&#x27;EOS&#x27; # remember to close this block with &#x27;EOS&#x27; below</span><br><span class="line">  main: # &#x27;main&#x27; is the GitLab &#x27;provider ID&#x27; of this LDAP server</span><br><span class="line">    label: &#x27;LDAP&#x27;</span><br><span class="line">    host: &#x27;172.16.239.3&#x27;</span><br><span class="line">    port: 389</span><br><span class="line">    uid: &#x27;cn&#x27;</span><br><span class="line">    method: &#x27;plain&#x27; # &quot;tls&quot; or &quot;ssl&quot; or &quot;plain&quot;</span><br><span class="line">    bind_dn: &#x27;cn=root,dc=vcg,dc=com&#x27;</span><br><span class="line">    password: &#x27;vcg@2018&#x27;</span><br><span class="line">    active_directory: true</span><br><span class="line">    allow_username_or_email_login: false</span><br><span class="line">    block_auto_created_users: false</span><br><span class="line">    base: &#x27;ou=People,dc=vcg,dc=com&#x27;</span><br><span class="line">    user_filter: &#x27;&#x27;</span><br><span class="line">    attributes:</span><br><span class="line">      username: [&#x27;cn&#x27;]</span><br><span class="line">      email:    [&#x27;mail&#x27;]</span><br><span class="line">      name:       &#x27;cn&#x27;</span><br><span class="line">      first_name: &#x27;givenName&#x27;</span><br><span class="line">      last_name:  &#x27;sn&#x27;</span><br><span class="line">EOS</span><br></pre></td></tr></table></figure>
+<h5 id="配置完成后进行配置更新"><a href="#配置完成后进行配置更新" class="headerlink" title="配置完成后进行配置更新"></a>配置完成后进行配置更新</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
+<h5 id="检查是否配置成功"><a href="#检查是否配置成功" class="headerlink" title="检查是否配置成功"></a>检查是否配置成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:ldap:check（列出前100个用户）</span><br></pre></td></tr></table></figure>
+<h5 id="重启gitlab服务"><a href="#重启gitlab服务" class="headerlink" title="重启gitlab服务"></a>重启gitlab服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
+<h5 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h5><p>访问ip:80端口 配置root密码，至此部署完成。</p>
+<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><h5 id="升级规范和建议"><a href="#升级规范和建议" class="headerlink" title="升级规范和建议"></a>升级规范和建议</h5><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations">https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations</a></p>
+<p>首先升级到主要版本中的最新可用次要版本</p>
+<p>例如：8.13.4 升级到 11.3.4 ，升级路径为 8.13.4 -&gt; 8.17.7 -&gt; 9.5.10 -&gt; 10.8.7 -&gt; 11.3.4</p>
+<p>​    即：<code>8.17.7</code>是版本<code>8</code>中的最后一个版本, <code>9.5.10</code>是版本<code>9</code>中的最后一个版本, <code>10.8.7</code>是版本<code>10</code>中的最后一个版本</p>
+<h5 id="升级操作"><a href="#升级操作" class="headerlink" title="升级操作"></a>升级操作</h5><p>本次升级版本为 10.7.0 ，升级到最新版本 11.9.8 ，注：2019年04月16日</p>
+<h6 id="1、下载10-8-7版本的rpm包"><a href="#1、下载10-8-7版本的rpm包" class="headerlink" title="1、下载10.8.7版本的rpm包"></a>1、下载10.8.7版本的rpm包</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.7-ce.0.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<h6 id="2、安装升级到10-8-7版本"><a href="#2、安装升级到10-8-7版本" class="headerlink" title="2、安装升级到10.8.7版本"></a>2、安装升级到10.8.7版本</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh gitlab-ce-10.8.7-ce.0.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<h6 id="3、再升级到11-9-8版本"><a href="#3、再升级到11-9-8版本" class="headerlink" title="3、再升级到11.9.8版本"></a>3、再升级到11.9.8版本</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gitlab-ce.x86_64</span><br></pre></td></tr></table></figure>
+<h4 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h4><h5 id="备份源GitLab数据"><a href="#备份源GitLab数据" class="headerlink" title="备份源GitLab数据"></a>备份源GitLab数据</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create RAILS_ENV=production</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Creating backup archive: 1555983152_2019_04_23_11.9.8_gitlab_backup.tar ...</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 数据保存在 /var/opt/gitlab/backups，自动生成文件名，比如本次的 1555983152_2019_04_23_11.9.8_gitlab_backup.tar</span></span><br></pre></td></tr></table></figure>
+<h5 id="SCP迁移数据"><a href="#SCP迁移数据" class="headerlink" title="SCP迁移数据"></a>SCP迁移数据</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">按需替换目标地址</span></span><br><span class="line">scp /var/opt/gitlab/backups/1555983152_2019_04_23_11.9.8_gitlab_backup.tar root@1.1.1.1:/root/var/opt/gitlab/backups</span><br></pre></td></tr></table></figure>
+<h5 id="安装GitLab"><a href="#安装GitLab" class="headerlink" title="安装GitLab"></a>安装GitLab</h5><p>请参考 安装 章节</p>
+<h5 id="恢复数据"><a href="#恢复数据" class="headerlink" title="恢复数据"></a>恢复数据</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:restore RAILS_ENV=production BACKUP=1555983152_2019_04_23_11.9.8</span><br><span class="line"><span class="meta">#</span><span class="bash"> BACKUP的时间点必须与原服务器备份后的文件名一致</span></span><br></pre></td></tr></table></figure>
+<h4 id="维护"><a href="#维护" class="headerlink" title="维护"></a>维护</h4><h5 id="定期备份"><a href="#定期备份" class="headerlink" title="定期备份"></a>定期备份</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line">0 14 * * * /usr/bin/gitlab-rake gitlab:backup:create</span><br><span class="line">0 15 * * * find /var/opt/gitlab/backups/* -type f -mtime +3 -exec rm &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<h5 id="gitlab-ctl命令"><a href="#gitlab-ctl命令" class="headerlink" title="gitlab-ctl命令"></a>gitlab-ctl命令</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ2ze4cng635a2k047qus5Z ~]# gitlab-ctl --help</span><br><span class="line">omnibus-ctl: command (subcommand)</span><br><span class="line">check-config</span><br><span class="line">  Check if there are any configuration in gitlab.rb that is removed in specified version</span><br><span class="line">deploy-page</span><br><span class="line">  Put up the deploy page</span><br><span class="line">diff-config</span><br><span class="line">  Compare the user configuration with package available configuration</span><br><span class="line">prometheus-upgrade</span><br><span class="line">  Upgrade the Prometheus data to the latest supported version</span><br><span class="line">remove-accounts</span><br><span class="line">  Delete *all* users and groups used by this package</span><br><span class="line">upgrade</span><br><span class="line">  Run migrations after a package upgrade</span><br><span class="line">General Commands:</span><br><span class="line">  cleanse</span><br><span class="line">    Delete *all* gitlab data, and start from scratch.</span><br><span class="line">  help</span><br><span class="line">    Print this help message.</span><br><span class="line">  reconfigure</span><br><span class="line">    Reconfigure the application.</span><br><span class="line">  show-config</span><br><span class="line">    Show the configuration that would be generated by reconfigure.</span><br><span class="line">  uninstall</span><br><span class="line">    Kill all processes and uninstall the process supervisor (data will be preserved).</span><br><span class="line">Service Management Commands:</span><br><span class="line">  graceful-kill</span><br><span class="line">    Attempt a graceful stop, then SIGKILL the entire process group.</span><br><span class="line">  hup</span><br><span class="line">    Send the services a HUP.</span><br><span class="line">  int</span><br><span class="line">    Send the services an INT.</span><br><span class="line">  kill</span><br><span class="line">    Send the services a KILL.</span><br><span class="line">  once</span><br><span class="line">    Start the services if they are down. Do not restart them if they stop.</span><br><span class="line">  restart</span><br><span class="line">    Stop the services if they are running, then start them again.</span><br><span class="line">  service-list</span><br><span class="line">    List all the services (enabled services appear with a *.)</span><br><span class="line">  start</span><br><span class="line">    Start services if they are down, and restart them if they stop.</span><br><span class="line">  status</span><br><span class="line">    Show the status of all the services.</span><br><span class="line">  stop</span><br><span class="line">    Stop the services, and do not restart them.</span><br><span class="line">  tail</span><br><span class="line">    Watch the service logs of all enabled services.</span><br><span class="line">  term</span><br><span class="line">    Send the services a TERM.</span><br><span class="line">  usr1</span><br><span class="line">    Send the services a USR1.</span><br><span class="line">  usr2</span><br><span class="line">    Send the services a USR2.</span><br><span class="line">Container Registry Commands:</span><br><span class="line">  registry-garbage-collect</span><br><span class="line">    Run Container Registry garbage collection.</span><br><span class="line">Database Commands:</span><br><span class="line">  pg-password-md5</span><br><span class="line">    Generate MD5 Hash of user password in PostgreSQL format</span><br><span class="line">  pg-upgrade</span><br><span class="line">    Upgrade the PostgreSQL DB to the latest supported version</span><br><span class="line">  revert-pg-upgrade</span><br><span class="line">    Run this to revert to the previous version of the database</span><br><span class="line">  set-replication-password</span><br><span class="line">    Set database replication password</span><br><span class="line">Let&#x27;s Encrypt Commands:</span><br><span class="line">  renew-le-certs</span><br><span class="line">    Renew the existing Let&#x27;s Encrypt certificates</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E5%9F%9F%E5%90%8DSSL%E8%AF%81%E4%B9%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1266,74 +1364,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Kubernetes-Nginx-Ingress/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Kubernetes-Nginx-Ingress/" class="post-title-link" itemprop="url">Kubernetes_Nginx-Ingress</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-05 00:17:52 / Modified: 09:48:04" itemprop="dateCreated datePublished" datetime="2019-04-05T00:17:52+08:00">2019-04-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="For-example"><a href="#For-example" class="headerlink" title="For example"></a>For example</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Ingress</span><br><span class="line">metadata:</span><br><span class="line">  annotations:</span><br><span class="line">    nginx.ingress.kubernetes.io/force-ssl-redirect: <span class="string">&#x27;true&#x27;</span> <span class="comment">#代表其中跳转</span></span><br><span class="line">    nginx.ingress.kubernetes.io/service-weight: <span class="string">&#x27;&#x27;</span></span><br><span class="line">    nginx.ingress.kubernetes.io/ssl-redirect: <span class="string">&#x27;true&#x27;</span></span><br><span class="line">  creationTimestamp: <span class="string">&#x27;2018-12-25T10:29:36Z&#x27;</span></span><br><span class="line">  generation: 1</span><br><span class="line">  name: boss</span><br><span class="line">  namespace: default</span><br><span class="line">  resourceVersion: <span class="string">&#x27;21429383&#x27;</span></span><br><span class="line">  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/boss</span><br><span class="line">  uid: fa56e2a0-082f-11e9-80cf-00163e0e2421</span><br><span class="line">spec:</span><br><span class="line">  rules:</span><br><span class="line">    - host: boss1.vcg.com</span><br><span class="line">      http:</span><br><span class="line">        paths:</span><br><span class="line">          - backend:</span><br><span class="line">              serviceName: node-vcg-boss</span><br><span class="line">              servicePort: 80</span><br><span class="line">            path: /</span><br><span class="line">  tls:</span><br><span class="line">    - hosts:</span><br><span class="line">        - boss1.vcg.com</span><br><span class="line">      secretName: vcg-https</span><br><span class="line">status:</span><br><span class="line">  loadBalancer:</span><br><span class="line">    ingress:</span><br><span class="line">      - ip: 39.97.21.16</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1403,20 +1433,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
