@@ -192,6 +192,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Hexo-Next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Hexo-Next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">Hexo-Next主题添加搜索功能</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-05-27 14:19:49" itemprop="dateCreated datePublished" datetime="2019-05-27T14:19:49+08:00">2019-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 16:03:09" itemprop="dateModified" datetime="2020-10-15T16:03:09+08:00">2020-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Hexo使用小技巧<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Hexo-Next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Kubernetes-HostAliases/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -215,10 +296,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-05-09 16:33:12 / Modified: 16:33:40" itemprop="dateCreated datePublished" datetime="2019-05-09T16:33:12+08:00">2019-05-09</time>
+              <time title="Created: 2019-05-09 16:33:12" itemprop="dateCreated datePublished" datetime="2019-05-09T16:33:12+08:00">2019-05-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 16:03:55" itemprop="dateModified" datetime="2020-10-15T16:03:55+08:00">2020-10-15</time>
+              </span>
 
           
 
@@ -231,16 +318,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/">https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/</a></p>
-</blockquote>
-<p>k8s上微服务之间可以通过service的域名来互相访问。域名的解析是一般是通过在集群中的kube-dns来完成的。</p>
-<p>如需向Pod的/etc/hosts文件添加条目实现解析需求时，可以使用Pod Spec中的HostAliases字段添加自定义条目。</p>
-<p>例如：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">service/networking/hostaliases-pod.yaml</span> </span><br><span class="line"></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">hostaliases-pod</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">restartPolicy:</span> <span class="string">Never</span></span><br><span class="line">  <span class="attr">hostAliases:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">ip:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">    <span class="attr">hostnames:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;foo.local&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;bar.local&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">ip:</span> <span class="string">&quot;10.1.2.3&quot;</span></span><br><span class="line">    <span class="attr">hostnames:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;foo.remote&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;bar.remote&quot;</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">cat-hosts</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">busybox</span></span><br><span class="line">    <span class="attr">command:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">cat</span></span><br><span class="line">    <span class="attr">args:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;/etc/hosts&quot;</span></span><br></pre></td></tr></table></figure>
-<p>示例：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1beta2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">vcg-gateway</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">vcg-gateway</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">vcg-gateway</span></span><br><span class="line">  <span class="attr">strategy:</span></span><br><span class="line">    <span class="attr">rollingUpdate:</span></span><br><span class="line">      <span class="attr">maxSurge:</span> <span class="number">25</span><span class="string">%</span></span><br><span class="line">      <span class="attr">maxUnavailable:</span> <span class="number">25</span><span class="string">%</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">RollingUpdate</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">vcg-gateway</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">env:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">aliyun_logs_vcg-gateway</span></span><br><span class="line">              <span class="attr">value:</span> <span class="string">stdout</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">&gt;-</span></span><br><span class="line">            <span class="string">registry-vpc.cn-beijing.aliyuncs.com/vcg/vcg-gateway:pro-20190423162116</span></span><br><span class="line">          <span class="attr">imagePullPolicy:</span> <span class="string">Always</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">vcg-gateway</span></span><br><span class="line">          <span class="attr">resources:</span></span><br><span class="line">            <span class="attr">limits:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">4Gi</span></span><br><span class="line">            <span class="attr">requests:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">500m</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">1000Mi</span></span><br><span class="line">      <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">      <span class="attr">hostAliases:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">hostnames:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">www.vcg.com</span></span><br><span class="line">          <span class="attr">ip:</span> <span class="number">39.97</span><span class="number">.197</span><span class="number">.135</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">hostnames:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">www1.visualchina.com</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">www1.vcg.com</span></span><br><span class="line">          <span class="attr">ip:</span> <span class="number">39.97</span><span class="number">.21</span><span class="number">.16</span></span><br><span class="line">      <span class="attr">imagePullSecrets:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">registry-vpc.cn-beijing.aliyuncs.com</span></span><br><span class="line">      <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line">      <span class="attr">schedulerName:</span> <span class="string">default-scheduler</span></span><br><span class="line">      <span class="attr">securityContext:</span> &#123;&#125;</span><br><span class="line">      <span class="attr">terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br></pre></td></tr></table></figure>
-
+          <p>k8s里增加hosts<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Kubernetes-HostAliases/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -282,10 +368,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-05-05 15:01:47 / Modified: 15:02:14" itemprop="dateCreated datePublished" datetime="2019-05-05T15:01:47+08:00">2019-05-05</time>
+              <time title="Created: 2019-05-05 15:01:47" itemprop="dateCreated datePublished" datetime="2019-05-05T15:01:47+08:00">2019-05-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 16:04:28" itemprop="dateModified" datetime="2020-10-15T16:04:28+08:00">2020-10-15</time>
+              </span>
 
           
 
@@ -298,27 +390,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h4><p>若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。</p>
-<p>密钥有多种类型，例如：</p>
-<ul>
-<li>Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。</li>
-<li>Opaque：base64 编码格式的 Secret，用来存储密码、证书等敏感信息。</li>
-</ul>
-<p>Opaque 类型的数据是一个 map 类型，要求value 是 base64 编码格式</p>
-<p>您也可通过命令行手动创建密钥，请参见 <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/configuration/secret/">kubernetes secret</a> 了解更多信息。</p>
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret</span><br><span class="line"></span><br><span class="line">Create a secret using specified subcommand.</span><br><span class="line"></span><br><span class="line">Available Commands:</span><br><span class="line">  docker-registry Create a secret for use with a Docker registry</span><br><span class="line">  generic         Create a secret from a local file, directory or literal value</span><br><span class="line">  tls             Create a TLS secret</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  kubectl create secret [flags] [options]</span><br></pre></td></tr></table></figure>
-<h5 id="查看证书"><a href="#查看证书" class="headerlink" title="查看证书"></a>查看证书</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets</span><br><span class="line">NAME                               TYPE                                  DATA   AGE</span><br><span class="line">default-token-msfm9                kubernetes.io/service-account-token   3      24d</span><br><span class="line">registry.cn-beijing.aliyuncs.com   kubernetes.io/dockerconfigjson        1      24d</span><br><span class="line">veer-https                         kubernetes.io/tls                     2      3h25m</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl describe secrets veer-https</span><br><span class="line">Name:         veer-https</span><br><span class="line">Namespace:    default</span><br><span class="line">Labels:       &lt;none&gt;</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line"></span><br><span class="line">Type:  kubernetes.io/tls</span><br><span class="line"></span><br><span class="line">Data</span><br><span class="line">====</span><br><span class="line">tls.crt:  3941 bytes</span><br><span class="line">tls.key:  1676 bytes</span><br></pre></td></tr></table></figure>
-<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete secret $NAME</span><br></pre></td></tr></table></figure>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><h5 id="创建SSL证书"><a href="#创建SSL证书" class="headerlink" title="创建SSL证书"></a>创建SSL证书</h5><ol>
-<li><h6 id="准备公钥、私钥文件"><a href="#准备公钥、私钥文件" class="headerlink" title="准备公钥、私钥文件"></a>准备公钥、私钥文件</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ ls</span><br><span class="line">veer.key  veer.pem</span><br></pre></td></tr></table></figure>
-</li>
-<li><h6 id="创建secret"><a href="#创建secret" class="headerlink" title="创建secret"></a>创建secret</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create secret tls veer-https --cert=./veer.pem --key=./veer.key</span><br></pre></td></tr></table></figure>
-</li>
-<li><h6 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[cicd-jd@ops-jenkins-master ssl]$ kubectl get secrets veer-https</span><br><span class="line">NAME         TYPE                DATA   AGE</span><br><span class="line">veer-https   kubernetes.io/tls   2      3h22m</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
+          <p>Kubernetes保密字典<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Kubernetes-Secrets/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -360,10 +440,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-05-05 14:31:36 / Modified: 14:41:32" itemprop="dateCreated datePublished" datetime="2019-05-05T14:31:36+08:00">2019-05-05</time>
+              <time title="Created: 2019-05-05 14:31:36" itemprop="dateCreated datePublished" datetime="2019-05-05T14:31:36+08:00">2019-05-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 16:04:51" itemprop="dateModified" datetime="2020-10-15T16:04:51+08:00">2020-10-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -385,61 +471,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p><a target="_blank" rel="noopener" href="https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller">https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller</a></p>
-</blockquote>
-<p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口，概念示意可参考下方说明。你可以给Ingress配置提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机等。用户通过POST Ingress资源到API server的方式来请求ingress。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">internet</span><br><span class="line">     |</span><br><span class="line">[ Ingress ]</span><br><span class="line">--|-----|--</span><br><span class="line">[ Services ]</span><br></pre></td></tr></table></figure>
-<p>Ingress controller负责实现Ingress。Ingress controller在Kubernetes集群中默认不会自动启用，您可以在一个pod中部署任意类型的自定义Ingress Controller。本文将以Nginx-ingress controller为例，说明Controller部署和Ingress定义。更多外部类型的Ingresss Controller参考<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Kubernetes官方文档</a>。</p>
-<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><ol>
-<li><h5 id="从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录："><a href="#从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录：" class="headerlink" title="从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录："></a>从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/nginxinc/kubernetes-ingress/archive/v1.4.5.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf v1.4.5.tar.gz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>说明</strong>：本文说明在1.12.3版本的集群上如何部署nginx-ingress controller，如集群版本不同，选择其他适合的ginx-ingress controller安装部署文件。</p>
-</li>
-</ol>
-<ol start="2">
-<li><h5 id="进入解压缩后的nginx-ingress-controller安装目录；"><a href="#进入解压缩后的nginx-ingress-controller安装目录；" class="headerlink" title="进入解压缩后的nginx-ingress controller安装目录；"></a>进入解压缩后的nginx-ingress controller安装目录；</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd kubernetes-ingress-1.4.5&#x2F;deployments</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="安装nginx-ingress-controller"><a href="#安装nginx-ingress-controller" class="headerlink" title="安装nginx-ingress controller"></a>安装nginx-ingress controller</h4><ol>
-<li><h5 id="为nginx-ingress-controller创建一个namespace和service-account："><a href="#为nginx-ingress-controller创建一个namespace和service-account：" class="headerlink" title="为nginx-ingress controller创建一个namespace和service account："></a>为nginx-ingress controller创建一个namespace和service account：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;ns-and-sa.yaml</span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："><a href="#为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：" class="headerlink" title="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："></a>为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;default-server-secret.yaml</span><br></pre></td></tr></table></figure>
-<p><strong>说明</strong>：建议使用合适的TLS证书和key替换default-server-secret.yaml文件中自签发的证书和key。</p>
-</li>
-</ol>
-<ol start="3">
-<li><h5 id="创建config-map保存NGINX的自定义配置："><a href="#创建config-map保存NGINX的自定义配置：" class="headerlink" title="创建config map保存NGINX的自定义配置："></a>创建config map保存NGINX的自定义配置：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;nginx-config.yaml</span><br></pre></td></tr></table></figure>
-<p><strong>说明</strong>：目前提供的config map中的data为空，您可以按需添加自定义配置。</p>
-</li>
-</ol>
-<ol start="4">
-<li><h5 id="为第1步中创建的service-account配置RBAC："><a href="#为第1步中创建的service-account配置RBAC：" class="headerlink" title="为第1步中创建的service account配置RBAC："></a>为第1步中创建的service account配置RBAC：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f rbac&#x2F;rbac.yaml</span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="以Deployment的方式部署nginx-ingress-controller"><a href="#以Deployment的方式部署nginx-ingress-controller" class="headerlink" title="以Deployment的方式部署nginx-ingress controller:"></a>以Deployment的方式部署nginx-ingress controller:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment&#x2F;nginx-ingress.yaml</span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常："><a href="#执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常：" class="headerlink" title="执行如下命令，确定部署nginx-ingress controller的Deployment运行正常："></a>执行如下命令，确定部署nginx-ingress controller的Deployment运行正常：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> kubectl get deployment -n nginx-ingress</span><br><span class="line"> </span><br><span class="line">NAME            DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line"> nginx-ingress   1         1         1            1           24d</span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="创建ingress的LoadBalance"><a href="#创建ingress的LoadBalance" class="headerlink" title="创建ingress的LoadBalance"></a>创建ingress的LoadBalance</h5><p>在 Kubernetes集群中，每个Pod都具有唯一的内部 IP 地址，但是Deployment中的Pod随时可能被删除或创建，导致Pod IP地址不断变化。因此需要创建一个Service对外暴露Pod中的应用。Service具有唯一的固定IP地址且能够为后端添加的成员Pod提供负载均衡。在京东云Kubernetes集群中您可以使用LoadBalance类型的Service，为Service关联创建一个应用负载均衡，并通过负载均衡绑定的公网IP，将Service后端关联的nginx-ingress controller应用暴露到公网：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-ingress</span>       <span class="comment">#建议Service使用与nginx-ingress controller对应的Deployment名称相同的名称</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">nginx-ingress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">LoadBalancer</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">http</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">443</span></span><br><span class="line">     <span class="attr">targetPort:</span> <span class="number">443</span></span><br><span class="line">     <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">     <span class="attr">name:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx-ingress</span></span><br></pre></td></tr></table></figure>
-<p><strong>说明</strong>：本例使用80和443端口绑定nginx-ingress controller应用</p>
-<p>将上述Service定义到ingress.yaml文件，执行如下命令创建对应的Service：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f ingress.yaml</span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="获取公网IP"><a href="#获取公网IP" class="headerlink" title="获取公网IP"></a>获取公网IP</h5><p>等待一段时间，确定Service已经配置完成，并获取Service上配置的External IP字段</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME            TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                      AGE</span><br><span class="line">nginx-ingress   LoadBalancer   192.168.58.218   114.67.80.218   80:32436/TCP,443:30110/TCP   3h13m</span><br></pre></td></tr></table></figure>
-<p> <strong>说明</strong>：Service的External IP将作为nginx-ingress controller的VIP，为集群中使用nginx-ingress controller的Ingress提供公网访问入口</p>
-</li>
-<li><h5 id="关联的External-IP作为公网入口IP"><a href="#关联的External-IP作为公网入口IP" class="headerlink" title="关联的External IP作为公网入口IP"></a>关联的External IP作为公网入口IP</h5><p>最后，在Ingress controller的Deployment部署文件nginx-ingress.yaml中增加一对环境变量”-args -external-service=nginx-ingress”,配置Ingress controller使用Service名称关联的External IP作为公网入口IP：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">args:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-nginx-configmaps=$(POD_NAMESPACE)/nginx-config</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-default-server-tls-secret=$(POD_NAMESPACE)/default-server-secret</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">-external-service=nginx-ingress</span>       <span class="comment">#新增内容</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment/nginx-ingress.yaml        #重新部署nginx-ingress controller</span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="验证Pod"><a href="#验证Pod" class="headerlink" title="验证Pod"></a>验证Pod</h5><p>执行如下命令确定nginx-ingress controller相关的Pod运行正常，即可完成nginx ingress controller部署：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">nginx-ingress-f67b87b88-5cspd   1&#x2F;1     Running   0          3h11m</span><br><span class="line">nginx-ingress-f67b87b88-n7qnw   1&#x2F;1     Running   0          3h13m</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="示例应用"><a href="#示例应用" class="headerlink" title="示例应用"></a>示例应用</h4><p>例如：配置www2.veer.com的ingress配置</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">cms-veer</span>       <span class="comment"># 变量：名字</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">www2.veer.com</span>   <span class="comment"># 变量：url</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="attr">paths:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">backend:</span></span><br><span class="line">              <span class="attr">serviceName:</span> <span class="string">node-vcg-veer-pre</span> <span class="comment"># 变量：后端应用service</span></span><br><span class="line">              <span class="attr">servicePort:</span> <span class="number">80</span>      <span class="comment"># 变量：后端应用service端口</span></span><br><span class="line">            <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">hosts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">www2.veer.com</span>       </span><br><span class="line">      <span class="attr">secretName:</span> <span class="string">veer-https</span>    <span class="comment"># 变量：ssl证书</span></span><br></pre></td></tr></table></figure>
-
+          <p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Nginx-ingress-controller%E9%83%A8%E7%BD%B2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -489,7 +529,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-06 13:58:16" itemprop="dateModified" datetime="2019-08-06T13:58:16+08:00">2019-08-06</time>
+                <time title="Modified: 2020-10-15 16:05:34" itemprop="dateModified" datetime="2020-10-15T16:05:34+08:00">2020-10-15</time>
               </span>
 
           
@@ -503,47 +543,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>Confluence</strong>介绍</p>
-<p><strong>Confluence</strong>是由澳大利亚软件公司<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Atlassian">Atlassian</a>开发和发布的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Collaboration_software">协作软件</a>程序</p>
-<p>Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。</p>
-<p>Confluence为团队提供一个协作环境。在这里，团队成员齐心协力，各擅其能，协同地编写文档和管理项目。从此打破不同团队、不同部门以及个人之间信息孤岛的僵局，Confluence真正实现了组织资源共享。</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><hr>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://confluence.atlassian.com/conf612/installing-confluence-on-linux-from-archive-file-958778538.html">https://confluence.atlassian.com/conf612/installing-confluence-on-linux-from-archive-file-958778538.html</a></p>
-</blockquote>
-<h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><p>Download the <code>tar.gz</code> file for your operating system - <a target="_blank" rel="noopener" href="https://www.atlassian.com/software/confluence/download?_ga=2.242479878.561576652.1556502870-546260764.1556502870">https://www.atlassian.com/software/confluence/download</a>. </p>
-<p>本次演示我下载的文件包为：atlassian-confluence-6.12.0.zip</p>
-<h5 id="安装jdk环境"><a href="#安装jdk环境" class="headerlink" title="安装jdk环境"></a>安装jdk环境</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y java-1.8.0-openjdk.x86_64</span><br><span class="line">java -version   # 验证</span><br></pre></td></tr></table></figure>
-<h5 id="创建Confluence用户"><a href="#创建Confluence用户" class="headerlink" title="创建Confluence用户"></a>创建Confluence用户</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -create-home --comment &quot;Account for running Confluence&quot; --shell /bin/bash confluence</span><br></pre></td></tr></table></figure>
-<h5 id="解压安装包、创建配置、配置权限"><a href="#解压安装包、创建配置、配置权限" class="headerlink" title="解压安装包、创建配置、配置权限"></a>解压安装包、创建配置、配置权限</h5><p>目录规划：</p>
-<p>​        安装目录：/data/vcg/confluence</p>
-<p>​        数据目录：/data/vcg/confluence-home</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;root&#x2F;atlassian-confluence-6.12.0.zip &#x2F;data&#x2F;vcg&#x2F;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install unzip -y</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;data&#x2F;vcg&#x2F;</span><br><span class="line">unzip atlassian-confluence-6.12.0.zip</span><br><span class="line">mv atlassian-confluence-6.12.0 confluence</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/vcg/confluence-home</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chown -R confluence /data/vcg/confluence/</span><br><span class="line">chmod -R u=rwx,go-rwx /data/vcg/confluence/</span><br><span class="line">chown -R confluence /data/vcg/confluence-home/</span><br><span class="line">chmod -R u=rwx,go-rwx /data/vcg/confluence-home/</span><br></pre></td></tr></table></figure>
-<h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5><p>vcg这边使用的阿里云RDS数据库，未手动安装MySQL</p>
-<p>数据库使用MySQL，需安装驱动软件。<br>获取mysql-connector-java的安装包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp mysql-connector-java-5.1.45-bin.jar &#x2F;data&#x2F;vcg&#x2F;confluence&#x2F;confluence&#x2F;WEB-INF&#x2F;lib&#x2F;</span><br></pre></td></tr></table></figure>
-<h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;confluence.home=/data/vcg/confluence-home/&quot; &gt; confluence/confluence/WEB-INF/classes/confluence-init.properties</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h5 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问ip:8090 继续配置Confluence</span><br></pre></td></tr></table></figure>
-<h4 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h4><h5 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h5><p>登录老Confluence界面，进入”站点管理”—“备份已还原”，点击”备份”，如图</p>
-<p>数据备份路径为：/data/vcg/confluence-home/backups/</p>
-<p><img src="/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/confluence1.png" alt="image-20190429104530362"></p>
-<h5 id="拷贝备份数据包到新服务器"><a href="#拷贝备份数据包到新服务器" class="headerlink" title="拷贝备份数据包到新服务器"></a>拷贝备份数据包到新服务器</h5><p>备份必须复制至<code>/data/vcg/confluence-home/restore</code>目录中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /data/vcg/confluence-home/backups/xmlexport-20190225-205713-119.zip  root@&#x27;xxxx&#x27;:/data/vcg/confluence-home/restore/</span><br></pre></td></tr></table></figure>
-<h5 id="部署新的Confluence"><a href="#部署新的Confluence" class="headerlink" title="部署新的Confluence"></a>部署新的Confluence</h5><h5 id="备份恢复"><a href="#备份恢复" class="headerlink" title="备份恢复"></a>备份恢复</h5><p>登录新的Confluence的”站点管理”—“备份已还原”。</p>
-<p><img src="/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/confluence2.png" alt="2"></p>
-<h4 id="维护"><a href="#维护" class="headerlink" title="维护"></a>维护</h4><h5 id="备份数据定期删除"><a href="#备份数据定期删除" class="headerlink" title="备份数据定期删除"></a>备份数据定期删除</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">0 15 * * * find /data/vcg/confluence-home/backups/* -type f -mtime +5 -exec rm &#123;&#125; \;</span><br></pre></td></tr></table></figure>
-<h5 id="漏洞补丁-被植入挖矿程序"><a href="#漏洞补丁-被植入挖矿程序" class="headerlink" title="漏洞补丁(被植入挖矿程序)"></a>漏洞补丁(被植入挖矿程序)</h5><blockquote>
-<p><a target="_blank" rel="noopener" href="https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY">https://help.aliyun.com/noticelist/articleid/1000128459.html?spm=a2c4g.789213612.n2.10.2a716141mqqJjY</a></p>
-</blockquote>
-<p>解决办法：<br>升级Widget Connector 组件</p>
-<h4 id="培训文档"><a href="#培训文档" class="headerlink" title="培训文档"></a>培训文档</h4><div class="pdfobject-container" data-target="Confluence基础培训_中文版.pdf" data-height="500px"></div>
-<div class="pdfobject-container" data-target="Confluence高级培训_中文版.pdf" data-height="500px"></div>
-
+          <p>企业wiki-Confluence<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -585,10 +593,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-04-28 16:44:38 / Modified: 16:50:36" itemprop="dateCreated datePublished" datetime="2019-04-28T16:44:38+08:00">2019-04-28</time>
+              <time title="Created: 2019-04-28 16:44:38" itemprop="dateCreated datePublished" datetime="2019-04-28T16:44:38+08:00">2019-04-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 16:06:28" itemprop="dateModified" datetime="2020-10-15T16:06:28+08:00">2020-10-15</time>
+              </span>
 
           
 
@@ -601,37 +615,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h4><hr>
-<p>容器架构由Swarm迁移到Kubernetes</p>
-<p>Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。</p>
-<p>utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。</p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><hr>
-<p>与相关研发沟通，确定utilservice程序一些基础信息：比如</p>
-<p>​    需要哪些基础组件，在ecs上部署遇到什么问题，如何处理的</p>
-<p>​    git仓库地址、服务启动命令、服务端口、是否连接数据库、服务调用关系。</p>
-<p>确定使用jdk环境，需要使用到 wkhtmltopdf 这个命令，用于生成pdf；</p>
-<p>生成的pdf过程会有 字体和语言的问题，需提前处理。</p>
-<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><hr>
-<h5 id="确定基础镜像"><a href="#确定基础镜像" class="headerlink" title="确定基础镜像"></a>确定基础镜像</h5><p>访问<a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com</a>，搜索 wkhtmltopdf 关键词</p>
-<p><img src="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/1.png" alt="1"></p>
-<p>确定基础镜像使用 buildo/java8-wkhtmltopdf 。</p>
-<h6 id="Dockerfile-第一版"><a href="#Dockerfile-第一版" class="headerlink" title="Dockerfile (第一版)"></a>Dockerfile (第一版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br></pre></td></tr></table></figure>
-<h5 id="下载JCE"><a href="#下载JCE" class="headerlink" title="下载JCE"></a>下载JCE</h5><p>需要使用到JCE，在oracle官网下载。</p>
-<p>JDK7的下载地址: <a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</a><br>JDK8的下载地址: <a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</a></p>
-<p>Java Cryptography Extension (JCE) 无限强度权限策略文件 8 下载</p>
-<h6 id="Dockerfile-第二版"><a href="#Dockerfile-第二版" class="headerlink" title="Dockerfile (第二版)"></a>Dockerfile (第二版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h5 id="处理程序报错"><a href="#处理程序报错" class="headerlink" title="处理程序报错"></a>处理程序报错</h5><h6 id="1、找到不到-iSignature-pfx-证书："><a href="#1、找到不到-iSignature-pfx-证书：" class="headerlink" title="1、找到不到 iSignature.pfx 证书："></a>1、找到不到 iSignature.pfx 证书：</h6><p>报错截图：</p>
-<h5 id><a href="#" class="headerlink" title></a><img src="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/2.png" alt="2"></h5><p>可以看到找不到/media/providerstamp/signature/iSignature.pfx 证书文件，简单，从老服务器上找到对应文件，拷贝过来。</p>
-<h6 id="Dockerfile-第三版"><a href="#Dockerfile-第三版" class="headerlink" title="Dockerfile (第三版)"></a>Dockerfile (第三版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h6 id="2、tmpDic不是文件夹"><a href="#2、tmpDic不是文件夹" class="headerlink" title="2、tmpDic不是文件夹"></a>2、tmpDic不是文件夹</h6><p><img src="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/3.png" alt="3"></p>
-<p>研发查看代码后确定是要使用 /media/providerstamp/temp/ 目录，索性登录老服务器上查看/media/providerstamp下所有目录，都创建好，并将需要的文件scp拷贝过来。</p>
-<p><img src="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/4.png" alt="4"></p>
-<p>看到还有 done 、unitrust目录，并且unitrust目录中的unitrust.key 程序也会用到。</p>
-<h6 id="Dockerfile-第四版"><a href="#Dockerfile-第四版" class="headerlink" title="Dockerfile (第四版)"></a>Dockerfile (第四版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;done&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;unitrust&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;temp&#x2F;  &amp;&amp; \</span><br><span class="line">        cp unitrust.key &#x2F;media&#x2F;providerstamp&#x2F;unitrust &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h6 id="3、pdf内容乱码"><a href="#3、pdf内容乱码" class="headerlink" title="3、pdf内容乱码"></a>3、pdf内容乱码</h6><p>乱码是由于字体问题，简单直接，直接从老服务器上拷贝 /usr/share/fonts 目录。</p>
-<h6 id="Dockerfile-第五版"><a href="#Dockerfile-第五版" class="headerlink" title="Dockerfile (第五版)"></a>Dockerfile (第五版)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;done&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;unitrust&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;temp&#x2F;  &amp;&amp; \</span><br><span class="line">        cp unitrust.key &#x2F;media&#x2F;providerstamp&#x2F;unitrust &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br><span class="line">        rm -f &#x2F;usr&#x2F;local&#x2F;bin&#x2F;wkhtmltopdf &amp;&amp; \</span><br><span class="line">        rm -rf &#x2F;usr&#x2F;share&#x2F;fonts &amp;&amp; \</span><br><span class="line">        cp wkhtmltopdf &#x2F;usr&#x2F;local&#x2F;bin&#x2F; &amp;&amp; \</span><br><span class="line">        tar zxf fonts.tar.gz &amp;&amp; \</span><br><span class="line">        mv fonts&#x2F; &#x2F;usr&#x2F;share&#x2F;</span><br></pre></td></tr></table></figure>
-<p>至此，此微服务容器化已完成。👏👏👏</p>
-
+          <p>维护经验分享<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -673,10 +665,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-04-23 11:17:48 / Modified: 11:24:43" itemprop="dateCreated datePublished" datetime="2019-04-23T11:17:48+08:00">2019-04-23</time>
+              <time title="Created: 2019-04-23 11:17:48" itemprop="dateCreated datePublished" datetime="2019-04-23T11:17:48+08:00">2019-04-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 16:07:08" itemprop="dateModified" datetime="2020-10-15T16:07:08+08:00">2020-10-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -698,35 +696,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Docker镜像是启动容器的基石。</p>
-<h4 id="什么是Docker镜像"><a href="#什么是Docker镜像" class="headerlink" title="什么是Docker镜像"></a>什么是Docker镜像</h4><hr>
-<p>Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称这样的文件为镜像。一个镜像可以迭代在另一个镜像的顶部。位于下方的镜像称之为父镜像，最底层的镜像称之为<strong>基础镜像</strong>。最后，当从一个镜像启动容器时，Docker会在最顶层加载一个读写文件系统作为容器。</p>
-<p><img src="/Docker-%E9%95%9C%E5%83%8Fimage/Docker镜像.JPEG" alt="Docker镜像"></p>
-<p>Docker的这种机制我们称之为<strong>写时复制</strong>。</p>
-<h4 id="查看镜像列表"><a href="#查看镜像列表" class="headerlink" title="查看镜像列表"></a>查看镜像列表</h4><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images </span><br></pre></td></tr></table></figure>
-<p>该命令可以用于查找当前系统中所有存在的镜像列表。</p>
-<p>Ps：本地镜像默认保存在Docker宿主机的/var/lib/docker目录下。所有的镜像都是保存在仓库中，而仓库位于Registry中。默认的Registry是Docker公司运营的Docker Hub。每个镜像仓库都可以存放很多的镜像。</p>
-<h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
-<p>上述命令会拉取镜像到本地。</p>
-<p>为了区分同一个仓库中不同的镜像，Docker提供了一种tag的功能。我们可以给每个版本的镜像添加一个唯一的tag来标识该镜像。此时，镜像的名称如下：仓库名称:tag。我们在运行镜像或拉取镜像时，可以直接指定对应的标签。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcgcs&#x2F;jdk8:util</span><br></pre></td></tr></table></figure>
-<h4 id="查找镜像"><a href="#查找镜像" class="headerlink" title="查找镜像"></a>查找镜像</h4><hr>
-<p>从Docker Hub查找有哪些公共的可用镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search keywords</span><br></pre></td></tr></table></figure>
-<h4 id="构建Docker镜像"><a href="#构建Docker镜像" class="headerlink" title="构建Docker镜像"></a>构建Docker镜像</h4><hr>
-<p><strong>docker build</strong> 命令用于使用 Dockerfile 创建镜像。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t runoob/ubuntu:v1 . </span><br></pre></td></tr></table></figure>
-<p>使用URL <strong>github.com/creack/docker-firefox</strong> 的 Dockerfile 创建镜像。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build github.com/creack/docker-firefox</span><br></pre></td></tr></table></figure>
-<p>也可以通过 -f Dockerfile 文件的位置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -f /path/to/a/Dockerfile .</span><br></pre></td></tr></table></figure>
-<h4 id="登录镜像仓库"><a href="#登录镜像仓库" class="headerlink" title="登录镜像仓库"></a>登录镜像仓库</h4><p>使用阿里云容器镜像服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker login --username=&quot;ops@vcg.com&quot; --password=&quot;******&quot; registry-vpc.cn-beijing.aliyuncs.com</span><br></pre></td></tr></table></figure>
-<h4 id="推送镜像到仓库"><a href="#推送镜像到仓库" class="headerlink" title="推送镜像到仓库"></a>推送镜像到仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcgcs&#x2F;jdk8:util</span><br></pre></td></tr></table></figure>
-<h4 id="修改镜像Tag"><a href="#修改镜像Tag" class="headerlink" title="修改镜像Tag"></a>修改镜像Tag</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images  # 获取ImageId</span><br><span class="line">docker tag [ImageId] registry.cn-beijing.aliyuncs.com/vcg/500px-vcg-com:[镜像版本号]</span><br></pre></td></tr></table></figure>
-
+          <p>Docker镜像是启动容器的基石。<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Docker-%E9%95%9C%E5%83%8Fimage/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -768,10 +746,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-04-23 11:13:07 / Modified: 11:29:56" itemprop="dateCreated datePublished" datetime="2019-04-23T11:13:07+08:00">2019-04-23</time>
+              <time title="Created: 2019-04-23 11:13:07" itemprop="dateCreated datePublished" datetime="2019-04-23T11:13:07+08:00">2019-04-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 16:09:10" itemprop="dateModified" datetime="2020-10-15T16:09:10+08:00">2020-10-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -793,11 +777,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>介绍使用ansible批量修改用户密码的方法，因为在使用ansible修改用户密码的时候不能使用明文的方式，需要先加密，所以就需要使用一个方法对输入的明文的密码进行加密，下面就直接上干货。</p>
-<h5 id="更改多个固定域名"><a href="#更改多个固定域名" class="headerlink" title="更改多个固定域名"></a>更改多个固定域名</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat changePasswd.yaml</span><br></pre></td></tr></table></figure>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">hosts:</span> <span class="string">ops</span></span><br><span class="line">  <span class="attr">gather_facts:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">tasks:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">change</span> <span class="string">user</span> <span class="string">passwd</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">name=&#123;&#123;</span> <span class="string">item.name</span> <span class="string">&#125;&#125;</span> <span class="string">password=&#123;&#123;</span> <span class="string">item.chpass</span> <span class="string">|</span> <span class="string">password_hash(&#x27;sha512&#x27;)</span> <span class="string">&#125;&#125;</span>  <span class="string">update_password=always</span></span><br><span class="line">    <span class="attr">with_items:</span></span><br><span class="line">         <span class="bullet">-</span> &#123; <span class="attr">name:</span> <span class="string">&#x27;root&#x27;</span>, <span class="attr">chpass:</span> <span class="string">&#x27;***********&#x27;</span> &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook changePasswd.yaml</span><br></pre></td></tr></table></figure>
-
+          <p>介绍使用ansible批量修改用户密码的方法，因为在使用ansible修改用户密码的时候不能使用明文的方式，需要先加密，所以就需要使用一个方法对输入的明文的密码进行加密，下面就直接上干货。<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Ansible-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -847,7 +835,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-04-29 10:19:47" itemprop="dateModified" datetime="2019-04-29T10:19:47+08:00">2019-04-29</time>
+                <time title="Modified: 2020-10-15 16:08:39" itemprop="dateModified" datetime="2020-10-15T16:08:39+08:00">2020-10-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -870,40 +858,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h5 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h5><p>2019年04月19日晚21:10分进行网络维护，内容如下：</p>
-<p>​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址</p>
-<h5 id="故障现象："><a href="#故障现象：" class="headerlink" title="故障现象："></a>故障现象：</h5><p>​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。</p>
-<h5 id="排查记录"><a href="#排查记录" class="headerlink" title="排查记录:"></a>排查记录:</h5><ol>
-<li><p>21:15 查看Ingress日志，发现Ingress拿到的IP就是WAF回源地址，为错误IP，确定非前端nodejs代码bug。</p>
-</li>
-<li><p>21:33  联系阿里云技术团队一起排查问题。</p>
-</li>
-<li><p>22:20  确认Ingress的模板文件中 the_real_ip 变量是拿的 remote_addr 字段，等待阿里技术联系Ingree研发同学，给出回复。</p>
-</li>
-<li><p>23:23 Ingree研发同学联系上后确认Ingress没问题，可能是WAF没传真实IP到Ingress。</p>
-</li>
-<li><p>23:50 在Ingress容器和前端nodejs所在宿主机tcpdump工具抓包后分析得出：</p>
-<p>(1)、WAF已经将真实客户端地址放到了 x-Forwarded-For 的字段中传给了ECS<br>(2)、ECS(容器的ingress)将真实的客户端IP，放到了x-Original-Forwarded-For；而将WAF的回源地址放到了 x-Forwarded-For</p>
-</li>
-<li><p>4月20日 00:29 将compute-full-forwarded-for配置到Ingress的ConfigMap中，问题解决。</p>
-</li>
-</ol>
-<h5 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl -n kube-system edit cm nginx-configuration</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在data标签下添加如下：</span><br><span class="line">compute-full-forwarded-for: &quot;true&quot;</span><br><span class="line">forwarded-for-header: &quot;X-Forwarded-For&quot;</span><br><span class="line">use-forwarded-headers: &quot;true&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><p>阿里云容器服务Kubernetes集群的Ingress默认ConfigMap中未配置 compute-full-forwarded-for参数，导致将ingress拿到的WAF回源IP替换为XFF，而非附加到XFF中。</p>
-<p><a target="_blank" rel="noopener" href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#compute-full-forwarded-for">https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#compute-full-forwarded-for</a></p>
-<h5 id="反思："><a href="#反思：" class="headerlink" title="反思："></a>反思：</h5><ol>
-<li><p>预览环境和线上环境架构不一致：</p>
-<p>此次故障中，预览环境未使用WAF防护，直接解析到K8S集群，未提前发现此次问题，已修正，以后尽量维持环境统一，避免此类问题出现。</p>
-</li>
-<li><p>故障点定位速度慢：</p>
-<p>网络请求问题优先抓包分析，提升故障定位速度，后续夯实基础知识，提升问题排查能力。</p>
-</li>
-<li><p>Kubernetes专业知识掌握程度较低</p>
-<p>目前仅仅在使用层面上能力ok，但是其实现原理、组件实现方式等知识点薄弱，后续还需在K8S学习中多总结，多学习，争取减少故障，提升运维能力。</p>
-</li>
-</ol>
-
+          <p>运维经验分享<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/%E9%98%BF%E9%87%8C%E4%BA%91WAF-Kubernetes-Ingress-%E6%9E%B6%E6%9E%84%E4%B8%8B%E6%97%A0%E6%B3%95%E6%8B%BF%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP%E7%9A%84%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -945,10 +908,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-04-21 15:02:52 / Modified: 15:49:35" itemprop="dateCreated datePublished" datetime="2019-04-21T15:02:52+08:00">2019-04-21</time>
+              <time title="Created: 2019-04-21 15:02:52" itemprop="dateCreated datePublished" datetime="2019-04-21T15:02:52+08:00">2019-04-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 16:08:00" itemprop="dateModified" datetime="2020-10-15T16:08:00+08:00">2020-10-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -971,123 +940,14 @@
 
       
           <p>管理Kubernetes集群的工具</p>
-<hr>
-<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><ol>
-<li><h6 id="下载最新版的kubectl客户端"><a href="#下载最新版的kubectl客户端" class="headerlink" title="下载最新版的kubectl客户端"></a>下载最新版的kubectl客户端</h6><p><a target="_blank" rel="noopener" href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&gt;">https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&gt;</a></p>
-</li>
-<li><h6 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h6><p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/&gt;">https://kubernetes.io/docs/tasks/tools/install-kubectl/&gt;</a></p>
-</li>
-<li><p>验证安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kuberctl version</span><br></pre></td></tr></table></figure>
-<p><img src="/Kubernetes-kubectl/kubectl-version.jpg" alt="kuberctl-version.jpg"></p>
-</li>
-<li><h6 id="配置集群凭证"><a href="#配置集群凭证" class="headerlink" title="配置集群凭证"></a>配置集群凭证</h6><p>您可以使用<strong>scp</strong>命令安全地将主节点的配置从 Kubernetes 集群主 VM 中的 <code>/etc/kubernetes/kube.conf</code> 复制到本地计算机的 <code>$HOME/.kube/config</code>（<code>kubectl</code> 预期凭据所在的位置）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir $HOME&#x2F;.kube</span><br><span class="line">scp root@&lt;master-public-ip&gt;:&#x2F;etc&#x2F;kubernetes&#x2F;kube.conf $HOME&#x2F;.kube&#x2F;config</span><br></pre></td></tr></table></figure>
-<p>公有云环境也可以在集群配置页面获取到config配置</p>
-</li>
-<li><p>验证连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubect get all</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h5><h6 id="help-获取帮助信息"><a href="#help-获取帮助信息" class="headerlink" title="help-获取帮助信息"></a>help-获取帮助信息</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">zhaohongye ~ ^-^ #kubectl help</span><br><span class="line">kubectl controls the Kubernetes cluster manager.</span><br><span class="line"></span><br><span class="line">Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/</span><br><span class="line"></span><br><span class="line">Basic Commands (Beginner):</span><br><span class="line">  create         Create a resource from a file or from stdin.</span><br><span class="line">  expose         使用 replication controller, service, deployment 或者 pod</span><br><span class="line">并暴露它作为一个 新的 Kubernetes Service</span><br><span class="line">  run            在集群中运行一个指定的镜像</span><br><span class="line">  set            为 objects 设置一个指定的特征</span><br><span class="line">  run-container  在集群中运行一个指定的镜像. This command is</span><br><span class="line">deprecated, use &quot;run&quot; instead</span><br><span class="line"></span><br><span class="line">Basic Commands (Intermediate):</span><br><span class="line">  get            显示一个或更多 resources</span><br><span class="line">  explain        查看资源的文档</span><br><span class="line">  edit           在服务器上编辑一个资源</span><br><span class="line">  delete         Delete resources by filenames, stdin, resources and names, or</span><br><span class="line">by resources and label selector</span><br><span class="line"></span><br><span class="line">Deploy Commands:</span><br><span class="line">  rollout        Manage the rollout of a resource</span><br><span class="line">  rolling-update 完成指定的 ReplicationController 的滚动升级</span><br><span class="line">  scale          为 Deployment, ReplicaSet, Replication Controller 或者 Job</span><br><span class="line">设置一个新的副本数量</span><br><span class="line">  autoscale      自动调整一个 Deployment, ReplicaSet, 或者</span><br><span class="line">ReplicationController 的副本数量</span><br><span class="line"></span><br><span class="line">Cluster Management Commands:</span><br><span class="line">  certificate    修改 certificate 资源.</span><br><span class="line">  cluster-info   显示集群信息</span><br><span class="line">  top            Display Resource (CPU/Memory/Storage) usage.</span><br><span class="line">  cordon         标记 node 为 unschedulable</span><br><span class="line">  uncordon       标记 node 为 schedulable</span><br><span class="line">  drain          Drain node in preparation for maintenance</span><br><span class="line">  taint          更新一个或者多个 node 上的 taints</span><br><span class="line"></span><br><span class="line">Troubleshooting and Debugging Commands:</span><br><span class="line">  describe       显示一个指定 resource 或者 group 的 resources 详情</span><br><span class="line">  logs           输出容器在 pod 中的日志</span><br><span class="line">  attach         Attach 到一个运行中的 container</span><br><span class="line">  exec           在一个 container 中执行一个命令</span><br><span class="line">  port-forward   Forward one or more local ports to a pod</span><br><span class="line">  proxy          运行一个 proxy 到 Kubernetes API server</span><br><span class="line">  cp             复制 files 和 directories 到 containers</span><br><span class="line">和从容器中复制 files 和 directories.</span><br><span class="line">  auth           Inspect authorization</span><br><span class="line"></span><br><span class="line">Advanced Commands:</span><br><span class="line">  apply          通过文件名或标准输入流(stdin)对资源进行配置</span><br><span class="line">  patch          使用 strategic merge patch 更新一个资源的 field(s)</span><br><span class="line">  replace        通过 filename 或者 stdin替换一个资源</span><br><span class="line">  convert        在不同的 API versions 转换配置文件</span><br><span class="line"></span><br><span class="line">Settings Commands:</span><br><span class="line">  label          更新在这个资源上的 labels</span><br><span class="line">  annotate       更新一个资源的注解</span><br><span class="line">  completion     Output shell completion code for the specified shell (bash or</span><br><span class="line">zsh)</span><br><span class="line"></span><br><span class="line">Other Commands:</span><br><span class="line">  api-versions   Print the supported API versions on the server, in the form of</span><br><span class="line">&quot;group/version&quot;</span><br><span class="line">  config         修改 kubeconfig 文件</span><br><span class="line">  help           Help about any command</span><br><span class="line">  plugin         Runs a command-line plugin</span><br><span class="line">  version        输出 client 和 server 的版本信息</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  kubectl [flags] [options]</span><br><span class="line"></span><br><span class="line">Use &quot;kubectl &lt;command&gt; --help&quot; for more information about a given command.</span><br><span class="line">Use &quot;kubectl options&quot; for a list of global command-line options (applies to all</span><br><span class="line">commands).</span><br></pre></td></tr></table></figure>
-<h6 id="get-获取信息"><a href="#get-获取信息" class="headerlink" title="get-获取信息"></a>get-获取信息</h6><p>Display one or many resources</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Examples:</span><br><span class="line"><span class="meta">  #</span><span class="bash"> List all pods <span class="keyword">in</span> ps output format.</span></span><br><span class="line">  kubectl get pods</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List all pods <span class="keyword">in</span> ps output format with more information (such as node name).</span></span><br><span class="line">  kubectl get pods -o wide</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List a single replication controller with specified NAME <span class="keyword">in</span> ps output format.</span></span><br><span class="line">  kubectl get replicationcontroller web</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List a single pod <span class="keyword">in</span> JSON output format.</span></span><br><span class="line">  kubectl get -o json pod web-pod-13je7</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List a pod identified by <span class="built_in">type</span> and name specified <span class="keyword">in</span> <span class="string">&quot;pod.yaml&quot;</span> <span class="keyword">in</span> JSON output format.</span></span><br><span class="line">  kubectl get -f pod.yaml -o json</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> Return only the phase value of the specified pod.</span></span><br><span class="line">  kubectl get -o template pod/web-pod-13je7 --template=&#123;&#123;.status.phase&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List all replication controllers and services together <span class="keyword">in</span> ps output format.</span></span><br><span class="line">  kubectl get rc,services</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List one or more resources by their <span class="built_in">type</span> and names.</span></span><br><span class="line">  kubectl get rc/web service/frontend pods/web-pod-13je7</span><br><span class="line"></span><br><span class="line"><span class="meta">  #</span><span class="bash"> List all resources with different types.</span></span><br><span class="line">  kubectl get all</span><br></pre></td></tr></table></figure>
-<h6 id="scale-扩缩容"><a href="#scale-扩缩容" class="headerlink" title="scale-扩缩容"></a>scale-扩缩容</h6><p>Set a new size for a Deployment, ReplicaSet, Replication Controller, or StatefulSet.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Examples:</span><br><span class="line">  # Scale a replicaset named &#39;foo&#39; to 3.</span><br><span class="line">  kubectl scale --replicas&#x3D;3 rs&#x2F;foo</span><br><span class="line"></span><br><span class="line">  # Scale a resource identified by type and name specified in &quot;foo.yaml&quot; to 3.</span><br><span class="line">  kubectl scale --replicas&#x3D;3 -f foo.yaml</span><br><span class="line"></span><br><span class="line">  # If the deployment named mysql&#39;s current size is 2, scale mysql to 3.</span><br><span class="line">  kubectl scale --current-replicas&#x3D;2 --replicas&#x3D;3 deployment&#x2F;mysql</span><br><span class="line"></span><br><span class="line">  # Scale multiple replication controllers.</span><br><span class="line">  kubectl scale --replicas&#x3D;5 rc&#x2F;foo rc&#x2F;bar rc&#x2F;baz</span><br><span class="line"></span><br><span class="line">  # Scale statefulset named &#39;web&#39; to 3.</span><br><span class="line">  kubectl scale --replicas&#x3D;3 statefulset&#x2F;web</span><br><span class="line">  </span><br><span class="line">  kubectl scale Deployment node-vcg-web --replicas&#x3D;1</span><br><span class="line">  kubectl scale Deployment node-vcg-web --replicas&#x3D;10</span><br></pre></td></tr></table></figure>
-<p>批量扩缩容    </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i in `kubectl get deployment | awk &#x27;&#123;print $1&#125;&#x27; |grep -v NAME`; do</span><br><span class="line">   kubectl scale Deployment $i --replicas=1</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<h6 id="exec-在container中执行命令"><a href="#exec-在container中执行命令" class="headerlink" title="exec-在container中执行命令"></a>exec-在container中执行命令</h6><p>Execute a command in a container.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line">  -c, --container=&#x27;&#x27;: Container name. If omitted, the first container in the pod will be chosen</span><br><span class="line">  -p, --pod=&#x27;&#x27;: Pod name</span><br><span class="line">  -i, --stdin=false: Pass stdin to the container</span><br><span class="line">  -t, --tty=false: Stdin is a TTY</span><br><span class="line">Examples:</span><br><span class="line">  kubectl exec 123456-7890 -c ruby-container -it -- bash -il</span><br><span class="line">Usage:</span><br><span class="line">  kubectl exec POD [-c CONTAINER] -- COMMAND [args...] [options]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Hexo-%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E7%AD%89%E8%B5%84%E6%BA%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo-%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E7%AD%89%E8%B5%84%E6%BA%90/" class="post-title-link" itemprop="url">Hexo-博客中添加图片等资源</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-04-21 14:28:55 / Modified: 14:37:28" itemprop="dateCreated datePublished" datetime="2019-04-21T14:28:55+08:00">2019-04-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>引用于 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40265501/article/details/80019774">https://blog.csdn.net/qq_40265501/article/details/80019774</a></p>
-<p>官方介绍：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders.html">https://hexo.io/zh-cn/docs/asset-folders.html</a></p>
-</blockquote>
-<p>一图胜万言</p>
-<p>博客中有时候图片比文字更有说服力，比如：代码运行结果，代码运行效果等</p>
-<h5 id="开启’资源文件管理’功能"><a href="#开启’资源文件管理’功能" class="headerlink" title="开启’资源文件管理’功能"></a>开启’资源文件管理’功能</h5><p>将 <code>config.yml</code>文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_config.yml</span><br><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
-<h5 id="安装Hexo插件"><a href="#安装Hexo插件" class="headerlink" title="安装Hexo插件"></a>安装Hexo插件</h5><p>插件地址：<a target="_blank" rel="noopener" href="https://github.com/dangxuandev/hexo-asset-image">https://github.com/dangxuandev/hexo-asset-image</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-<h5 id="在博客中添加图片"><a href="#在博客中添加图片" class="headerlink" title="在博客中添加图片"></a>在博客中添加图片</h5><ol>
-<li><p>新建博客</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n test</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看目录结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@nginx GeekSRE]# ls -l source&#x2F;_posts&#x2F; |grep test</span><br><span class="line">drwxr-xr-x 2 root root 4096 4月  17 17:29 test</span><br><span class="line">-rw-r--r-- 1 root root   96 4月  17 17:35 test.md</span><br></pre></td></tr></table></figure>
-<p>可以看到 会在 source/_posts 目录创建 test.md 和 test目录</p>
-<p>与博客同名目录用于存放资源文件，如图片、CSS、JS 文件等</p>
-</li>
-<li><p>上传图片到”文章资源文件夹”</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 比如使用CSDN博客中的图片：</span></span><br><span class="line">cd source/_posts/test</span><br><span class="line">wget https://img-blog.csdn.net/20180420154609543</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim source/_posts/test.md</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> ![你想要输入的替代文字](图片文件)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 比如：</span></span><br><span class="line">![图片](test.jpg)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>保存</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证效果<br><img src="/Hexo-%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E7%AD%89%E8%B5%84%E6%BA%90/test.jpg" alt="图片"></p>
-</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Kubernetes-kubectl/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1171,20 +1031,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1207,6 +1067,8 @@
         
 
         
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">京ICP备17002268号 </a>
+  </div>
 
 <div class="copyright">
   

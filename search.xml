@@ -30,7 +30,8 @@
   <entry>
     <title>Ansible-快速添加免密码认证</title>
     <url>/Ansible-%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0%E5%85%8D%E5%AF%86%E7%A0%81%E8%AE%A4%E8%AF%81/</url>
-    <content><![CDATA[<h4 id="生成管理机的私钥和公钥"><a href="#生成管理机的私钥和公钥" class="headerlink" title="生成管理机的私钥和公钥"></a>生成管理机的私钥和公钥</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 2048 -P &#x27;&#x27; -f /root/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>Ansible使用小技巧<br><a id="more"></a></p>
+<h4 id="生成管理机的私钥和公钥"><a href="#生成管理机的私钥和公钥" class="headerlink" title="生成管理机的私钥和公钥"></a>生成管理机的私钥和公钥</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 2048 -P &#x27;&#x27; -f /root/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 <h4 id="添加主机信息到主机清单中"><a href="#添加主机信息到主机清单中" class="headerlink" title="添加主机信息到主机清单中"></a>添加主机信息到主机清单中</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/ansible/hosts</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">添加分组</span></span><br><span class="line">[test-k8s]</span><br><span class="line">172.20.21.249</span><br><span class="line">172.20.21.250</span><br><span class="line">172.20.21.251</span><br><span class="line">172.20.21.252</span><br><span class="line">172.20.21.253</span><br><span class="line">172.20.21.254</span><br><span class="line">172.20.21.255</span><br><span class="line">172.20.22.0</span><br><span class="line">172.20.22.1</span><br><span class="line">172.20.22.2</span><br></pre></td></tr></table></figure>
 <h4 id="配置playbook"><a href="#配置playbook" class="headerlink" title="配置playbook"></a>配置playbook</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/ansible/ssh-addkey.yml</span><br></pre></td></tr></table></figure>
@@ -49,7 +50,7 @@
   <entry>
     <title>Ansible-批量修改密码</title>
     <url>/Ansible-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</url>
-    <content><![CDATA[<p>介绍使用ansible批量修改用户密码的方法，因为在使用ansible修改用户密码的时候不能使用明文的方式，需要先加密，所以就需要使用一个方法对输入的明文的密码进行加密，下面就直接上干货。</p>
+    <content><![CDATA[<p>介绍使用ansible批量修改用户密码的方法，因为在使用ansible修改用户密码的时候不能使用明文的方式，需要先加密，所以就需要使用一个方法对输入的明文的密码进行加密，下面就直接上干货。<br><a id="more"></a></p>
 <h5 id="更改多个固定域名"><a href="#更改多个固定域名" class="headerlink" title="更改多个固定域名"></a>更改多个固定域名</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat changePasswd.yaml</span><br></pre></td></tr></table></figure>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">hosts:</span> <span class="string">ops</span></span><br><span class="line">  <span class="attr">gather_facts:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">tasks:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">change</span> <span class="string">user</span> <span class="string">passwd</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">name=&#123;&#123;</span> <span class="string">item.name</span> <span class="string">&#125;&#125;</span> <span class="string">password=&#123;&#123;</span> <span class="string">item.chpass</span> <span class="string">|</span> <span class="string">password_hash(&#x27;sha512&#x27;)</span> <span class="string">&#125;&#125;</span>  <span class="string">update_password=always</span></span><br><span class="line">    <span class="attr">with_items:</span></span><br><span class="line">         <span class="bullet">-</span> &#123; <span class="attr">name:</span> <span class="string">&#x27;root&#x27;</span>, <span class="attr">chpass:</span> <span class="string">&#x27;***********&#x27;</span> &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible-playbook changePasswd.yaml</span><br></pre></td></tr></table></figure>
@@ -64,7 +65,7 @@
   <entry>
     <title>Archer</title>
     <url>/Archer-SQL%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B9%B3%E5%8F%B0/</url>
-    <content><![CDATA[<h1 id="ARCHER-—-自动化SQL操作平台"><a href="#ARCHER-—-自动化SQL操作平台" class="headerlink" title="ARCHER — 自动化SQL操作平台"></a>ARCHER — 自动化SQL操作平台</h1><p>基于inception的自动化SQL操作平台，支持SQL执行、LDAP认证、发邮件、OSC、SQL查询、SQL优化建议、权限管理等功能，支持docker镜像。</p>
+    <content><![CDATA[<h1 id="ARCHER-—-自动化SQL操作平台"><a href="#ARCHER-—-自动化SQL操作平台" class="headerlink" title="ARCHER — 自动化SQL操作平台"></a>ARCHER — 自动化SQL操作平台</h1><p>基于inception的自动化SQL操作平台，支持SQL执行、LDAP认证、发邮件、OSC、SQL查询、SQL优化建议、权限管理等功能，支持docker镜像。<br><a id="more"></a></p>
 <p>GitHub项目地址：<a href="https://github.com/jly8866/archer">https://github.com/jly8866/archer</a></p>
 <h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
 <li>自动审核<br>发起SQL上线，工单提交，由inception自动审核，审核通过后需要由审核人进行人工审核</li>
@@ -127,7 +128,8 @@
   <entry>
     <title>Confluence安装-维护-迁移实践</title>
     <url>/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<p><strong>Confluence</strong>介绍</p>
+    <content><![CDATA[<p>企业wiki-Confluence<br><a id="more"></a></p>
+<p><strong>Confluence</strong>介绍</p>
 <p><strong>Confluence</strong>是由澳大利亚软件公司<a href="https://en.wikipedia.org/wiki/Atlassian">Atlassian</a>开发和发布的<a href="https://en.wikipedia.org/wiki/Collaboration_software">协作软件</a>程序</p>
 <p>Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。</p>
 <p>Confluence为团队提供一个协作环境。在这里，团队成员齐心协力，各擅其能，协同地编写文档和管理项目。从此打破不同团队、不同部门以及个人之间信息孤岛的僵局，Confluence真正实现了组织资源共享。</p>
@@ -239,7 +241,8 @@
   <entry>
     <title>Cookie &amp; Session</title>
     <url>/Cookie-Session/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<p>Cookie  &amp; Session<br><a id="more"></a></p>
+<blockquote>
 <p><a href="https://www.cnblogs.com/liwenzhou/p/8343243.html">https://www.cnblogs.com/liwenzhou/p/8343243.html</a></p>
 </blockquote>
 <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h4 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么"></a>Cookie是什么</h4><p>保存在浏览器端的键值对</p>
@@ -351,7 +354,7 @@
   <entry>
     <title>Docker-镜像image</title>
     <url>/Docker-%E9%95%9C%E5%83%8Fimage/</url>
-    <content><![CDATA[<p>Docker镜像是启动容器的基石。</p>
+    <content><![CDATA[<p>Docker镜像是启动容器的基石。<br><a id="more"></a></p>
 <h4 id="什么是Docker镜像"><a href="#什么是Docker镜像" class="headerlink" title="什么是Docker镜像"></a>什么是Docker镜像</h4><hr>
 <p>Docker镜像是由文件系统叠加而成。最底端是一个文件引导系统，即bootfs。Docker用户不会与引导文件系统有直接的交互。Docker镜像的第二层是root文件系统rootfs，通常是一种或多种操作系统，例如ubuntu等。在Docker中，文件系统永远都是只读的，在每次修改时，都是进行拷贝叠加从而形成最终的文件系统。Docker称这样的文件为镜像。一个镜像可以迭代在另一个镜像的顶部。位于下方的镜像称之为父镜像，最底层的镜像称之为<strong>基础镜像</strong>。最后，当从一个镜像启动容器时，Docker会在最顶层加载一个读写文件系统作为容器。</p>
 <p><img src="/Docker-%E9%95%9C%E5%83%8Fimage/Docker镜像.JPEG" alt="Docker镜像"></p>
@@ -390,7 +393,7 @@
   <entry>
     <title>Docker容器网络抓包案例</title>
     <url>/Docker%E5%AE%B9%E5%99%A8%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8C%85%E6%A1%88%E4%BE%8B/</url>
-    <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br>Docker容器网络抓包案例</p>
+    <content><![CDATA[<p>Docker容器网络抓包案例<br><a id="more"></a></p>
 <p>使用宿主机上的tcpdump工具对容器进程抓包</p>
 <h5 id="获取容器PID"><a href="#获取容器PID" class="headerlink" title="获取容器PID"></a>获取容器PID</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 获取容器ID</span></span><br><span class="line">docker ps |grep xxx </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取PID</span></span><br><span class="line">docker inspect --format &quot;&#123;&#123;.State.Pid&#125;&#125;&quot;  container_id/name</span><br></pre></td></tr></table></figure>
 <h5 id="使用nsenter切换网络命令空间"><a href="#使用nsenter切换网络命令空间" class="headerlink" title="使用nsenter切换网络命令空间"></a>使用nsenter切换网络命令空间</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nsenter -n -t container_id&#x2F;name</span><br></pre></td></tr></table></figure>
@@ -401,7 +404,8 @@
   <entry>
     <title>Elasticsearch服务安全加固</title>
     <url>/Elasticsearch%E6%9C%8D%E5%8A%A1%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<p>Elasticsearch 是一个基于 Lucene 的搜索服务<br><a id="more"></a></p>
+<blockquote>
 <p>引用自阿里云<a href="https://help.aliyun.com/knowledge_detail/49913.html">https://help.aliyun.com/knowledge_detail/49913.html</a>&gt;</p>
 </blockquote>
 <p>Elasticsearch 是一个基于 Lucene 的搜索服务，它提供了 RESTful web 接口的分布式、多用户全文搜索引擎 。Elasticsearch 是用 Java 开发的，并作为 Apache 许可条款下的开放源码发布，是第二大最流行的企业搜索引擎。</p>
@@ -561,8 +565,7 @@ user.save!
   <entry>
     <title>GitLab代码托管</title>
     <url>/GitLab%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/</url>
-    <content><![CDATA[<p>GitLab 是一个用于仓库管理系统的开源项目，使用<a href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。</p>
-<p>官网：<a href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
+    <content><![CDATA[<p>GitLab 是一个用于仓库管理系统的开源项目，使用<a href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。<br><a id="more"></a><br>官网：<a href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
 <hr>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h5 id="配置Yum源"><a href="#配置Yum源" class="headerlink" title="配置Yum源"></a>配置Yum源</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/gitlab_gitlab-ee.repo</span><br><span class="line">[gitlab-ce]</span><br><span class="line">name=Gitlab CE Repository</span><br><span class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
 <h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y postfix</span><br><span class="line">yum install gitlab-ce -y</span><br></pre></td></tr></table></figure>
@@ -613,6 +616,34 @@ user.save!
       </categories>
       <tags>
         <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GoAccess-Nginx_log</title>
+    <url>/GoAccess-Nginx-log/</url>
+    <content><![CDATA[<p>GoAccess - 可视化 Web 日志分析工具。</p>
+<a id="more"></a>
+<h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p><strong>GoAccess</strong> 是一款开源的且具有交互视图界面的<strong>实时</strong> <strong>Web 日志分析工具</strong>，通过你的 <strong>Web 浏览器</strong>或者 *nix 系统下的<strong>终端程序(terminal)</strong>即可访问。</p>
+<p>能为系统管理员提供<strong>快速</strong>且有价值的 HTTP 统计，并以在线可视化服务器的方式呈现。</p>
+<p>官网：<a href="https://www.goaccess.cc/">https://www.goaccess.cc/</a></p>
+<h5 id="为什么要用GoAccess"><a href="#为什么要用GoAccess" class="headerlink" title="为什么要用GoAccess"></a>为什么要用GoAccess</h5><p>GoAccess 被设计成快速的并基于终端的日志分析工具。其核心理念是不需要通过 Web 浏览器就能快速分析并<strong>实时</strong>查看 Web 服务器的统计数据(<em>这对于需要使用 SSH 来对访问日志进行快速分析或者就是喜欢在终端环境下工作的人来说是超赞的</em>)。</p>
+<p>终端输出仅仅是默认的输出方式，GoAccess 还支持生成完整的<strong>实时</strong> <a href="http://rt.goaccess.io/?20170729002319"><code>HTML</code></a> 报告(<em>这对分析、监控以及数据可视化都是极好的</em>)，以及 <a href="https://www.goaccess.cc/json"><code>JSON</code></a> 和 <a href="https://www.goaccess.cc/goaccess_csv_report.csv?20170729002319"><code>CSV</code></a> 格式的报告。</p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install goaccess -y</span><br></pre></td></tr></table></figure>
+<h5 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h5><h6 id="生成HTML报告："><a href="#生成HTML报告：" class="headerlink" title="生成HTML报告："></a>生成HTML报告：</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">goaccess access.log -a -o report.html</span><br></pre></td></tr></table></figure>
+<h6 id="实时HTML输出："><a href="#实时HTML输出：" class="headerlink" title="实时HTML输出："></a>实时HTML输出：</h6><p>GoAccess 有能力在 HTML 报告中展示实时数据。您甚至可以通过电子邮件发送 HTML 报告，因为它是由没有外部文件依赖的单个文件组成，是不是很酷！</p>
+<p>生成实时 HTML 报告的过程和生成静态报告的过程非常相似。实时报告仅仅需要使用参数 <code>--real-time-html</code> 。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">goaccess -f access.log -o report.html --log-format&#x3D;COMBINED --real-time-html </span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：如果需要在加密连接上输出实时数据，则需要使用 <code>--ssl-cert=&lt;cert.crt&gt;</code> 和 <code>--ssl-key=&lt;priv.key&gt;</code>。</p>
+<h6 id="我的启动命令："><a href="#我的启动命令：" class="headerlink" title="我的启动命令："></a>我的启动命令：</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">goaccess -f /var/log/nginx_zhy/nginx_zhy_access.log -o /usr/share/nginx/html/zhy_report.html --log-format=COMBINED --real-time-html --time-format=&#x27;%H:%M:%S&#x27;  --date-format=&#x27;%d/%b/%Y&#x27; --log-format=COMBINED --ssl-cert=&#x27;/etc/nginx/sslfile/zhy/3734963_www.zhaohongye.com.pem&#x27; --ssl-key=&#x27;/etc/nginx/sslfile/zhy/3734963_www.zhaohongye.com.key&#x27; --daemonize</span><br></pre></td></tr></table></figure>
+<h5 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h5><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim nginx.conf</span></span><br><span class="line"><span class="comment"># 在server段下增加location段</span></span><br><span class="line"></span><br><span class="line"> <span class="attribute">location</span> /report.html &#123;</span><br><span class="line">         <span class="attribute">alias</span> /usr/share/nginx/html/zhy_report.html;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h5><p><img src="/GoAccess-Nginx-log/./goaccess.jpg" alt></p>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+        <tag>GoAccess</tag>
       </tags>
   </entry>
   <entry>
@@ -676,7 +707,8 @@ user.save!
   <entry>
     <title>Hexo-Next主题添加搜索功能</title>
     <url>/Hexo-Next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p>博客根目录执行以下命令：</p>
+    <content><![CDATA[<p>Hexo使用小技巧<br><a id="more"></a></p>
+<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p>博客根目录执行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
 <h5 id="修改主配置"><a href="#修改主配置" class="headerlink" title="修改主配置"></a>修改主配置</h5><p>编辑配置文件：_config.yaml</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
@@ -694,7 +726,7 @@ user.save!
   <entry>
     <title>Hexo</title>
     <url>/Hexo-%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>快速、简洁且高效的博客框架<br>官网: <a href="https://hexo.io/zh-cn/">https://hexo.io</a></p>
+    <content><![CDATA[<p>快速、简洁且高效的博客框架<br><a id="more"></a><br>官网: <a href="https://hexo.io/zh-cn/">https://hexo.io</a></p>
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h3 id="超快速度"><a href="#超快速度" class="headerlink" title="超快速度"></a>超快速度</h3><p>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
 <h3 id="支持-Markdown"><a href="#支持-Markdown" class="headerlink" title="支持 Markdown"></a>支持 Markdown</h3><p>Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
 <h3 id="一键部署"><a href="#一键部署" class="headerlink" title="一键部署"></a>一键部署</h3><p>只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p>
@@ -715,12 +747,12 @@ user.save!
   <entry>
     <title>Hexo-博客中添加图片等资源</title>
     <url>/Hexo-%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87%E7%AD%89%E8%B5%84%E6%BA%90/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<p>一图胜万言</p>
+<p>博客中有时候图片比文字更有说服力，比如：代码运行结果，代码运行效果等<br><a id="more"></a></p>
+<blockquote>
 <p>引用于 <a href="https://blog.csdn.net/qq_40265501/article/details/80019774">https://blog.csdn.net/qq_40265501/article/details/80019774</a></p>
 <p>官方介绍：<a href="https://hexo.io/zh-cn/docs/asset-folders.html">https://hexo.io/zh-cn/docs/asset-folders.html</a></p>
 </blockquote>
-<p>一图胜万言</p>
-<p>博客中有时候图片比文字更有说服力，比如：代码运行结果，代码运行效果等</p>
 <h5 id="开启’资源文件管理’功能"><a href="#开启’资源文件管理’功能" class="headerlink" title="开启’资源文件管理’功能"></a>开启’资源文件管理’功能</h5><p>将 <code>config.yml</code>文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">_config.yml</span><br><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
 <h5 id="安装Hexo插件"><a href="#安装Hexo插件" class="headerlink" title="安装Hexo插件"></a>安装Hexo插件</h5><p>插件地址：<a href="https://github.com/dangxuandev/hexo-asset-image">https://github.com/dangxuandev/hexo-asset-image</a></p>
@@ -754,7 +786,8 @@ user.save!
   <entry>
     <title>Hexo博客美化添加live2d动画</title>
     <url>/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96%E6%B7%BB%E5%8A%A0live2d%E5%8A%A8%E7%94%BB/</url>
-    <content><![CDATA[<p><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md"><strong>hexo-helper-live2d GitHub地址</strong></a></p>
+    <content><![CDATA[<a id="more"></a>
+<p><a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md"><strong>hexo-helper-live2d GitHub地址</strong></a></p>
 <h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><ol>
 <li><p>在hexo根目录执行</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
@@ -1258,7 +1291,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>Kubernetes-HostAliases</title>
     <url>/Kubernetes-HostAliases/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<p>k8s里增加hosts<br><a id="more"></a></p>
+<blockquote>
 <p><a href="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/">https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/</a></p>
 </blockquote>
 <p>k8s上微服务之间可以通过service的域名来互相访问。域名的解析是一般是通过在集群中的kube-dns来完成的。</p>
@@ -1275,7 +1309,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>Kubernetes_Nginx-Ingress</title>
     <url>/Kubernetes-Nginx-Ingress/</url>
-    <content><![CDATA[<h2 id="For-example"><a href="#For-example" class="headerlink" title="For example"></a>For example</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Ingress</span><br><span class="line">metadata:</span><br><span class="line">  annotations:</span><br><span class="line">    nginx.ingress.kubernetes.io/force-ssl-redirect: <span class="string">&#x27;true&#x27;</span> <span class="comment">#代表其中跳转</span></span><br><span class="line">    nginx.ingress.kubernetes.io/service-weight: <span class="string">&#x27;&#x27;</span></span><br><span class="line">    nginx.ingress.kubernetes.io/ssl-redirect: <span class="string">&#x27;true&#x27;</span></span><br><span class="line">  creationTimestamp: <span class="string">&#x27;2018-12-25T10:29:36Z&#x27;</span></span><br><span class="line">  generation: 1</span><br><span class="line">  name: boss</span><br><span class="line">  namespace: default</span><br><span class="line">  resourceVersion: <span class="string">&#x27;21429383&#x27;</span></span><br><span class="line">  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/boss</span><br><span class="line">  uid: fa56e2a0-082f-11e9-80cf-00163e0e2421</span><br><span class="line">spec:</span><br><span class="line">  rules:</span><br><span class="line">    - host: boss1.vcg.com</span><br><span class="line">      http:</span><br><span class="line">        paths:</span><br><span class="line">          - backend:</span><br><span class="line">              serviceName: node-vcg-boss</span><br><span class="line">              servicePort: 80</span><br><span class="line">            path: /</span><br><span class="line">  tls:</span><br><span class="line">    - hosts:</span><br><span class="line">        - boss1.vcg.com</span><br><span class="line">      secretName: vcg-https</span><br><span class="line">status:</span><br><span class="line">  loadBalancer:</span><br><span class="line">    ingress:</span><br><span class="line">      - ip: 39.97.21.16</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>Kubernetes_Nginx-Ingress<br><a id="more"></a></p>
+<h2 id="For-example"><a href="#For-example" class="headerlink" title="For example"></a>For example</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apiVersion: extensions/v1beta1</span><br><span class="line">kind: Ingress</span><br><span class="line">metadata:</span><br><span class="line">  annotations:</span><br><span class="line">    nginx.ingress.kubernetes.io/force-ssl-redirect: <span class="string">&#x27;true&#x27;</span> <span class="comment">#代表其中跳转</span></span><br><span class="line">    nginx.ingress.kubernetes.io/service-weight: <span class="string">&#x27;&#x27;</span></span><br><span class="line">    nginx.ingress.kubernetes.io/ssl-redirect: <span class="string">&#x27;true&#x27;</span></span><br><span class="line">  creationTimestamp: <span class="string">&#x27;2018-12-25T10:29:36Z&#x27;</span></span><br><span class="line">  generation: 1</span><br><span class="line">  name: boss</span><br><span class="line">  namespace: default</span><br><span class="line">  resourceVersion: <span class="string">&#x27;21429383&#x27;</span></span><br><span class="line">  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/boss</span><br><span class="line">  uid: fa56e2a0-082f-11e9-80cf-00163e0e2421</span><br><span class="line">spec:</span><br><span class="line">  rules:</span><br><span class="line">    - host: boss1.vcg.com</span><br><span class="line">      http:</span><br><span class="line">        paths:</span><br><span class="line">          - backend:</span><br><span class="line">              serviceName: node-vcg-boss</span><br><span class="line">              servicePort: 80</span><br><span class="line">            path: /</span><br><span class="line">  tls:</span><br><span class="line">    - hosts:</span><br><span class="line">        - boss1.vcg.com</span><br><span class="line">      secretName: vcg-https</span><br><span class="line">status:</span><br><span class="line">  loadBalancer:</span><br><span class="line">    ingress:</span><br><span class="line">      - ip: 39.97.21.16</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Kubernetes</category>
@@ -1287,7 +1322,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>Kubernetes-Secrets</title>
     <url>/Kubernetes-Secrets/</url>
-    <content><![CDATA[<h4 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h4><p>若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。</p>
+    <content><![CDATA[<p>Kubernetes保密字典<br><a id="more"></a></p>
+<h4 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h4><p>若您需要在 Kubernetes 集群中使用一些敏感的配置，比如密码、证书等信息时，建议使用密钥（secret），即保密字典。</p>
 <p>密钥有多种类型，例如：</p>
 <ul>
 <li>Service Account：用来访问 Kubernetes API，由 Kubernetes 自动创建，并且会自动挂载到 Pod 的/run/secrets/kubernetes.io/serviceaccount目录中。</li>
@@ -1316,6 +1352,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
     <title>Kubernetes-kubectl</title>
     <url>/Kubernetes-kubectl/</url>
     <content><![CDATA[<p>管理Kubernetes集群的工具</p>
+<a id="more"></a>
 <hr>
 <h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><ol>
 <li><h6 id="下载最新版的kubectl客户端"><a href="#下载最新版的kubectl客户端" class="headerlink" title="下载最新版的kubectl客户端"></a>下载最新版的kubectl客户端</h6><p><a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&gt;">https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md&gt;</a></p>
@@ -1451,10 +1488,10 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 <p>到此为止，您了解容器和Docker、Kubernetes集群、Kubernetes基本概念，并通过一个示例了解kubectl的最基本使用，本文后续将向您深入介绍Kubernetes对象的概念以及使用方法，并介绍对象之间的关系。</p>
 ]]></content>
       <categories>
-        <category>kubernetes</category>
+        <category>Kubernetes</category>
       </categories>
       <tags>
-        <tag>kubernetes</tag>
+        <tag>Kubernetes</tag>
       </tags>
   </entry>
   <entry>
@@ -1470,7 +1507,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>Linux操作系统加固</title>
     <url>/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%9B%BA/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<p>本帮助手册旨在指导系统管理人员或安全检查人员进行Linux操作系统的安全合规性检查和加固。<br><a id="more"></a></p>
+<blockquote>
 <p>引自阿里云<a href="https://help.aliyun.com/knowledge_detail/49809.html">https://help.aliyun.com/knowledge_detail/49809.html</a>&gt;</p>
 </blockquote>
 <p>本帮助手册旨在指导系统管理人员或安全检查人员进行Linux操作系统的安全合规性检查和加固。</p>
@@ -1603,7 +1641,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>Nginx-ingress controller部署</title>
     <url>/Nginx-ingress-controller%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口<br><a id="more"></a></p>
+<blockquote>
 <p><a href="https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller">https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller</a></p>
 </blockquote>
 <p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口，概念示意可参考下方说明。你可以给Ingress配置提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机等。用户通过POST Ingress资源到API server的方式来请求ingress。</p>
@@ -1677,7 +1716,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>Nginx_配置SSL证书</title>
     <url>/Nginx-%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/</url>
-    <content><![CDATA[<ol>
+    <content><![CDATA[<p>Nginx配置域名的SSL证书<br><a id="more"></a></p>
+<ol>
 <li><h4 id="获取证书并上传到Ngx服务器"><a href="#获取证书并上传到Ngx服务器" class="headerlink" title="获取证书并上传到Ngx服务器"></a>获取证书并上传到Ngx服务器</h4></li>
 </ol>
 <ol start="2">
@@ -1901,17 +1941,18 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 </ul>
 ]]></content>
       <categories>
-        <category>safe</category>
+        <category>Linux</category>
+        <category>安全</category>
       </categories>
       <tags>
-        <tag>safe</tag>
-        <tag>linux</tag>
+        <tag>Linux</tag>
+        <tag>Safe</tag>
       </tags>
   </entry>
   <entry>
     <title>Hello World</title>
     <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>!<br><a id="more"></a><br>This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -2046,7 +2087,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>域名SSL证书</title>
     <url>/%E5%9F%9F%E5%90%8DSSL%E8%AF%81%E4%B9%A6/</url>
-    <content><![CDATA[<h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><ul>
+    <content><![CDATA[<p>SSL证书<br><a id="more"></a></p>
+<h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><ul>
 <li><p>什么是数字证书？</p>
 <p>数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。</p>
 <p>数字证书还有一个重要的特征：只在特定的时间段内有效。</p>
@@ -2196,7 +2238,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>暴力破解攻击和防御</title>
     <url>/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。<br><a id="more"></a></p>
+<blockquote>
 <p>引用自阿里云<a href="https://help.aliyun.com/knowledge_detail/56269.html">https://help.aliyun.com/knowledge_detail/56269.html</a></p>
 </blockquote>
 <h3 id="什么是暴力破解攻击"><a href="#什么是暴力破解攻击" class="headerlink" title="什么是暴力破解攻击"></a>什么是暴力破解攻击</h3><p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。</p>
@@ -2295,7 +2338,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>记一次Java微服务容器化维护工作</title>
     <url>/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/</url>
-    <content><![CDATA[<h4 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h4><hr>
+    <content><![CDATA[<p>维护经验分享<br><a id="more"></a></p>
+<h4 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h4><hr>
 <p>容器架构由Swarm迁移到Kubernetes</p>
 <p>Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。</p>
 <p>utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。</p>
@@ -2354,7 +2398,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理</title>
     <url>/%E9%98%BF%E9%87%8C%E4%BA%91WAF-Kubernetes-Ingress-%E6%9E%B6%E6%9E%84%E4%B8%8B%E6%97%A0%E6%B3%95%E6%8B%BF%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP%E7%9A%84%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<h5 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h5><p>2019年04月19日晚21:10分进行网络维护，内容如下：</p>
+    <content><![CDATA[<p>运维经验分享<br><a id="more"></a></p>
+<h5 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h5><p>2019年04月19日晚21:10分进行网络维护，内容如下：</p>
 <p>​    将域名CNAME到阿里云的Web防火墙（以下简称为WAF），业务请求经防火墙解析到Kubernetes 的 Ingress 的负载均衡（SLB）地址</p>
 <h5 id="故障现象："><a href="#故障现象：" class="headerlink" title="故障现象："></a>故障现象：</h5><p>​    后端应用通过获取请求中的X-Forwarded-For字段，拿到的IP地址为WAF回源地址，非客户端真实IP。</p>
 <h5 id="排查记录"><a href="#排查记录" class="headerlink" title="排查记录:"></a>排查记录:</h5><ol>

@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Confluence介绍 Confluence是由澳大利亚软件公司Atlassian开发和发布的协作软件程序 Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。 Confluence为团队提供一个协作环境。在这里，团队成员齐心协力，各擅其能，协同地编写文档和管理项目。">
+  <meta name="description" content="企业wiki-Confluence">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Confluence安装-维护-迁移实践">
 <meta property="og:url" content="http://yoursite.com/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/index.html">
 <meta property="og:site_name" content="GeekSRE">
-<meta property="og:description" content="Confluence介绍 Confluence是由澳大利亚软件公司Atlassian开发和发布的协作软件程序 Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。 Confluence为团队提供一个协作环境。在这里，团队成员齐心协力，各擅其能，协同地编写文档和管理项目。">
+<meta property="og:description" content="企业wiki-Confluence">
 <meta property="og:locale">
 <meta property="og:image" content="http://yoursite.com/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/confluence1.png">
 <meta property="og:image" content="http://yoursite.com/Confluence%E5%AE%89%E8%A3%85-%E7%BB%B4%E6%8A%A4-%E8%BF%81%E7%A7%BB%E5%AE%9E%E8%B7%B5/confluence2.png">
 <meta property="article:published_time" content="2019-04-29T02:59:43.000Z">
-<meta property="article:modified_time" content="2019-08-06T05:58:16.343Z">
+<meta property="article:modified_time" content="2020-10-15T08:05:34.190Z">
 <meta property="article:author" content="GeekSRE">
 <meta property="article:tag" content="Confluence">
 <meta name="twitter:card" content="summary">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-06 13:58:16" itemprop="dateModified" datetime="2019-08-06T13:58:16+08:00">2019-08-06</time>
+                <time title="Modified: 2020-10-15 16:05:34" itemprop="dateModified" datetime="2020-10-15T16:05:34+08:00">2020-10-15</time>
               </span>
 
           
@@ -243,7 +243,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>Confluence</strong>介绍</p>
+        <p>企业wiki-Confluence<br><a id="more"></a></p>
+<p><strong>Confluence</strong>介绍</p>
 <p><strong>Confluence</strong>是由澳大利亚软件公司<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Atlassian">Atlassian</a>开发和发布的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Collaboration_software">协作软件</a>程序</p>
 <p>Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。</p>
 <p>Confluence为团队提供一个协作环境。在这里，团队成员齐心协力，各擅其能，协同地编写文档和管理项目。从此打破不同团队、不同部门以及个人之间信息孤岛的僵局，Confluence真正实现了组织资源共享。</p>
@@ -380,20 +381,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -416,6 +417,8 @@
         
 
         
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">京ICP备17002268号 </a>
+  </div>
 
 <div class="copyright">
   
