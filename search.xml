@@ -893,17 +893,16 @@ user.save!
 <h5 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h5><h6 id="容器化服务灰度发布"><a href="#容器化服务灰度发布" class="headerlink" title="容器化服务灰度发布"></a>容器化服务灰度发布</h6><p>应用服务网格允许用户按照标准制定一套流量分发规则，并且无侵入的下发到实例中，平滑稳定的实现灰度发布功能。应用服务网格为应用治理提供的灰度发布功能，稳定高效地推动企业应用的迭代升级。</p>
 <p>灰度发布内置金丝雀、蓝绿、A/B Testing等典型灰度发布功能，用户无需使用繁琐的命令行配置，而是通过清晰友好的图形界面，轻松直观地完成灰度发布整个过程</p>
 <p>灰度发布过程</p>
-<p><img src="/Istio-Application-Service-Mesh/./isito03.png" alt></p>
+<p><img src="/Istio-Application-Service-Mesh/./istio03.png" alt></p>
 <h6 id="容器化微服务化改造"><a href="#容器化微服务化改造" class="headerlink" title="容器化微服务化改造"></a>容器化微服务化改造</h6><p>微服务目前被越来越多的IT企业重视。微服务是将复杂的应用切分为若干服务，每个服务均可以独立开发、部署和伸缩；微服务和容器组合使用，可进一步简化微服务的交付，提升应用的可靠性和可伸缩性。</p>
 <p>随着微服务的大量应用，其构成的分布式应用架构在运维、调试、和安全管理等维度变得更加复杂，开发者需要面临更大的挑战，如：服务发现、负载均衡、故障恢复、指标收集和监控，以及A/B测试、灰度发布、蓝绿发布、限流、访问控制、端到端认证等。</p>
 <p>应用服务网格通过无侵入的方式，面向容器云原生应用，提供容器化和治理的完整解决方案。</p>
 <p>微服务集成Istio架构</p>
-<p><img src="/Istio-Application-Service-Mesh/./isito04.png" alt></p>
+<p><img src="/Istio-Application-Service-Mesh/./istio04.png" alt></p>
 <h6 id="容器化服务应用流量治理"><a href="#容器化服务应用流量治理" class="headerlink" title="容器化服务应用流量治理"></a>容器化服务应用流量治理</h6><p>应用服务网格为用户提供基于容器化服务的流量治理能力。</p>
 <p>应用服务网格支持根据微服务的流量协议，提供策略化、场景化的网络连接、安全策略管理能力。支持基于应用拓扑对服务配置负载均衡、熔断容错等治理规则，并提供实时的、可视化的服务流量管理。应用无需任何改造，即可进行动态的智能路由和弹性流量管理。</p>
 <p>流量治理</p>
-<p><img src="/Istio-Application-Service-Mesh/./isito05.png" alt></p>
-<p>###### </p>
+<p><img src="/Istio-Application-Service-Mesh/./istio05.png" alt></p>
 ]]></content>
       <categories>
         <category>Kubernetes</category>
