@@ -192,6 +192,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Jenkins-API/" class="post-title-link" itemprop="url">Jenkins-API</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-07-01 16:38:05 / Modified: 16:44:23" itemprop="dateCreated datePublished" datetime="2019-07-01T16:38:05+08:00">2019-07-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Jenkins-API</p>
+<h5 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h5><p>在自动化平台中调用jenkins API，实现程序发版、自定义任务等</p>
+<h5 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h5><p><a target="_blank" rel="noopener" href="https://python-jenkins.readthedocs.io/en/latest/api.html">Python API</a></p>
+<ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python-jenkins</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>examples</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line"></span><br><span class="line">server = jenkins.Jenkins(<span class="string">&#x27;http://localhost:8080&#x27;</span>, username=<span class="string">&#x27;myuser&#x27;</span>, password=<span class="string">&#x27;mypassword&#x27;</span>)</span><br><span class="line">user = server.get_whoami()</span><br><span class="line">version = server.get_version()</span><br><span class="line">print(<span class="string">&#x27;Hello %s from Jenkins %s&#x27;</span> % (user[<span class="string">&#x27;fullName&#x27;</span>], version))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line">job_name=<span class="string">&#x27;k8s/cicd-test-0613&#x27;</span></span><br><span class="line">jenkins_server_url=<span class="string">&#x27;http://jenkins.visualchina.com/jenkins&#x27;</span></span><br><span class="line">user_id=<span class="string">&#x27;vcgdev&#x27;</span></span><br><span class="line">api_token=<span class="string">&#x27;***************************&#x27;</span></span><br><span class="line">server=jenkins.Jenkins(jenkins_server_url, username=user_id, password=api_token)</span><br><span class="line"><span class="comment">#String参数化构建job名为job_name的job, 参数param_dict为字典形式，如：param_dict= &#123;&quot;param1&quot;：“value1”， “param2”：“value2”&#125;</span></span><br><span class="line">param_dict= &#123;<span class="string">&quot;Action&quot;</span>:<span class="string">&quot;程序发版&quot;</span>,<span class="string">&quot;Scope&quot;</span>:<span class="string">&quot;生产环境&quot;</span>,<span class="string">&quot;JenkinsApi&quot;</span>:<span class="string">&quot;true&quot;</span>&#125;</span><br><span class="line">server.build_job(job_name, parameters=param_dict)</span><br><span class="line">last_build_number = server.get_job_info(job_name)[<span class="string">&#x27;lastCompletedBuild&#x27;</span>][<span class="string">&#x27;number&#x27;</span>]</span><br><span class="line">build_info = server.get_build_info(job_name, last_build_number)</span><br><span class="line">print(build_info)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h5><p><img src="/Jenkins-API/./jenkins.png" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1070,83 +1150,6 @@ user.save!
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/GitLab%E6%97%A7%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/GitLab%E6%97%A7%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">GitLab旧版本安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-06-27 15:27:51 / Modified: 15:28:39" itemprop="dateCreated datePublished" datetime="2019-06-27T15:27:51+08:00">2019-06-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GitLab/" itemprop="url" rel="index"><span itemprop="name">GitLab</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h4><p>研发需要找老代码，找到备份文件后恢复时报错版本过低</p>
-<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><ol>
-<li><h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5><h5 id="https-packages-gitlab-com-gitlab-gitlab-ce"><a href="#https-packages-gitlab-com-gitlab-gitlab-ce" class="headerlink" title="https://packages.gitlab.com/gitlab/gitlab-ce"></a><a target="_blank" rel="noopener" href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a></h5><h5 id="找到对应的版本，下载到服务器"><a href="#找到对应的版本，下载到服务器" class="headerlink" title="找到对应的版本，下载到服务器"></a>找到对应的版本，下载到服务器</h5></li>
-<li><p>安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh gitlab-ce-8.6.6-ce.0.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>恢复数据</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:restore RAILS_ENV=production BACKUP=1561606164</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1216,7 +1219,7 @@ user.save!
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">73</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1264,8 +1267,6 @@ user.save!
   </span>
   <span class="author" itemprop="copyrightHolder">GeekSRE</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
-  </div>
 
         
 
