@@ -843,6 +843,78 @@ user.save!
       </tags>
   </entry>
   <entry>
+    <title>Istio-Application Service Mesh</title>
+    <url>/Istio-Application-Service-Mesh/</url>
+    <content><![CDATA[<p>Istio服务网格支持对运行在Kubernetes集群上的无状态工作负载进行流量治理和流量全方位监控，将服务加入网格后，可以实现服务的灰度发布、限流、熔断、会话保持等流量治理能力以及一站式、图形化拓扑的流量健康与性能、调用链监控。</p>
+<a id="more"></a>
+<h5 id="什么是应用服务网格"><a href="#什么是应用服务网格" class="headerlink" title="什么是应用服务网格"></a>什么是应用服务网格</h5><p>是一种高性能、高可靠性和易用性的服务网格，以基础设施的方式为用户提供服务流量管理、服务运行监控、服务访问安全以及服务发布能力。控制面和数据面均和开源Istio完全兼容，无缝对接Kubernetes集群</p>
+<p>应用服务网格提供非侵入式的微服务治理解决方案，支持完整的生命周期管理和流量治理，兼容Kubernetes和Istio生态，其功能包括负载均衡、熔断、限流等多种治理能力。应用服务网格内置金丝雀、蓝绿、A/B Test等多种灰度发布流程，提供一站式自动化的发布管理。应用服务网格基于无侵入的监控数据采集，提供实时流量拓扑、调用链等服务性能监控和运行诊断，构建全景的服务运行视图。</p>
+<h5 id="什么是Istio"><a href="#什么是Istio" class="headerlink" title="什么是Istio"></a>什么是Istio</h5><p><a href="https://istio.io/latest/zh/">https://istio.io/latest/zh/</a></p>
+<p><img src="/Istio-Application-Service-Mesh/./istio00.png" alt></p>
+<p>Istio是一个提供连接、保护、控制以及观测功能的开放平台，通过提供完整的非侵入式的微服务治理解决方案，能够很好的解决云原生服务的管理、网络连接以及安全管理等服务网络治理问题。</p>
+<p>随着微服务的大量应用，其构成的分布式应用架构在运维、调试、和安全管理等维度变得更加复杂，开发者需要面临更大的挑战，如：服务发现、负载均衡、故障恢复、指标收集和监控，以及A/B测试、灰度发布、蓝绿发布、限流、访问控制、端到端认证等。</p>
+<p>在较高的层次上，Istio有助于降低这些部署的复杂性，并减轻开发团队的压力。它是一个完全开源的服务网格，可以透明地分层到现有的分布式应用程序上。它也是一个平台，包括允许集成到任何日志记录平台、遥测或策略系统的API。Istio的多样化功能使您能够成功高效地运行分布式微服务架构，并提供保护、连接和监控微服务的统一方法。</p>
+<p><strong>服务网格</strong></p>
+<p>服务网格（Service Mesh）通常用于描述构成应用程序的微服务网络以及应用之间的交互。它的需求包括服务发现、负载均衡、故障恢复、指标收集和监控以及通常更加复杂的运维需求，例如 A/B 测试、金丝雀发布、限流、访问控制和端到端认证等。</p>
+<h5 id="为什么要使用Istio"><a href="#为什么要使用Istio" class="headerlink" title="为什么要使用Istio"></a>为什么要使用Istio</h5><p>Istio提供了一个完整的解决方案，通过为整个服务网格提供行为洞察和操作控制来满足微服务应用程序的多样化需求。</p>
+<p>Kubernetes提供了部署、升级和有限的运行流量管理能力，但并不具备熔断、限流降级、调用链治理等能力。Istio是基于Kubernetes构建的开放平台，它很好的补齐了Kubernetes在微服务治理上的诸多能力。</p>
+<p>Istio和Kubernetes的关系</p>
+<p><img src="/Istio-Application-Service-Mesh/./istio01.png" alt></p>
+<p>想要让服务支持Istio，只需要在您的环境中部署一个特殊的sidecar代理，使用Istio控制平面功能配置和管理代理，拦截微服务之间的所有网络通信：</p>
+<ul>
+<li>实现HTTP、gRPC、WebSocket 和 TCP 流量的自动负载均衡。</li>
+<li>通过丰富的路由规则、重试、故障转移和故障注入，可以对流量行为进行细粒度控制。</li>
+<li>可插入的策略层和配置 API，支持访问控制、速率限制和配额。</li>
+<li>对出入集群入口和出口中所有流量自动度量指标、日志记录和追踪。</li>
+<li>通过强大的基于身份的验证和授权，在集群中实现安全的服务间通信。</li>
+</ul>
+<p>Istio 旨在实现可扩展性，满足各种部署需求。</p>
+<h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><h6 id="灰度发布"><a href="#灰度发布" class="headerlink" title="灰度发布"></a>灰度发布</h6><p>灰度发布是迭代的软件产品在生产环境安全上线的一种重要手段。</p>
+<h6 id="金丝雀发布"><a href="#金丝雀发布" class="headerlink" title="金丝雀发布"></a>金丝雀发布</h6><p>在生产环境上引一部分实际流量对一个新版本进行测试，测试新版本的性能和表现，在保证系统整体稳定运行的前提下，尽早发现新版本在实际环境上的问题。</p>
+<h6 id="蓝绿发布"><a href="#蓝绿发布" class="headerlink" title="蓝绿发布"></a>蓝绿发布</h6><p>蓝绿发布提供了一种零宕机的部署方式。不停老版本，部署新版本进行测试，确认运行正常后，将流量切到新版本，然后老版本同时也升级到新版本。始终有两个版本同时在线，有问题可以快速切换。</p>
+<h6 id="流量治理"><a href="#流量治理" class="headerlink" title="流量治理"></a>流量治理</h6><p>应用流量治理提供可视化云原生应用的网络状态监控，并实现在线的网络连接和安全策略的管理和配置，当前支持HTTP、TCP流量下的路由规则、负载均衡、会话保持、连接池管理、RBAC等能力。</p>
+<h6 id="连接池管理"><a href="#连接池管理" class="headerlink" title="连接池管理"></a>连接池管理</h6><p>配置TCP和HTTP的连接和请求池相关阈值，保护目标服务，避免对服务的过载访问。</p>
+<h6 id="熔断"><a href="#熔断" class="headerlink" title="熔断"></a>熔断</h6><p>配置快速响应和隔离服务访问故障，防止网络和服务调用故障级联发生，限制故障影响范围，防止故障蔓延导致系统整体性能下降或者雪崩。</p>
+<h6 id="调用链分析"><a href="#调用链分析" class="headerlink" title="调用链分析"></a>调用链分析</h6><p>跟踪大规模复杂的分布式系统运行服务调用关系，解决分布式服务故障定位定界问题。</p>
+<h5 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h5><p><img src="/Istio-Application-Service-Mesh/./istio02.png" alt></p>
+<p>应用服务网格在逻辑上分为控制层面和数据层面：</p>
+<ul>
+<li><strong>控制层面：</strong>管理代理（默认为Envoy），用于管理流量路由、运行时策略执行等。</li>
+<li><strong>数据层面：</strong>由一组以 sidecar 方式部署的智能代理（Envoy）组成。这些代理可以调节和控制微服务及 Mixer之间所有的网络通信。</li>
+</ul>
+<p>应用服务网格主要由以下组件构成：</p>
+<ul>
+<li><strong>Istio管理器（Pilot）：</strong>负责收集和验证配置，并将其传播到各种Istio组件。它从策略执行模块（Mixer）和智能代理（Envoy）中抽取环境特定的实现细节，为他们提供用户服务的抽象表示，独立于底层平台。此外，流量管理规则（即通用4层规则和7层HTTP/gRPC路由规则）可以在运行时通过Pilot进行编程。</li>
+<li><strong>策略执行模块（Mixer）：</strong>负责在服务网格上执行访问控制和使用策略，并从智能代理（Envoy）和其他服务收集遥测数据。依据智能代理（Envoy）提供的属性执行策略。</li>
+<li><strong>Citadel：</strong>Citadel通过内置身份和凭证管理赋能强大的服务间和最终用户身份验证。可用于升级服务网格中未加密的流量，并为运维人员提供基于服务标识而不是网络控制的强制执行策略的能力。</li>
+<li><strong>Galley：</strong>Galley 代表其他的 Istio 控制平面组件，用来验证用户编写的 Istio API 配置。</li>
+<li><strong>智能代理（Envoy）：</strong>作为一个独立的组件与相关微服务部署在同一个Kubernetes的pod上，并提供一系列的属性给策略执行模块（Mixer）。策略执行模块（Mixer）以此作为执行策略的依据，并发送到监控系统。</li>
+</ul>
+<h5 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h5><h6 id="容器化服务灰度发布"><a href="#容器化服务灰度发布" class="headerlink" title="容器化服务灰度发布"></a>容器化服务灰度发布</h6><p>应用服务网格允许用户按照标准制定一套流量分发规则，并且无侵入的下发到实例中，平滑稳定的实现灰度发布功能。应用服务网格为应用治理提供的灰度发布功能，稳定高效地推动企业应用的迭代升级。</p>
+<p>灰度发布内置金丝雀、蓝绿、A/B Testing等典型灰度发布功能，用户无需使用繁琐的命令行配置，而是通过清晰友好的图形界面，轻松直观地完成灰度发布整个过程</p>
+<p>灰度发布过程</p>
+<p><img src="/Istio-Application-Service-Mesh/./isito03.png" alt></p>
+<h6 id="容器化微服务化改造"><a href="#容器化微服务化改造" class="headerlink" title="容器化微服务化改造"></a>容器化微服务化改造</h6><p>微服务目前被越来越多的IT企业重视。微服务是将复杂的应用切分为若干服务，每个服务均可以独立开发、部署和伸缩；微服务和容器组合使用，可进一步简化微服务的交付，提升应用的可靠性和可伸缩性。</p>
+<p>随着微服务的大量应用，其构成的分布式应用架构在运维、调试、和安全管理等维度变得更加复杂，开发者需要面临更大的挑战，如：服务发现、负载均衡、故障恢复、指标收集和监控，以及A/B测试、灰度发布、蓝绿发布、限流、访问控制、端到端认证等。</p>
+<p>应用服务网格通过无侵入的方式，面向容器云原生应用，提供容器化和治理的完整解决方案。</p>
+<p>微服务集成Istio架构</p>
+<p><img src="/Istio-Application-Service-Mesh/./isito04.png" alt></p>
+<h6 id="容器化服务应用流量治理"><a href="#容器化服务应用流量治理" class="headerlink" title="容器化服务应用流量治理"></a>容器化服务应用流量治理</h6><p>应用服务网格为用户提供基于容器化服务的流量治理能力。</p>
+<p>应用服务网格支持根据微服务的流量协议，提供策略化、场景化的网络连接、安全策略管理能力。支持基于应用拓扑对服务配置负载均衡、熔断容错等治理规则，并提供实时的、可视化的服务流量管理。应用无需任何改造，即可进行动态的智能路由和弹性流量管理。</p>
+<p>流量治理</p>
+<p><img src="/Istio-Application-Service-Mesh/./isito05.png" alt></p>
+<p>###### </p>
+]]></content>
+      <categories>
+        <category>Kubernetes</category>
+        <category>Istio</category>
+      </categories>
+      <tags>
+        <tag>Kubernetes</tag>
+        <tag>Istio</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Jenkins-API</title>
     <url>/Jenkins-API/</url>
     <content><![CDATA[<p>Jenkins-API</p>
@@ -2251,8 +2323,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:test-20190530160557 ,pre环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:pre-20190530162226 , pro环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:pro-20190530162233</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>Jenkins</tag>
         <tag>Kubernetes</tag>
+        <tag>Jenkins</tag>
       </tags>
   </entry>
   <entry>
