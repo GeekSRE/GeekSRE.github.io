@@ -971,7 +971,6 @@ user.save!
 <h5 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h5><p>启动命令中增加 <strong>-Dhudson.model.DownloadService.noSignatureCheck=true</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /jenkins/tomcat/bin/catalina.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JAVA_OPTS=&#x27;&#x27;&#x27;-server -Xms4096m -Xmx8192m -Dhudson.model.DirectoryBrowserSupport.CSP=&quot;&quot; -Dhudson.model.DownloadService.noSignatureCheck=true &#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
 <p><img src="/Jenkins-update-error-Signature-verification-failed-in-update-site/./jenkins_error03.png" alt></p>
-<p>##### </p>
 <h5 id="验证："><a href="#验证：" class="headerlink" title="验证："></a>验证：</h5><p><img src="/Jenkins-update-error-Signature-verification-failed-in-update-site/./jenkins_error02.png" alt></p>
 ]]></content>
       <categories>
