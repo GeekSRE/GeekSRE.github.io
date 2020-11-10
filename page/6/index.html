@@ -192,6 +192,67 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Nginx-%E6%97%A5%E5%BF%97%E5%88%87%E5%89%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Nginx-%E6%97%A5%E5%BF%97%E5%88%87%E5%89%B2/" class="post-title-link" itemprop="url">Nginx-日志切割</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-27 16:54:19 / Modified: 16:54:35" itemprop="dateCreated datePublished" datetime="2019-05-27T16:54:19+08:00">2019-05-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>nginx日志按天进行切割，通过写shell脚本，创建以日期命名文件</p>
+<hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义nginx 日志路径</span></span><br><span class="line">LOG_PATH=&quot;/var/gb/logs/&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义nginx 访问日志文件名称</span></span><br><span class="line">ACCESS_LOG=&quot;access.log&quot;</span><br><span class="line">ERROR_LOG=&quot;error.log&quot;</span><br><span class="line"></span><br><span class="line">for i in `find  $LOG_PATH -name &quot;$ACCESS_LOG&quot;`; do</span><br><span class="line">    cd $(dirname $i)</span><br><span class="line">    # 切割access日志</span><br><span class="line">    if [[ -f $ACCESS_LOG ]]; then</span><br><span class="line">        cp &#123;,$(date +%F)-&#125;$&#123;ACCESS_LOG&#125;</span><br><span class="line">        : &gt; $ACCESS_LOG</span><br><span class="line">    fi</span><br><span class="line">    </span><br><span class="line">    # 如果error日志&gt;20m，切</span><br><span class="line">    if [[ -f $ERROR_LOG ]]; then</span><br><span class="line">        ERROR_SIZE=`ls -l $ERROR_LOG | awk &#x27;&#123; print $5 &#125;&#x27;`</span><br><span class="line">        if [[ $ERROR_SIZE -gt 20971520 ]]; then</span><br><span class="line">            cp &#123;,$(date +%F)-&#125;$&#123;ERROR_LOG&#125;</span><br><span class="line">            : &gt; $&#123;ERROR_LOG&#125;</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查找nginx 日志目录下7天前的日志并删除</span></span><br><span class="line">find $&#123;LOG_PATH&#125; -type f -name &quot;*-$&#123;ACCESS_LOG&#125;&quot; -mtime +7 -delete</span><br><span class="line">find $&#123;LOG_PATH&#125; -type f -name &quot;*-$&#123;ERROR_LOG&#125;&quot;  -mtime +7 -delete</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96%E6%B7%BB%E5%8A%A0live2d%E5%8A%A8%E7%94%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -910,87 +971,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Ansible-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Ansible-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/" class="post-title-link" itemprop="url">Ansible-批量修改密码</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-23 11:13:07" itemprop="dateCreated datePublished" datetime="2019-04-23T11:13:07+08:00">2019-04-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-15 16:09:10" itemprop="dateModified" datetime="2020-10-15T16:09:10+08:00">2020-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Ansible/" itemprop="url" rel="index"><span itemprop="name">Ansible</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>介绍使用ansible批量修改用户密码的方法，因为在使用ansible修改用户密码的时候不能使用明文的方式，需要先加密，所以就需要使用一个方法对输入的明文的密码进行加密，下面就直接上干货。<br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Ansible-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1060,7 +1040,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

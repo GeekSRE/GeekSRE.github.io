@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/kubectl-get-all-api-resources/</loc>
+    
+    <lastmod>2020-11-10T07:34:43.717Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/Istio-Application-Service-Mesh/</loc>
     
     <lastmod>2020-10-20T03:00:17.245Z</lastmod>
