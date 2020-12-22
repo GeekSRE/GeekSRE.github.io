@@ -2072,6 +2072,144 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
+    <title>提升登录口令安全最佳实践</title>
+    <url>/ops-safe-weak-passwords/</url>
+    <content><![CDATA[<p>如果您的服务器使用弱口令登录，黑客可能会非法登录您的服务器，窃取服务器数据或破坏服务器。建议您为服务器设置复杂登录口令，并定期提升登录口令的安全性。本文介绍如何提升登录口令的安全性以及常见的修改方法。</p>
+<a id="more"></a>
+<h2 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h2><p>在服务器系统中使用弱口令可能会造成以下危害：</p>
+<ul>
+<li>个人用户使用的弱口令可能会被猜解或被破解工具破解，从而泄露个人隐私信息，甚至造成财产损失。</li>
+<li>系统管理员使用弱口令可能会导致整个系统被攻击、数据库信息被窃取、业务系统瘫痪，造成所有用户信息的泄露和巨大的经济损失。</li>
+</ul>
+<p>弱口令会造成用户信息泄露事件和群体性的网络安全危害事件，及时检测出弱口令能够有效防止系统被攻击和信息泄露，提高系统的安全性。云安全中心基线检查功能为您提供了弱口令检测功能，可以及时检测您资产中是否存在弱口令风险。您可以根据以下建议提升您服务器的安全防护。</p>
+<ul>
+<li>参考本文介绍的提升口令安全的方法设置登录口令。具体方法请参见<a href="https://help.aliyun.com/document_detail/185039.html?spm=a2c4g.11174283.6.711.6bcf7f35q8pjH7#section-ta9-kwv-1k8">提升口令安全</a>。</li>
+<li>使用云安全中心基线检查功能，检查您的服务器中是否存在高危弱口令风险。如果在您的资产中检测出了高危弱口令风险，建议您及时修改资产中的弱口令。详细操作步骤请参见<a href="https://help.aliyun.com/document_detail/185039.html?spm=a2c4g.11174283.6.711.6bcf7f35q8pjH7#section-bpx-4cy-cbz">修改常见的服务器弱口令</a>。</li>
+</ul>
+<h2 id="提升口令安全"><a href="#提升口令安全" class="headerlink" title="提升口令安全"></a>提升口令安全</h2><p>您可以通过以下方法提高登录口令的安全性：</p>
+<ul>
+<li><p>设置复杂密码</p>
+<p>密码复杂度至少应同时满足以下要求：</p>
+<ul>
+<li>密码长度大于等于8个字符。</li>
+<li>至少包含以下三种字符的组合：<ul>
+<li>大写字母（A~Z）</li>
+<li>小写字母（a~z）</li>
+<li>数字（0~9）</li>
+<li>特殊字符（`~!@$%^&amp;*()-_=+#|[{}];:’”,&lt;.&gt;/?）</li>
+</ul>
+</li>
+<li>密码不为用户名或用户名的倒序。</li>
+</ul>
+</li>
+<li><p>不使用常见或公开的弱口令</p>
+<p>以下是常见或公开的弱口令：</p>
+<ul>
+<li>已公开的常用弱口令。例如abcd1234、admin、root、admin@123等。</li>
+<li>数字或字母连排或混排，键盘字母连排。例如123456、abcdef、123abc、qwerty、1qaz2wsx等。</li>
+<li>短语密码。例如5201314、woaini1314等。</li>
+<li>公司名称、 生日、姓名、身份证、手机号、邮箱名、用户ID、时间年份等。</li>
+</ul>
+</li>
+<li><p>定期修改密码</p>
+<p>建议每隔90天更改一次密码。</p>
+</li>
+</ul>
+<h2 id="修改常见的服务器弱口令"><a href="#修改常见的服务器弱口令" class="headerlink" title="修改常见的服务器弱口令"></a>修改常见的服务器弱口令</h2><p>以下表格介绍修改Linux服务器、MySQL数据库、Redis数据库等常见系统的登录弱口令的操作防范。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">系统名称</th>
+<th style="text-align:left">修改登录口令操作步骤</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Linux系统</td>
+<td style="text-align:left">在Linux系统服务器中，执行<code>passwd [&lt;user&gt;]</code>命令修改用户登录口令。</td>
+<td style="text-align:left">其中<code>&lt;user&gt;</code>为登录用户名，如果不输入则修改的是当前用户的口令。执行完命令后请根据提示输入新口令。</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows系统</td>
+<td style="text-align:left">本处以Windows 10为例说明修改用户登录口令的方法。登录Windows服务器后，在左下角单击<a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1182590061/p170023.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1182590061/p170023.png" alt="开始图标"></a>图标。单击<a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1182590061/p170024.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1182590061/p170024.png" alt="设置图标"></a>图标。在<strong>Windows设置</strong>页面，单击<strong>帐户</strong>。在左侧导航栏单击<strong>登录选项</strong>。根据页面提示更改服务器密码。</td>
+<td style="text-align:left">无。</td>
+</tr>
+<tr>
+<td style="text-align:left">MySQL数据库</td>
+<td style="text-align:left">登录MySQL数据库。执行以下命令查看数据库用户密码信息。<code>SELECT user, host, authentication_string FROM user;</code><strong>说明</strong> 部分MySQL数据库版本可能不支持上述查询命令。如果您执行上述命令未获得用户密码信息，请您执行以下命令。<code>SELECT user, host, password FROM user;</code>执行以下命令根据查询结果及弱密码告警信息修改具体用户的密码。<code>SET PASSWORD FOR &#39;用户名&#39;@&#39;主机&#39; = PASSWORD(&#39;新密码&#39;);</code>执行刷新命令<code>flush privileges;</code>。</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">Redis数据库</td>
+<td style="text-align:left">打开Redis数据库的配置文件redis.conf。执行以下命令修改或增加口令。<code>requirepass &lt;password&gt;；</code>重启Redis服务。</td>
+<td style="text-align:left">其中<code>&lt;password&gt;</code>为登录口令。如果已存在登录口令，则将其修改为复杂口令；如果不存在登录口令，则添加新口令。</td>
+</tr>
+<tr>
+<td style="text-align:left">SQL Server数据库</td>
+<td style="text-align:left">Linux系统登录登录SQL Server数据库，执行以下命令修改登录口令。<code>exec sp_password &#39;&lt;oldpassword&gt;&#39;,&#39;&lt;newpassword&gt;&#39;,&#39;&lt;user&gt;&#39;</code>Windows认证登录在SQL Server数据库客户端依次选择<strong><em>\</em>安全性\</strong> &gt; **登录名**** ，选中用户后将弱口令修改为复杂口令。</td>
+<td style="text-align:left">其中<code>&lt;oldpassword&gt;</code>为旧口令，<code>&lt;newpassword&gt;</code>为新口令，<code>&lt;user&gt;</code>为用户名。</td>
+</tr>
+<tr>
+<td style="text-align:left">MongoDB数据库</td>
+<td style="text-align:left">登录MongoDB数据库。执行<code>use admin</code>命令切换到admin用户。执行<code>use &lt;db_name&gt;</code>命令切换到需要修改登录口令的数据库。执行<code>db.updateUser(&#39;&lt;username&gt;&#39;,&#123;pwd:&#39;&lt;newpassword&gt;&#39;&#125;)</code>命令修改数据库的登录名和口令。</td>
+<td style="text-align:left"><code>db_name</code>为需要修改登录口令的数据库名称。<code>username</code>为待修改口令的用户名，<code>newpassword</code>为新口令。修改口令完成后，需等待15分钟才能检测修改后的口令是否为弱口令。</td>
+</tr>
+<tr>
+<td style="text-align:left">PostgreSQL数据库</td>
+<td style="text-align:left">登录PostgreSQL数据库。执行以下命令修改弱口令。<code>ALTER USER &lt;user&gt; WITH PASSWORD &#39;&lt;newpassword&gt;&#39;;</code></td>
+<td style="text-align:left">其中<code>&lt;user&gt;</code>为用户名，<code>&lt;newpassword&gt;</code>为新口令。</td>
+</tr>
+<tr>
+<td style="text-align:left">Tomcat</td>
+<td style="text-align:left">打开Tomcat根目录下的配置文件conf/tomcat-user.xml。修改user节点的password属性值为复杂口令。</td>
+<td style="text-align:left">无。</td>
+</tr>
+<tr>
+<td style="text-align:left">Rsync</td>
+<td style="text-align:left">打开Rsync的配置文件rsyncd.conf。找到<code>secrets file</code>配置项，并在该配置项中找到<code>rsyncd.secret</code>文件的路径。将rsyncd.secret文件按<code>用户名:口令</code>的形式编辑，修改对应用户的口令为新的复杂口令。重启Rsync服务。</td>
+<td style="text-align:left">无。</td>
+</tr>
+<tr>
+<td style="text-align:left">SVN</td>
+<td style="text-align:left">打开版本库目录。在配置文件<path></path>/conf/svnserve.conf中找到<code>password-db</code>。根据password-db配置找到口令配置文件路径，将该文件中的口令修改为指定的口令（默认为passwd文件）。重启SVN服务。</td>
+<td style="text-align:left">无。</td>
+</tr>
+<tr>
+<td style="text-align:left">vsftpd服务器软件</td>
+<td style="text-align:left">本地用户打开配置文件vsftpd.conf。增加或修改配置项<code>anonymous_enable</code>的值为<strong>NO</strong>。<code>anonymous_enable</code>的值为<strong>NO</strong>表示禁止匿名登录。执行<code>passwd &lt;ftpuser&gt;</code>命令修改FTP用户的口令。<code>&lt;ftpuser&gt;</code>为ftp用户的用户名。根据提示设置符合要求的新的复杂口令。虚拟用户打开文件/etc/vsftpd/login.txt。修改用户名对应的口令并保存。该文件格式为：第1行是用户A的用户名，第2行是用户A的口令，第3行是用户B的用户名，第4行是用户B的口令，以此类推。执行<code>db_load -T -t hash -f /etc/vsftpd/login.txt /etc/vsftpd/login.db</code>命令。修改/etc/pam.d/vsftpd文件。在存在<code>auth pam_userdb.so</code>和<code>account pam_userdb.so</code>的行后分别添加语句<code>db=/etc/vsftpd/login</code>，修改完成后保存。具体位置见下图。<a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1182590061/p170046.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1182590061/p170046.png" alt="vsftpd文件修改位置"></a>重启vsftpd。</td>
+<td style="text-align:left">无。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Linux系统登录弱口令检查"><a href="#Linux系统登录弱口令检查" class="headerlink" title="Linux系统登录弱口令检查"></a>Linux系统登录弱口令检查</h4><h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>若系统使用弱口令，存在极大的被恶意猜解入侵风险，需立即修复。</p>
+<h5 id="检查提示"><a href="#检查提示" class="headerlink" title="检查提示"></a>检查提示</h5><p>存在弱密码(用户名/密码):root/12**56</p>
+<h5 id="加固建议"><a href="#加固建议" class="headerlink" title="加固建议"></a>加固建议</h5><p>执行命令<code>passwd [&lt;user&gt;]</code>，然后根据提示输入新口令完成修改，其中<user>为用户名，如果不输入则修改的是当前用户的口令。口令应符合复杂性要求：</user></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<h4 id="MySQL数据库登录弱口令检查"><a href="#MySQL数据库登录弱口令检查" class="headerlink" title="MySQL数据库登录弱口令检查"></a>MySQL数据库登录弱口令检查</h4><h5 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h5><p>若系统使用弱口令，存在极大的被恶意猜解入侵风险，需立即修复。</p>
+<h5 id="加固建议-1"><a href="#加固建议-1" class="headerlink" title="加固建议"></a>加固建议</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">登录mysql数据库；</span><br><span class="line">查看数据库用户密码信息：&#96;SELECT user, host, authentication_string FROM user;&#96; 部分版本查询命令为：&#96;SELECT user, host, password FROM user;&#96; </span><br><span class="line">根据查询结果及弱密码告警信息修改具体用户的密码：&#96;SET PASSWORD FOR &#39;用户名&#39;@&#39;主机&#39; &#x3D; PASSWORD(&#39;新密码&#39;);&#96;</span><br><span class="line">执行刷新命令：&#96;flush privileges;&#96; </span><br></pre></td></tr></table></figure>
+<h6 id="新口令应符合复杂性要求："><a href="#新口令应符合复杂性要求：" class="headerlink" title="新口令应符合复杂性要求："></a>新口令应符合复杂性要求：</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<h4 id="Redis数据库登录弱口令检查"><a href="#Redis数据库登录弱口令检查" class="headerlink" title="Redis数据库登录弱口令检查"></a>Redis数据库登录弱口令检查</h4><h5 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h5><p>redis在redis.conf配置文件中，设置配置项requirepass， 开户密码认证。 redis因查询效率高，auth这种命令每秒能处理9w次以上，简单的redis的密码极容易为攻击者暴破。</p>
+<h5 id="检查提示-1"><a href="#检查提示-1" class="headerlink" title="检查提示"></a>检查提示</h5><p>存在弱密码(配置文件|密码):/etc/redis.conf|</p>
+<h5 id="加固建议-2"><a href="#加固建议-2" class="headerlink" title="加固建议"></a>加固建议</h5><p>打开redis.conf，找到requirepass所在的地方，修改为指定的密码，密码应符合复杂性要求：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<p>再去掉前面的#号注释符，然后重启redis</p>
+<h4 id="Apache-Tomcat控制台弱口令检查"><a href="#Apache-Tomcat控制台弱口令检查" class="headerlink" title="Apache Tomcat控制台弱口令检查"></a>Apache Tomcat控制台弱口令检查</h4><h5 id="描述-3"><a href="#描述-3" class="headerlink" title="描述"></a>描述</h5><p>tomcat-manger是Tomcat提供的web应用热部署功能，该功能具有较高权限，会直接控制Tomcat应用，应尽量避免使用此功能。如有特殊需求，请务必确保为该功能配置了强口令</p>
+<h5 id="检查提示-2"><a href="#检查提示-2" class="headerlink" title="检查提示"></a>检查提示</h5><p>存在弱密码(配置文件：用户名|密码):/data1/tom-7.0.73/conf/tomcat-users.xml:tungstar|tu<strong><strong>***</strong></strong>cg</p>
+<h5 id="加固建议-3"><a href="#加固建议-3" class="headerlink" title="加固建议"></a>加固建议</h5><p>编辑Tomcat根目录下的配置文件conf/tomcat-user.xml，修改user节点的password属性值为复杂口令, 口令应符合复杂性要求：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<p>操作时建议做好记录或备份</p>
+<h4 id="PostgreSQL数据库登录弱口令检查"><a href="#PostgreSQL数据库登录弱口令检查" class="headerlink" title="PostgreSQL数据库登录弱口令检查"></a>PostgreSQL数据库登录弱口令检查</h4><h5 id="描述-4"><a href="#描述-4" class="headerlink" title="描述"></a>描述</h5><p>若系统使用弱口令，存在极大的被恶意猜解入侵风险，需立即修复。</p>
+<h5 id="加固建议-4"><a href="#加固建议-4" class="headerlink" title="加固建议"></a>加固建议</h5><p>登录postgresql，使用如下命令修改弱口令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER USER &lt;user&gt; WITH PASSWORD &#39;&lt;newpassword&gt;&#39;;</span><br></pre></td></tr></table></figure>
+<p>其中<user>为用户名，<newpassword>为新口令。新口令应符合复杂性要求：</newpassword></user></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<h4 id="Windows系统登录弱口令检查"><a href="#Windows系统登录弱口令检查" class="headerlink" title="Windows系统登录弱口令检查"></a>Windows系统登录弱口令检查</h4><h5 id="描述-5"><a href="#描述-5" class="headerlink" title="描述"></a>描述</h5><p>若系统使用弱口令，存在极大的被恶意猜解入侵风险，需立即修复。</p>
+<h5 id="加固建议-5"><a href="#加固建议-5" class="headerlink" title="加固建议"></a>加固建议</h5><p>以win10为例，依次选择“开始 ”菜单&gt;“设置 ”&gt;“帐户 ” &gt;“登录选项 ”。在“密码”下面，选择“更改”按钮，然后按照步骤操作输入原口令和新口令，完成设置。新口令应符合复杂性要求：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、长度8位以上 2、包含以下四类字符中的三类字符: 英文大写字母(A 到 Z) 英文小写字母(a 到 z) 10 个基本数字(0 到 9) 非字母字符(例如 !、$、#、%、@、^、&amp;) 3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等 </span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>pip-学习笔记</title>
     <url>/pip-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。<br><a id="more"></a><br>目前如果你在 <a href="https://www.python.org/">python.org</a> 下载最新版本的安装包，则是已经自带了该工具。</p>
@@ -2333,6 +2471,45 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
         <tag>Kubernetes</tag>
         <tag>Jenkins</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>挖矿程序处理最佳实践</title>
+    <url>/%E6%8C%96%E7%9F%BF%E7%A8%8B%E5%BA%8F%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<p>挖矿程序会占用CPU进行超频运算，导致CPU严重损耗，并且影响服务器上的其他应用。挖矿程序还具备蠕虫化特点，当安全边界被突破时，挖矿病毒会向内网渗透，并在被入侵的服务器上持久化驻留以获取最大收益。</p>
+<a id="more"></a>
+<p>由于挖矿程序具有联动作用，在清理过程中会存在处理不及时或清理不干净导致挖矿病毒反复发生、出现恶意脚本替换系统命令，从而导致执行系统命令时触发恶意脚本执行（例如：xorddos）。因此，需要在挖矿程序的一个执行周期内，尽快将被入侵服务器上的木马程序和持续化后门清理干净，否则容易导致挖矿病毒频繁复发。</p>
+<h2 id="处理挖矿程序"><a href="#处理挖矿程序" class="headerlink" title="处理挖矿程序"></a>处理挖矿程序</h2><ol>
+<li><p>查看挖矿进程的执行文件链接。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -l &#x2F;proc&#x2F;xxx&#x2F;exe           &#x2F;&#x2F; xxx表示该进程的PID。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除挖矿进程的执行文件。</p>
+</li>
+<li><p>在高CPU消耗的进程中定位到挖矿进程，并杀死该进程。</p>
+</li>
+<li><p>检查您服务器的防火墙中是否存在挖矿程序的矿池地址。</p>
+<ol>
+<li><p>执行以下命令查看是否存在业务范围之外的可疑通信地址和开放端口。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -L -n</span><br></pre></td></tr></table></figure>
+<p><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97001.png" alt="查看防火墙开放IP和端口"></p>
+</li>
+<li><p>执行以下命令清除恶意矿池地址。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;iptables</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>执行以下命令排查是否存在定时任务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+<p><a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97002.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97002.png" alt="排查定时任务"></a></p>
+<p>您可以根据排查的结果，对可疑的定时任务文件进行处理，防止二次入侵。</p>
+</li>
+<li><p>执行以下命令检查SSH公钥中是否存在挖矿病毒，防止出现持续后门。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat .ssh&#x2F;authorized_keys</span><br></pre></td></tr></table></figure>
+<p><a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6326048951/p96925.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6326048951/p96925.png" alt="排查SSH授权"></a></p>
+</li>
+<li><p>查看其他服务器中是否存在挖矿行为，防止挖矿病毒重复感染内网中的其他服务器。</p>
+</li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>暴力破解攻击和防御</title>
