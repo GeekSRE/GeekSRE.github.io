@@ -2455,6 +2455,126 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
+    <title>优秀的 REST API 设计指南</title>
+    <url>/rest-api-best-practices/</url>
+    <content><![CDATA[<p><img src="/rest-api-best-practices/./code.jpg" alt></p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<p>作为一名优秀的后端程序员，你照着产品需求设计好了模型，设计好了关联关系。</p>
+<p>把这些模型和关系一再打磨了一番之后，你想是时候把API设计出来，与前端沟通了。</p>
+<p>这时候问题来了：</p>
+<p>一旦 API 进入前端 APP 代码，或者是被你的顾客广泛使用的话，再来大改就非常麻烦了。比如说，如果 APP 版本 1.0 用了一个接口 A，这个接口 A 如果要进行大改，那么必须将 A 维持至所有用户升级过 APP 1.0 后。</p>
+<p>那么怎么样避免 API 发布之后大改呢？有没有一些提前可以注意到的设计准则可以帮我们避开 API 设计中的各种坑？</p>
+<p>答案是有的。网上充满了各种对 API 设计的建议，而这篇文章里我们结合卡拉搜索设计 API 的经验，把 REST API 的最佳实践和常见的坑都总结出来，做成一个教程，希望可以在帮到正在设计/使用 API 的你。</p>
+<blockquote>
+<p><a href="https://kalasearch.cn/">卡拉搜索</a>致力于做中国的 Algolia，即为开发者提供 API，帮助他们构造自己的应用内搜索引擎。我们提供简单的 API 接口，让你可以在几分钟内为自己的 App、小程序、网站、博客等接入<a href="https://kalasearch.cn/docs">搜索功能</a>。欢迎体验我们的 Demo 和我们的 API 文档。</p>
+</blockquote>
+<h2 id="REST-API-是什么-程序员与服务之间沟通的语言"><a href="#REST-API-是什么-程序员与服务之间沟通的语言" class="headerlink" title="REST API 是什么 - 程序员与服务之间沟通的语言"></a>REST API 是什么 - 程序员与服务之间沟通的语言</h2><hr>
+<p>任何语言的本质都是一套规则的合集。比如说，中文里要求句子要有主谓宾，而作为母语为中文的我们，一旦有人说了一句缺少主语的话，我们会直觉性地感觉很奇怪。</p>
+<p>比如说，如果有人对你说“是一个神人”。</p>
+<p>你会直觉地问：究竟谁是一个神人？</p>
+<p>同样的，在各个程序的沟通中，或者各个服务的沟通中，我们也需要类似“语言”的东西，让我们可以不需要太多的上下文，就可以前端理解后端、后端也理解前端。</p>
+<p>设想一下，有多少次你跟前端一起需要前后端 <code>联调</code>？有多少次前端觉得你定义的 API 不够方便直观，一定要你多返回一个参数或者改一下端点路径？</p>
+<p>其实本质上，你们在 <code>联调</code> 时就是在尝试设计一个“语言”，以方便互相可以更容易地理解对方。</p>
+<p>比如说，后端会要求前端说，你调用 <code>POST /user/abc</code> 就可以创建一个名为 <code>abc</code> 用户了。</p>
+<p>短线来讲这当然没问题，你们可以几乎任意地定义 API 端点，任意地调整传递的参数。但是一旦项目开始变复杂，问题就开始出现了。</p>
+<ul>
+<li>首先大家有不同的经验和喜好，对 API 的定义可能千差万别，所谓众口难调</li>
+<li>系统开始复杂后，各个系统之间的 API 因为定义的人的不同，会开始出现不一致，导致每个端口调用前需要详细阅读文档（如果有的话）或者与 API 设计者无穷无尽地讨论和会议</li>
+<li>如果你的 API 是面向客户的，比如如果你是一家软件服务公司，那么你自定义的 API 会增加客户接入的成本</li>
+<li>等等等等</li>
+</ul>
+<p>因此，要是有一套人类通用的”语言“或者”规范“，来指导大家定义 API 的方式，那样该多好？</p>
+<p>REST API 就是这样一种规范，它是目前整个互联网应用最广泛的 API 规范。有意思的是，REST是由它的提出者 Roy Fielding 在他读书期间，写的博士论文里提出的。</p>
+<p>总结一下，REST API 有一套 API 设计的准则，它规范了 API 设计的框架，使得服务间、程序员之间有一个通用的沟通语言。如果需要读 API 更广泛的定义，请参考文章<a href="https://kalasearch.cn/blog/what-is-api">什么是 API</a></p>
+<p><a href="https://kalasearch.cn/static/0f972adb9bbda638b254409234373894/c08c5/communication.jpg"><img src="https://kalasearch.cn/static/0f972adb9bbda638b254409234373894/c08c5/communication.jpg" alt="REST API是沟通语言"></a>REST API是沟通语言</p>
+<h2 id="REST-API-内具体规定了什么"><a href="#REST-API-内具体规定了什么" class="headerlink" title="REST API 内具体规定了什么"></a>REST API 内具体规定了什么</h2><hr>
+<p>REST API 规范了 API 设计的两大核心原则</p>
+<ol>
+<li>API应该作用于 Resource（资源）上</li>
+<li>对资源的操作应使用对应语义的几种操作，包括： GET, POST, PUT, PATCH, DELETE</li>
+</ol>
+<p>我们来详细解释一下这两点</p>
+<h3 id="什么是-REST-API-里的-Resource（即资源）"><a href="#什么是-REST-API-里的-Resource（即资源）" class="headerlink" title="什么是 REST API 里的 Resource（即资源）"></a>什么是 REST API 里的 Resource（即资源）</h3><p>这里的资源是指你的 API 用户可操作的逻辑对象，举个例子</p>
+<p>如果你的 API 中允许调用者对用户进行操作，比如说用户注册，那么 API 类似于</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST &#x2F;users</span><br></pre></td></tr></table></figure>
+<p>在这里，资源即为 <code>users</code>。在很多情况下，API 中的资源与你的数据模型（也就是数据库的表）是一一对应的。当然也有例外情况，比如说你的数据库中存有用户，但是你现在想要让调用者可以创建“管理员”，那么 API 可能是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST &#x2F;admins</span><br></pre></td></tr></table></figure>
+<p>然而，你的表中并没有 <code>admins</code> 这个表，而是否是 admin 是 Users 表中的一个属性，比如 <code>role=admin</code>。</p>
+<p>请注意，REST API中的资源一定需要是名词，即一定是一个实在存在的概念比如 <code>用户</code>, <code>帐号</code>, <code>车票</code>等，或一个抽象的概念比如 <code>权限</code> 等。如果你需要提供一个创建某种资源的API接口，上述则可以表述为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST &#x2F;indexes</span><br><span class="line">POST &#x2F;accounts</span><br><span class="line">POST &#x2F;docs</span><br></pre></td></tr></table></figure>
+<p>等等。</p>
+<p>通常对于资源的命名，我们建议统一命名为为英文的复数。比如说 <code>users</code> 而不是 <code>user</code>。同时请注意保持一致性，在所有地方用一样的复数。</p>
+<h3 id="什么是-REST-API-里的操作"><a href="#什么是-REST-API-里的操作" class="headerlink" title="什么是 REST API 里的操作"></a>什么是 REST API 里的操作</h3><p>一旦你定义了资源，接下来你需要定义允许调用者在这些资源上做什么操作。</p>
+<p>比如说，以携程抢车票网站为例，我们可能允许调用者进行以下操作</p>
+<ul>
+<li><code>GET /tickets</code> - 列出所有车票</li>
+<li><code>GET /tickets/9839</code> - 列出 id 为 9839 这张车票的信息</li>
+<li><code>POST /tickets</code> - 创建一张车票</li>
+<li><code>PUT /tickets/9839</code> - 更新 9839 这张车票的信息</li>
+<li><code>PATCH /tickets/9839</code> - 部分修改 983 这张车票的信息，比如只修改车票价格</li>
+<li><code>DELETE /tickets/9839</code> - 删掉 9839 这张车票</li>
+</ul>
+<p>请注意，到这里为止，你应该可以总结出来REST的大致设计思路了。它由两部分组成，第一部分是 <code>操作</code>，第二部分是可操作的 <code>资源</code>。比如上文中的 <code>GET /tickets</code>，操作是 GET，可操作的资源是车票。</p>
+<p>那么读到这里，如果你严格遵循了REST的设计准则，以及你的调用者也了解 REST 的准则的话，那么对于很多 API 调用，你们不用再参考互相写的文档了。如果需要调用一张车票的信息，你的调用者自然会知道应该用GET去查看一个车票资源的信息，即 <code>GET /tickets/:ticketId</code>。这样就极大降低了沟通成本和出错成本，提升效率。</p>
+<h3 id="如何在-API-中表示实体（数据库表）间关系"><a href="#如何在-API-中表示实体（数据库表）间关系" class="headerlink" title="如何在 API 中表示实体（数据库表）间关系"></a>如何在 API 中表示实体（数据库表）间关系</h3><p>在后端设计中，有的资源逻辑上无法独立存在。比如说，在卡拉搜索的例子里，用户的文档是无法独立于索引存在的。那么自然地，我们用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;indexes&#x2F;index_abc&#x2F;docs&#x2F;1</span><br></pre></td></tr></table></figure>
+<p>来表达获取索引 <code>index_abc</code> 中编号为 <code>1</code> 的文档。因此，对于所有资源需要依赖于另一个资源存在时，我们就按顺序在端点中将资源列出来。对于卡拉搜索中，索引和文档的关系，我们有以下接口</p>
+<ul>
+<li><code>GET /indexes/index_abc/docs/1</code> - 获取index id为 <code>index_abc</code> 下的id为 <code>1</code> 的文档</li>
+<li><code>GET /indexes/index_abc/docs</code> - 获取index id为 <code>index_abc</code> 下的所有文档</li>
+<li><code>POST /indexes/index_abc/docs</code> - 在index id为 <code>index_abc</code> 的索引中，添加文档 …</li>
+</ul>
+<p>如果一个资源可以独立于另一个资源存在，并且你期望你的API调用者频繁调用，那么可以考虑直接提供子端点。比如说，如果一个宠物店主人和宠物信息分别都常常被同时调用，那么你可以考虑</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">GET /owners/  - 获取所有主人信息</span><br><span class="line">GET /owners/1/pets/ 获取 id 为 1 的主人的所有宠物</span><br><span class="line">GET /pets/ - 获取所有宠物信息（宠物店所有宠物）</span><br><span class="line">GET /pets/13 - 直接获取 id 为 13 的宠物</span><br></pre></td></tr></table></figure>
+<h3 id="REST-API中如何表示一个动作"><a href="#REST-API中如何表示一个动作" class="headerlink" title="REST API中如何表示一个动作"></a>REST API中如何表示一个动作</h3><p>有时候，当我们试图表达一些接口时，会发现REST的准则很难直接应用。比如说，当你需要一个接口让用户登录时</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST &#x2F;users&#x2F;signin</span><br></pre></td></tr></table></figure>
+<p>但要注意，这里的 <code>signin</code> 即登录，是一个动词。这里是采用REST准则时需要考虑的地方，你有三个选择</p>
+<ol>
+<li>如果你希望严格地遵循 REST 原则，那么你需要找一个替代动词的名词。比如说，这里的 <code>signin</code> 可以替换为<code>login</code>。或者，如果你是以 token 密钥的方式登录的话，也许可以改为 <code>POST /users/token</code>，即创建一个 user token(也就是登录了)</li>
+<li>在某些实在困难的地方，放弃严格的REST原则</li>
+<li>参考一些成功的 REST API 并寻找类似的 API，参考他们的命名设计</li>
+</ol>
+<p>对于3，我强烈建议你参考 GitHub 的 API，原因不光是其极为规范，还有它覆盖了极多的 API 调用的情景，因此大概率你可以找到个类似的命名参考。</p>
+<p>比如说，在 GitHub 上，如果让你来设计加星这个操作，你会把端点被设计成什么样？</p>
+<p>Github把加星端点设计为 <code>PUT /gists/:id/star</code>，把取消加星设计为 <code>DELETE /gitsts/:id/star</code>。这样就完美地遵循了 REST 名词作为资源的准则，把动词”加星“完美地用 <code>PUT/DELETE</code> 两个操作，清晰地表达了出来。</p>
+<h2 id="REST-API-设计常见问题和建议"><a href="#REST-API-设计常见问题和建议" class="headerlink" title="REST API 设计常见问题和建议"></a>REST API 设计常见问题和建议</h2><hr>
+<p>上面我们描述了 REST 设计的准则，而在准则中并不包括其它”最佳实践“。</p>
+<p>这里的最佳实践，其实并没有什么客观标准，只是软件工程和架构经过多年的发展，REST API 的设计也从十几年前简单的web 应用，到应用到现在越来越复杂企业级软件中。因此，如果你刚刚开始学习 REST API 的设计，参考这些实践经验将会有非常大的帮助，可以帮你少走不少绕路。</p>
+<p><a href="https://kalasearch.cn/static/55c01643c832a4d0dc733495966cedc6/29d31/rest-api-cartoon.jpg"><img src="https://kalasearch.cn/static/55c01643c832a4d0dc733495966cedc6/29d31/rest-api-cartoon.jpg" alt="REST API 最佳实践"></a>REST API 最佳实践</p>
+<h3 id="REST-API-如何区分版本"><a href="#REST-API-如何区分版本" class="headerlink" title="REST API 如何区分版本"></a>REST API 如何区分版本</h3><p>在设计 REST API 时，你应该时刻准备好不断更新 API。想要把 API稳定后再一次发布多数情况下是不实际的——老板要催进度，用户要催功能。因此，在设计 API 的时候就应该把支持 API 改动设计到API本身中。</p>
+<p>多数情况下，在一版 API 已经成熟的前提下，可以提前发布，同时开始进行下一版的开发。而你只需要在URL中区分好 API 的版本即可。</p>
+<p>比如说，如果在大致将 v1 开发完毕后，v1 前缀的 API 就应该稳定下来，所有的改动进入 v2。同时你应该开始通知所有使用 v1 的用户，给他们几周到几个月的时间，帮助他们平滑迁移到 v2</p>
+<p>带有版本前缀的 API 示例如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;v1&#x2F;indexes&#x2F;</span><br><span class="line">GET &#x2F;v1&#x2F;indexes&#x2F;abc&#x2F;</span><br><span class="line">POST &#x2F;v1&#x2F;indexes&#x2F;</span><br></pre></td></tr></table></figure>
+<h3 id="REST-API-应该返回什么"><a href="#REST-API-应该返回什么" class="headerlink" title="REST API 应该返回什么"></a>REST API 应该返回什么</h3><p>作为一个通则，我们建议 REST API 永远返回 JSON 格式的结果。</p>
+<p>原因有几个：</p>
+<p>首先，JSON 作为互联网上使用最广泛的格式，在几乎任何语言的任何框架中都有广泛的支持。</p>
+<p>同时，由于其高度的可读性，如果需要阅读返回内容，JSON 会让你的调用者阅读起来方便很多。</p>
+<p>最后，JSON 的高压缩率可以在需要时方便地帮你提升传输效率和速度。</p>
+<h3 id="为什么要给你的-API-编写文档"><a href="#为什么要给你的-API-编写文档" class="headerlink" title="为什么要给你的 API 编写文档"></a>为什么要给你的 API 编写文档</h3><p>写代码时，遇到稍复杂的逻辑，我们会发现如果没有注释，一个月后回来发现自己当时写的代码根本不像自己亲生的。再试图熟悉时，可能几个小时就过去了。</p>
+<p>同样，对于 API 来说，如果你不写文档，那么在集成时，你的调用者肯定一边骂，一边尝试各种参数组合。为了让你的调用者有更顺滑的接入体验，每个 API 的设计者都应该把 API 文档作为与 API 的代码一样重要的模块。</p>
+<p>好的 API 文档不光可以方便调用者的接入，更可以方便让你把 API 更改等信息传递出去，而不是一个一个单独通知你的用户。同时在编写文档时，你也会尝试着以你描述地方式接入，间接做了一次”dog food”自测。</p>
+<p>如果你是面向开发者的 API 的话，优秀的 API 文档还可以作为强大的品牌宣传。在卡拉搜索我们花大力气维护我们的文档，同时我们也参考和致敬其它我们用过或者觉得值得夸奖的 API 文档：</p>
+<ul>
+<li><a href="https://kalasearch.cn/docs">卡拉搜索 API 文档 - 用 API 实现搜索引擎</a></li>
+<li><a href="https://leancloud.cn/docs/rest_api.html">Leancloud API文档</a></li>
+<li><a href="https://developer.github.com/v3/">GitHub API 文档</a></li>
+</ul>
+<h3 id="默认开启-Gzip-和-Pretty-print"><a href="#默认开启-Gzip-和-Pretty-print" class="headerlink" title="默认开启 Gzip 和 Pretty print"></a>默认开启 Gzip 和 Pretty print</h3><p>在返回你的 REST API 结果时，我们建议打开 Gzip 和 Pretty print 两个选项。</p>
+<h4 id="打开-Gzip"><a href="#打开-Gzip" class="headerlink" title="打开 Gzip"></a>打开 Gzip</h4><p>Gzip 非常好理解，在目前的普通手机算力已经接近十几年前的顶配计算机的前提下，CPU 不再是运算的瓶颈。而网络带宽的扩宽速度则远没有追上 CPU 变快的速度。因此，如果有可能的话，用 CPU 的时间换取网络的传输时间是非常值得的。这也就是说，打开默认 Gzip 压缩，会让你的 JSON 结果耗费少量的服务器 CPU，但却能大大加快传输速度。</p>
+<p>因此我们建议默认将 Gzip 打开。</p>
+<h4 id="打开-Pretty-Print"><a href="#打开-Pretty-Print" class="headerlink" title="打开 Pretty Print"></a>打开 Pretty Print</h4><p>什么是 Pretty print 呢？简单说就是在 JSON 中插入空格和换行，让 JSON 变得美观，方便人阅读。比如下面不是Pretty print:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;&quot;name&quot;:&quot;大话西游&quot;,&quot;actor&quot;:&quot;周星驰”&#125;</span><br></pre></td></tr></table></figure>
+<p>而下面是打开 Pretty print 后的同一个 JSON</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;大话西游&quot;,</span><br><span class="line">  &quot;actor&quot;: &quot;周星驰”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 JSON 稍变得复杂之后，如果没有 Pretty print 的 JSON 将会变得完全不可读。虽然打开 Pretty print 会增加一些空白字符，但是由于打开 Gzip 压缩，这些空白字符所占用的空间都会被压缩掉，所以并不用担心网络传输时，JSON 变得更大更慢。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>API是程序员与程序员沟通的语言，一个优秀的API不光可以让你维护起来更轻松，也会让你的调用者在使用时更得心应手。遵循 REST 准则设计出来的优秀的 API，可以减少你与调用者之间的沟通成本，让你可以用更多的时间专注在其它更重要的事情上。</p>
+<p>本文中我们从 REST 的设计准则开始讲起，用例子说明如何设计出更出色的 API。</p>
+<p><strong>文章转自：<a href="https://kalasearch.cn/blog/what-is-api/">卡拉搜索</a></strong></p>
+]]></content>
+  </entry>
+  <entry>
     <title>TCP三次握手🤝和四次挥手👋</title>
     <url>/tcp/</url>
     <content><![CDATA[<p>TCP连接的建立与终止</p>
@@ -2488,6 +2608,77 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 </ul>
 <p>第一点：如果主机1直接CLOSED了，那么由于IP协议的不可靠性或者是其它网络原因，导致主机2没有收到主机1最后回复的ACK。那么主机2就会在超时之后继续发送FIN，此时由于主机1已经CLOSED了，就找不到与重发的FIN对应的连接。所以，主机1不是直接进入CLOSED，而是要保持TIME_WAIT，当再次收到FIN的时候，能够保证对方收到ACK，最后正确的关闭连接。</p>
 <p>第二点：如果主机1直接CLOSED，然后又再向主机2发起一个新连接，我们不能保证这个新连接与刚关闭的连接的端口号是不同的。也就是说有可能新连接和老连接的端口号是相同的。一般来说不会发生什么问题，但是还是有特殊情况出现：假设新连接和已经关闭的老连接端口号是一样的，如果前一次连接的某些数据仍然滞留在网络中，这些延迟数据在建立新连接之后才到达主机2，由于新连接和老连接的端口号是一样的，TCP协议就认为那个延迟的数据是属于新连接的，这样就和真正的新连接的数据包发生混淆了。所以TCP连接还要在TIME_WAIT状态等待2倍MSL，这样可以保证本次连接的所有数据都从网络中消失。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>API是什么:一篇讲透API</title>
+    <url>/what-is-api/</url>
+    <content><![CDATA[<p><img src="/what-is-api/./api-header.jpg" alt></p>
+<a id="more"></a>
+<h2 id="API-Application-Programming-Interface"><a href="#API-Application-Programming-Interface" class="headerlink" title="API = Application Programming Interface"></a>API = Application Programming Interface</h2><p>API的英文即<strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface首字母的缩写，直译过来的意思就是：程序之间的接口。</p>
+<p>我更倾向于把API理解为，程序之间的合约。</p>
+<p>那么，究竟什么是程序之间的合约呢？</p>
+<p>我们可以从现实世界里一个类比例子说起——以家政公司为例。</p>
+<p>终于到了周末，本来老婆让你打扫卫生，但你决定要偷个小懒，花点小钱让家政公司派一个阿姨来给你搞定一切。那么在这里，我们说：家政公司是服务的提供商。</p>
+<p>对于绝大多数人来讲，在请家政公司的阿姨前，你脑子里肯定已经有了一个预期了。阿姨是来给你打扫卫生的，如果你想让阿姨来家里给你做火锅的话，那就略奇怪了（也许你该找海底捞？）。那么我们可以说，作为一个用户，你理解这个服务包含的内容。</p>
+<p>于是，阿姨来到你家里，开始辛苦打扫卫生。打扫的过程中，阿姨会问你：小伙子，你家垃圾桶在哪里呀？作为一个正常人，听到阿姨的要求你自然就会告诉阿姨垃圾桶的位置。那么我们说，作为用户的你，给服务提供商提供了必要的信息。</p>
+<p>至此，类比已结束。在上面的例子中，家政公司提供了一个API，这个API的唯一作用就是帮你打扫卫生。而作为用户的你，为了让API完成它的工作，必须提供一些必要的信息，比如垃圾桶的位置。伪代码如下</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">def do_clean(trash_can): # 打扫卫生的API</span><br><span class="line">  wipe_window()          # 阿姨擦窗</span><br><span class="line">  wipe_floor()           # 阿姨擦地</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>但是要注意，在这里你当然知道阿姨擦窗、擦地这些细节。但很多时候，API的实现细节你是不清楚的，而且作为用户，你可能也没有必要和动机去了解细节——毕竟给你提供好服务就可以了，你管它活儿怎么干的干嘛？</p>
+<h3 id="API和函数的关系是什么"><a href="#API和函数的关系是什么" class="headerlink" title="API和函数的关系是什么"></a>API和函数的关系是什么</h3><p>那么你要说了，上面的代码不就是一个函数吗？</p>
+<p>的确，很多情况下，如果你在直接使用语言提供的API的话，API的形式可能就是一个函数。</p>
+<p>但其实不然，因为还有很多其它的情况，API并不一定是一个函数，有可能是一个类，一个HTTP网络请求（最主要的API，请见下文）等</p>
+<h3 id="API的主要形式有哪些"><a href="#API的主要形式有哪些" class="headerlink" title="API的主要形式有哪些"></a>API的主要形式有哪些</h3><p>通常在说到API时，有几个地方经常会出现</p>
+<h4 id="出现在程序语言中"><a href="#出现在程序语言中" class="headerlink" title="出现在程序语言中"></a>出现在程序语言中</h4><p>比如在Python语言中，当你需要算一个数的N次方时，你会用</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = pow(<span class="number">4</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>来表示4的2次方。而这里的<code>pow</code>函数，就是语言为你提供的API。这样的API的文档，通常在语言官方的文档中可以找到。</p>
+<h4 id="出现在安装的依赖中"><a href="#出现在安装的依赖中" class="headerlink" title="出现在安装的依赖中"></a>出现在安装的依赖中</h4><p>上面说的<code>pow</code>函数，是Python自带的函数。但如果要完成更复杂的操作，通常你需要安装一些依赖。比如说，如果需要请求http服务的话，你可能会用到<code>requests</code>这个库（不知道具体这个库是什么没关系，不影响阅读本文）。而这个库它有自己的API，而这样的库的文档，一般在对应的官网或者github页面上可以找到。</p>
+<h4 id="用了第三方服务以网络形式请求出现"><a href="#用了第三方服务以网络形式请求出现" class="headerlink" title="用了第三方服务以网络形式请求出现"></a>用了第三方服务以网络形式请求出现</h4><p>这是本文将会介绍的最主要的形式。第三方的服务以网络形式提供API，基本构成了现代互联网的整个基础，下一节我们详细展开说明为什么API这么重要。</p>
+<h2 id="为什么需要API"><a href="#为什么需要API" class="headerlink" title="为什么需要API"></a>为什么需要API</h2><p>作为一个程序员，如果你一辈子都自己写代码的话，那真的是很孤独了。同样为人，程序员也有跟别人交流、沟通的冲动，但我们的交流和沟通，很多时候是在代码中。</p>
+<p>试想，如果现代社会写的每一个功能，都需要自己把代码从0到1全写了，世界会复杂成什么样？</p>
+<p>比如说，你想要搭建一个网站，发现没有Wordpress。这还不算，你必须先从汇编开始，一点点先写一个php语言，再写出来个MySQL数据库，最后在两者基础上，再来写一个网站——这该多低效！</p>
+<p>于是，有的程序员自靠奋勇，做起了数据库。有的程序员做起了Wordpress这样的内容管理系统。程序员内的社会分工开始明晰起来。渐渐的，各种更细节的服务也开始有人提供了，比如说</p>
+<ul>
+<li>有的程序员做起了天气数据的API，这样你的APP内需要天气数据的时候，你就不用自己去测绘了，直接调他们的API</li>
+<li>有的程序员做起了搜索功能的API，这样你的APP内需要搜索功能的时候，你就不用自己写个搜索引擎了，直接调他们的API</li>
+<li>有的程序员做起了支付功能的API，这样你要实现收钱、付钱功能的时候，就不用自己写个支付系统了，直接调他们的API</li>
+</ul>
+<p>可以看到，如果福特的流水线在上个世纪极大地促进了汽车工厂的生产效率，那么API至少也起到了同样的作用：它让专人可以专心做专业的事情，而其它人写程序时，可以直接使用别人提供的API服务。</p>
+<p>API的好处就在于，它让程序员之间可以轻松分工。而分工之后，你只要管好你的业务就可以，任何复杂的不在你领域内的业务，都可以找到对应的API或服务，直接调用即可。</p>
+<h2 id="以网络请求为基础的API"><a href="#以网络请求为基础的API" class="headerlink" title="以网络请求为基础的API"></a>以网络请求为基础的API</h2><p>上文中提到了API常常出现的一些地方，而我提到过，以网络请求形式出现的API，是最重要的API各类之一。</p>
+<p>现代互联网让各个公司也出现了分工，而公司之间的服务调用，最常见的形式就是网络请求（通常是HTTP）。比如说，打个比方你要实现以下的功能：</p>
+<ol>
+<li>当用户安装了你的APP，检测用户是不是正在远离家走向小区大门</li>
+<li>如果是的话，自动打一个滴滴专车，判断时间如果是早上8点的话，目的地自动设为公司地址</li>
+</ol>
+<p>这个功能当然很蠢，但是不妨碍我们当例子来说明。</p>
+<p>第一部中，所有的逻辑判断当然都可以直接调用手机的GPS来作检测即可。而在第2步中，你就必须向滴滴提供的API发出一个打车的API请求。</p>
+<p>这个请求中，有两个参数，一个是出发地地址，另一个是目的地地址。以下是一个我虚构出来的API请求（因为我实在没找着滴滴的API），在这个请求中，我们向端点<code>http://www.didi.com/taxi</code>发送一个<code>POST</code>请求，参数为JSON中的出发地和目的地。如果你把这个形式记住，照葫芦画瓢，99%的标准REST API的形式都是长这个样子的。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">POST http://www.didi.com/taxi </span><br><span class="line">&#123;</span><br><span class="line">    &quot;from&quot;: &quot;北京市云南大厦&quot;,</span><br><span class="line">    &quot;to&quot;: &quot;天安门&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="API到底是谁提供的"><a href="#API到底是谁提供的" class="headerlink" title="API到底是谁提供的"></a>API到底是谁提供的</h3><p>以网络请求为基础的API，通常是互联网公司自己编写和提供的。上文举的例子中，滴滴的这个API几乎一定是滴滴自己写并且提供出来的。原因很简单，只有滴滴才能向它的司机端APP发送消息。也就是说，必须要服务的提供商，才有可能向外界提供一个API。</p>
+<p>为什么这些公司有动机提供一个API呢？</p>
+<p>原因是他们希望自己的服务可以被更广泛的人群使用。作为开发者的你，如果用了他们提供的API，那么某种程序上你可能帮助了他们传播他们的服务（比如更多人在你的APP里可能可以用滴滴的出租车服务）。</p>
+<p>另一方面，有时候API会直接向开发者收费，比如说提供了搜索服务的卡拉搜索，帮助开发者快速地搭建一个搜索引擎，省掉一大堆开发和运维搜索引擎的成本。作为回报，开发者或其所在的公司，可能直接向服务的提供商付费，这个更好理解。</p>
+<p>因此，为开发者编写易用、文档清楚和方便接入的API，是符合服务提供商（互联网公司）和开发者共同利益的。</p>
+<p>不幸的是，国内API的发展还在进行中，经常出现有的公司没有API，文档不全之类的情况。但我们相信，这样的情况会随着时间的往前而改善。</p>
+<p>用图例来说，下图很好地说明了API和互联网公司之间的关系</p>
+<p><img src="/what-is-api/./api-relationship.png" alt="API调用与API提供者之间的关系"></p>
+<p>图中最左边，即API的调用者，通过网络请求，向右边的API服务器（由互联网公司编写和维护）发送请求。这些服务器可能可以操作其后台的数据库之类系统，最后会返回一个结果给调用者。</p>
+<p>比方说，滴滴的API可能接收到一个请求后，向最近的司机发送一个消息，让他去你指定的出发地去接你。而完成后，滴滴的服务器可能向后台数据库中添加一条记录，记下来你的行程。这样，你就通过网络请求完成了一次向滴滴API的请求。</p>
+<h2 id="API接口如何定义"><a href="#API接口如何定义" class="headerlink" title="API接口如何定义"></a>API接口如何定义</h2><p>目前最通用、使用最广泛的API标准叫作REST API。具体如何设计REST API请参考文章: <a href="https://zhaohongye.com//rest-api-best-practices/">REST API设计指南</a></p>
+<h2 id="哪里有API的一些例子"><a href="#哪里有API的一些例子" class="headerlink" title="哪里有API的一些例子"></a>哪里有API的一些例子</h2><p>如上文所说，国内的互联网公司开放API的进程还比较慢，如果你可以阅读英文，我们推荐你参考以下优秀的API</p>
+<ul>
+<li><a href="https://docs.github.com/en/rest">GitHub API</a></li>
+<li><a href="https://stripe.com/docs/api">Stripe API</a></li>
+<li><a href="https://developer.twitter.com/en/docs">Twitter API</a></li>
+</ul>
+<p>国内的一些API例子有</p>
+<ul>
+<li><a href="https://kalasearch.cn/docs">卡拉搜索API</a></li>
+<li><a href="https://leancloud.cn/docs/rest_api.html">Leancloud API</a></li>
+<li><a href="https://www.pingxx.com/api/API 文档简介.html">Ping++ API</a></li>
+</ul>
+<p><strong>文章转自：<a href="https://kalasearch.cn/blog/what-is-api/">卡拉搜索</a></strong></p>
 ]]></content>
   </entry>
   <entry>

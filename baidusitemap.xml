@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/rest-api-best-practices/</loc>
+    <lastmod>2021-01-26</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/what-is-api/</loc>
+    <lastmod>2021-01-26</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite.com/nginx-proxy-demo/</loc>
     <lastmod>2021-01-18</lastmod>
   </url>
