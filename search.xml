@@ -3183,7 +3183,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>Terraform-基础架构管理工具</title>
     <url>/terraform/</url>
-    <content><![CDATA[<h1 id="Terraform"><a href="#Terraform" class="headerlink" title="Terraform"></a>Terraform</h1><p><img src="/terraform/./code.jpg" alt></p>
+    <content><![CDATA[<h1 id="Terraform"><a href="#Terraform" class="headerlink" title="Terraform"></a>Terraform</h1><p><img src="/terraform/./VCG41N888243686.jpg" alt></p>
 <p>Terraform是一种开源工具，用于安全高效地预览，配置和管理云基础架构和资源。</p>
 <a id="more"></a>
 <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p><a href="https://www.terraform.io/?spm=a2c4g.11186623.2.11.55e267a38YzsUB">HashiCorp Terraform</a> 是一个IT基础架构自动化编排工具，可以用代码来管理维护 IT 资源。Terraform的命令行接口（CLI）提供一种简单机制，用于将配置文件部署到阿里云或其他任意支持的云上，并对其进行版本控制。它编写了描述云资源拓扑的配置文件中的基础结构，例如虚拟机、存储帐户和网络接口。</p>
