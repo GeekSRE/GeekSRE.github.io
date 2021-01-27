@@ -187,6 +187,70 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/CentOS%E9%85%8D%E7%BD%AEyum%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/CentOS%E9%85%8D%E7%BD%AEyum%E6%BA%90/" class="post-title-link" itemprop="url">CentOS配置yum源</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-08-07 16:27:04 / Modified: 16:28:02" itemprop="dateCreated datePublished" datetime="2019-08-07T16:27:04+08:00">2019-08-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>推荐使用<a target="_blank" rel="noopener" href="https://opsx.alibaba.com/?lang=zh-CN">阿里源</a></p>
+<h5 id="基础源"><a href="#基础源" class="headerlink" title="基础源"></a>基础源</h5><h6 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<h6 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> CentOS 6</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> CentOS 7</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="生成缓存"><a href="#生成缓存" class="headerlink" title="生成缓存"></a>生成缓存</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+<h5 id="EPEL源"><a href="#EPEL源" class="headerlink" title="EPEL源"></a>EPEL源</h5><h6 id="备份-1"><a href="#备份-1" class="headerlink" title="备份"></a>备份</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup</span><br><span class="line">mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup</span><br></pre></td></tr></table></figure>
+<h6 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> epel(RHEL 7)</span></span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> epel(RHEL 6)</span></span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> epel(RHEL 5)</span></span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-5.repo</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E4%BB%A3%E7%A0%81%E8%BF%81%E7%A7%BB-%E6%9B%B4%E6%94%B9Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-%E4%BB%8Egitlab%E4%B8%8A%E8%BF%81%E7%A7%BB%E5%88%B0coding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -856,105 +920,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ab-Apache-HTTP%E5%8E%8B%E6%B5%8B%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ab-Apache-HTTP%E5%8E%8B%E6%B5%8B%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">ab-Apache_HTTP压测工具</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-16 14:13:29 / Modified: 14:13:46" itemprop="dateCreated datePublished" datetime="2019-07-16T14:13:29+08:00">2019-07-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="官网："><a href="#官网：" class="headerlink" title="官网："></a>官网：</h4><p><a target="_blank" rel="noopener" href="https://httpd.apache.org/docs/2.4/programs/ab.html">https://httpd.apache.org/docs/2.4/programs/ab.html</a></p>
-<h4 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h4><p>网站性能压力测试是服务器网站性能调优过程中必不可缺少的一环。只有让服务器处在高压情况下，才能真正体现出软件、硬件等各种设置不当所暴露出的问题。</p>
-<p>性能测试工具目前最常见的有以下几种：ab、http_load、webbench、siege。今天我们专门来介绍ab。</p>
-<p>ab是apache自带的压力测试工具。ab非常实用，它不仅可以对apache服务器进行网站访问压力测试，也可以对或其它类型的服务器进行压力测试。比如nginx、tomcat、IIS等。 </p>
-<h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><p>ab是apachebench命令的缩写。</p>
-<p>ab的原理：ab命令会创建多个并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此，它既可以用来测试apache的负载压力，也可以测试nginx、lighthttp、tomcat、IIS等其它Web服务器的压力。</p>
-<p>ab命令对发出负载的计算机要求很低，它既不会占用很高CPU，也不会占用很多内存。但却会给目标服务器造成巨大的负载，其原理类似CC攻击。自己测试使用也需要注意，否则一次上太多的负载。可能造成目标服务器资源耗完，严重时甚至导致死机。</p>
-<h4 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd-tools</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@ops-jenkins-master ~]# ab -V</span><br><span class="line"></span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br></pre></td></tr></table></figure>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数:"></a>参数:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -help</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">-n  在测试会话中所执行的请求个数。默认时，仅执行一个请求。</span><br><span class="line"></span><br><span class="line">-c  一次产生的请求个数。默认是一次一个。</span><br><span class="line"></span><br><span class="line">-t  测试所进行的最大秒数。其内部隐含值是-n 50000，它可以使对服务器的测试限制在一个固定的总时间以内。默认时，没有时间限制。</span><br><span class="line"></span><br><span class="line">-p  包含了需要POST的数据的文件。</span><br><span class="line"></span><br><span class="line">-P  对一个中转代理提供BASIC认证信任。用户名和密码由一个:隔开，并以base64编码形式发送。无论服务器是否需要(即, 是否发送了401认证需求代码)，此字符串都会被发送。</span><br><span class="line"></span><br><span class="line">-T  POST数据所使用的Content-type头信息。</span><br><span class="line"></span><br><span class="line">-v  设置显示信息的详细程度-4或更大值会显示头信息，3或更大值可以显示响应代码(404,200等),2或更大值可以显示警告和其他信息。</span><br><span class="line"></span><br><span class="line">-V  显示版本号并退出。</span><br><span class="line"></span><br><span class="line">-w  以HTML表的格式输出结果。默认时，它是白色背景的两列宽度的一张表。</span><br><span class="line"></span><br><span class="line">-i  执行HEAD请求，而不是GET。</span><br><span class="line"></span><br><span class="line">-x  设置&lt;table&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-X  对请求使用代理服务器。</span><br><span class="line"></span><br><span class="line">-y  设置&lt;tr&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-z  设置&lt;td&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-C  对请求附加一个Cookie:行。其典型形式是name&#x3D;value的一个参数对，此参数可以重复。</span><br><span class="line"></span><br><span class="line">-H  对请求附加额外的头信息。此参数的典型形式是一个有效的头信息行，其中包含了以冒号分隔的字段和值的对(如,&quot;Accept-Encoding:zip&#x2F;zop;8bit&quot;)。</span><br><span class="line"></span><br><span class="line">-A  对服务器提供BASIC认证信任。用户名和密码由一个:隔开，并以base64编码形式发送。无论服务器是否需要(即,是否发送了401认证需求代码)，此字符串都会被发送。</span><br><span class="line"></span><br><span class="line">-h  显示使用方法。</span><br><span class="line"></span><br><span class="line">-d  不显示&quot;percentage served within XX [ms] table&quot;的消息(为以前的版本提供支持)。</span><br><span class="line"></span><br><span class="line">-e  产生一个以逗号分隔的(CSV)文件，其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间。由于这种格式已经“二进制化”，所以比&#39;gnuplot&#39;格式更有用。</span><br><span class="line"></span><br><span class="line">-g  把所有测试结果写入一个&#39;gnuplot&#39;或者TSV(以Tab分隔的)文件。此文件可以方便地导入到Gnuplot,IDL,Mathematica,Igor甚至Excel中。其中的第一行为标题。</span><br><span class="line"></span><br><span class="line">-i  执行HEAD请求，而不是GET。</span><br><span class="line"></span><br><span class="line">-k  启用HTTP KeepAlive功能，即在一个HTTP会话中执行多个请求。默认时，不启用KeepAlive功能。</span><br><span class="line"></span><br><span class="line">-q  如果处理的请求数大于150，ab每处理大约10%或者100个请求时，会在stderr输出一个进度计数。此-q标记可以抑制这些信息。</span><br></pre></td></tr></table></figure>
-<h4 id="性能指标："><a href="#性能指标：" class="headerlink" title="性能指标："></a>性能指标：</h4><ul>
-<li><p><strong>吞吐率（Requests per second）</strong></p>
-<p>概念：服务器并发处理能力的量化描述，单位是reqs/s，指的是某个并发用户数下单位时间内处理的请求数。某个并发用户数下单位时间内能处理的最大请求数，称之为最大吞吐率。</p>
-<p>计算公式：总请求数 / 处理完成这些请求数所花费的时间，即<br>Request per second = Complete requests / Time taken for tests</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>并发连接数（The number of concurrent connections）</strong></p>
-<p>概念：某个时刻服务器所接受的请求数目，简单的讲，就是一个会话。</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>并发用户数（The number of concurrent users，Concurrency Level）</strong></p>
-<p>概念：要注意区分这个概念和并发连接数之间的区别，一个用户可能同时会产生多个会话，也即连接数。</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>用户平均请求等待时间（Time per request）</strong></p>
-<p>计算公式：处理完成所有请求数所花费的时间/ （总请求数 / 并发用户数），即<br>Time per request = Time taken for tests /（ Complete requests / Concurrency Level）</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>服务器平均请求等待时间（Time per request: across all concurrent requests）</strong></p>
-<p>计算公式：处理完成所有请求数所花费的时间 / 总请求数，即<br>Time taken for / testsComplete requests<br>可以看到，它是吞吐率的倒数。<br>同时，它也=用户平均请求等待时间/并发用户数，即<br>Time per request / Concurrency Level</p>
-</li>
-</ul>
-<h4 id="示例一："><a href="#示例一：" class="headerlink" title="示例一："></a>示例一：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 请求访问 https://www.zhaohongye.com/ ，访问 -n 100次，并发 -c 10次</span></span><br><span class="line"></span><br><span class="line">ab -c 10 -n 100 https://www.zhaohongye.com/</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  请求结果</span></span><br><span class="line"></span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br><span class="line"></span><br><span class="line">Benchmarking www.zhaohongye.com (be patient).....done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Server Software:        nginx/1.12.2         # 服务器软件</span><br><span class="line">Server Hostname:        www.zhaohongye.com   # 域名</span><br><span class="line">Server Port:            443                  # 请求端口号</span><br><span class="line">SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256</span><br><span class="line"></span><br><span class="line">Document Path:          /                    # 文件路径</span><br><span class="line">Document Length:        68872 bytes          # 页面字节数</span><br><span class="line"></span><br><span class="line">Concurrency Level:      10                   # 请求并发数</span><br><span class="line">Time taken for tests:   14.797 seconds       # 总访问时间</span><br><span class="line">Complete requests:      100                  # 总请求次数</span><br><span class="line">Failed requests:        0                    # 失败请求次数</span><br><span class="line">Write errors:           0            </span><br><span class="line">Total transferred:      6901400 bytes      # 请求总数据大小（包括header头信息）</span><br><span class="line">HTML transferred:       6887200 bytes      # html页面实际总字节数</span><br><span class="line">Requests per second:    6.76 [#/sec] (mean)   # 每秒多少请求，服务器的吞吐量</span><br><span class="line">Time per request:       1479.677 [ms] (mean)   # 用户平均请求等待时间 </span><br><span class="line">Time per request:       147.968 [ms] (mean, across all concurrent requests)                     # 服务器平均处理时间，也就是服务器吞吐量的倒数 </span><br><span class="line">Transfer rate:          455.48 [Kbytes/sec] received   #每秒获取的数据长度</span><br><span class="line"></span><br><span class="line">Connection Times (ms)</span><br><span class="line">              min  mean[+/-sd] median   max</span><br><span class="line">Connect:        5   12   3.3     12      19</span><br><span class="line">Processing:   156 1429 207.5   1462    1626</span><br><span class="line">Waiting:      155 1426 207.2   1449    1623</span><br><span class="line">Total:        165 1441 207.9   1476    1636</span><br><span class="line"></span><br><span class="line">Percentage of the requests served within a certain time (ms)</span><br><span class="line"><span class="meta">  50%</span><span class="bash">   1476   <span class="comment">#50%用户请求在1476ms内返回</span></span></span><br><span class="line"><span class="meta">  66%</span><span class="bash">   1489   <span class="comment">#60%用户请求在1489ms内返回</span></span></span><br><span class="line"><span class="meta">  75%</span><span class="bash">   1524</span></span><br><span class="line"><span class="meta">  80%</span><span class="bash">   1572</span></span><br><span class="line"><span class="meta">  90%</span><span class="bash">   1594</span></span><br><span class="line"><span class="meta">  95%</span><span class="bash">   1635</span></span><br><span class="line"><span class="meta">  98%</span><span class="bash">   1636</span></span><br><span class="line"><span class="meta">  99%</span><span class="bash">   1636</span></span><br><span class="line"><span class="meta"> 100%</span><span class="bash">   1636 (longest request)</span></span><br></pre></td></tr></table></figure>
-<h4 id="示例二："><a href="#示例二：" class="headerlink" title="示例二："></a>示例二：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -k -c 600 -n 100000 -p 1000.txt -T application/x-www-form-urlencoded -H &quot;api-key:d99caed6d0997c4d3f141249c346e9d4&quot; -H &quot;authorization:Bearer xx&quot; &#x27;http://172.16.237.108/ai/search/photo/wps1&#x27;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1000.txt 的内容</span></span><br><span class="line"></span><br><span class="line">img_url=https://goss1.vcg.com/editorial/vcg/400/new/VCG111160779787.jpg&amp;result_size=30&amp;image_type=url</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1023,7 +988,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -3180,4 +3180,178 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
     <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br><div class="pdfobject-container" data-target="./阿里巴巴DevOps实践手册.pdf" data-height="500px"></div></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Terraform-基础架构管理工具</title>
+    <url>/terraform/</url>
+    <content><![CDATA[<h1 id="Terraform"><a href="#Terraform" class="headerlink" title="Terraform"></a>Terraform</h1><p><img src="/terraform/./code.jpg" alt></p>
+<p>Terraform是一种开源工具，用于安全高效地预览，配置和管理云基础架构和资源。</p>
+<a id="more"></a>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p><a href="https://www.terraform.io/?spm=a2c4g.11186623.2.11.55e267a38YzsUB">HashiCorp Terraform</a> 是一个IT基础架构自动化编排工具，可以用代码来管理维护 IT 资源。Terraform的命令行接口（CLI）提供一种简单机制，用于将配置文件部署到阿里云或其他任意支持的云上，并对其进行版本控制。它编写了描述云资源拓扑的配置文件中的基础结构，例如虚拟机、存储帐户和网络接口。</p>
+<p>Terraform是一个高度可扩展的工具，通过 Provider 来支持新的基础架构。Terraform能够让您在阿里云上轻松使用 <a href="https://www.terraform.io/docs/configuration/syntax.html">简单模板语言</a> 来定义、预览和部署云基础结构。您可以使用Terraform来创建、修改、删除ECS、VPC、RDS、SLB等多种资源。</p>
+<p>阿里云作为国内第一家与 Terraform 集成的云厂商，<a href="https://www.terraform.io/docs/providers/alicloud/index.html">terraform-provider-alicloud</a>目前已经提供了超过 163 个 Resource 和 113 个 Data Source，覆盖计算，存储，网络，负载均衡，CDN，容器服务，中间件，访问控制，数据库等超过35款产品，已经满足了大量大客户的自动化上云需求。</p>
+<p>从 Terraform 0.12.2 版本开始，阿里云支持将对象存储服务 OSS 作为标准的<a href="https://www.terraform.io/docs/backends/types/oss.html">Remote State Backend</a>，开始提供远端存储 State 的能力，在提高 state 安全性的同时，提升多人协作效率。</p>
+<p>为了给开发者提供“开箱即用”的使用体验，阿里云提供了丰富多样的<a href="https://registry.terraform.io/browse/modules?provider=alicloud">Modules</a> 和<a href="https://github.com/terraform-providers/terraform-provider-alicloud/tree/master/examples">Examples</a>，覆盖计算，存储，网络，中间件，数据库等多个产品和使用场景，欢迎大家使用和贡献自己的Module。</p>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li><p>将基础结构部署到多个云</p>
+<p>Terraform适用于多云方案，将类似的基础结构部署到阿里云、其他云提供商或者本地数据中心。开发人员能够使用相同的工具和相似的配置文件同时管理不同云提供商的资源。</p>
+</li>
+<li><p>自动化管理基础结构</p>
+<p>Terraform能够创建配置文件的模板，以可重复、可预测的方式定义、预配和配置ECS资源，减少因人为因素导致的部署和管理错误。能够多次部署同一模板，创建相同的开发、测试和生产环境。</p>
+</li>
+<li><p>基础架构即代码（Infrastructure as Code）</p>
+<p>可以用代码来管理维护资源。允许保存基础设施状态，从而使您能够跟踪对系统（基础设施即代码）中不同组件所做的更改，并与其他人共享这些配置 。</p>
+</li>
+<li><p>降低开发成本</p>
+<p>您通过按需创建开发和部署环境来降低成本。并且，您可以在系统更改之前进行评估。</p>
+</li>
+</ul>
+<p>Terraform可以对基础设施进行编码，利用代码来进行资源的增删查改。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="创建基础设施"><a href="#创建基础设施" class="headerlink" title="创建基础设施"></a>创建基础设施</h3><p>您可以使用Terraform创建和管理ECS、VPC和SLB等基础资源。</p>
+<p>创建多台ECS并挂载数据盘，请参见示例模板<a href="https://registry.terraform.io/modules/alibaba/ecs-instance/alicloud">ecs-instance</a>。</p>
+<h3 id="均衡负载业务流量"><a href="#均衡负载业务流量" class="headerlink" title="均衡负载业务流量"></a>均衡负载业务流量</h3><p>您可以将访问流量按照定义的转发规则分发到指定的后端服务器（ECS实例），提高应用系统对外的服务能力，消除单点故障。</p>
+<p>部署负载均衡服务，请参见示例模板<a href="https://github.com/terraform-providers/terraform-provider-alicloud/tree/master/examples/ecs-slb">ecs-slb</a>。</p>
+<h3 id="自动伸缩"><a href="#自动伸缩" class="headerlink" title="自动伸缩"></a>自动伸缩</h3><p>根据您的业务需求和策略自动调整弹性计算资源，在业务需求增长时无缝增加ECS实例满足计算需要，在业务需求下降时自动减少ECS实例节约成本。</p>
+<p>一键创建伸缩组，伸缩配置和伸缩规则相关操作，请参见示例模板<a href="https://registry.terraform.io/modules/terraform-alicloud-modules/autoscaling/alicloud">autoscaling</a>和<a href="https://registry.terraform.io/modules/terraform-alicloud-modules/autoscaling-rule/alicloud">autoscaling-rule</a>。</p>
+<h3 id="集群管理"><a href="#集群管理" class="headerlink" title="集群管理"></a>集群管理</h3><p>您可以使用Terraform快速创建专有网络的集群。</p>
+<p>在阿里云中启动kubernetes集群，并且在集群中创建VPC、交换机和NAT网关等资源，请参见示例模板<a href="https://registry.terraform.io/modules/aliyun/kubernetes/alicloud">kubernetes module</a>。</p>
+<h3 id="配置函数计算服务"><a href="#配置函数计算服务" class="headerlink" title="配置函数计算服务"></a>配置函数计算服务</h3><p>阿里云函数计算是事件驱动的全托管计算服务。通过函数计算，您无需管理服务器等基础设施，只需编写代码并上传。借助于函数计算，您可以快速构建任何类型的应用和服务，无需管理和运维。</p>
+<p>一键搭建函数服务运行环境，快速配置对象存储、内容分发网络、消息队列、HTTP服务、日志服务等多种触发器，请参见示例模板：<a href="https://registry.terraform.io/modules/terraform-alicloud-modules/fc/alicloud">fc module</a>。</p>
+<h2 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h2><p>在使用Terraform的简单模板语言定义、预览和部署云基础结构前，您需要安装预配置Terraform。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
+<li><p>登录 <a href="https://www.terraform.io/downloads.html">Terraform官网</a> 下载适用于您的操作系统的程序包。</p>
+</li>
+<li><p>将程序包解压到/usr/local/bin。</p>
+<p>如果将可执行文件解压到其他目录，按照以下方法为其定义全局路径：</p>
+<ul>
+<li>Linux：参见 <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">在Linux系统定义全局路径</a>。</li>
+<li>Windows：参见 <a href="https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows">在Windows系统定义全局路径</a>。</li>
+<li>Mac：参见 <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">在Mac系统定义全局路径</a>。</li>
+</ul>
+</li>
+<li><p>运行<code>terraform</code>验证路径配置。</p>
+<p>命令运行后将显示可用的Terraform选项的列表，如下所示，表示安装完成。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username:~$ terraform</span><br><span class="line">Usage: terraform [-version] [-help] &lt;command&gt; [args]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为提高权限管理的灵活性和安全性，建议您创建RAM用户，并为其授权。</p>
+<ol>
+<li>登录 <a href="https://ram.console.aliyun.com/#/overview">RAM控制台</a>。</li>
+<li>创建名为Terraform的RAM用户，并为该用户创建AccessKey。具体步骤请参见<a href="https://help.aliyun.com/document_detail/28637.html">创建RAM用户</a>。</li>
+<li>为RAM用户授权。具体步骤请参见<a href="https://help.aliyun.com/document_detail/116146.html">为RAM用户授权</a>。</li>
+</ol>
+</li>
+<li><p>创建环境变量，用于存放身份认证信息。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export ALICLOUD_ACCESS_KEY&#x3D;&quot;LTAIUrZCw3********&quot;</span><br><span class="line">export ALICLOUD_SECRET_KEY&#x3D;&quot;zfwwWAMWIAiooj14GQ2*************&quot;</span><br><span class="line">export ALICLOUD_REGION&#x3D;&quot;cn-beijing&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="相关文档"><a href="#相关文档" class="headerlink" title="相关文档"></a>相关文档</h3><ul>
+<li><a href="https://www.terraform.io/docs/configuration/syntax.html?spm=a2c4g.11186623.2.11.405b16f2QF7QP5">简单模板语言</a></li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>Terraform是一个管理IT资源的客户端工具，您可以使用Terraform提供的命令来实现对所有资源的管理。本文将主要围绕资源管理和状态管理两个方面为您介绍涉及到的常用命令。</p>
+<h3 id="资源管理常用命令"><a href="#资源管理常用命令" class="headerlink" title="资源管理常用命令"></a>资源管理常用命令</h3><p>Terraform对资源的管理主要是对资源生命周期的管理，即通过命令实现对Terraform模板中所定义资源的创建，修改，查看和删除。</p>
+<ul>
+<li><p>terraform plan</p>
+<p>：资源的预览</p>
+<p>plan命令用于对模板中所定义资源的预览，主要用于以下几个场景：</p>
+<ul>
+<li>预览当前模板中定义的资源是否符合管理预期，和Markdown的预览功能类似。</li>
+<li>如果当前模板已经存在对应的state文件，那么plan命令将会展示模板定义与state文件内容的diff结果，如果有变更，会将结果在下方显示出来。</li>
+<li>对DataSource而言，执行plan命令，即可直接获取并输出所要查询的资源及其属性。</li>
+</ul>
+</li>
+<li><p>terraform apply</p>
+<p>：资源的新建和变更</p>
+<p>apply命令用于实际资源的新建和变更操作，为了安全起见，在命令运行过程中增加了人工交互的过程，即需要手动确认是否继续，当然也可以通过<strong>–auto-approve</strong>参数来跳过人工确认的过程。</p>
+<p>apply命令适用于以下几种场景：</p>
+<ul>
+<li>创建新的资源。</li>
+<li>通过修改模板参数来修改资源的属性。</li>
+<li>如果从当前模板中删除某个资源的定义，apply命令会将该资源彻底删除。可以理解为“资源的移除也是一种变更”。</li>
+</ul>
+</li>
+<li><p>terraform show</p>
+<p>：资源的展示</p>
+<p>show命令用于展示当前state中所有被管理的资源及其所有属性值。</p>
+</li>
+<li><p>terraform destroy</p>
+<p>：资源的释放</p>
+<p>destroy命令用于对资源的释放操作，为了安全起见，在命令执行过程中，也增加了人工交互的过程，如果想要跳过手动确认操作，可以通过<strong>–force</strong>参数来跳过。</p>
+<p>terraform destroy默认会释放当前模板中定义的所有资源，如果只想释放其中某个特定的资源，可以通过参数<code>-target=&lt;资源类型&gt;.&lt;资源名称&gt;</code>来指定。</p>
+</li>
+<li><p>terraform import</p>
+<p>：资源的导入</p>
+<p>import命令用于将存量的云资源导入到terraform state中，进而加入到Terraform的管理体系中，适用的场景包含但不限于以下几种：</p>
+<ul>
+<li>从来没有使用Terraform管控过任何资源，当前所有的存量云资源都是通过控制台，阿里云CLI，ROS或者直接调用API创建和管理的，现在想要切换为Terraform管理。</li>
+<li>在不影响资源正常使用的前提下，重构资源模板中的资源定义。</li>
+<li>阿里云的Provider进行了兼容性升级，新版Provider对原有模板中所定义的资源支持了更多的参数，需要把最新的参数同步进来。</li>
+</ul>
+<p><strong>说明</strong> 有关import如何实现存量资源的管理，请参见<a href="https://help.aliyun.com/document_detail/146144.html">如何解决存量云资源的管理难题</a>。</p>
+</li>
+<li><p>terraform taint</p>
+<p>：标记资源为</p>
+<p>被污染</p>
+<p>taint命令用于把某个资源标记为被污染状态，当再次执行apply命令时，这个被污染的资源将会被先释放，然后再创建一个新的，相当于对这个特定资源做了先删除后新建的操作。</p>
+<p>命令的详细格式为： <code>terraform taint &lt;资源类型&gt;.&lt;资源名称&gt;</code> ，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform taint alicloud_vswitch.this</span><br><span class="line">Resource instance alicloud_vswitch.this has been marked as tainted.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>terraform untaint</p>
+<p>：取消</p>
+<p>被污染</p>
+<p>标记</p>
+<p>untaint命令是taint的逆向操作，用于取消被污染标记，使其恢复到正常的状态。命令的详细格式和taint类似为：<code>terraform untaint &lt;资源类型&gt;.&lt;资源名称&gt;</code> ，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform untaint alicloud_vswitch.this</span><br><span class="line">Resource instance alicloud_vswitch.this has been successfully untainted.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>terraform output</p>
+<p>：打印出参及其值</p>
+<p>如果在模板中显示定义了output参数，那么这个output的值将在apply命令之后展示，但plan命令并不会展示，如果想随时随地快速查看output的值，可以直接运行命令 terraform output :</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform output</span><br><span class="line">vswitchId &#x3D; vsw-gw8gl31wz********</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="状态管理常用命令"><a href="#状态管理常用命令" class="headerlink" title="状态管理常用命令"></a>状态管理常用命令</h3><p>Terraform对资源状态的管理，实际上是对State文件中数据的管理。State文件保存了当前Terraform管理的所有资源及其属性，内容都是由Terraform自动存储的，为了保证数据的完整性，不建议手动修改State内容。对State数据的操作可以通过<strong>terraform state</strong>命令来完成。</p>
+<ul>
+<li><p>terraform state list：列出当前state中的所有资源</p>
+<p><strong>state list</strong>命令会按照 <code>&lt;资源类型&gt;.&lt;资源名称&gt;</code> 的格式列出当前state中存在的所有资源（包括datasource），例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform state list</span><br><span class="line">data.alicloud_slbs.default</span><br><span class="line">alicloud_vpc.default</span><br><span class="line">alicloud_vswitch.this</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>terraform state show：展示某一个资源的属性</p>
+<p><strong>state show</strong>命令按照Key-Value的格式展示出特定资源的所有属性及其值，命令的完整格式为 <code>terraformstate show &lt;资源类型&gt;.&lt;资源名称&gt;</code> ，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform state show alicloud_vswitch.this</span><br><span class="line"># alicloud_vswitch.this:</span><br><span class="line">resource &quot;alicloud_vswitch&quot; &quot;this&quot; &#123;  </span><br><span class="line">    availability_zone &#x3D; &quot;eu-central-1a&quot;</span><br><span class="line">    cidr_block        &#x3D; &quot;172.16.0.0&#x2F;24&quot;</span><br><span class="line">    id                &#x3D; &quot;vsw-gw8gl31wz******&quot;</span><br><span class="line">    vpc_id            &#x3D; &quot;vpc-gw8calnzt*******&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>terraform state pull：获取当前state内容并展示</p>
+<p><strong>state pull</strong>命令用于原样展示当前state文件数据，类似与Shell下的cat命令，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform state pull</span><br><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: 4,</span><br><span class="line">    &quot;terraform_version&quot;: &quot;0.12.8&quot;,</span><br><span class="line">    &quot;serial&quot;: 615, </span><br><span class="line">    &quot;lineage&quot;: &quot;39aeeee2-b3bd-8130-c897-2cb8595cf8ec&quot;, </span><br><span class="line">    &quot;outputs&quot;: &#123;</span><br><span class="line">        ***</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, </span><br><span class="line">&quot;resources&quot;: [</span><br><span class="line">    &#123;     </span><br><span class="line">        &quot;mode&quot;: &quot;data&quot;,    </span><br><span class="line">        &quot;type&quot;: &quot;alicloud_slbs&quot;,     </span><br><span class="line">        &quot;name&quot;: &quot;default&quot;,     </span><br><span class="line">        &quot;provider&quot;: &quot;provider.alicloud&quot;,</span><br><span class="line">          ***</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;     </span><br><span class="line">        &quot;mode&quot;: &quot;managed&quot;,    </span><br><span class="line">        &quot;type&quot;: &quot;alicloud_vpc&quot;,     </span><br><span class="line">        &quot;name&quot;: &quot;default&quot;,    </span><br><span class="line">        &quot;provider&quot;: &quot;provider.alicloud&quot;,</span><br><span class="line">          ***</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>terraform state rm：移除特定的资源</p>
+<p><strong>state rm</strong>命令用于将state中的某个资源移除，但是实际上并不会真正删除这个资源，命令格式为：<code>terraformstate rm &lt;资源类型&gt;.&lt;资源名称&gt;</code> ，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform state rm alicloud_vswitch.this</span><br><span class="line">Removed alicloud_vswitch.this</span><br><span class="line">Successfully removed 1 resource instance(s).</span><br></pre></td></tr></table></figure>
+<p>移除后，如果模板内容不变并且再次执行<strong>apply</strong>命令，将会新增一个同样的资源。移除后的资源可以再次通过<strong>import</strong>命令再次加入。</p>
+</li>
+<li><p>terraform state mv：变更特定资源的存放地址</p>
+<p>如果想调整某个资源所在的state文件，可以通过<strong>state mv</strong>命令来完成，类似于Shell下的<strong>mv</strong>命令，这个命令的使用有多种选项，可以通过命令 <strong>terraform state mv –help</strong> 来详细了解。本文只介绍最常用的一种：<code>terraform state mv --state=./terraform.tfstate --state-out=&lt;target path&gt;/terraform-target.tfstate &lt;资源类型&gt;.&lt;资源名称A&gt; &lt;资源类型&gt;.&lt;资源名称B&gt;</code> ，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform state mv --state-out&#x3D;..&#x2F;tf.tfstate alicloud_vswitch.this alicloud_vswitch.default</span><br><span class="line">Move &quot;alicloud_vswitch.this&quot; to &quot;alicloud_vswitch.default&quot;</span><br><span class="line">Successfully moved 1 object(s)</span><br></pre></td></tr></table></figure>
+<p>如上命令省略了默认的<code>--state=./terraform.tfstate</code>选项，命令最终的结果是将当前State中的VSwitch资源移动到了上层目录下名为 <code>tf.tfstate</code> 的State中，并且将VSwitch的资源名称由“this”改为了“default”。</p>
+</li>
+<li><p>terraform refresh：刷新当前state</p>
+<p><strong>refresh</strong>命令可以用来刷新当前State的内容，即再次调用API并拉取最新的数据写入到state文件中。</p>
+</li>
+</ul>
+<h3 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h3><p>除了资源和状态的管理命令外，还有一些常用的应用在模板，Provider等多种场景下的命令。</p>
+<ul>
+<li><p>terraform init：初始化加载模块</p>
+<p><strong>init</strong>用来初始化加载所需的模块，包括Provider，Provisioner，Module等。</p>
+</li>
+<li><p>terraform graph：输出当前模板定义的资源关系图</p>
+<p>每个模板定义的资源之间都存在不同程度的关系，如果想看资源关系图，可以使用命令<strong>terraform graph</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ terraform graph</span><br><span class="line">digraph &#123;</span><br><span class="line">        compound &#x3D; &quot;true&quot;</span><br><span class="line">        newrank &#x3D; &quot;true&quot;</span><br><span class="line">        subgraph &quot;root&quot; &#123;</span><br><span class="line">                &quot;[root] alicloud_vpc.default&quot; [label &#x3D; &quot;alicloud_vpc.default&quot;, shape &#x3D; &quot;box&quot;]</span><br><span class="line">                &quot;[root] alicloud_vswitch.this&quot; [label &#x3D; &quot;alicloud_vswitch.this&quot;, shape &#x3D; &quot;box&quot;]             </span><br><span class="line">                ******</span><br><span class="line">                &quot;[root] output.vswitchId&quot; -&gt; &quot;[root] alicloud_vswitch.this&quot;</span><br><span class="line">                &quot;[root] provider.alicloud (close)&quot; -&gt; &quot;[root] alicloud_vswitch.this&quot;</span><br><span class="line">                ******</span><br><span class="line">                &quot;[root] root&quot; -&gt; &quot;[root] provider.alicloud (close)&quot;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;                 </span><br></pre></td></tr></table></figure>
+<p>该命令的结果还可以通过命令<code>terraform graph | dot -Tsvg &gt; graph.svg</code>直接导出为一张图片（需要提前安装graphviz： <code>brew install graphviz</code>）：<a href="https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9727393851/p69425.png"><img src="https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9727393851/p69425.png" alt="graph_img"></a></p>
+</li>
+<li><p>terraform validate：验证模板语法是否正确</p>
+<p>Terraform模板的编写需要遵循其自身定义的一套简单的语法规范，编写完成后，如果想要检查模板是否存在语法错误或者在运行<strong>plan</strong>和<strong>apply</strong>命令的时候报语法错误，可以通过执行命令<strong>terraform validate</strong>来检查和定位错误出现的详细位置和原因。</p>
+</li>
+</ul>
+<h2 id="Providers"><a href="#Providers" class="headerlink" title="Providers"></a>Providers</h2><p><a href="https://registry.terraform.io/browse/providers">https://registry.terraform.io/browse/providers</a></p>
+<p><img src="/terraform/./terraform.png" alt></p>
+<h4 id="Terraform-provider-alicloud"><a href="#Terraform-provider-alicloud" class="headerlink" title="Terraform-provider-alicloud"></a>Terraform-provider-alicloud</h4><p><a href="https://github.com/aliyun/terraform-provider-alicloud">github地址</a></p>
+]]></content>
+  </entry>
 </search>

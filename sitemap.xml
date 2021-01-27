@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/terraform/</loc>
+    
+    <lastmod>2021-01-27T03:21:10.735Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/rest-api-best-practices/</loc>
     
     <lastmod>2021-01-26T09:48:53.900Z</lastmod>
