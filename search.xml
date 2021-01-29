@@ -1833,83 +1833,10 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
-    <title>Nginx_配置SSL证书</title>
-    <url>/Nginx-%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/</url>
-    <content><![CDATA[<p>Nginx配置域名的SSL证书<br><a id="more"></a></p>
-<ol>
-<li><h4 id="获取证书并上传到Ngx服务器"><a href="#获取证书并上传到Ngx服务器" class="headerlink" title="获取证书并上传到Ngx服务器"></a>获取证书并上传到Ngx服务器</h4></li>
-</ol>
-<ol start="2">
-<li><h4 id="检查Ngx是否安装–with-http-ssl-module模块"><a href="#检查Ngx是否安装–with-http-ssl-module模块" class="headerlink" title="检查Ngx是否安装–with-http_ssl_module模块"></a>检查Ngx是否安装–with-http_ssl_module模块</h4></li>
-</ol>
-<ol start="3">
-<li><h4 id="修改nginx配置文件"><a href="#修改nginx配置文件" class="headerlink" title="修改nginx配置文件"></a>修改nginx配置文件</h4></li>
-</ol>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> <span class="regexp">*.zhaohongye.com</span>;</span><br><span class="line">	<span class="comment">#return 301 https://$host$request_uri;</span></span><br><span class="line">	<span class="attribute">return</span> <span class="number">301</span> https://zhaohongye.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">	<span class="attribute">server_name</span> zhaohongye.com www.zhaohongye.com;</span><br><span class="line">	<span class="attribute">access_log</span>  /var/log/nginx/zhy.log main;</span><br><span class="line">	<span class="attribute">error_log</span>  /var/log/nginx/zhy.<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">ssl</span> <span class="literal">on</span>;   <span class="comment">#ssl功能开启</span></span><br><span class="line">	<span class="attribute">ssl_certificate</span> sslfile/2027481_zhaohongye.com.pem;</span><br><span class="line">	<span class="attribute">ssl_certificate_key</span> sslfile/2027481_zhaohongye.com.key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="attribute">location</span> / &#123;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">		<span class="attribute">proxy_redirect</span>          http:// https://;</span><br><span class="line">		<span class="attribute">proxy_pass</span>              http://127.0.0.1:4000; </span><br><span class="line">		<span class="attribute">client_max_body_size</span>    <span class="number">10M</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Host <span class="variable">$host</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Server <span class="variable">$host</span>;</span><br><span class="line">		<span class="comment"># Required for new HTTP-based CLI</span></span><br><span class="line">		<span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">		<span class="attribute">proxy_request_buffering</span> <span class="literal">off</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li><h4 id="https访问验证"><a href="#https访问验证" class="headerlink" title="https访问验证"></a>https访问验证</h4></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python-脚本调用阿里SDK实现控制SLB</title>
-    <url>/Python-%E8%84%9A%E6%9C%AC%E8%B0%83%E7%94%A8%E9%98%BF%E9%87%8CSDK%E5%AE%9E%E7%8E%B0%E6%8E%A7%E5%88%B6SLB/</url>
-    <content><![CDATA[<h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><p>今天哥们提了一个需求，想实现调阿里云SLB的SDK实现脚本调整权重、增加或移除后端ECS实例</p>
-<h5 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#安装python3和pip</span></span><br><span class="line"><span class="comment">#安装以下sdk模块</span></span><br><span class="line"><span class="comment">#pip install aliyun-python-sdk-core-v3</span></span><br><span class="line"><span class="comment">#pip install aliyun-python-sdk-slb</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> aliyunsdkcore.client <span class="keyword">import</span> AcsClient</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> DescribeLoadBalancersRequest</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> DescribeLoadBalancerAttributeRequest</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> SetBackendServersRequest</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> AddBackendServersRequest</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> RemoveBackendServersRequest</span><br><span class="line"></span><br><span class="line"><span class="comment">#  需填写ak信息，可用区</span></span><br><span class="line">AccessKey=<span class="string">&#x27;&#x27;</span></span><br><span class="line">AccessKeySecret=<span class="string">&#x27;&#x27;</span></span><br><span class="line">RegionId = <span class="string">&quot;cn-beijing&quot;</span></span><br><span class="line"></span><br><span class="line">client = AcsClient(AccessKey,AccessKeySecret,RegionId);</span><br><span class="line">helpInfo=<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Basic Commands :</span></span><br><span class="line"><span class="string">  get            获取SLB信息</span></span><br><span class="line"><span class="string">  edit           配置SLB的后端权重</span></span><br><span class="line"><span class="string">  add            添加SLB的后端实例</span></span><br><span class="line"><span class="string">  remove         删除SLB的后端实例</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Usage:</span></span><br><span class="line"><span class="string">    获取所有实例的信息</span></span><br><span class="line"><span class="string">        python slb-0604.py get all</span></span><br><span class="line"><span class="string">    获取某一实例的信息</span></span><br><span class="line"><span class="string">        python slb-0604.py get lb-2zedfhvgznrm7eqbr00uv</span></span><br><span class="line"><span class="string">    编辑单个权重</span></span><br><span class="line"><span class="string">        python slb-0604.py edit lb-2zedfhvgznrm7eqbr00uv [&#123;&#x27;ServerId&#x27;: &#x27;i-2zedna91yczcq12zm60q&#x27;, &#x27;Weight&#x27;: 99, &#x27;Type&#x27;: &#x27;ecs&#x27;&#125;]</span></span><br><span class="line"><span class="string">    编辑多个权重（最多20个）</span></span><br><span class="line"><span class="string">        python slb-0604.py edit lb-2zedfhvgznrm7eqbr00uv [&#123;&quot;ServerId&quot;:&quot;i-2zej4lxhjoq1icue6kup&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;,&#123;&quot;ServerId&quot;:&quot;i-2ze1u9ywulp5pbvvc7hv&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;]</span></span><br><span class="line"><span class="string">    添加单个后端ecs</span></span><br><span class="line"><span class="string">        python slb-0604.py add lb-2zedfhvgznrm7eqbr00uv [&#123;&quot;ServerId&quot;:&quot;i-2ze1u9ywulp5pbvvc7hv&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;]</span></span><br><span class="line"><span class="string">    添加多个后端ecs</span></span><br><span class="line"><span class="string">        python slb-0604.py add lb-2zedfhvgznrm7eqbr00uv [&#123;&quot;ServerId&quot;:&quot;i-2zej4lxhjoq1icue6kup&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;,&#123;&quot;ServerId&quot;:&quot;i-2ze1u9ywulp5pbvvc7hv&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;]</span></span><br><span class="line"><span class="string">    删除后端ecs</span></span><br><span class="line"><span class="string">        python slb-0604.py remove lb-2zedfhvgznrm7eqbr00uv [&#123;&quot;ServerId&quot;:&quot;i-2zej4lxhjoq1icue6kup&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;,&#123;&quot;ServerId&quot;:&quot;i-2ze1u9ywulp5pbvvc7hv&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    print(helpInfo)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DescribeLoadBalancers</span>(<span class="params">resource</span>):</span></span><br><span class="line">    request = DescribeLoadBalancersRequest.DescribeLoadBalancersRequest()</span><br><span class="line">    response = client.do_action_with_exception(request)</span><br><span class="line">    SLBInfo = json.loads(response)</span><br><span class="line">    LoadBalancerIdList = []</span><br><span class="line">    <span class="keyword">for</span> SLBInstance <span class="keyword">in</span> SLBInfo[<span class="string">&#x27;LoadBalancers&#x27;</span>][<span class="string">&#x27;LoadBalancer&#x27;</span>]:</span><br><span class="line">        LoadBalancerIdList.append(SLBInstance[<span class="string">&#x27;LoadBalancerId&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> resource == <span class="string">&#x27;all&#x27;</span>:</span><br><span class="line">        Ali_Slb_Info = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> SLBInstance <span class="keyword">in</span> SLBInfo[<span class="string">&#x27;LoadBalancers&#x27;</span>][<span class="string">&#x27;LoadBalancer&#x27;</span>]:</span><br><span class="line">            request = DescribeLoadBalancerAttributeRequest.DescribeLoadBalancerAttributeRequest()</span><br><span class="line">            request.set_LoadBalancerId(SLBInstance[<span class="string">&#x27;LoadBalancerId&#x27;</span>])</span><br><span class="line">            response = client.do_action_with_exception(request)</span><br><span class="line">            Ali_Slb_Info[SLBInstance[<span class="string">&#x27;LoadBalancerId&#x27;</span>]] = json.loads(response.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        print(LoadBalancerIdList)</span><br><span class="line">    <span class="keyword">elif</span> resource <span class="keyword">in</span> LoadBalancerIdList:</span><br><span class="line">        request = DescribeLoadBalancerAttributeRequest.DescribeLoadBalancerAttributeRequest()</span><br><span class="line">        request.set_LoadBalancerId(resource)</span><br><span class="line">        response = client.do_action_with_exception(request)</span><br><span class="line">        response = json.loads(response.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        print(response[<span class="string">&#x27;BackendServers&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">&quot;输入错误,请输入 all 或 SLB实例ID ！&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SetBackendServers</span>(<span class="params">resource,BackendServers</span>):</span></span><br><span class="line">    request = SetBackendServersRequest.SetBackendServersRequest()</span><br><span class="line">    request.set_accept_format(<span class="string">&#x27;json&#x27;</span>)</span><br><span class="line">    request.set_BackendServers(BackendServers)</span><br><span class="line">    request.set_LoadBalancerId(resource)</span><br><span class="line"></span><br><span class="line">    response = client.do_action_with_exception(request)</span><br><span class="line">    print(str(response, encoding=<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">AddBackendServers</span>(<span class="params">resource,BackendServers</span>):</span></span><br><span class="line">    request = AddBackendServersRequest()</span><br><span class="line">    request.set_accept_format(<span class="string">&#x27;json&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    request.set_BackendServers(BackendServers)</span><br><span class="line">    request.set_LoadBalancerId(resource)</span><br><span class="line">    response = client.do_action_with_exception(request)</span><br><span class="line">    print(str(response, encoding=<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">RemoveBackendServers</span>(<span class="params">resource,BackendServers</span>):</span></span><br><span class="line">    request = RemoveBackendServersRequest()</span><br><span class="line">    request.set_accept_format(<span class="string">&#x27;json&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    request.set_BackendServers(BackendServers)</span><br><span class="line">    request.set_LoadBalancerId(resource)</span><br><span class="line">    response = client.do_action_with_exception(request)</span><br><span class="line">    print(str(response, encoding=<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) == <span class="number">1</span>:</span><br><span class="line">        main()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        userInput = sys.argv[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">if</span> userInput[<span class="number">0</span>] == <span class="string">&#x27;get&#x27;</span> <span class="keyword">and</span> userInput[<span class="number">1</span>]:</span><br><span class="line">            resource = userInput[<span class="number">1</span>]</span><br><span class="line">            DescribeLoadBalancers(resource)</span><br><span class="line">        <span class="keyword">if</span> userInput[<span class="number">0</span>] == <span class="string">&#x27;edit&#x27;</span> <span class="keyword">and</span> userInput[<span class="number">1</span>] <span class="keyword">and</span> userInput[<span class="number">2</span>]:</span><br><span class="line">            resource = userInput[<span class="number">1</span>]</span><br><span class="line">            BackendServers = userInput[<span class="number">2</span>]</span><br><span class="line">            SetBackendServers(resource,BackendServers)</span><br><span class="line">        <span class="keyword">if</span> userInput[<span class="number">0</span>] == <span class="string">&#x27;add&#x27;</span> <span class="keyword">and</span> userInput[<span class="number">1</span>] <span class="keyword">and</span> userInput[<span class="number">2</span>]:</span><br><span class="line">            resource = userInput[<span class="number">1</span>]</span><br><span class="line">            BackendServers = userInput[<span class="number">2</span>]</span><br><span class="line">            AddBackendServers(resource,BackendServers)</span><br><span class="line">        <span class="keyword">if</span> userInput[<span class="number">0</span>] == <span class="string">&#x27;remove&#x27;</span> <span class="keyword">and</span> userInput[<span class="number">1</span>] <span class="keyword">and</span> userInput[<span class="number">2</span>]:</span><br><span class="line">            resource = userInput[<span class="number">1</span>]</span><br><span class="line">            BackendServers = userInput[<span class="number">2</span>]</span><br><span class="line">            RemoveBackendServers(resource,BackendServers)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&quot;输入错误&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Python-调用阿里云API实现Swarm集群应用的更新或重启</title>
     <url>/Python-%E8%B0%83%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91API%E5%AE%9E%E7%8E%B0Swarm%E9%9B%86%E7%BE%A4%E5%BA%94%E7%94%A8%E7%9A%84%E6%9B%B4%E6%96%B0%E6%88%96%E9%87%8D%E5%90%AF/</url>
     <content><![CDATA[<h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><p>调用阿里云API实现 根据docker compose文件进行Swarm集群容器应用的更新、重启</p>
 <h5 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment">#调用阿里容器api</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">alics.py</span></span><br><span class="line"><span class="string">参数1   操作  update  restart</span></span><br><span class="line"><span class="string">参数2   集群名称   pre test pro</span></span><br><span class="line"><span class="string">参数2   应用名称</span></span><br><span class="line"><span class="string">参数3   dockercompose文件的绝对路径</span></span><br><span class="line"><span class="string">参数4   时间戳</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"></span><br><span class="line">Action=sys.argv[<span class="number">1</span>]</span><br><span class="line">TimeStamp=str(time.time())</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">UpdataService</span>(<span class="params">ClusterName,Service,File,TimeStamp</span>):</span></span><br><span class="line">    <span class="keyword">with</span> open(File) <span class="keyword">as</span> file:</span><br><span class="line">        contents = file.read().replace(<span class="string">&#x27;\n&#x27;</span>, <span class="string">&#x27;\r\n&#x27;</span>)</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&quot;template&quot;</span>: contents,</span><br><span class="line">        <span class="string">&quot;version&quot;</span>: TimeStamp,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ClusterName == <span class="string">&quot;pre&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;预发环境的 %s 应用进行更新&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master2g11.cs.cn-beijing.aliyuncs.com:20060/projects/&#x27;</span> + Service + <span class="string">&#x27;/update&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;pro&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;生产环境的 %s 应用进行更新&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master4g5.cs-cn-beijing.aliyun.com:20045/projects/&#x27;</span> + Service + <span class="string">&#x27;/update&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;test&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;测试环境的 %s 应用进行更新&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master1g8.cs-cn-hangzhou.aliyun.com:20034/projects/&#x27;</span> + Service + <span class="string">&#x27;/update&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    res = requests.post(url,data=json.dumps(data),verify=verify,cert=cert)</span><br><span class="line">    <span class="keyword">print</span> res</span><br><span class="line">    <span class="keyword">print</span> res.text</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;202&#x27;</span> <span class="keyword">in</span> str(res):</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;\n应用更新请求已发送到阿里云容器服务！\n&#x27;</span></span><br><span class="line">        sys.exit(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;更新失败，请查看compose文件是否缺少参数&#x27;</span></span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CreateService</span>(<span class="params">ClusterName,Service,File,TimeStamp</span>):</span></span><br><span class="line">    <span class="keyword">with</span> open(File) <span class="keyword">as</span> file:</span><br><span class="line">        contents = file.read().replace(<span class="string">&#x27;\n&#x27;</span>, <span class="string">&#x27;\r\n&#x27;</span>)</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: Service,</span><br><span class="line">        <span class="string">&quot;template&quot;</span>: contents,</span><br><span class="line">        <span class="string">&quot;version&quot;</span>: TimeStamp,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ClusterName == <span class="string">&quot;pre&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;创建预发环境的 %s 应用&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master2g11.cs.cn-beijing.aliyuncs.com:20060/projects/&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;pro&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;创建生产环境的 %s 应用&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master4g5.cs-cn-beijing.aliyun.com:20045/projects/&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;test&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;创建测试环境的 %s 应用&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master1g8.cs-cn-hangzhou.aliyun.com:20034/projects/&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    res = requests.post(url,data=json.dumps(data),verify=verify,cert=cert)</span><br><span class="line">    <span class="keyword">print</span> res</span><br><span class="line">    <span class="keyword">print</span> res.text</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;201&#x27;</span> <span class="keyword">in</span> str(res):</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;\n应用更新请求已发送到阿里云容器服务！\n&#x27;</span></span><br><span class="line">        sys.exit(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;更新失败，请查看compose文件是否缺少参数&#x27;</span></span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">RestartService</span>(<span class="params">ClusterName,Service</span>):</span></span><br><span class="line">    <span class="keyword">if</span> ClusterName == <span class="string">&quot;pre&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;预发环境的 %s 应用进行重启&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master2g11.cs.cn-beijing.aliyuncs.com:20060/projects/&#x27;</span> + Service + <span class="string">&#x27;/restart&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;pro&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;生产环境的 %s 应用进行重启&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master4g5.cs-cn-beijing.aliyun.com:20045/projects/&#x27;</span> + Service + <span class="string">&#x27;/restart&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;test&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;测试环境的 %s 应用进行重启&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master1g8.cs-cn-hangzhou.aliyun.com:20034/projects/&#x27;</span> + Service + <span class="string">&#x27;/restart&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        res = requests.post(url,verify=verify,cert=cert)</span><br><span class="line">        <span class="keyword">print</span> res</span><br><span class="line">        <span class="keyword">print</span> res.text</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;200&#x27;</span> <span class="keyword">in</span> str(res):</span><br><span class="line">            <span class="keyword">print</span> <span class="string">&#x27;\n应用重启完成！\n&#x27;</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">&#x27;程序正在更新，10秒后重试！&#x27;</span></span><br><span class="line">            time.sleep( <span class="number">10</span> )</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetService</span>(<span class="params">ClusterName,Service</span>):</span></span><br><span class="line">    <span class="keyword">if</span> ClusterName == <span class="string">&quot;pre&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;获取预发环境的 %s 应用的信息&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master2g11.cs.cn-beijing.aliyuncs.com:20060/projects/&#x27;</span> + Service</span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;pro&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;获取生产环境的 %s 应用的信息&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master4g5.cs-cn-beijing.aliyun.com:20045/projects/&#x27;</span> + Service</span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;test&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;获取测试环境的 %s 应用的信息&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master1g8.cs-cn-hangzhou.aliyun.com:20034/projects/&#x27;</span> + Service</span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    res = requests.get(url,verify=verify,cert=cert)</span><br><span class="line">    <span class="keyword">print</span> res</span><br><span class="line">    <span class="keyword">print</span> json.loads(res.text)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">RedeployService</span>(<span class="params">ClusterName,Service</span>):</span></span><br><span class="line">    <span class="keyword">if</span> ClusterName == <span class="string">&quot;pre&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;预发环境的 %s 应用进行重新部署&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master2g11.cs.cn-beijing.aliyuncs.com:20060/projects/&#x27;</span> + Service + <span class="string">&#x27;/redeploy&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;pro&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;生产环境的 %s 应用进行重新部署&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master4g5.cs-cn-beijing.aliyun.com:20045/projects/&#x27;</span> + Service  + <span class="string">&#x27;/redeploy&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/vcgapp/ops/sdk/swarm/vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/vcgapp/ops/sdk/swarm/vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;test&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;测试环境的 %s 应用进行重新部署&#x27;</span> % Service</span><br><span class="line">        url = <span class="string">&#x27;https://master1g8.cs-cn-hangzhou.aliyun.com:20034/projects/&#x27;</span> + Service + <span class="string">&#x27;/redeploy&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/test-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    res = requests.post(url,verify=verify,cert=cert)</span><br><span class="line">    <span class="keyword">print</span> res</span><br><span class="line">    <span class="keyword">print</span> res.text</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetComposeService</span>(<span class="params">ClusterName,Service</span>):</span></span><br><span class="line">    <span class="keyword">if</span> ClusterName == <span class="string">&quot;pre&quot;</span>:</span><br><span class="line">        File = <span class="string">&#x27;/jenkins/vcgapp/compose-back/pre/&#x27;</span> + Service</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;获取预发环境的 %s 应用的Compose文件，保存本地后的文件为 %s&#x27;</span> % (Service,File)</span><br><span class="line">        url = <span class="string">&#x27;https://master2g11.cs.cn-beijing.aliyuncs.com:20060/projects/&#x27;</span> + Service</span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/vcgapp/ops/sdk/swarm/pre-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;pro&quot;</span>:</span><br><span class="line">        File = <span class="string">&#x27;/jenkins/vcgapp/compose-back/pro/&#x27;</span> + Service</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;获取生产环境的 %s 应用的Compose文件，保存本地后的文件为 %s&#x27;</span> % (Service,File)</span><br><span class="line">        url = <span class="string">&#x27;https://master4g5.cs-cn-beijing.aliyun.com:20045/projects/&#x27;</span> + Service</span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/vcgapp/ops/sdk/swarm/vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    res = requests.get(url,verify=verify,cert=cert)</span><br><span class="line">    <span class="keyword">with</span> open(File,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        file.write(json.loads(res.text).get(<span class="string">&#x27;template&#x27;</span>).replace(<span class="string">&#x27;\r\n&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetAllService</span>(<span class="params">ClusterName</span>):</span></span><br><span class="line">    <span class="keyword">if</span> ClusterName == <span class="string">&quot;pre&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;获取预发环境所有应用的信息&#x27;</span></span><br><span class="line">        url = <span class="string">&#x27;https://master2g11.cs.cn-beijing.aliyuncs.com:20060/projects/&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/pre-vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> ClusterName == <span class="string">&quot;pro&quot;</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&#x27;获取生产环境所有应用的信息&#x27;</span></span><br><span class="line">        url = <span class="string">&#x27;https://master4g5.cs-cn-beijing.aliyun.com:20045/projects/&#x27;</span></span><br><span class="line">        verify = <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/ca.pem&#x27;</span></span><br><span class="line">        cert = (<span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/cert.pem&#x27;</span>, <span class="string">&#x27;/jenkins/vcgapp/ops/sdk/swarm/vcg-com/key.pem&#x27;</span>)</span><br><span class="line">    res = requests.get(url,verify=verify,cert=cert)</span><br><span class="line">    <span class="keyword">print</span> res</span><br><span class="line">    <span class="comment">#print res.text</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> json.loads(res.text):</span><br><span class="line">        <span class="comment">#print i.get(&#x27;template&#x27;).replace(&#x27;\r\n&#x27;,&#x27;\n&#x27;)</span></span><br><span class="line">        <span class="keyword">if</span> ClusterName == <span class="string">&quot;pre&quot;</span>:</span><br><span class="line">            File = <span class="string">&#x27;/jenkins/vcgapp/compose-back/pre/&#x27;</span> + i.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> ClusterName == <span class="string">&quot;pro&quot;</span>:</span><br><span class="line">            File = <span class="string">&#x27;/jenkins/vcgapp/compose-back/pro/&#x27;</span> + i.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">        composefile = i.get(<span class="string">&#x27;template&#x27;</span>).replace(<span class="string">&#x27;\r\n&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        <span class="keyword">with</span> open(File,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">            file.write(composefile)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;%s 的 compose 文件已备份到 %s &quot;</span> % (i.get(<span class="string">&#x27;name&#x27;</span>),File)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> Action == <span class="string">&quot;update&quot;</span>:</span><br><span class="line">    ClusterName = sys.argv[<span class="number">2</span>]</span><br><span class="line">    Service = sys.argv[<span class="number">3</span>]</span><br><span class="line">    File = sys.argv[<span class="number">4</span>]</span><br><span class="line">    UpdataService(ClusterName,Service,File,TimeStamp)</span><br><span class="line"><span class="keyword">elif</span> Action == <span class="string">&quot;create&quot;</span>:</span><br><span class="line">    ClusterName = sys.argv[<span class="number">2</span>]</span><br><span class="line">    Service = sys.argv[<span class="number">3</span>]</span><br><span class="line">    File = sys.argv[<span class="number">4</span>]</span><br><span class="line">    CreateService(ClusterName,Service,File,TimeStamp)</span><br><span class="line"><span class="keyword">elif</span> Action == <span class="string">&quot;restart&quot;</span>:</span><br><span class="line">    ClusterName = sys.argv[<span class="number">2</span>]</span><br><span class="line">    Service = sys.argv[<span class="number">3</span>]</span><br><span class="line">    RestartService(ClusterName, Service)</span><br><span class="line"><span class="keyword">elif</span> Action == <span class="string">&quot;getinfo&quot;</span>:</span><br><span class="line">    ClusterName = sys.argv[<span class="number">2</span>]</span><br><span class="line">    Service = sys.argv[<span class="number">3</span>]</span><br><span class="line">    GetService(ClusterName, Service)</span><br><span class="line"><span class="keyword">elif</span> Action == <span class="string">&quot;redeploy&quot;</span>:</span><br><span class="line">    ClusterName = sys.argv[<span class="number">2</span>]</span><br><span class="line">    Service = sys.argv[<span class="number">3</span>]</span><br><span class="line">    RedeployService(ClusterName, Service)</span><br><span class="line"><span class="keyword">elif</span> Action == <span class="string">&quot;getcompose&quot;</span>:</span><br><span class="line">    ClusterName = sys.argv[<span class="number">2</span>]</span><br><span class="line">    Service = sys.argv[<span class="number">3</span>]</span><br><span class="line">    GetComposeService(ClusterName, Service)</span><br><span class="line"><span class="keyword">elif</span> Action == <span class="string">&quot;getallservice&quot;</span>:</span><br><span class="line">    ClusterName = sys.argv[<span class="number">2</span>]</span><br><span class="line">    GetAllService(ClusterName)</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Python学习进阶之路</title>
-    <url>/Python%E5%AD%A6%E4%B9%A0%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF/</url>
-    <content><![CDATA[<p><img src="/Python%E5%AD%A6%E4%B9%A0%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF/./python.png" alt></p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shell脚本-定期删除异常Pod</title>
-    <url>/Shell%E8%84%9A%E6%9C%AC-%E5%AE%9A%E6%9C%9F%E5%88%A0%E9%99%A4%E5%BC%82%E5%B8%B8Pod/</url>
-    <content><![CDATA[<h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><p>有的Pod重启次数过多</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[cicd-test@ops-jenkins-master ~]$ kubectl get pods |awk &#x27;&#123;if ($4 &gt;= 1) print $0 &#125;&#x27;</span><br><span class="line">NAME                                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">cmsservice-vcg-com-57974bc4cf-vq6mk             1/1     Running   1          6m18s</span><br><span class="line">edgeservice-vcg-com-755b96fb78-v96s5            1/1     Running   1          3d23h</span><br><span class="line">edgeserviceweb-vcg-com-5655fc9899-8lxql         1/1     Running   1          3d23h</span><br><span class="line">node-visualchina-web-8575cf78dc-8jr2k           1/1     Running   1          4h11m</span><br><span class="line">vdam-gateway-service-6b7d864d67-rdzrg           1/1     Running   1          3h36m</span><br><span class="line">vdam-passport-service-7c97d84b58-xhn6k          1/1     Running   6          3d22h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h5 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">Author:zhy</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Version:1.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Date:20190603</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#######</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">删除重启次数超过5次的POD</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line"></span><br><span class="line">echo $Time &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line"></span><br><span class="line">if [[ `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $0 &#125;&#x27; |grep -v &#x27;NAME&#x27; |wc -l` -eq 0 ]];then</span><br><span class="line">  echo &#x27;无重启次数超过5次的POD&#x27;</span><br><span class="line">  echo &#x27;无重启次数超过5次的POD&#x27;  &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">else</span><br><span class="line">  echo &#x27;将要删除如下pod：&#x27;</span><br><span class="line">  echo &#x27;将要删除如下pod：&#x27; &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">  /usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27;| grep -v &#x27;NAME&#x27;</span><br><span class="line">  echo `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27;| grep -v &#x27;NAME&#x27;` &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">  for i in `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27; | grep -v &#x27;NAME&#x27;`;</span><br><span class="line">  do</span><br><span class="line">    echo $i</span><br><span class="line">    /usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config delete pod $i</span><br><span class="line">  done</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>SonarQube-安装部署</title>
-    <url>/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h4 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h4><h5 id="Docker方式"><a href="#Docker方式" class="headerlink" title="Docker方式"></a>Docker方式</h5><h6 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull postgres</span><br><span class="line">docker pull sonarqube</span><br></pre></td></tr></table></figure>
-<h6 id="启动postgresql"><a href="#启动postgresql" class="headerlink" title="启动postgresql"></a>启动postgresql</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres</span><br></pre></td></tr></table></figure>
-<h6 id="启动sonarqube"><a href="#启动sonarqube" class="headerlink" title="启动sonarqube"></a>启动sonarqube</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name sq --link db -e SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar -p 9000:9000 -d sonarqube</span><br></pre></td></tr></table></figure>
-<h6 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h6><p>启动报错：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br></pre></td></tr></table></figure>
-<p><img src="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/./sonarqube1.jpg" alt></p>
-<ul>
-<li style="list-style: none"><input type="checkbox"> </li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">添加：</span></span><br><span class="line">vm.max_map_count=262144</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">验证：</span></span><br><span class="line">sysctl -p | grep vm.max_map_count</span><br></pre></td></tr></table></figure>
-<h4 id="访问SonarQube"><a href="#访问SonarQube" class="headerlink" title="访问SonarQube"></a>访问SonarQube</h4><h5 id="登录系统"><a href="#登录系统" class="headerlink" title="登录系统"></a>登录系统</h5><p>访问ip:9000</p>
-<p><img src="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/./sonarqube2.jpg" alt></p>
-<p>登录用户名密码：admin，admin</p>
-<p><img src="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/./sonarqube2-1.jpg" alt></p>
-<h5 id="安装中文包"><a href="#安装中文包" class="headerlink" title="安装中文包"></a>安装中文包</h5><p>Administration–Marketplace</p>
-<p><img src="/SonarQube-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/./sonarqube3.jpg" alt></p>
 ]]></content>
   </entry>
   <entry>
@@ -2201,6 +2128,220 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </tags>
   </entry>
   <entry>
+    <title>阿里云产品我想退款如何操作</title>
+    <url>/ali-tuikuan/</url>
+    <content><![CDATA[<p>阿里云产品退款工单怎么填</p>
+<h5 id="进入“工单系统”"><a href="#进入“工单系统”" class="headerlink" title="进入“工单系统”"></a>进入“工单系统”</h5><p><img src="/ali-tuikuan/./1564537171046.jpg" alt></p>
+<h5 id="选择相关产品，点击“提问”"><a href="#选择相关产品，点击“提问”" class="headerlink" title="选择相关产品，点击“提问”"></a>选择相关产品，点击“提问”</h5><p><strong>本次演示为ECS实例退款</strong></p>
+<p><img src="/ali-tuikuan/./1564537202981.jpg" alt></p>
+<h5 id="选择“续费-配置变更”-创建工单"><a href="#选择“续费-配置变更”-创建工单" class="headerlink" title="选择“续费/配置变更”-创建工单"></a>选择“续费/配置变更”-创建工单</h5><p><img src="/ali-tuikuan/./1564537232860.jpg" alt></p>
+<h5 id="填写工单"><a href="#填写工单" class="headerlink" title="填写工单"></a>填写工单</h5><p><img src="/ali-tuikuan/./1564537617373.jpg" alt></p>
+<p>问题描述内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）退款原因（以便我方改进产品不足）： 业务不再需要</span><br><span class="line">（2）申请退款的产品实例ID：</span><br><span class="line">i-2ze73nwbpiwe8oy2s8fd</span><br><span class="line">i-2zeeif4aj2ietoreexyz</span><br><span class="line">i-2zebsfqkvhcijbbtuqqj</span><br><span class="line">i-2zeixwbfspqnyju4qvdk</span><br><span class="line">i-2zeacxjlg8xlgh1kp053</span><br><span class="line">i-2zeawy8pclj79pt1amvx</span><br><span class="line">i-2ze095o6ifge7szwor5j</span><br><span class="line">i-2zea9n9e5ru6ebvf4nuv</span><br><span class="line">i-2zea410j2fhwth7wp0s6</span><br><span class="line">i-25z4mycbd</span><br><span class="line">i-25m8j9t4v</span><br><span class="line">i-251nzqk8t</span><br><span class="line">i-25zq6kyad</span><br><span class="line">i-25yentipk</span><br><span class="line">（3）已使用时长所对应的费用不退回，请您确认已知晓； 确认</span><br><span class="line">（4）代金券支付部分无法退回，请您确认已知晓： 确认</span><br><span class="line">（5）主机或实例是否已备份？若已备份，请回复“数据已备份”；若无需备份，请回复“数据无需备份” 。（退款后服务器实例立即被清除，数据不再保留，请提前备份数据）  数据已备份。</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>暴力破解攻击和防御</title>
+    <url>/baoli-pojie-fangyu/</url>
+    <content><![CDATA[<p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。<br><a id="more"></a></p>
+<blockquote>
+<p>引用自阿里云<a href="https://help.aliyun.com/knowledge_detail/56269.html">https://help.aliyun.com/knowledge_detail/56269.html</a></p>
+</blockquote>
+<h3 id="什么是暴力破解攻击"><a href="#什么是暴力破解攻击" class="headerlink" title="什么是暴力破解攻击"></a>什么是暴力破解攻击</h3><p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。</p>
+<h4 id="攻击行为类型"><a href="#攻击行为类型" class="headerlink" title="攻击行为类型"></a>攻击行为类型</h4><p>根据暴力破解的穷举方式，其攻击行为可以分为：</p>
+<ul>
+<li><strong>字典攻击法</strong>。大多攻击者并没有高性能的破解算法和CPU/GPU，为节省时间和提高效率，会利用社会工程学或其它方式建立破译字典，使用字典中已存在的用户名、密码进行猜破。</li>
+<li><strong>穷举法</strong>。攻击者首先列出密码组合的可能性（如数字、大写字母、小写字母、特殊字符等），然后按密码长度从1位、2位….构成不同的账号和密码对，然后逐个猜试。该方法需要高性能的破解算法和CPU/GPU作支持。</li>
+<li><strong>组合式攻击法</strong>。使用字典攻击和穷举法的组合攻击方式。</li>
+</ul>
+<p>理论上，只要拥有性能足够强的计算机和足够长的时间，大多密码均可以被破解出来。</p>
+<h4 id="攻击业务类型"><a href="#攻击业务类型" class="headerlink" title="攻击业务类型"></a>攻击业务类型</h4><ul>
+<li>针对Windows操作系统的远程桌面管理协议（RDP）、Linux操作系统的管理协议（SSH）的暴力破解攻击</li>
+<li>针对具有登录认证机制的软件服务（如Mysql、SQLserver、FTP、Web前后端登录接口等应用服务）的暴力破解攻击</li>
+</ul>
+<p>对于防御者而言，给攻击者留得时间越长，其组合出正确的用户名和密码的可能性就越大。因此，时间在检测暴力破解攻击时很重要。</p>
+<h3 id="暴力破解攻击有什么危害"><a href="#暴力破解攻击有什么危害" class="headerlink" title="暴力破解攻击有什么危害"></a>暴力破解攻击有什么危害</h3><p>通过自动化工具发起的暴力破解攻击可以获取用户账号和密码。</p>
+<h3 id="如何防御暴力破解攻击"><a href="#如何防御暴力破解攻击" class="headerlink" title="如何防御暴力破解攻击"></a>如何防御暴力破解攻击</h3><ul>
+<li>制定密码复杂度策略，并进行服务加固。密码的长度要大于 8 位，且最好大于 20 位；密码应由数字、大小写字母和特殊符号混合组成；密码的最长有效期为 90 天。</li>
+<li>配置好网络访问控制。严格限制将高危服务管理端口直接发布到互联网；建议您使用 VPN 和堡垒机的方式集中管理和审计。</li>
+<li>提高内部全员安全意识，禁止借用或共享使用账号。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>安全</category>
+      </categories>
+      <tags>
+        <tag>安全</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>申请Confluence和Jira的试用版license</title>
+    <url>/confluence-jira-license/</url>
+    <content><![CDATA[<ol>
+<li><p>访问<a href="https://www.atlassian.com/，登录账号">https://www.atlassian.com/，登录账号</a></p>
+<p><img src="/confluence-jira-license/./image2019-7-23_16-56-18.png" alt></p>
+<p><img src="/confluence-jira-license/./image2019-7-23_16-58-42.png" alt></p>
+</li>
+<li><p>点击“licenses”，url为<a href="https://my.atlassian.com/product">https://my.atlassian.com/product</a></p>
+<p><img src="/confluence-jira-license/./image2019-7-23_17-0-29.png" alt></p>
+</li>
+<li><p>创建新的认证：</p>
+<p><img src="/confluence-jira-license/./image2019-7-23_17-2-25.png" alt></p>
+</li>
+<li><p>获取service ID</p>
+<p>使用admin账号登录系统，<strong>系统</strong>-<strong>系统信息</strong>可以获取service ID</p>
+<p><img src="/confluence-jira-license/./1563872961498.jpg" alt></p>
+<p><img src="/confluence-jira-license/./1563872994300.jpg" alt></p>
+</li>
+<li><p>激活license</p>
+<p><img src="/confluence-jira-license/./1563873215131.jpg" alt></p>
+<p><img src="/confluence-jira-license/./1563873261297.jpg" alt></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Confluence</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>域名SSL证书</title>
+    <url>/domain-ssl/</url>
+    <content><![CDATA[<p>SSL证书<br><a id="more"></a></p>
+<h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><ul>
+<li><p>什么是数字证书？</p>
+<p>数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。</p>
+<p>数字证书还有一个重要的特征：只在特定的时间段内有效。</p>
+</li>
+<li><p>什么是SSL？</p>
+<p>SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。</p>
+</li>
+<li><p>什么是SSL证书？</p>
+<p>SSL证书采用SSL协议进行通信，是由权威机构颁发给网站的可信凭证。</p>
+<p>SSL证书采用SSL协议进行通信。SSL证书部署到Web服务器后，Web服务器访问将启用HTTPS协议。您的网站将会通过 HTTPS 加密协议来传输数据，可帮助Web服务器和网站间建立可信的加密链接，从而保证网络数据传输的安全。</p>
+</li>
+<li><p>什么是HTTPS？</p>
+<p>HTTPS是一种基于SSL协议的网站加密传输协议。</p>
+<p>网站安装SSL证书后，使用HTTPS加密协议访问，可激活客户端浏览器到网站服务器之间的<strong>SSL加密通道</strong>（SSL协议），从而实现高强度双向加密传输，防止传输数据被泄露或篡改。HTTPS 也就是HTTP + SSL，是HTTP的安全版。</p>
+</li>
+<li><p>什么是CA认证中心？</p>
+<p>CA认证中心（CA机构），即证书授权中心（Certificate Authority），或称证书授权机构。</p>
+<p>CA认证中心作为电子商务交易中受信任的第三方，承担公钥体系中公钥合法性检验的责任。</p>
+</li>
+</ul>
+<h2 id="SSL证书类型配置表"><a href="#SSL证书类型配置表" class="headerlink" title="SSL证书类型配置表"></a>SSL证书类型配置表</h2><p>证书根据不同的验证级别，分为以下三类：</p>
+<ul>
+<li>域名型SSL（DV SSL）</li>
+<li>企业型SSL（OV SSL）</li>
+<li>增强型SSL（EV SSL）</li>
+</ul>
+<p>根据保护域名的数量需求，SSL 证书又分为：</p>
+<ul>
+<li>单域名版：只保护一个域名，例如 <a href="http://www.abc.com">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
+<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a href="http://www.abc.com">www.abc.com</a> , <a href="http://www.bcd.com">www.bcd.com</a>, pay.efg.com 等</li>
+<li>通配符版：一张证书保护同一个主域名下同一级的所有子域名，不限个数，形如 *.abc.com 。注意，通配符版只有 DVSSL 和 OVSSL 具有， EVSSL 不具有通配符版本。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">证书品牌</th>
+<th style="text-align:left">证书类型</th>
+<th style="text-align:left">保护域名的类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GeoTrust</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">1个带通配符的域名1个明细域名多个明细域名</td>
+<td style="text-align:left">提供加密功能，对申请者的身份进行严格的审核验证，可提供可信身份证明。多个域名例上限为300个。如: buy1.example.com, buy2.example.com, next.buy.example2.com, 上述3个明细子域名计算为3个域名。</td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">GlobalSign</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">CFCA</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Symantec</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">通配符DV SSL</td>
+<td style="text-align:left">通配符域名</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">增强型OV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供站点加密功能，需要核验组织注册信息，证书中会显示组织名称。组织信息验证通过后，3个工作日内颁发证书。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">增强型EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">增强型EV SSL提供站点加密功能，浏览器绿色地址栏显示组织信息强化信任。组织信息验证通过后7个工作日内颁发证书。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">免费型DV SSL</td>
+<td style="text-align:left">1个域名</td>
+<td style="text-align:left">免费新根证书，切入DigiCert PKI体系，兼容性操作系统版本IOS 5.0+、Android 2.3.3+、JRE 1.6.5+、WIN 7+。最多保护一个明细子域名，不支持通配符，一个阿里云帐户最多签发20张免费证书。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SSL证书购买"><a href="#SSL证书购买" class="headerlink" title="SSL证书购买"></a>SSL证书购买</h2><p>登录阿里云控制台，进入SSL证书服务。</p>
+<p><img src="/domain-ssl/免费SSL证书购买.jpg" alt="免费SSL证书购买"></p>
+<h2 id="SSL证书更新"><a href="#SSL证书更新" class="headerlink" title="SSL证书更新"></a>SSL证书更新</h2><p>公司域名SSL证书即将到期，替换SSL证书需知道哪些二级域名使用了HTTPS访问，并且获取SSL证书过期时间，来验证证书是否更新。</p>
+<h5 id="获取域名下的解析信息"><a href="#获取域名下的解析信息" class="headerlink" title="获取域名下的解析信息"></a>获取域名下的解析信息</h5><p>登录域名服务商控制条—云解析—域名解析列表—导出解析记录</p>
+<p>将二级域名的记录写入domains.txt文件备用</p>
+<h5 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for domain in `cat domains.txt` #读取存储了需要监测的域名的文件</span><br><span class="line">do</span><br><span class="line">    curl $domain.vcg.com:443 1&gt;/dev/null 2&gt;/dev/null --connect-timeout 3</span><br><span class="line">    if [[ $? -eq 0  ]]; then</span><br><span class="line">      END_TIME=$(echo | openssl s_client -servername $domain.vcg.com  -connect $domain.vcg.com:443 2&gt;/dev/null | openssl x509 -noout -dates |grep &#x27;After&#x27;| awk -F &#x27;=&#x27; &#x27;&#123;print $2&#125;&#x27;| awk -F &#x27; +&#x27; &#x27;&#123;print $1,$2,$4 &#125;&#x27; )</span><br><span class="line">      echo &quot;$domain.vcg.com 的SSL证书到期时间为 $END_TIME  &quot;  &gt;&gt; result1.txt</span><br><span class="line">    else</span><br><span class="line">      echo &quot;$domain.vcg.com 没https &quot; &gt;&gt; result1.txt</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h5 id="根据输出文件查看SSL证书过期时间，进行证书替换工作"><a href="#根据输出文件查看SSL证书过期时间，进行证书替换工作" class="headerlink" title="根据输出文件查看SSL证书过期时间，进行证书替换工作"></a>根据输出文件查看SSL证书过期时间，进行证书替换工作</h5><h5 id="SSL证书更新的配置路径"><a href="#SSL证书更新的配置路径" class="headerlink" title="SSL证书更新的配置路径"></a>SSL证书更新的配置路径</h5><ul>
+<li>阿里云OSS-对象存储</li>
+<li>阿里云WAF-Web防火墙</li>
+<li>阿里云SLB-负载均衡</li>
+<li>Nginx</li>
+</ul>
+<p>##### </p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>SSL证书</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>SSL证书</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开源日志分析平台ELK</title>
     <url>/elk/</url>
     <content><![CDATA[<p>Elasticsearch、Kibana、Beats 和 Logstash（也称为 <a href="https://www.elastic.co/cn/elk-stack">ELK Stack</a>）。能够安全可靠地获取任何来源、任何格式的数据，然后实时地对数据进行搜索、分析和可视化。</p>
@@ -2248,6 +2389,20 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
+    <title>代码迁移-更改Git远程仓库-从gitlab上迁移到coding</title>
+    <url>/gitlab-remove-to-coding/</url>
+    <content><![CDATA[<h5 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@git.test.com:test/test.git</span><br></pre></td></tr></table></figure>
+<h5 id="进入项目"><a href="#进入项目" class="headerlink" title="进入项目"></a>进入项目</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd test</span><br></pre></td></tr></table></figure>
+<h5 id="删除-git文件"><a href="#删除-git文件" class="headerlink" title="删除.git文件"></a>删除.git文件</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf .git</span><br></pre></td></tr></table></figure>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h5 id="绑定远程仓库"><a href="#绑定远程仓库" class="headerlink" title="绑定远程仓库"></a>绑定远程仓库</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:xxx/test.git </span><br></pre></td></tr></table></figure>
+<h5 id="更新到远端"><a href="#更新到远端" class="headerlink" title="更新到远端"></a>更新到远端</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;init&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>!<br><a id="more"></a><br>This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -2262,12 +2417,118 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
+    <title>记一次Java微服务容器化维护工作</title>
+    <url>/java-docker-ops/</url>
+    <content><![CDATA[<p>维护经验分享<br><a id="more"></a></p>
+<h4 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h4><hr>
+<p>容器架构由Swarm迁移到Kubernetes</p>
+<p>Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。</p>
+<p>utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><hr>
+<p>与相关研发沟通，确定utilservice程序一些基础信息：比如</p>
+<p>​    需要哪些基础组件，在ecs上部署遇到什么问题，如何处理的</p>
+<p>​    git仓库地址、服务启动命令、服务端口、是否连接数据库、服务调用关系。</p>
+<p>确定使用jdk环境，需要使用到 wkhtmltopdf 这个命令，用于生成pdf；</p>
+<p>生成的pdf过程会有 字体和语言的问题，需提前处理。</p>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><hr>
+<h5 id="确定基础镜像"><a href="#确定基础镜像" class="headerlink" title="确定基础镜像"></a>确定基础镜像</h5><p>访问<a href="https://hub.docker.com/">https://hub.docker.com</a>，搜索 wkhtmltopdf 关键词</p>
+<p><img src="/java-docker-ops/1.png" alt="1"></p>
+<p>确定基础镜像使用 buildo/java8-wkhtmltopdf 。</p>
+<h6 id="Dockerfile-第一版"><a href="#Dockerfile-第一版" class="headerlink" title="Dockerfile (第一版)"></a>Dockerfile (第一版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br></pre></td></tr></table></figure>
+<h5 id="下载JCE"><a href="#下载JCE" class="headerlink" title="下载JCE"></a>下载JCE</h5><p>需要使用到JCE，在oracle官网下载。</p>
+<p>JDK7的下载地址: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</a><br>JDK8的下载地址: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</a></p>
+<p>Java Cryptography Extension (JCE) 无限强度权限策略文件 8 下载</p>
+<h6 id="Dockerfile-第二版"><a href="#Dockerfile-第二版" class="headerlink" title="Dockerfile (第二版)"></a>Dockerfile (第二版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br></pre></td></tr></table></figure>
+<h5 id="处理程序报错"><a href="#处理程序报错" class="headerlink" title="处理程序报错"></a>处理程序报错</h5><h6 id="1、找到不到-iSignature-pfx-证书："><a href="#1、找到不到-iSignature-pfx-证书：" class="headerlink" title="1、找到不到 iSignature.pfx 证书："></a>1、找到不到 iSignature.pfx 证书：</h6><p>报错截图：</p>
+<h5 id><a href="#" class="headerlink" title></a><img src="/java-docker-ops/2.png" alt="2"></h5><p>可以看到找不到/media/providerstamp/signature/iSignature.pfx 证书文件，简单，从老服务器上找到对应文件，拷贝过来。</p>
+<h6 id="Dockerfile-第三版"><a href="#Dockerfile-第三版" class="headerlink" title="Dockerfile (第三版)"></a>Dockerfile (第三版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br></pre></td></tr></table></figure>
+<h6 id="2、tmpDic不是文件夹"><a href="#2、tmpDic不是文件夹" class="headerlink" title="2、tmpDic不是文件夹"></a>2、tmpDic不是文件夹</h6><p><img src="/java-docker-ops/3.png" alt="3"></p>
+<p>研发查看代码后确定是要使用 /media/providerstamp/temp/ 目录，索性登录老服务器上查看/media/providerstamp下所有目录，都创建好，并将需要的文件scp拷贝过来。</p>
+<p><img src="/java-docker-ops/4.png" alt="4"></p>
+<p>看到还有 done 、unitrust目录，并且unitrust目录中的unitrust.key 程序也会用到。</p>
+<h6 id="Dockerfile-第四版"><a href="#Dockerfile-第四版" class="headerlink" title="Dockerfile (第四版)"></a>Dockerfile (第四版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;done&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;unitrust&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;temp&#x2F;  &amp;&amp; \</span><br><span class="line">        cp unitrust.key &#x2F;media&#x2F;providerstamp&#x2F;unitrust &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br></pre></td></tr></table></figure>
+<h6 id="3、pdf内容乱码"><a href="#3、pdf内容乱码" class="headerlink" title="3、pdf内容乱码"></a>3、pdf内容乱码</h6><p>乱码是由于字体问题，简单直接，直接从老服务器上拷贝 /usr/share/fonts 目录。</p>
+<h6 id="Dockerfile-第五版"><a href="#Dockerfile-第五版" class="headerlink" title="Dockerfile (第五版)"></a>Dockerfile (第五版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;done&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;unitrust&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;temp&#x2F;  &amp;&amp; \</span><br><span class="line">        cp unitrust.key &#x2F;media&#x2F;providerstamp&#x2F;unitrust &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br><span class="line">        rm -f &#x2F;usr&#x2F;local&#x2F;bin&#x2F;wkhtmltopdf &amp;&amp; \</span><br><span class="line">        rm -rf &#x2F;usr&#x2F;share&#x2F;fonts &amp;&amp; \</span><br><span class="line">        cp wkhtmltopdf &#x2F;usr&#x2F;local&#x2F;bin&#x2F; &amp;&amp; \</span><br><span class="line">        tar zxf fonts.tar.gz &amp;&amp; \</span><br><span class="line">        mv fonts&#x2F; &#x2F;usr&#x2F;share&#x2F;</span><br></pre></td></tr></table></figure>
+<p>至此，此微服务容器化已完成。👏👏👏</p>
+]]></content>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>k8s-pod-can-not-access-ingress-slb</title>
+    <url>/k8s-pod-can-t-access-ingress-slb/</url>
+    <content><![CDATA[<p><img src="/k8s-pod-can-t-access-ingress-slb/./z.jpg" alt><br><a id="more"></a></p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在Kubernetes集群中有部分节点能访问集群暴露出去的Local类型SLB，但是也有部分节点不能访问，且Ingress出现该问题较多。</p>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>SLB设置了<code>externalTrafficPolicy: Local</code>类型，这种类型的SLB地址只有在Node中部署了对应的后端Pod，才能被访问。因为SLB的地址是集群外使用，如果集群节点和Pod不能直接访问，请求不会到SLB，会被当作Service的扩展IP地址，被kube-proxy的iptables或ipvs转发。</p>
+<p>如果刚好集群节点或者Pod所在的节点上没有相应的后端服务Pod，就会发生网络不通的问题，而如果有相应的后端服务Pod，是可以正常访问。相关问题的更多信息请参见<a href="https://github.com/kubernetes/kubernetes/issues/66607">kube-proxy将external-lb的地址添加到节点本地iptables规则</a>。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote>
+<p>阿里云提醒您：</p>
+<ul>
+<li>如果您对实例或数据有修改、变更等风险操作，务必注意实例的容灾、容错能力，确保数据安全。</li>
+<li>如果您对实例（包括但不限于ECS、RDS）等进行配置与数据修改，建议提前创建快照或开启RDS日志备份等功能。</li>
+<li>如果您在阿里云平台授权或者提交过登录账号、密码等安全信息，建议您及时修改。</li>
+</ul>
+</blockquote>
+<p>若出现该问题，可以参见以下方法解决问题，推荐您使用第一种方法。</p>
+<ul>
+<li><p>在Kubernetes集群内通过ClusterIP或者服务名访问。<br>其中Ingress的服务名为：<code>nginx-ingress-lb.kube-system</code></p>
+</li>
+<li><p>将LoadBalancer的Service中的externalTrafficPolicy修改为Cluster，但是在应用中会丢失源IP，Ingress的服务修改命令如下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kubectl edit svc nginx-ingress-lb -n kube-system</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若是Terway的ENI或者ENI多IP的集群，将LoadBalancer的Service中的externalTrafficPolicy修改为Cluster，并且添加ENI直通的annotation，例如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">annotation： service.beta.kubernetes.io&#x2F;backend-type：&quot;eni&quot;</span><br></pre></td></tr></table></figure>
+<p>，具体格式如下，可以保留源IP，并且在集群内访问也没有问题。详细信息请参见</p>
+<p>通过负载均衡（Server Load Balancer）访问服务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  annotations:</span><br><span class="line">    service.beta.kubernetes.io&#x2F;backend-type: eni</span><br><span class="line">  labels:</span><br><span class="line">    app: nginx-ingress-lb</span><br><span class="line">  name: nginx-ingress-lb</span><br><span class="line">  namespace: kube-system</span><br><span class="line">spec:</span><br><span class="line">  externalTrafficPolicy: Cluster</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>kubectl-get-all-api-resources</title>
     <url>/kubectl-get-all-api-resources/</url>
     <content><![CDATA[<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kubectl api-resources</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">NAME                              SHORTNAMES   APIGROUP                       NAMESPACED   KIND</span><br><span class="line">bindings                                                                      true         Binding</span><br><span class="line">componentstatuses                 cs                                          false        ComponentStatus</span><br><span class="line">configmaps                        cm                                          true         ConfigMap</span><br><span class="line">endpoints                         ep                                          true         Endpoints</span><br><span class="line">events                            ev                                          true         Event</span><br><span class="line">limitranges                       limits                                      true         LimitRange</span><br><span class="line">namespaces                        ns                                          false        Namespace</span><br><span class="line">nodes                             no                                          false        Node</span><br><span class="line">persistentvolumeclaims            pvc                                         true         PersistentVolumeClaim</span><br><span class="line">persistentvolumes                 pv                                          false        PersistentVolume</span><br><span class="line">pods                              po                                          true         Pod</span><br><span class="line">podtemplates                                                                  true         PodTemplate</span><br><span class="line">replicationcontrollers            rc                                          true         ReplicationController</span><br><span class="line">resourcequotas                    quota                                       true         ResourceQuota</span><br><span class="line">secrets                                                                       true         Secret</span><br><span class="line">serviceaccounts                   sa                                          true         ServiceAccount</span><br><span class="line">services                          svc                                         true         Service</span><br><span class="line">mutatingwebhookconfigurations                  admissionregistration.k8s.io   false        MutatingWebhookConfiguration</span><br><span class="line">validatingwebhookconfigurations                admissionregistration.k8s.io   false        ValidatingWebhookConfiguration</span><br><span class="line">batchreleases                                  alicloud.com                   true         BatchRelease</span><br><span class="line">customresourcedefinitions         crd,crds     apiextensions.k8s.io           false        CustomResourceDefinition</span><br><span class="line">apiservices                                    apiregistration.k8s.io         false        APIService</span><br><span class="line">controllerrevisions                            apps                           true         ControllerRevision</span><br><span class="line">daemonsets                        ds           apps                           true         DaemonSet</span><br><span class="line">deployments                       deploy       apps                           true         Deployment</span><br><span class="line">replicasets                       rs           apps                           true         ReplicaSet</span><br><span class="line">statefulsets                      sts          apps                           true         StatefulSet</span><br><span class="line">meshpolicies                                   authentication.istio.io        false        MeshPolicy</span><br><span class="line">policies                                       authentication.istio.io        true         Policy</span><br><span class="line">tokenreviews                                   authentication.k8s.io          false        TokenReview</span><br><span class="line">localsubjectaccessreviews                      authorization.k8s.io           true         LocalSubjectAccessReview</span><br><span class="line">selfsubjectaccessreviews                       authorization.k8s.io           false        SelfSubjectAccessReview</span><br><span class="line">selfsubjectrulesreviews                        authorization.k8s.io           false        SelfSubjectRulesReview</span><br><span class="line">subjectaccessreviews                           authorization.k8s.io           false        SubjectAccessReview</span><br><span class="line">horizontalpodautoscalers          hpa          autoscaling                    true         HorizontalPodAutoscaler</span><br><span class="line">cronjobs                          cj           batch                          true         CronJob</span><br><span class="line">jobs                                           batch                          true         Job</span><br><span class="line">certificatesigningrequests        csr          certificates.k8s.io            false        CertificateSigningRequest</span><br><span class="line">certificates                      cert,certs   certmanager.k8s.io             true         Certificate</span><br><span class="line">challenges                                     certmanager.k8s.io             true         Challenge</span><br><span class="line">clusterissuers                                 certmanager.k8s.io             false        ClusterIssuer</span><br><span class="line">issuers                                        certmanager.k8s.io             true         Issuer</span><br><span class="line">orders                                         certmanager.k8s.io             true         Order</span><br><span class="line">adapters                                       config.istio.io                true         adapter</span><br><span class="line">attributemanifests                             config.istio.io                true         attributemanifest</span><br><span class="line">handlers                                       config.istio.io                true         handler</span><br><span class="line">httpapispecbindings                            config.istio.io                true         HTTPAPISpecBinding</span><br><span class="line">httpapispecs                                   config.istio.io                true         HTTPAPISpec</span><br><span class="line">instances                                      config.istio.io                true         instance</span><br><span class="line">quotaspecbindings                              config.istio.io                true         QuotaSpecBinding</span><br><span class="line">quotaspecs                                     config.istio.io                true         QuotaSpec</span><br><span class="line">rules                                          config.istio.io                true         rule</span><br><span class="line">templates                                      config.istio.io                true         template</span><br><span class="line">leases                                         coordination.k8s.io            true         Lease</span><br><span class="line">bgpconfigurations                              crd.projectcalico.org          false        BGPConfiguration</span><br><span class="line">clusterinformations                            crd.projectcalico.org          false        ClusterInformation</span><br><span class="line">felixconfigurations                            crd.projectcalico.org          false        FelixConfiguration</span><br><span class="line">globalnetworkpolicies                          crd.projectcalico.org          false        GlobalNetworkPolicy</span><br><span class="line">globalnetworksets                              crd.projectcalico.org          false        GlobalNetworkSet</span><br><span class="line">hostendpoints                                  crd.projectcalico.org          false        HostEndpoint</span><br><span class="line">ippools                                        crd.projectcalico.org          false        IPPool</span><br><span class="line">networkpolicies                                crd.projectcalico.org          true         NetworkPolicy</span><br><span class="line">events                            ev           events.k8s.io                  true         Event</span><br><span class="line">daemonsets                        ds           extensions                     true         DaemonSet</span><br><span class="line">deployments                       deploy       extensions                     true         Deployment</span><br><span class="line">ingresses                         ing          extensions                     true         Ingress</span><br><span class="line">networkpolicies                   netpol       extensions                     true         NetworkPolicy</span><br><span class="line">podsecuritypolicies               psp          extensions                     false        PodSecurityPolicy</span><br><span class="line">replicasets                       rs           extensions                     true         ReplicaSet</span><br><span class="line">alertproviders                                 flagger.app                    true         AlertProvider</span><br><span class="line">canaries                                       flagger.app                    true         Canary</span><br><span class="line">metrictemplates                                flagger.app                    true         MetricTemplate</span><br><span class="line">istiogateways                                  istio.alibabacloud.com         true         IstioGateway</span><br><span class="line">istios                                         istio.alibabacloud.com         true         Istio</span><br><span class="line">istioupgrades                                  istio.alibabacloud.com         true         IstioUpgrade</span><br><span class="line">remoteistios                                   istio.alibabacloud.com         true         RemoteIstio</span><br><span class="line">kialis                                         kiali.io                       true         Kiali</span><br><span class="line">aliyunlogconfigs                               log.alibabacloud.com           true         AliyunLogConfig</span><br><span class="line">nodes                                          metrics.k8s.io                 false        NodeMetrics</span><br><span class="line">pods                                           metrics.k8s.io                 true         PodMetrics</span><br><span class="line">prometheusrules                                monitoring.coreos.com          true         PrometheusRule</span><br><span class="line">servicemonitors                                monitoring.coreos.com          true         ServiceMonitor</span><br><span class="line">monitoringdashboards                           monitoring.kiali.io            true         MonitoringDashboard</span><br><span class="line">destinationrules                  dr           networking.istio.io            true         DestinationRule</span><br><span class="line">envoyfilters                                   networking.istio.io            true         EnvoyFilter</span><br><span class="line">gateways                          gw           networking.istio.io            true         Gateway</span><br><span class="line">serviceentries                    se           networking.istio.io            true         ServiceEntry</span><br><span class="line">sidecars                                       networking.istio.io            true         Sidecar</span><br><span class="line">virtualservices                   vs           networking.istio.io            true         VirtualService</span><br><span class="line">ingresses                         ing          networking.k8s.io              true         Ingress</span><br><span class="line">networkpolicies                   netpol       networking.k8s.io              true         NetworkPolicy</span><br><span class="line">runtimeclasses                                 node.k8s.io                    false        RuntimeClass</span><br><span class="line">poddisruptionbudgets              pdb          policy                         true         PodDisruptionBudget</span><br><span class="line">podsecuritypolicies               psp          policy                         false        PodSecurityPolicy</span><br><span class="line">clusterrolebindings                            rbac.authorization.k8s.io      false        ClusterRoleBinding</span><br><span class="line">clusterroles                                   rbac.authorization.k8s.io      false        ClusterRole</span><br><span class="line">rolebindings                                   rbac.authorization.k8s.io      true         RoleBinding</span><br><span class="line">roles                                          rbac.authorization.k8s.io      true         Role</span><br><span class="line">authorizationpolicies                          rbac.istio.io                  true         AuthorizationPolicy</span><br><span class="line">clusterrbacconfigs                             rbac.istio.io                  false        ClusterRbacConfig</span><br><span class="line">rbacconfigs                                    rbac.istio.io                  true         RbacConfig</span><br><span class="line">servicerolebindings                            rbac.istio.io                  true         ServiceRoleBinding</span><br><span class="line">serviceroles                                   rbac.istio.io                  true         ServiceRole</span><br><span class="line">priorityclasses                   pc           scheduling.k8s.io              false        PriorityClass</span><br><span class="line">authorizationpolicies                          security.istio.io              true         AuthorizationPolicy</span><br><span class="line">csidrivers                                     storage.k8s.io                 false        CSIDriver</span><br><span class="line">csinodes                                       storage.k8s.io                 false        CSINode</span><br><span class="line">storageclasses                    sc           storage.k8s.io                 false        StorageClass</span><br><span class="line">volumeattachments                              storage.k8s.io                 false        VolumeAttachment</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>MySQL-主从复制原理</title>
+    <url>/mysql-master-slave/</url>
+    <content><![CDATA[<p><img src="/mysql-master-slave/./mysql01.png" alt></p>
+<p>在大规模的数据库应用中，通过主从复制可以提高数据库系统的对外服务能力。</p>
+<a id="more"></a>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>MySQL主从复制也可以称为MySQL主从同步，它是构建数据库高可用集群架构的基础。</p>
+<p>它通过将一台主机的数据复制到其他一台或多台主机上，并重新应用relay log中的SQL语句来实现复制功能。</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li>实时灾备</li>
+<li>读写分离</li>
+<li>高可用</li>
+<li>平滑升级</li>
+</ul>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>主服务数据库启用二级制日志，主服务器上的修改保存至本地二进制日志。</p>
+<p>Master接收到来自Slave的IO线程的请求后，通过负责复制的IO线程根据请求信息读取指定日志位置之后的日志信息，返回给Slave端的IO线程。返回信息中除了日志所包含的信息之外，还包括本次反馈的信息在Master端的Binary Log文件的名称以及在Binary Log中的位置。</p>
+<p>Slave的IO线程接受到信息后，将接收到的日志内容依次写入Slave端的Realy Log（中继日志）文件（mysql-realy-lin.xxxxxx）的最末端，并将读取到的Master端的bin-log的文件名和位置记录到master-info文件中，以便在下一次读取的时候能够清楚地告诉Master “我需要从某个bin-log”的哪个位置开始往后的日志内容，请发给我”。</p>
+<p>Slave的SQL线程检测到Relay Log中新增加了内容后，会马上解析该Log文件中的内容成为在Master端真实执行时候的那些可执行的Query语句，并在自身执行这些Query。这样，实际上就是在Master端和Slave端都执行了同样的Query，所以两端的数据是完成一样的。</p>
+<p>原理图</p>
+<p><img src="/mysql-master-slave/./mysql02.png" alt></p>
+<p><strong>也就是说：</strong></p>
+<ul>
+<li>从库会生成两个线程,一个I/O线程,一个SQL线程;</li>
+<li>I/O线程会去请求主库的binlog,并将得到的binlog写到本地的relay-log(中继日志)文件中;</li>
+<li>主库会生成一个log dump线程,用来给从库I/O线程传binlog;</li>
+<li>SQL线程,会读取relay log文件中的日志,并解析成sql语句逐一执行;</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
   </entry>
   <entry>
     <title>Nginx反向代理demo</title>
@@ -2278,6 +2539,31 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
       <tags>
         <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx_配置SSL证书</title>
+    <url>/nginx-ssl/</url>
+    <content><![CDATA[<p>Nginx配置域名的SSL证书<br><a id="more"></a></p>
+<ol>
+<li><h4 id="获取证书并上传到Ngx服务器"><a href="#获取证书并上传到Ngx服务器" class="headerlink" title="获取证书并上传到Ngx服务器"></a>获取证书并上传到Ngx服务器</h4></li>
+</ol>
+<ol start="2">
+<li><h4 id="检查Ngx是否安装–with-http-ssl-module模块"><a href="#检查Ngx是否安装–with-http-ssl-module模块" class="headerlink" title="检查Ngx是否安装–with-http_ssl_module模块"></a>检查Ngx是否安装–with-http_ssl_module模块</h4></li>
+</ol>
+<ol start="3">
+<li><h4 id="修改nginx配置文件"><a href="#修改nginx配置文件" class="headerlink" title="修改nginx配置文件"></a>修改nginx配置文件</h4></li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> <span class="regexp">*.zhaohongye.com</span>;</span><br><span class="line">	<span class="comment">#return 301 https://$host$request_uri;</span></span><br><span class="line">	<span class="attribute">return</span> <span class="number">301</span> https://zhaohongye.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">	<span class="attribute">server_name</span> zhaohongye.com www.zhaohongye.com;</span><br><span class="line">	<span class="attribute">access_log</span>  /var/log/nginx/zhy.log main;</span><br><span class="line">	<span class="attribute">error_log</span>  /var/log/nginx/zhy.<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">ssl</span> <span class="literal">on</span>;   <span class="comment">#ssl功能开启</span></span><br><span class="line">	<span class="attribute">ssl_certificate</span> sslfile/2027481_zhaohongye.com.pem;</span><br><span class="line">	<span class="attribute">ssl_certificate_key</span> sslfile/2027481_zhaohongye.com.key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="attribute">location</span> / &#123;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">		<span class="attribute">proxy_redirect</span>          http:// https://;</span><br><span class="line">		<span class="attribute">proxy_pass</span>              http://127.0.0.1:4000; </span><br><span class="line">		<span class="attribute">client_max_body_size</span>    <span class="number">10M</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Host <span class="variable">$host</span>;</span><br><span class="line">		<span class="attribute">proxy_set_header</span>        X-Forwarded-Server <span class="variable">$host</span>;</span><br><span class="line">		<span class="comment"># Required for new HTTP-based CLI</span></span><br><span class="line">		<span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">		<span class="attribute">proxy_request_buffering</span> <span class="literal">off</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><h4 id="https访问验证"><a href="#https访问验证" class="headerlink" title="https访问验证"></a>https访问验证</h4></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -2455,6 +2741,63 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
+    <title>Python-脚本调用阿里SDK实现控制SLB</title>
+    <url>/python-ali-slb/</url>
+    <content><![CDATA[<h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><p>今天哥们提了一个需求，想实现调阿里云SLB的SDK实现脚本调整权重、增加或移除后端ECS实例</p>
+<h5 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#安装python3和pip</span></span><br><span class="line"><span class="comment">#安装以下sdk模块</span></span><br><span class="line"><span class="comment">#pip install aliyun-python-sdk-core-v3</span></span><br><span class="line"><span class="comment">#pip install aliyun-python-sdk-slb</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> aliyunsdkcore.client <span class="keyword">import</span> AcsClient</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> DescribeLoadBalancersRequest</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> DescribeLoadBalancerAttributeRequest</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> SetBackendServersRequest</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> AddBackendServersRequest</span><br><span class="line"><span class="keyword">from</span> aliyunsdkslb.request.v20140515 <span class="keyword">import</span> RemoveBackendServersRequest</span><br><span class="line"></span><br><span class="line"><span class="comment">#  需填写ak信息，可用区</span></span><br><span class="line">AccessKey=<span class="string">&#x27;&#x27;</span></span><br><span class="line">AccessKeySecret=<span class="string">&#x27;&#x27;</span></span><br><span class="line">RegionId = <span class="string">&quot;cn-beijing&quot;</span></span><br><span class="line"></span><br><span class="line">client = AcsClient(AccessKey,AccessKeySecret,RegionId);</span><br><span class="line">helpInfo=<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Basic Commands :</span></span><br><span class="line"><span class="string">  get            获取SLB信息</span></span><br><span class="line"><span class="string">  edit           配置SLB的后端权重</span></span><br><span class="line"><span class="string">  add            添加SLB的后端实例</span></span><br><span class="line"><span class="string">  remove         删除SLB的后端实例</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Usage:</span></span><br><span class="line"><span class="string">    获取所有实例的信息</span></span><br><span class="line"><span class="string">        python slb-0604.py get all</span></span><br><span class="line"><span class="string">    获取某一实例的信息</span></span><br><span class="line"><span class="string">        python slb-0604.py get lb-2zedfhvgznrm7eqbr00uv</span></span><br><span class="line"><span class="string">    编辑单个权重</span></span><br><span class="line"><span class="string">        python slb-0604.py edit lb-2zedfhvgznrm7eqbr00uv [&#123;&#x27;ServerId&#x27;: &#x27;i-2zedna91yczcq12zm60q&#x27;, &#x27;Weight&#x27;: 99, &#x27;Type&#x27;: &#x27;ecs&#x27;&#125;]</span></span><br><span class="line"><span class="string">    编辑多个权重（最多20个）</span></span><br><span class="line"><span class="string">        python slb-0604.py edit lb-2zedfhvgznrm7eqbr00uv [&#123;&quot;ServerId&quot;:&quot;i-2zej4lxhjoq1icue6kup&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;,&#123;&quot;ServerId&quot;:&quot;i-2ze1u9ywulp5pbvvc7hv&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;]</span></span><br><span class="line"><span class="string">    添加单个后端ecs</span></span><br><span class="line"><span class="string">        python slb-0604.py add lb-2zedfhvgznrm7eqbr00uv [&#123;&quot;ServerId&quot;:&quot;i-2ze1u9ywulp5pbvvc7hv&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;]</span></span><br><span class="line"><span class="string">    添加多个后端ecs</span></span><br><span class="line"><span class="string">        python slb-0604.py add lb-2zedfhvgznrm7eqbr00uv [&#123;&quot;ServerId&quot;:&quot;i-2zej4lxhjoq1icue6kup&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;,&#123;&quot;ServerId&quot;:&quot;i-2ze1u9ywulp5pbvvc7hv&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;]</span></span><br><span class="line"><span class="string">    删除后端ecs</span></span><br><span class="line"><span class="string">        python slb-0604.py remove lb-2zedfhvgznrm7eqbr00uv [&#123;&quot;ServerId&quot;:&quot;i-2zej4lxhjoq1icue6kup&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;,&#123;&quot;ServerId&quot;:&quot;i-2ze1u9ywulp5pbvvc7hv&quot;,&quot;Weight&quot;:&quot;100&quot;&#125;]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    print(helpInfo)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DescribeLoadBalancers</span>(<span class="params">resource</span>):</span></span><br><span class="line">    request = DescribeLoadBalancersRequest.DescribeLoadBalancersRequest()</span><br><span class="line">    response = client.do_action_with_exception(request)</span><br><span class="line">    SLBInfo = json.loads(response)</span><br><span class="line">    LoadBalancerIdList = []</span><br><span class="line">    <span class="keyword">for</span> SLBInstance <span class="keyword">in</span> SLBInfo[<span class="string">&#x27;LoadBalancers&#x27;</span>][<span class="string">&#x27;LoadBalancer&#x27;</span>]:</span><br><span class="line">        LoadBalancerIdList.append(SLBInstance[<span class="string">&#x27;LoadBalancerId&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> resource == <span class="string">&#x27;all&#x27;</span>:</span><br><span class="line">        Ali_Slb_Info = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> SLBInstance <span class="keyword">in</span> SLBInfo[<span class="string">&#x27;LoadBalancers&#x27;</span>][<span class="string">&#x27;LoadBalancer&#x27;</span>]:</span><br><span class="line">            request = DescribeLoadBalancerAttributeRequest.DescribeLoadBalancerAttributeRequest()</span><br><span class="line">            request.set_LoadBalancerId(SLBInstance[<span class="string">&#x27;LoadBalancerId&#x27;</span>])</span><br><span class="line">            response = client.do_action_with_exception(request)</span><br><span class="line">            Ali_Slb_Info[SLBInstance[<span class="string">&#x27;LoadBalancerId&#x27;</span>]] = json.loads(response.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        print(LoadBalancerIdList)</span><br><span class="line">    <span class="keyword">elif</span> resource <span class="keyword">in</span> LoadBalancerIdList:</span><br><span class="line">        request = DescribeLoadBalancerAttributeRequest.DescribeLoadBalancerAttributeRequest()</span><br><span class="line">        request.set_LoadBalancerId(resource)</span><br><span class="line">        response = client.do_action_with_exception(request)</span><br><span class="line">        response = json.loads(response.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        print(response[<span class="string">&#x27;BackendServers&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">&quot;输入错误,请输入 all 或 SLB实例ID ！&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SetBackendServers</span>(<span class="params">resource,BackendServers</span>):</span></span><br><span class="line">    request = SetBackendServersRequest.SetBackendServersRequest()</span><br><span class="line">    request.set_accept_format(<span class="string">&#x27;json&#x27;</span>)</span><br><span class="line">    request.set_BackendServers(BackendServers)</span><br><span class="line">    request.set_LoadBalancerId(resource)</span><br><span class="line"></span><br><span class="line">    response = client.do_action_with_exception(request)</span><br><span class="line">    print(str(response, encoding=<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">AddBackendServers</span>(<span class="params">resource,BackendServers</span>):</span></span><br><span class="line">    request = AddBackendServersRequest()</span><br><span class="line">    request.set_accept_format(<span class="string">&#x27;json&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    request.set_BackendServers(BackendServers)</span><br><span class="line">    request.set_LoadBalancerId(resource)</span><br><span class="line">    response = client.do_action_with_exception(request)</span><br><span class="line">    print(str(response, encoding=<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">RemoveBackendServers</span>(<span class="params">resource,BackendServers</span>):</span></span><br><span class="line">    request = RemoveBackendServersRequest()</span><br><span class="line">    request.set_accept_format(<span class="string">&#x27;json&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    request.set_BackendServers(BackendServers)</span><br><span class="line">    request.set_LoadBalancerId(resource)</span><br><span class="line">    response = client.do_action_with_exception(request)</span><br><span class="line">    print(str(response, encoding=<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) == <span class="number">1</span>:</span><br><span class="line">        main()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        userInput = sys.argv[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">if</span> userInput[<span class="number">0</span>] == <span class="string">&#x27;get&#x27;</span> <span class="keyword">and</span> userInput[<span class="number">1</span>]:</span><br><span class="line">            resource = userInput[<span class="number">1</span>]</span><br><span class="line">            DescribeLoadBalancers(resource)</span><br><span class="line">        <span class="keyword">if</span> userInput[<span class="number">0</span>] == <span class="string">&#x27;edit&#x27;</span> <span class="keyword">and</span> userInput[<span class="number">1</span>] <span class="keyword">and</span> userInput[<span class="number">2</span>]:</span><br><span class="line">            resource = userInput[<span class="number">1</span>]</span><br><span class="line">            BackendServers = userInput[<span class="number">2</span>]</span><br><span class="line">            SetBackendServers(resource,BackendServers)</span><br><span class="line">        <span class="keyword">if</span> userInput[<span class="number">0</span>] == <span class="string">&#x27;add&#x27;</span> <span class="keyword">and</span> userInput[<span class="number">1</span>] <span class="keyword">and</span> userInput[<span class="number">2</span>]:</span><br><span class="line">            resource = userInput[<span class="number">1</span>]</span><br><span class="line">            BackendServers = userInput[<span class="number">2</span>]</span><br><span class="line">            AddBackendServers(resource,BackendServers)</span><br><span class="line">        <span class="keyword">if</span> userInput[<span class="number">0</span>] == <span class="string">&#x27;remove&#x27;</span> <span class="keyword">and</span> userInput[<span class="number">1</span>] <span class="keyword">and</span> userInput[<span class="number">2</span>]:</span><br><span class="line">            resource = userInput[<span class="number">1</span>]</span><br><span class="line">            BackendServers = userInput[<span class="number">2</span>]</span><br><span class="line">            RemoveBackendServers(resource,BackendServers)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&quot;输入错误&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Python学习进阶之路</title>
+    <url>/python/</url>
+    <content><![CDATA[<p><img src="/python/./python.png" alt></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修复漏洞-提升RDS响应速度</title>
+    <url>/rds-optimize/</url>
+    <content><![CDATA[<h4 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h4><ol>
+<li>升级linux内核版本，修复SACK Panic”远程DoS漏洞</li>
+<li>安装nscd，提升RDS响应速度</li>
+</ol>
+<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><h5 id="漏洞描述："><a href="#漏洞描述：" class="headerlink" title="漏洞描述："></a>漏洞描述：</h5><p><em>Linux 以及 FreeBSD 等系统内核上存在严重远程DoS漏洞，攻击者可利用该漏洞构造并发送特定的 SACK 序列请求到目标服务器导致服务器崩溃或拒绝服务。</em></p>
+<p><em>目前已知受影响版本如下：</em><br> <em>• FreeBSD 12（使用到 RACK TCP 协议栈）</em><br> <em>• CentOS 5（Redhat 官方已停止支持，不再提供补丁）</em><br> <em>• CentOS 6</em><br> <em>• CentOS 7</em><br> <em>• Ubuntu 18.04 LTS</em><br> <em>• Ubuntu 16.04 LTS</em><br> <em>• Ubuntu 19.04</em><br> <em>• Ubuntu 18.10</em><br><em>各大Linux发行厂商已发布内核修复补丁，详细内核修复版本如下：</em><br> <em>• CentOS 6 ：2.6.32-754.15.3</em><br> <em>• CentOS 7 ：3.10.0-957.21.3</em><br> <em>• Ubuntu 18.04 LTS ：4.15.0-52.56</em><br> <em>• Ubuntu 16.04 LTS：4.4.0-151.178</em></p>
+<p><em>修复建议：</em><br><em>➤【CentOS 6/7 系列用户】</em><br><em>注：截止文章发布，CentOS官方暂未同步内核修复补丁到软件源，建议用户及时关注补丁更新情况并开展相应升级工作。升级方式如下：</em></p>
+<ol>
+<li><em>yum clean all &amp;&amp; yum makecache，进行软件源更新；</em></li>
+<li><em>yum update kernel  -y，更新当前内核版本;</em></li>
+<li><em>reboot，更新后重启系统生效;</em></li>
+<li><em>uname -a，检查当前版本是否为上述【安全版本】，如果是，则说明修复成功。</em></li>
+</ol>
+<p><em>➤【Ubuntu 16.06/18.04 LTS 系列用户】</em></p>
+<ol>
+<li><em>sudo apt-get update &amp;&amp; sudo apt-get install linux-image-generic，进行软件源更新并安装最新内核版本；</em></li>
+<li><em>sudo reboot，更新后重启系统生效；</em></li>
+<li><em>uname -a，检查当前版本是否为【安全版本】，如果是，则说明修复成功。</em><br><em>如果用户不方便重启进行内核补丁更新，可选择临时缓解方案：</em><br><em>运行如下命令禁用内核 SACK 配置防范漏洞利用：</em><br><em>sysctl -w net.ipv4.tcp_sack=0</em></li>
+</ol>
+<h5 id="NSCD服务："><a href="#NSCD服务：" class="headerlink" title="NSCD服务："></a>NSCD服务：</h5><p><em><a href="https://help.aliyun.com/knowledge_detail/41806.html">https://help.aliyun.com/knowledge_detail/41806.html</a></em></p>
+<p><em>NSCD（Name Service Cache Daemon）是一种能够缓存passwd、group、hosts的本地缓存服务。若您使用短连接的方式连接RDS，请在与RDS相连的ECS实例上进行如下操作开启NSCD，提升RDS响应速度。</em></p>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ol>
+<li>编写Shell脚本</li>
+<li>Ansible分发脚本</li>
+<li>Ansible执行脚本</li>
+<li>验证脚本执行情况</li>
+<li>分批重启主机</li>
+</ol>
+<h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><h5 id="Shell脚本："><a href="#Shell脚本：" class="headerlink" title="Shell脚本："></a>Shell脚本：</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /data/vcg/zhy/ansible/0623.sh</span><br><span class="line"></span><br><span class="line">yum clean all &amp;&amp; yum makecache</span><br><span class="line">yum update -y  # 或者 yum update kernel  -y</span><br><span class="line">yum install -y nscd</span><br><span class="line">systemctl enable nscd.service</span><br><span class="line">echo &quot;options timeout:1 attempts:1&quot; &gt;&gt; /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+<h5 id="分发脚本"><a href="#分发脚本" class="headerlink" title="分发脚本"></a>分发脚本</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible pre-k8s -m copy -a &quot;src=/data/vcg/zhy/ansible/0623.sh dest=/tmp/0623.sh mode=755&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible pre-k8s -m shell -a &quot;/tmp/0623.sh&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="验证脚本执行情况"><a href="#验证脚本执行情况" class="headerlink" title="验证脚本执行情况"></a>验证脚本执行情况</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible pre-k8s -m shell -a &quot;cat /etc/resolv.conf |grep options&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="分批重启主机"><a href="#分批重启主机" class="headerlink" title="分批重启主机"></a>分批重启主机</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">脚本内容：</span></span><br><span class="line">hosts=&quot;</span><br><span class="line">172.20.21.249</span><br><span class="line">172.20.21.250</span><br><span class="line">172.20.21.251</span><br><span class="line">172.20.21.252</span><br><span class="line">172.20.21.253</span><br><span class="line">172.20.21.254</span><br><span class="line">172.20.21.255</span><br><span class="line">172.20.22.0</span><br><span class="line">172.20.22.1</span><br><span class="line">172.20.22.2&quot;</span><br><span class="line">for i in $hosts;</span><br><span class="line">do</span><br><span class="line">  ssh $i uptime</span><br><span class="line">  ssh $i reboot</span><br><span class="line">  sleep 2m</span><br><span class="line">  ssh $i uptime</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>优秀的 REST API 设计指南</title>
     <url>/rest-api-best-practices/</url>
     <content><![CDATA[<p><img src="/rest-api-best-practices/./code.jpg" alt></p>
@@ -2575,10 +2918,120 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
+    <title>挖矿程序处理最佳实践</title>
+    <url>/safe-wakuang/</url>
+    <content><![CDATA[<p>挖矿程序会占用CPU进行超频运算，导致CPU严重损耗，并且影响服务器上的其他应用。挖矿程序还具备蠕虫化特点，当安全边界被突破时，挖矿病毒会向内网渗透，并在被入侵的服务器上持久化驻留以获取最大收益。</p>
+<a id="more"></a>
+<p>由于挖矿程序具有联动作用，在清理过程中会存在处理不及时或清理不干净导致挖矿病毒反复发生、出现恶意脚本替换系统命令，从而导致执行系统命令时触发恶意脚本执行（例如：xorddos）。因此，需要在挖矿程序的一个执行周期内，尽快将被入侵服务器上的木马程序和持续化后门清理干净，否则容易导致挖矿病毒频繁复发。</p>
+<h2 id="处理挖矿程序"><a href="#处理挖矿程序" class="headerlink" title="处理挖矿程序"></a>处理挖矿程序</h2><ol>
+<li><p>查看挖矿进程的执行文件链接。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -l &#x2F;proc&#x2F;xxx&#x2F;exe           &#x2F;&#x2F; xxx表示该进程的PID。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除挖矿进程的执行文件。</p>
+</li>
+<li><p>在高CPU消耗的进程中定位到挖矿进程，并杀死该进程。</p>
+</li>
+<li><p>检查您服务器的防火墙中是否存在挖矿程序的矿池地址。</p>
+<ol>
+<li><p>执行以下命令查看是否存在业务范围之外的可疑通信地址和开放端口。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -L -n</span><br></pre></td></tr></table></figure>
+<p><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97001.png" alt="查看防火墙开放IP和端口"></p>
+</li>
+<li><p>执行以下命令清除恶意矿池地址。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;iptables</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>执行以下命令排查是否存在定时任务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+<p><a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97002.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97002.png" alt="排查定时任务"></a></p>
+<p>您可以根据排查的结果，对可疑的定时任务文件进行处理，防止二次入侵。</p>
+</li>
+<li><p>执行以下命令检查SSH公钥中是否存在挖矿病毒，防止出现持续后门。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat .ssh&#x2F;authorized_keys</span><br></pre></td></tr></table></figure>
+<p><a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6326048951/p96925.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6326048951/p96925.png" alt="排查SSH授权"></a></p>
+</li>
+<li><p>查看其他服务器中是否存在挖矿行为，防止挖矿病毒重复感染内网中的其他服务器。</p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Shell脚本-定期删除异常Pod</title>
+    <url>/shell-delete-faild-pod/</url>
+    <content><![CDATA[<h5 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h5><p>有的Pod重启次数过多</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[cicd-test@ops-jenkins-master ~]$ kubectl get pods |awk &#x27;&#123;if ($4 &gt;= 1) print $0 &#125;&#x27;</span><br><span class="line">NAME                                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">cmsservice-vcg-com-57974bc4cf-vq6mk             1/1     Running   1          6m18s</span><br><span class="line">edgeservice-vcg-com-755b96fb78-v96s5            1/1     Running   1          3d23h</span><br><span class="line">edgeserviceweb-vcg-com-5655fc9899-8lxql         1/1     Running   1          3d23h</span><br><span class="line">node-visualchina-web-8575cf78dc-8jr2k           1/1     Running   1          4h11m</span><br><span class="line">vdam-gateway-service-6b7d864d67-rdzrg           1/1     Running   1          3h36m</span><br><span class="line">vdam-passport-service-7c97d84b58-xhn6k          1/1     Running   6          3d22h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">Author:zhy</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Version:1.0</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Date:20190603</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#######</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">删除重启次数超过5次的POD</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line"></span><br><span class="line">echo $Time &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line"></span><br><span class="line">if [[ `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $0 &#125;&#x27; |grep -v &#x27;NAME&#x27; |wc -l` -eq 0 ]];then</span><br><span class="line">  echo &#x27;无重启次数超过5次的POD&#x27;</span><br><span class="line">  echo &#x27;无重启次数超过5次的POD&#x27;  &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">else</span><br><span class="line">  echo &#x27;将要删除如下pod：&#x27;</span><br><span class="line">  echo &#x27;将要删除如下pod：&#x27; &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">  /usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27;| grep -v &#x27;NAME&#x27;</span><br><span class="line">  echo `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27;| grep -v &#x27;NAME&#x27;` &gt;&gt; /home/cicd-pro/cron/k8s_pod_restart.log</span><br><span class="line">  for i in `/usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config get pods | awk &#x27;&#123;if ($4 &gt;= 5)  print $1 &#125;&#x27; | grep -v &#x27;NAME&#x27;`;</span><br><span class="line">  do</span><br><span class="line">    echo $i</span><br><span class="line">    /usr/local/bin/kubectl --kubeconfig /home/cicd-pro/.kube/config delete pod $i</span><br><span class="line">  done</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>神策logagent收集Kubernetes-Pod日志</title>
+    <url>/shence-logagent-k8s-log/</url>
+    <content><![CDATA[<p>神策logagent收集Kubernetes Pod日志</p>
+<hr>
+<h4 id="项目背景："><a href="#项目背景：" class="headerlink" title="项目背景："></a>项目背景：</h4><p>神策logagent需要收集到java程序输出的日志，用于分析用户行为等</p>
+<p>想到两种方案</p>
+<ol>
+<li>pod指定部署到某台宿主机上，日志目录挂载到宿主机，宿主机上启动logagent程序。</li>
+<li>sidecar的形式</li>
+</ol>
+<p>目前使用第一种方案，比较稳妥，后续技术扎实后会替换成第二种，更稳定高效。</p>
+<h4 id="部署logagent"><a href="#部署logagent" class="headerlink" title="部署logagent"></a>部署logagent</h4><p><a href="https://www.sensorsdata.cn/manual/log_agent.html">官方部署文档</a></p>
+<h5 id="安装Jdk"><a href="#安装Jdk" class="headerlink" title="安装Jdk"></a>安装Jdk</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y java-1.8.0-openjdk.x86_64</span><br></pre></td></tr></table></figure>
+<h5 id="下载LogAgent部署包和解压"><a href="#下载LogAgent部署包和解压" class="headerlink" title="下载LogAgent部署包和解压"></a>下载LogAgent部署包和解压</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://download.sensorsdata.cn/release/logagent/logagent_20190605.tgz</span><br><span class="line">tar zxvf logagent_20190605.tgz</span><br></pre></td></tr></table></figure>
+<h5 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim logagent&#x2F;logagent.conf</span><br><span class="line"></span><br><span class="line">path&#x3D;&#x2F;var&#x2F;log&#x2F;veercms      #本地路径</span><br><span class="line">logagent_id&#x3D;veerservice_2_241    #id</span><br><span class="line">pattern&#x3D;cms.veerservice.log*     #log名称格式</span><br><span class="line">project&#x3D;production</span><br><span class="line">pid_file&#x3D;&#x2F;data&#x2F;vcg&#x2F;logagent&#x2F;logagent.pid</span><br><span class="line">host&#x3D;172.16.249.136    #server端地址</span><br><span class="line">port&#x3D;8106</span><br></pre></td></tr></table></figure>
+<h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nohup bin&#x2F;logagent &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h5 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tail -f &#x2F;data&#x2F;vcg&#x2F;logagent&#x2F;log&#x2F;logagent.log</span><br></pre></td></tr></table></figure>
+<h4 id="配置节点标签"><a href="#配置节点标签" class="headerlink" title="配置节点标签"></a>配置节点标签</h4><p>两种方式实现：</p>
+<ol>
+<li><p>控制台上添加标签</p>
+<p><img src="/shence-logagent-k8s-log/./1560925678009.jpg" alt="image-20190619142748161"></p>
+</li>
+<li><p>命令行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">例如给 cn-beijing.i-2ze7nm52ylwxd8j4d0lq 这个node添加标签：</span></span><br><span class="line">kubectl label nodes cn-beijing.i-2ze7nm52ylwxd8j4d0lq test-key=test-value</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看标签：</span></span><br><span class="line">kubectl get node --show-labels </span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="配置k8s-yaml"><a href="#配置k8s-yaml" class="headerlink" title="配置k8s yaml"></a>配置k8s yaml</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1beta2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">6</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">      <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line">      <span class="attr">schedulerName:</span> <span class="string">default-scheduler</span></span><br><span class="line">      <span class="attr">securityContext:</span> &#123;&#125;</span><br><span class="line">      <span class="attr">terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br><span class="line">      <span class="attr">imagePullSecrets:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">registry-vpc.cn-beijing.aliyuncs.com</span>   <span class="comment">## 保密字典中的仓储认证</span></span><br><span class="line">      <span class="attr">affinity:</span></span><br><span class="line">        <span class="attr">nodeAffinity:</span></span><br><span class="line">          <span class="attr">preferredDuringSchedulingIgnoredDuringExecution:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">preference:</span> &#123;&#125;</span><br><span class="line">              <span class="attr">weight:</span> <span class="number">100</span></span><br><span class="line">          <span class="attr">requiredDuringSchedulingIgnoredDuringExecution:</span></span><br><span class="line">            <span class="attr">nodeSelectorTerms:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="attr">matchExpressions:</span></span><br><span class="line">                  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">vcgapp</span></span><br><span class="line">                    <span class="attr">operator:</span> <span class="string">In</span></span><br><span class="line">                    <span class="attr">values:</span></span><br><span class="line">                      <span class="bullet">-</span> <span class="string">veerlogagent</span>     <span class="comment">## node节点亲和性</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">&#x27;registry-vpc.cn-beijing.aliyuncs.com/vcg/com-veer-veerservice:pro-20190610183629&#x27;</span>   <span class="comment">## 镜像地址</span></span><br><span class="line">          <span class="attr">env:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">aliyun_logs_com-veer-veerservice</span>     <span class="comment">## 日志服务</span></span><br><span class="line">              <span class="attr">value:</span> <span class="string">stdout</span></span><br><span class="line">          <span class="attr">imagePullPolicy:</span> <span class="string">Always</span></span><br><span class="line">          <span class="attr">volumeMounts:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/var/log/veerservice_log</span>   <span class="comment"># 容器内路径</span></span><br><span class="line">              <span class="attr">name:</span> <span class="string">volume-veerservice</span></span><br><span class="line">          <span class="attr">resources:</span></span><br><span class="line">            <span class="attr">limits:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">4Gi</span></span><br><span class="line">            <span class="attr">requests:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">500m</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">1000Mi</span></span><br><span class="line">          <span class="attr">livenessProbe:</span>        <span class="comment">## 存活检测</span></span><br><span class="line">            <span class="attr">initialDelaySeconds:</span> <span class="number">80</span></span><br><span class="line">            <span class="attr">periodSeconds:</span> <span class="number">10</span></span><br><span class="line">            <span class="attr">timeoutSeconds:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">successThreshold:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">failureThreshold:</span> <span class="number">3</span></span><br><span class="line">            <span class="attr">tcpSocket:</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">9101</span></span><br><span class="line">          <span class="attr">readinessProbe:</span>         <span class="comment">## 就绪检测</span></span><br><span class="line">            <span class="attr">initialDelaySeconds:</span> <span class="number">80</span></span><br><span class="line">            <span class="attr">periodSeconds:</span> <span class="number">10</span></span><br><span class="line">            <span class="attr">timeoutSeconds:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">successThreshold:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">failureThreshold:</span> <span class="number">3</span></span><br><span class="line">            <span class="attr">tcpSocket:</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">9101</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">hostPath:</span></span><br><span class="line">            <span class="attr">path:</span> <span class="string">/var/log/veerservice</span>  <span class="comment"># 主机路径</span></span><br><span class="line">            <span class="attr">type:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">volume-veerservice</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">9101</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">ClusterIP</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>SonarQube-安装部署</title>
+    <url>/sonarqube/</url>
+    <content><![CDATA[<h4 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h4><h5 id="Docker方式"><a href="#Docker方式" class="headerlink" title="Docker方式"></a>Docker方式</h5><h6 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull postgres</span><br><span class="line">docker pull sonarqube</span><br></pre></td></tr></table></figure>
+<h6 id="启动postgresql"><a href="#启动postgresql" class="headerlink" title="启动postgresql"></a>启动postgresql</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name db -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -d postgres</span><br></pre></td></tr></table></figure>
+<h6 id="启动sonarqube"><a href="#启动sonarqube" class="headerlink" title="启动sonarqube"></a>启动sonarqube</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name sq --link db -e SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar -p 9000:9000 -d sonarqube</span><br></pre></td></tr></table></figure>
+<h6 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h6><p>启动报错：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br></pre></td></tr></table></figure>
+<p><img src="/sonarqube/./sonarqube1.jpg" alt></p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> </li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">添加：</span></span><br><span class="line">vm.max_map_count=262144</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">验证：</span></span><br><span class="line">sysctl -p | grep vm.max_map_count</span><br></pre></td></tr></table></figure>
+<h4 id="访问SonarQube"><a href="#访问SonarQube" class="headerlink" title="访问SonarQube"></a>访问SonarQube</h4><h5 id="登录系统"><a href="#登录系统" class="headerlink" title="登录系统"></a>登录系统</h5><p>访问ip:9000</p>
+<p><img src="/sonarqube/./sonarqube2.jpg" alt></p>
+<p>登录用户名密码：admin，admin</p>
+<p><img src="/sonarqube/./sonarqube2-1.jpg" alt></p>
+<h5 id="安装中文包"><a href="#安装中文包" class="headerlink" title="安装中文包"></a>安装中文包</h5><p>Administration–Marketplace</p>
+<p><img src="/sonarqube/./sonarqube3.jpg" alt></p>
+]]></content>
+  </entry>
+  <entry>
     <title>TCP三次握手🤝和四次挥手👋</title>
     <url>/tcp/</url>
     <content><![CDATA[<p>TCP连接的建立与终止</p>
+<p><img src="/tcp/./z.jpg" alt></p>
 <a id="more"></a>
+<hr>
+<p><strong>这个网上转载的例子不错：</strong></p>
+<p><strong>三次握手：</strong><br>A:“喂，你听得到吗？”A-&gt;SYN_SEND</p>
+<p>B:“我听得到呀，你听得到我吗？”应答与请求同时发出 B-&gt;SYN_RCVD | A-&gt;ESTABLISHED</p>
+<p>A:“我能听到你，今天balabala……”B-&gt;ESTABLISHED</p>
+<p><strong>四次挥手：</strong><br>A:“喂，我不说了。”A-&gt;FIN_WAIT1</p>
+<p>B:“我知道了。等下，上一句还没说完。Balabala…..”B-&gt;CLOSE_WAIT | A-&gt;FIN_WAIT2</p>
+<p>B:”好了，说完了，我也不说了。”B-&gt;LAST_ACK</p>
+<p>A:”我知道了。”A-&gt;TIME_WAIT | B-&gt;CLOSED</p>
+<p>A等待2MSL,保证B收到了消息,否则重说一次”我知道了”,A-&gt;CLOSED</p>
+<hr>
 <h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p>TCP是面向连接的，无论哪一方向另一方发送数据之前，都必须先在双方之间建立一条连接。在TCP/IP协议中，TCP协议提供可靠的连接服务，连接是通过三次握手进行初始化的。三次握手的目的是同步连接双方的序列号和确认号并交换 TCP窗口大小信息。</p>
 <p><img src="/tcp/./tcp_3.png" alt="图片"></p>
 <ul>
@@ -2609,6 +3062,20 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 <p>第一点：如果主机1直接CLOSED了，那么由于IP协议的不可靠性或者是其它网络原因，导致主机2没有收到主机1最后回复的ACK。那么主机2就会在超时之后继续发送FIN，此时由于主机1已经CLOSED了，就找不到与重发的FIN对应的连接。所以，主机1不是直接进入CLOSED，而是要保持TIME_WAIT，当再次收到FIN的时候，能够保证对方收到ACK，最后正确的关闭连接。</p>
 <p>第二点：如果主机1直接CLOSED，然后又再向主机2发起一个新连接，我们不能保证这个新连接与刚关闭的连接的端口号是不同的。也就是说有可能新连接和老连接的端口号是相同的。一般来说不会发生什么问题，但是还是有特殊情况出现：假设新连接和已经关闭的老连接端口号是一样的，如果前一次连接的某些数据仍然滞留在网络中，这些延迟数据在建立新连接之后才到达主机2，由于新连接和老连接的端口号是一样的，TCP协议就认为那个延迟的数据是属于新连接的，这样就和真正的新连接的数据包发生混淆了。所以TCP连接还要在TIME_WAIT状态等待2倍MSL，这样可以保证本次连接的所有数据都从网络中消失。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>特殊需求-jenkins-job-demo</title>
+    <url>/teshuxuqiu-jenkins-job/</url>
+    <content><![CDATA[<p><img src="/teshuxuqiu-jenkins-job/./z.jpg" alt><br><a id="more"></a><br>jenkins 项目中的shell脚本：</p>
+<p>实现 自动构建后 访问微服务可以获取 Kubernetes pod镜像地址</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line">WorkDir=`pwd`</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;测试环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;release&quot;</span><br><span class="line">  ScopeName=&quot;test&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;预发环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;master&quot;</span><br><span class="line">  ScopeName=&quot;pre&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;生产环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;master&quot;</span><br><span class="line">  ScopeName=&quot;pro&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">cat &gt; Dockerfile &lt;&lt;EOF</span><br><span class="line">FROM registry-vpc.cn-beijing.aliyuncs.com/vcgcs/flask</span><br><span class="line">WORKDIR /usr/src/app</span><br><span class="line">ADD . .</span><br><span class="line">CMD python manager.py</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &gt; manager.py &lt;&lt;EOF</span><br><span class="line">from flask import Flask</span><br><span class="line">from flask import request</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;,methods=[&quot;GET&quot;])</span><br><span class="line">def cicd_test():</span><br><span class="line">    if request.method == &#x27;GET&#x27;:</span><br><span class="line">        test = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/test-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        pre = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/pre-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        pro = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/pro-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        return &quot;test环境的镜像地址: %s ,pre环境的镜像地址: %s , pro环境的镜像地址: %s&quot;  % (test,pre,pro)</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    app.run(host=&#x27;0.0.0.0&#x27;,port=&#x27;5001&#x27;,debug=True)</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time .</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;测试环境&quot; ]]; then</span><br><span class="line">  su - cicd-test -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;预发环境&quot; ]]; then</span><br><span class="line">  su - cicd-pre -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;生产环境&quot; ]]; then</span><br><span class="line">  su - cicd-pro -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>效果为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:test-20190530160557 ,pre环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:pre-20190530162226 , pro环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:pro-20190530162233</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+        <tag>Jenkins</tag>
+      </tags>
   </entry>
   <entry>
     <title>API是什么:一篇讲透API</title>
@@ -2682,60 +3149,8 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
-    <title>代码迁移-更改Git远程仓库-从gitlab上迁移到coding</title>
-    <url>/%E4%BB%A3%E7%A0%81%E8%BF%81%E7%A7%BB-%E6%9B%B4%E6%94%B9Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-%E4%BB%8Egitlab%E4%B8%8A%E8%BF%81%E7%A7%BB%E5%88%B0coding/</url>
-    <content><![CDATA[<h5 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@git.test.com:test/test.git</span><br></pre></td></tr></table></figure>
-<h5 id="进入项目"><a href="#进入项目" class="headerlink" title="进入项目"></a>进入项目</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd test</span><br></pre></td></tr></table></figure>
-<h5 id="删除-git文件"><a href="#删除-git文件" class="headerlink" title="删除.git文件"></a>删除.git文件</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf .git</span><br></pre></td></tr></table></figure>
-<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<h5 id="绑定远程仓库"><a href="#绑定远程仓库" class="headerlink" title="绑定远程仓库"></a>绑定远程仓库</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:xxx/test.git </span><br></pre></td></tr></table></figure>
-<h5 id="更新到远端"><a href="#更新到远端" class="headerlink" title="更新到远端"></a>更新到远端</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;init&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>GitLab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修复漏洞-提升RDS响应速度</title>
-    <url>/%E4%BF%AE%E5%A4%8D%E6%BC%8F%E6%B4%9E-%E6%8F%90%E5%8D%87RDS%E5%93%8D%E5%BA%94%E9%80%9F%E5%BA%A6/</url>
-    <content><![CDATA[<h4 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h4><ol>
-<li>升级linux内核版本，修复SACK Panic”远程DoS漏洞</li>
-<li>安装nscd，提升RDS响应速度</li>
-</ol>
-<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><h5 id="漏洞描述："><a href="#漏洞描述：" class="headerlink" title="漏洞描述："></a>漏洞描述：</h5><p><em>Linux 以及 FreeBSD 等系统内核上存在严重远程DoS漏洞，攻击者可利用该漏洞构造并发送特定的 SACK 序列请求到目标服务器导致服务器崩溃或拒绝服务。</em></p>
-<p><em>目前已知受影响版本如下：</em><br> <em>• FreeBSD 12（使用到 RACK TCP 协议栈）</em><br> <em>• CentOS 5（Redhat 官方已停止支持，不再提供补丁）</em><br> <em>• CentOS 6</em><br> <em>• CentOS 7</em><br> <em>• Ubuntu 18.04 LTS</em><br> <em>• Ubuntu 16.04 LTS</em><br> <em>• Ubuntu 19.04</em><br> <em>• Ubuntu 18.10</em><br><em>各大Linux发行厂商已发布内核修复补丁，详细内核修复版本如下：</em><br> <em>• CentOS 6 ：2.6.32-754.15.3</em><br> <em>• CentOS 7 ：3.10.0-957.21.3</em><br> <em>• Ubuntu 18.04 LTS ：4.15.0-52.56</em><br> <em>• Ubuntu 16.04 LTS：4.4.0-151.178</em></p>
-<p><em>修复建议：</em><br><em>➤【CentOS 6/7 系列用户】</em><br><em>注：截止文章发布，CentOS官方暂未同步内核修复补丁到软件源，建议用户及时关注补丁更新情况并开展相应升级工作。升级方式如下：</em></p>
-<ol>
-<li><em>yum clean all &amp;&amp; yum makecache，进行软件源更新；</em></li>
-<li><em>yum update kernel  -y，更新当前内核版本;</em></li>
-<li><em>reboot，更新后重启系统生效;</em></li>
-<li><em>uname -a，检查当前版本是否为上述【安全版本】，如果是，则说明修复成功。</em></li>
-</ol>
-<p><em>➤【Ubuntu 16.06/18.04 LTS 系列用户】</em></p>
-<ol>
-<li><em>sudo apt-get update &amp;&amp; sudo apt-get install linux-image-generic，进行软件源更新并安装最新内核版本；</em></li>
-<li><em>sudo reboot，更新后重启系统生效；</em></li>
-<li><em>uname -a，检查当前版本是否为【安全版本】，如果是，则说明修复成功。</em><br><em>如果用户不方便重启进行内核补丁更新，可选择临时缓解方案：</em><br><em>运行如下命令禁用内核 SACK 配置防范漏洞利用：</em><br><em>sysctl -w net.ipv4.tcp_sack=0</em></li>
-</ol>
-<h5 id="NSCD服务："><a href="#NSCD服务：" class="headerlink" title="NSCD服务："></a>NSCD服务：</h5><p><em><a href="https://help.aliyun.com/knowledge_detail/41806.html">https://help.aliyun.com/knowledge_detail/41806.html</a></em></p>
-<p><em>NSCD（Name Service Cache Daemon）是一种能够缓存passwd、group、hosts的本地缓存服务。若您使用短连接的方式连接RDS，请在与RDS相连的ECS实例上进行如下操作开启NSCD，提升RDS响应速度。</em></p>
-<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><ol>
-<li>编写Shell脚本</li>
-<li>Ansible分发脚本</li>
-<li>Ansible执行脚本</li>
-<li>验证脚本执行情况</li>
-<li>分批重启主机</li>
-</ol>
-<h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><h5 id="Shell脚本："><a href="#Shell脚本：" class="headerlink" title="Shell脚本："></a>Shell脚本：</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /data/vcg/zhy/ansible/0623.sh</span><br><span class="line"></span><br><span class="line">yum clean all &amp;&amp; yum makecache</span><br><span class="line">yum update -y  # 或者 yum update kernel  -y</span><br><span class="line">yum install -y nscd</span><br><span class="line">systemctl enable nscd.service</span><br><span class="line">echo &quot;options timeout:1 attempts:1&quot; &gt;&gt; /etc/resolv.conf</span><br></pre></td></tr></table></figure>
-<h5 id="分发脚本"><a href="#分发脚本" class="headerlink" title="分发脚本"></a>分发脚本</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible pre-k8s -m copy -a &quot;src=/data/vcg/zhy/ansible/0623.sh dest=/tmp/0623.sh mode=755&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible pre-k8s -m shell -a &quot;/tmp/0623.sh&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="验证脚本执行情况"><a href="#验证脚本执行情况" class="headerlink" title="验证脚本执行情况"></a>验证脚本执行情况</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ansible pre-k8s -m shell -a &quot;cat /etc/resolv.conf |grep options&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="分批重启主机"><a href="#分批重启主机" class="headerlink" title="分批重启主机"></a>分批重启主机</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">脚本内容：</span></span><br><span class="line">hosts=&quot;</span><br><span class="line">172.20.21.249</span><br><span class="line">172.20.21.250</span><br><span class="line">172.20.21.251</span><br><span class="line">172.20.21.252</span><br><span class="line">172.20.21.253</span><br><span class="line">172.20.21.254</span><br><span class="line">172.20.21.255</span><br><span class="line">172.20.22.0</span><br><span class="line">172.20.22.1</span><br><span class="line">172.20.22.2&quot;</span><br><span class="line">for i in $hosts;</span><br><span class="line">do</span><br><span class="line">  ssh $i uptime</span><br><span class="line">  ssh $i reboot</span><br><span class="line">  sleep 2m</span><br><span class="line">  ssh $i uptime</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>压缩、解压工具-Zip和Tar</title>
-    <url>/%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B%E5%B7%A5%E5%85%B7-Zip%E5%92%8CTar/</url>
+    <url>/zip-and-tar/</url>
     <content><![CDATA[<p>压缩、解压工具-Zip和Tar</p>
 <h5 id="ZIP"><a href="#ZIP" class="headerlink" title="ZIP"></a>ZIP</h5><p>zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有”.zip”扩展名的压缩文件。</p>
 <h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install zip -y</span><br></pre></td></tr></table></figure>
@@ -2767,334 +3182,10 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
-    <title>域名SSL证书</title>
-    <url>/%E5%9F%9F%E5%90%8DSSL%E8%AF%81%E4%B9%A6/</url>
-    <content><![CDATA[<p>SSL证书<br><a id="more"></a></p>
-<h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><ul>
-<li><p>什么是数字证书？</p>
-<p>数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。</p>
-<p>数字证书还有一个重要的特征：只在特定的时间段内有效。</p>
-</li>
-<li><p>什么是SSL？</p>
-<p>SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。</p>
-</li>
-<li><p>什么是SSL证书？</p>
-<p>SSL证书采用SSL协议进行通信，是由权威机构颁发给网站的可信凭证。</p>
-<p>SSL证书采用SSL协议进行通信。SSL证书部署到Web服务器后，Web服务器访问将启用HTTPS协议。您的网站将会通过 HTTPS 加密协议来传输数据，可帮助Web服务器和网站间建立可信的加密链接，从而保证网络数据传输的安全。</p>
-</li>
-<li><p>什么是HTTPS？</p>
-<p>HTTPS是一种基于SSL协议的网站加密传输协议。</p>
-<p>网站安装SSL证书后，使用HTTPS加密协议访问，可激活客户端浏览器到网站服务器之间的<strong>SSL加密通道</strong>（SSL协议），从而实现高强度双向加密传输，防止传输数据被泄露或篡改。HTTPS 也就是HTTP + SSL，是HTTP的安全版。</p>
-</li>
-<li><p>什么是CA认证中心？</p>
-<p>CA认证中心（CA机构），即证书授权中心（Certificate Authority），或称证书授权机构。</p>
-<p>CA认证中心作为电子商务交易中受信任的第三方，承担公钥体系中公钥合法性检验的责任。</p>
-</li>
-</ul>
-<h2 id="SSL证书类型配置表"><a href="#SSL证书类型配置表" class="headerlink" title="SSL证书类型配置表"></a>SSL证书类型配置表</h2><p>证书根据不同的验证级别，分为以下三类：</p>
-<ul>
-<li>域名型SSL（DV SSL）</li>
-<li>企业型SSL（OV SSL）</li>
-<li>增强型SSL（EV SSL）</li>
-</ul>
-<p>根据保护域名的数量需求，SSL 证书又分为：</p>
-<ul>
-<li>单域名版：只保护一个域名，例如 <a href="http://www.abc.com">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
-<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a href="http://www.abc.com">www.abc.com</a> , <a href="http://www.bcd.com">www.bcd.com</a>, pay.efg.com 等</li>
-<li>通配符版：一张证书保护同一个主域名下同一级的所有子域名，不限个数，形如 *.abc.com 。注意，通配符版只有 DVSSL 和 OVSSL 具有， EVSSL 不具有通配符版本。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">证书品牌</th>
-<th style="text-align:left">证书类型</th>
-<th style="text-align:left">保护域名的类型</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">GeoTrust</td>
-<td style="text-align:left">专业版OV SSL</td>
-<td style="text-align:left">1个带通配符的域名1个明细域名多个明细域名</td>
-<td style="text-align:left">提供加密功能，对申请者的身份进行严格的审核验证，可提供可信身份证明。多个域名例上限为300个。如: buy1.example.com, buy2.example.com, next.buy.example2.com, 上述3个明细子域名计算为3个域名。</td>
-</tr>
-<tr>
-<td style="text-align:left">高级版EV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">GlobalSign</td>
-<td style="text-align:left">专业版OV SSL</td>
-<td style="text-align:left">通配符域名</td>
-<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
-</tr>
-<tr>
-<td style="text-align:left">CFCA</td>
-<td style="text-align:left">专业版OV SSL</td>
-<td style="text-align:left">通配符域名1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
-</tr>
-<tr>
-<td style="text-align:left">高级版EV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">Symantec</td>
-<td style="text-align:left">专业版OV SSL</td>
-<td style="text-align:left">通配符域名1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
-</tr>
-<tr>
-<td style="text-align:left">通配符DV SSL</td>
-<td style="text-align:left">通配符域名</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">增强型OV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">提供站点加密功能，需要核验组织注册信息，证书中会显示组织名称。组织信息验证通过后，3个工作日内颁发证书。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">高级版EV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">增强型EV SSL</td>
-<td style="text-align:left">1个域名多个域名</td>
-<td style="text-align:left">增强型EV SSL提供站点加密功能，浏览器绿色地址栏显示组织信息强化信任。组织信息验证通过后7个工作日内颁发证书。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">免费型DV SSL</td>
-<td style="text-align:left">1个域名</td>
-<td style="text-align:left">免费新根证书，切入DigiCert PKI体系，兼容性操作系统版本IOS 5.0+、Android 2.3.3+、JRE 1.6.5+、WIN 7+。最多保护一个明细子域名，不支持通配符，一个阿里云帐户最多签发20张免费证书。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="SSL证书购买"><a href="#SSL证书购买" class="headerlink" title="SSL证书购买"></a>SSL证书购买</h2><p>登录阿里云控制台，进入SSL证书服务。</p>
-<p><img src="/%E5%9F%9F%E5%90%8DSSL%E8%AF%81%E4%B9%A6/免费SSL证书购买.jpg" alt="免费SSL证书购买"></p>
-<h2 id="SSL证书更新"><a href="#SSL证书更新" class="headerlink" title="SSL证书更新"></a>SSL证书更新</h2><p>公司域名SSL证书即将到期，替换SSL证书需知道哪些二级域名使用了HTTPS访问，并且获取SSL证书过期时间，来验证证书是否更新。</p>
-<h5 id="获取域名下的解析信息"><a href="#获取域名下的解析信息" class="headerlink" title="获取域名下的解析信息"></a>获取域名下的解析信息</h5><p>登录域名服务商控制条—云解析—域名解析列表—导出解析记录</p>
-<p>将二级域名的记录写入domains.txt文件备用</p>
-<h5 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for domain in `cat domains.txt` #读取存储了需要监测的域名的文件</span><br><span class="line">do</span><br><span class="line">    curl $domain.vcg.com:443 1&gt;/dev/null 2&gt;/dev/null --connect-timeout 3</span><br><span class="line">    if [[ $? -eq 0  ]]; then</span><br><span class="line">      END_TIME=$(echo | openssl s_client -servername $domain.vcg.com  -connect $domain.vcg.com:443 2&gt;/dev/null | openssl x509 -noout -dates |grep &#x27;After&#x27;| awk -F &#x27;=&#x27; &#x27;&#123;print $2&#125;&#x27;| awk -F &#x27; +&#x27; &#x27;&#123;print $1,$2,$4 &#125;&#x27; )</span><br><span class="line">      echo &quot;$domain.vcg.com 的SSL证书到期时间为 $END_TIME  &quot;  &gt;&gt; result1.txt</span><br><span class="line">    else</span><br><span class="line">      echo &quot;$domain.vcg.com 没https &quot; &gt;&gt; result1.txt</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<h5 id="根据输出文件查看SSL证书过期时间，进行证书替换工作"><a href="#根据输出文件查看SSL证书过期时间，进行证书替换工作" class="headerlink" title="根据输出文件查看SSL证书过期时间，进行证书替换工作"></a>根据输出文件查看SSL证书过期时间，进行证书替换工作</h5><h5 id="SSL证书更新的配置路径"><a href="#SSL证书更新的配置路径" class="headerlink" title="SSL证书更新的配置路径"></a>SSL证书更新的配置路径</h5><ul>
-<li>阿里云OSS-对象存储</li>
-<li>阿里云WAF-Web防火墙</li>
-<li>阿里云SLB-负载均衡</li>
-<li>Nginx</li>
-</ul>
-<p>##### </p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>SSL证书</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>SSL证书</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>奇葩需求-jenkins脚本</title>
-    <url>/%E5%A5%87%E8%91%A9%E9%9C%80%E6%B1%82-jenkins%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<p>jenkins 项目中的shell脚本：</p>
-<p>实现 自动构建后 访问微服务可以获取 Kubernetes pod镜像地址</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line">Time=`date +%Y%m%d%H%M%S`</span><br><span class="line">WorkDir=`pwd`</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;测试环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;release&quot;</span><br><span class="line">  ScopeName=&quot;test&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;预发环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;master&quot;</span><br><span class="line">  ScopeName=&quot;pre&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;生产环境&quot; ]]; then</span><br><span class="line">  Branch=&quot;master&quot;</span><br><span class="line">  ScopeName=&quot;pro&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">cat &gt; Dockerfile &lt;&lt;EOF</span><br><span class="line">FROM registry-vpc.cn-beijing.aliyuncs.com/vcgcs/flask</span><br><span class="line">WORKDIR /usr/src/app</span><br><span class="line">ADD . .</span><br><span class="line">CMD python manager.py</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &gt; manager.py &lt;&lt;EOF</span><br><span class="line">from flask import Flask</span><br><span class="line">from flask import request</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;,methods=[&quot;GET&quot;])</span><br><span class="line">def cicd_test():</span><br><span class="line">    if request.method == &#x27;GET&#x27;:</span><br><span class="line">        test = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/test-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        pre = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/pre-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        pro = os.popen(&quot;/usr/src/app/kubectl --kubeconfig /usr/src/app/pro-config get deployment cicd-test -o yaml |grep image |grep aliyuncs |awk -F &#x27;- image:&#x27; &#x27;&#123;print \$2&#125;&#x27;&quot;).read()</span><br><span class="line">        return &quot;test环境的镜像地址: %s ,pre环境的镜像地址: %s , pro环境的镜像地址: %s&quot;  % (test,pre,pro)</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    app.run(host=&#x27;0.0.0.0&#x27;,port=&#x27;5001&#x27;,debug=True)</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">docker build -t registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time .</span><br><span class="line">docker push registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line">docker rmi -f registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time</span><br><span class="line"></span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;测试环境&quot; ]]; then</span><br><span class="line">  su - cicd-test -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;预发环境&quot; ]]; then</span><br><span class="line">  su - cicd-pre -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br><span class="line">if [[ $&#123;Scope&#125; == &quot;生产环境&quot; ]]; then</span><br><span class="line">  su - cicd-pro -c &quot;kubectl set image deployment cicd-test cicd-test=registry-vpc.cn-beijing.aliyuncs.com/vcg/cicd-test:$&#123;ScopeName&#125;-$Time&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>效果为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:test-20190530160557 ,pre环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:pre-20190530162226 , pro环境的镜像地址: registry-vpc.cn-beijing.aliyuncs.com&#x2F;vcg&#x2F;cicd-test:pro-20190530162233</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Kubernetes</tag>
-        <tag>Jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>挖矿程序处理最佳实践</title>
-    <url>/%E6%8C%96%E7%9F%BF%E7%A8%8B%E5%BA%8F%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<p>挖矿程序会占用CPU进行超频运算，导致CPU严重损耗，并且影响服务器上的其他应用。挖矿程序还具备蠕虫化特点，当安全边界被突破时，挖矿病毒会向内网渗透，并在被入侵的服务器上持久化驻留以获取最大收益。</p>
-<a id="more"></a>
-<p>由于挖矿程序具有联动作用，在清理过程中会存在处理不及时或清理不干净导致挖矿病毒反复发生、出现恶意脚本替换系统命令，从而导致执行系统命令时触发恶意脚本执行（例如：xorddos）。因此，需要在挖矿程序的一个执行周期内，尽快将被入侵服务器上的木马程序和持续化后门清理干净，否则容易导致挖矿病毒频繁复发。</p>
-<h2 id="处理挖矿程序"><a href="#处理挖矿程序" class="headerlink" title="处理挖矿程序"></a>处理挖矿程序</h2><ol>
-<li><p>查看挖矿进程的执行文件链接。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -l &#x2F;proc&#x2F;xxx&#x2F;exe           &#x2F;&#x2F; xxx表示该进程的PID。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>清除挖矿进程的执行文件。</p>
-</li>
-<li><p>在高CPU消耗的进程中定位到挖矿进程，并杀死该进程。</p>
-</li>
-<li><p>检查您服务器的防火墙中是否存在挖矿程序的矿池地址。</p>
-<ol>
-<li><p>执行以下命令查看是否存在业务范围之外的可疑通信地址和开放端口。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">iptables -L -n</span><br></pre></td></tr></table></figure>
-<p><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97001.png" alt="查看防火墙开放IP和端口"></p>
-</li>
-<li><p>执行以下命令清除恶意矿池地址。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;sysconfig&#x2F;iptables</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>执行以下命令排查是否存在定时任务。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
-<p><a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97002.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5326048951/p97002.png" alt="排查定时任务"></a></p>
-<p>您可以根据排查的结果，对可疑的定时任务文件进行处理，防止二次入侵。</p>
-</li>
-<li><p>执行以下命令检查SSH公钥中是否存在挖矿病毒，防止出现持续后门。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat .ssh&#x2F;authorized_keys</span><br></pre></td></tr></table></figure>
-<p><a href="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6326048951/p96925.png"><img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6326048951/p96925.png" alt="排查SSH授权"></a></p>
-</li>
-<li><p>查看其他服务器中是否存在挖矿行为，防止挖矿病毒重复感染内网中的其他服务器。</p>
-</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>暴力破解攻击和防御</title>
-    <url>/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1/</url>
-    <content><![CDATA[<p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。<br><a id="more"></a></p>
-<blockquote>
-<p>引用自阿里云<a href="https://help.aliyun.com/knowledge_detail/56269.html">https://help.aliyun.com/knowledge_detail/56269.html</a></p>
-</blockquote>
-<h3 id="什么是暴力破解攻击"><a href="#什么是暴力破解攻击" class="headerlink" title="什么是暴力破解攻击"></a>什么是暴力破解攻击</h3><p>暴力破解攻击是指攻击者通过系统地组合并尝试所有的可能性以破解用户的用户名、密码等敏感信息。攻击者往往借助自动化脚本工具来发动暴力破解攻击。</p>
-<h4 id="攻击行为类型"><a href="#攻击行为类型" class="headerlink" title="攻击行为类型"></a>攻击行为类型</h4><p>根据暴力破解的穷举方式，其攻击行为可以分为：</p>
-<ul>
-<li><strong>字典攻击法</strong>。大多攻击者并没有高性能的破解算法和CPU/GPU，为节省时间和提高效率，会利用社会工程学或其它方式建立破译字典，使用字典中已存在的用户名、密码进行猜破。</li>
-<li><strong>穷举法</strong>。攻击者首先列出密码组合的可能性（如数字、大写字母、小写字母、特殊字符等），然后按密码长度从1位、2位….构成不同的账号和密码对，然后逐个猜试。该方法需要高性能的破解算法和CPU/GPU作支持。</li>
-<li><strong>组合式攻击法</strong>。使用字典攻击和穷举法的组合攻击方式。</li>
-</ul>
-<p>理论上，只要拥有性能足够强的计算机和足够长的时间，大多密码均可以被破解出来。</p>
-<h4 id="攻击业务类型"><a href="#攻击业务类型" class="headerlink" title="攻击业务类型"></a>攻击业务类型</h4><ul>
-<li>针对Windows操作系统的远程桌面管理协议（RDP）、Linux操作系统的管理协议（SSH）的暴力破解攻击</li>
-<li>针对具有登录认证机制的软件服务（如Mysql、SQLserver、FTP、Web前后端登录接口等应用服务）的暴力破解攻击</li>
-</ul>
-<p>对于防御者而言，给攻击者留得时间越长，其组合出正确的用户名和密码的可能性就越大。因此，时间在检测暴力破解攻击时很重要。</p>
-<h3 id="暴力破解攻击有什么危害"><a href="#暴力破解攻击有什么危害" class="headerlink" title="暴力破解攻击有什么危害"></a>暴力破解攻击有什么危害</h3><p>通过自动化工具发起的暴力破解攻击可以获取用户账号和密码。</p>
-<h3 id="如何防御暴力破解攻击"><a href="#如何防御暴力破解攻击" class="headerlink" title="如何防御暴力破解攻击"></a>如何防御暴力破解攻击</h3><ul>
-<li>制定密码复杂度策略，并进行服务加固。密码的长度要大于 8 位，且最好大于 20 位；密码应由数字、大小写字母和特殊符号混合组成；密码的最长有效期为 90 天。</li>
-<li>配置好网络访问控制。严格限制将高危服务管理端口直接发布到互联网；建议您使用 VPN 和堡垒机的方式集中管理和审计。</li>
-<li>提高内部全员安全意识，禁止借用或共享使用账号。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>安全</category>
-      </categories>
-      <tags>
-        <tag>安全</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>深入浅出Kubernetes</title>
     <url>/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAKubernetes/</url>
     <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br><div class="pdfobject-container" data-target="./深入浅出Kubernetes.pdf" data-height="500px"></div></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>申请Confluence和Jira的试用版license</title>
-    <url>/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/</url>
-    <content><![CDATA[<ol>
-<li><p>访问<a href="https://www.atlassian.com/，登录账号">https://www.atlassian.com/，登录账号</a></p>
-<p><img src="/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/./image2019-7-23_16-56-18.png" alt></p>
-<p><img src="/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/./image2019-7-23_16-58-42.png" alt></p>
-</li>
-<li><p>点击“licenses”，url为<a href="https://my.atlassian.com/product">https://my.atlassian.com/product</a></p>
-<p><img src="/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/./image2019-7-23_17-0-29.png" alt></p>
-</li>
-<li><p>创建新的认证：</p>
-<p><img src="/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/./image2019-7-23_17-2-25.png" alt></p>
-</li>
-<li><p>获取service ID</p>
-<p>使用admin账号登录系统，<strong>系统</strong>-<strong>系统信息</strong>可以获取service ID</p>
-<p><img src="/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/./1563872961498.jpg" alt></p>
-<p><img src="/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/./1563872994300.jpg" alt></p>
-</li>
-<li><p>激活license</p>
-<p><img src="/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/./1563873215131.jpg" alt></p>
-<p><img src="/%E7%94%B3%E8%AF%B7Confluence%E5%92%8CJira%E7%9A%84%E8%AF%95%E7%94%A8%E7%89%88license/./1563873261297.jpg" alt></p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Confluence</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>神策logagent收集Kubernetes-Pod日志</title>
-    <url>/%E7%A5%9E%E7%AD%96logagent%E6%94%B6%E9%9B%86Kubernetes-Pod%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>神策logagent收集Kubernetes Pod日志</p>
-<hr>
-<h4 id="项目背景："><a href="#项目背景：" class="headerlink" title="项目背景："></a>项目背景：</h4><p>神策logagent需要收集到java程序输出的日志，用于分析用户行为等</p>
-<p>想到两种方案</p>
-<ol>
-<li>pod指定部署到某台宿主机上，日志目录挂载到宿主机，宿主机上启动logagent程序。</li>
-<li>sidecar的形式</li>
-</ol>
-<p>目前使用第一种方案，比较稳妥，后续技术扎实后会替换成第二种，更稳定高效。</p>
-<h4 id="部署logagent"><a href="#部署logagent" class="headerlink" title="部署logagent"></a>部署logagent</h4><p><a href="https://www.sensorsdata.cn/manual/log_agent.html">官方部署文档</a></p>
-<h5 id="安装Jdk"><a href="#安装Jdk" class="headerlink" title="安装Jdk"></a>安装Jdk</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y java-1.8.0-openjdk.x86_64</span><br></pre></td></tr></table></figure>
-<h5 id="下载LogAgent部署包和解压"><a href="#下载LogAgent部署包和解压" class="headerlink" title="下载LogAgent部署包和解压"></a>下载LogAgent部署包和解压</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://download.sensorsdata.cn/release/logagent/logagent_20190605.tgz</span><br><span class="line">tar zxvf logagent_20190605.tgz</span><br></pre></td></tr></table></figure>
-<h5 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim logagent&#x2F;logagent.conf</span><br><span class="line"></span><br><span class="line">path&#x3D;&#x2F;var&#x2F;log&#x2F;veercms      #本地路径</span><br><span class="line">logagent_id&#x3D;veerservice_2_241    #id</span><br><span class="line">pattern&#x3D;cms.veerservice.log*     #log名称格式</span><br><span class="line">project&#x3D;production</span><br><span class="line">pid_file&#x3D;&#x2F;data&#x2F;vcg&#x2F;logagent&#x2F;logagent.pid</span><br><span class="line">host&#x3D;172.16.249.136    #server端地址</span><br><span class="line">port&#x3D;8106</span><br></pre></td></tr></table></figure>
-<h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nohup bin&#x2F;logagent &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-<h5 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tail -f &#x2F;data&#x2F;vcg&#x2F;logagent&#x2F;log&#x2F;logagent.log</span><br></pre></td></tr></table></figure>
-<h4 id="配置节点标签"><a href="#配置节点标签" class="headerlink" title="配置节点标签"></a>配置节点标签</h4><p>两种方式实现：</p>
-<ol>
-<li><p>控制台上添加标签</p>
-<p><img src="/%E7%A5%9E%E7%AD%96logagent%E6%94%B6%E9%9B%86Kubernetes-Pod%E6%97%A5%E5%BF%97/./1560925678009.jpg" alt="image-20190619142748161"></p>
-</li>
-<li><p>命令行</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">例如给 cn-beijing.i-2ze7nm52ylwxd8j4d0lq 这个node添加标签：</span></span><br><span class="line">kubectl label nodes cn-beijing.i-2ze7nm52ylwxd8j4d0lq test-key=test-value</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看标签：</span></span><br><span class="line">kubectl get node --show-labels </span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="配置k8s-yaml"><a href="#配置k8s-yaml" class="headerlink" title="配置k8s yaml"></a>配置k8s yaml</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1beta2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">6</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">      <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line">      <span class="attr">schedulerName:</span> <span class="string">default-scheduler</span></span><br><span class="line">      <span class="attr">securityContext:</span> &#123;&#125;</span><br><span class="line">      <span class="attr">terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br><span class="line">      <span class="attr">imagePullSecrets:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">registry-vpc.cn-beijing.aliyuncs.com</span>   <span class="comment">## 保密字典中的仓储认证</span></span><br><span class="line">      <span class="attr">affinity:</span></span><br><span class="line">        <span class="attr">nodeAffinity:</span></span><br><span class="line">          <span class="attr">preferredDuringSchedulingIgnoredDuringExecution:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">preference:</span> &#123;&#125;</span><br><span class="line">              <span class="attr">weight:</span> <span class="number">100</span></span><br><span class="line">          <span class="attr">requiredDuringSchedulingIgnoredDuringExecution:</span></span><br><span class="line">            <span class="attr">nodeSelectorTerms:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="attr">matchExpressions:</span></span><br><span class="line">                  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">vcgapp</span></span><br><span class="line">                    <span class="attr">operator:</span> <span class="string">In</span></span><br><span class="line">                    <span class="attr">values:</span></span><br><span class="line">                      <span class="bullet">-</span> <span class="string">veerlogagent</span>     <span class="comment">## node节点亲和性</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">&#x27;registry-vpc.cn-beijing.aliyuncs.com/vcg/com-veer-veerservice:pro-20190610183629&#x27;</span>   <span class="comment">## 镜像地址</span></span><br><span class="line">          <span class="attr">env:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">aliyun_logs_com-veer-veerservice</span>     <span class="comment">## 日志服务</span></span><br><span class="line">              <span class="attr">value:</span> <span class="string">stdout</span></span><br><span class="line">          <span class="attr">imagePullPolicy:</span> <span class="string">Always</span></span><br><span class="line">          <span class="attr">volumeMounts:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/var/log/veerservice_log</span>   <span class="comment"># 容器内路径</span></span><br><span class="line">              <span class="attr">name:</span> <span class="string">volume-veerservice</span></span><br><span class="line">          <span class="attr">resources:</span></span><br><span class="line">            <span class="attr">limits:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">4Gi</span></span><br><span class="line">            <span class="attr">requests:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">500m</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">1000Mi</span></span><br><span class="line">          <span class="attr">livenessProbe:</span>        <span class="comment">## 存活检测</span></span><br><span class="line">            <span class="attr">initialDelaySeconds:</span> <span class="number">80</span></span><br><span class="line">            <span class="attr">periodSeconds:</span> <span class="number">10</span></span><br><span class="line">            <span class="attr">timeoutSeconds:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">successThreshold:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">failureThreshold:</span> <span class="number">3</span></span><br><span class="line">            <span class="attr">tcpSocket:</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">9101</span></span><br><span class="line">          <span class="attr">readinessProbe:</span>         <span class="comment">## 就绪检测</span></span><br><span class="line">            <span class="attr">initialDelaySeconds:</span> <span class="number">80</span></span><br><span class="line">            <span class="attr">periodSeconds:</span> <span class="number">10</span></span><br><span class="line">            <span class="attr">timeoutSeconds:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">successThreshold:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">failureThreshold:</span> <span class="number">3</span></span><br><span class="line">            <span class="attr">tcpSocket:</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">9101</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">hostPath:</span></span><br><span class="line">            <span class="attr">path:</span> <span class="string">/var/log/veerservice</span>  <span class="comment"># 主机路径</span></span><br><span class="line">            <span class="attr">type:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">volume-veerservice</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">9101</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">ClusterIP</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>记一次Java微服务容器化维护工作</title>
-    <url>/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/</url>
-    <content><![CDATA[<p>维护经验分享<br><a id="more"></a></p>
-<h4 id="事件背景"><a href="#事件背景" class="headerlink" title="事件背景"></a>事件背景</h4><hr>
-<p>容器架构由Swarm迁移到Kubernetes</p>
-<p>Swarm集群中服务发现、服务注册使用Consul，迁移到K8s后注册发现是的K8s的kube-dns基础组件实现。</p>
-<p>utilservice-vcg-com这个微服务部署在两台ecs上，java -jar 启动后  手动注册到consul中，这样实现Swarm集群中的应用可以通过Consul访问util服务。</p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><hr>
-<p>与相关研发沟通，确定utilservice程序一些基础信息：比如</p>
-<p>​    需要哪些基础组件，在ecs上部署遇到什么问题，如何处理的</p>
-<p>​    git仓库地址、服务启动命令、服务端口、是否连接数据库、服务调用关系。</p>
-<p>确定使用jdk环境，需要使用到 wkhtmltopdf 这个命令，用于生成pdf；</p>
-<p>生成的pdf过程会有 字体和语言的问题，需提前处理。</p>
-<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><hr>
-<h5 id="确定基础镜像"><a href="#确定基础镜像" class="headerlink" title="确定基础镜像"></a>确定基础镜像</h5><p>访问<a href="https://hub.docker.com/">https://hub.docker.com</a>，搜索 wkhtmltopdf 关键词</p>
-<p><img src="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/1.png" alt="1"></p>
-<p>确定基础镜像使用 buildo/java8-wkhtmltopdf 。</p>
-<h6 id="Dockerfile-第一版"><a href="#Dockerfile-第一版" class="headerlink" title="Dockerfile (第一版)"></a>Dockerfile (第一版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br></pre></td></tr></table></figure>
-<h5 id="下载JCE"><a href="#下载JCE" class="headerlink" title="下载JCE"></a>下载JCE</h5><p>需要使用到JCE，在oracle官网下载。</p>
-<p>JDK7的下载地址: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</a><br>JDK8的下载地址: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</a></p>
-<p>Java Cryptography Extension (JCE) 无限强度权限策略文件 8 下载</p>
-<h6 id="Dockerfile-第二版"><a href="#Dockerfile-第二版" class="headerlink" title="Dockerfile (第二版)"></a>Dockerfile (第二版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h5 id="处理程序报错"><a href="#处理程序报错" class="headerlink" title="处理程序报错"></a>处理程序报错</h5><h6 id="1、找到不到-iSignature-pfx-证书："><a href="#1、找到不到-iSignature-pfx-证书：" class="headerlink" title="1、找到不到 iSignature.pfx 证书："></a>1、找到不到 iSignature.pfx 证书：</h6><p>报错截图：</p>
-<h5 id><a href="#" class="headerlink" title></a><img src="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/2.png" alt="2"></h5><p>可以看到找不到/media/providerstamp/signature/iSignature.pfx 证书文件，简单，从老服务器上找到对应文件，拷贝过来。</p>
-<h6 id="Dockerfile-第三版"><a href="#Dockerfile-第三版" class="headerlink" title="Dockerfile (第三版)"></a>Dockerfile (第三版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h6 id="2、tmpDic不是文件夹"><a href="#2、tmpDic不是文件夹" class="headerlink" title="2、tmpDic不是文件夹"></a>2、tmpDic不是文件夹</h6><p><img src="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/3.png" alt="3"></p>
-<p>研发查看代码后确定是要使用 /media/providerstamp/temp/ 目录，索性登录老服务器上查看/media/providerstamp下所有目录，都创建好，并将需要的文件scp拷贝过来。</p>
-<p><img src="/%E8%AE%B0%E4%B8%80%E6%AC%A1Java%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C/4.png" alt="4"></p>
-<p>看到还有 done 、unitrust目录，并且unitrust目录中的unitrust.key 程序也会用到。</p>
-<h6 id="Dockerfile-第四版"><a href="#Dockerfile-第四版" class="headerlink" title="Dockerfile (第四版)"></a>Dockerfile (第四版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;done&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;unitrust&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;temp&#x2F;  &amp;&amp; \</span><br><span class="line">        cp unitrust.key &#x2F;media&#x2F;providerstamp&#x2F;unitrust &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br></pre></td></tr></table></figure>
-<h6 id="3、pdf内容乱码"><a href="#3、pdf内容乱码" class="headerlink" title="3、pdf内容乱码"></a>3、pdf内容乱码</h6><p>乱码是由于字体问题，简单直接，直接从老服务器上拷贝 /usr/share/fonts 目录。</p>
-<h6 id="Dockerfile-第五版"><a href="#Dockerfile-第五版" class="headerlink" title="Dockerfile (第五版)"></a>Dockerfile (第五版)</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM buildo&#x2F;java8-wkhtmltopdf</span><br><span class="line">MAINTAINER hongye.zhao@vcg.com</span><br><span class="line">RUN mkdir -p &#x2F;application&#x2F;</span><br><span class="line">WORKDIR &#x2F;application&#x2F;</span><br><span class="line">ADD . .</span><br><span class="line">RUN unzip jce_policy-8.zip &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;US_export_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        cp UnlimitedJCEPolicyJDK8&#x2F;local_policy.jar &#x2F;docker-java-home&#x2F;jre&#x2F;lib&#x2F;security &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;done&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;unitrust&#x2F;  &amp;&amp; \</span><br><span class="line">        mkdir -p &#x2F;media&#x2F;providerstamp&#x2F;temp&#x2F;  &amp;&amp; \</span><br><span class="line">        cp unitrust.key &#x2F;media&#x2F;providerstamp&#x2F;unitrust &amp;&amp; \</span><br><span class="line">        cp iSignature.pfx &#x2F;media&#x2F;providerstamp&#x2F;signature&#x2F; &amp;&amp; \</span><br><span class="line">        rm -f &#x2F;usr&#x2F;local&#x2F;bin&#x2F;wkhtmltopdf &amp;&amp; \</span><br><span class="line">        rm -rf &#x2F;usr&#x2F;share&#x2F;fonts &amp;&amp; \</span><br><span class="line">        cp wkhtmltopdf &#x2F;usr&#x2F;local&#x2F;bin&#x2F; &amp;&amp; \</span><br><span class="line">        tar zxf fonts.tar.gz &amp;&amp; \</span><br><span class="line">        mv fonts&#x2F; &#x2F;usr&#x2F;share&#x2F;</span><br></pre></td></tr></table></figure>
-<p>至此，此微服务容器化已完成。👏👏👏</p>
-]]></content>
-      <tags>
-        <tag>Docker</tag>
-        <tag>Kubernetes</tag>
-      </tags>
   </entry>
   <entry>
     <title>阿里云OSS对象存储中的图片数据迁移到京东云OSS</title>
@@ -3160,19 +3251,6 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       <tags>
         <tag>Kubernetes</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>阿里云产品我想退款如何操作</title>
-    <url>/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%A7%E5%93%81%E6%88%91%E6%83%B3%E9%80%80%E6%AC%BE%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>阿里云产品退款工单怎么填</p>
-<h5 id="进入“工单系统”"><a href="#进入“工单系统”" class="headerlink" title="进入“工单系统”"></a>进入“工单系统”</h5><p><img src="/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%A7%E5%93%81%E6%88%91%E6%83%B3%E9%80%80%E6%AC%BE%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C/./1564537171046.jpg" alt></p>
-<h5 id="选择相关产品，点击“提问”"><a href="#选择相关产品，点击“提问”" class="headerlink" title="选择相关产品，点击“提问”"></a>选择相关产品，点击“提问”</h5><p><strong>本次演示为ECS实例退款</strong></p>
-<p><img src="/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%A7%E5%93%81%E6%88%91%E6%83%B3%E9%80%80%E6%AC%BE%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C/./1564537202981.jpg" alt></p>
-<h5 id="选择“续费-配置变更”-创建工单"><a href="#选择“续费-配置变更”-创建工单" class="headerlink" title="选择“续费/配置变更”-创建工单"></a>选择“续费/配置变更”-创建工单</h5><p><img src="/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%A7%E5%93%81%E6%88%91%E6%83%B3%E9%80%80%E6%AC%BE%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C/./1564537232860.jpg" alt></p>
-<h5 id="填写工单"><a href="#填写工单" class="headerlink" title="填写工单"></a>填写工单</h5><p><img src="/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%A7%E5%93%81%E6%88%91%E6%83%B3%E9%80%80%E6%AC%BE%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C/./1564537617373.jpg" alt></p>
-<p>问题描述内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1）退款原因（以便我方改进产品不足）： 业务不再需要</span><br><span class="line">（2）申请退款的产品实例ID：</span><br><span class="line">i-2ze73nwbpiwe8oy2s8fd</span><br><span class="line">i-2zeeif4aj2ietoreexyz</span><br><span class="line">i-2zebsfqkvhcijbbtuqqj</span><br><span class="line">i-2zeixwbfspqnyju4qvdk</span><br><span class="line">i-2zeacxjlg8xlgh1kp053</span><br><span class="line">i-2zeawy8pclj79pt1amvx</span><br><span class="line">i-2ze095o6ifge7szwor5j</span><br><span class="line">i-2zea9n9e5ru6ebvf4nuv</span><br><span class="line">i-2zea410j2fhwth7wp0s6</span><br><span class="line">i-25z4mycbd</span><br><span class="line">i-25m8j9t4v</span><br><span class="line">i-251nzqk8t</span><br><span class="line">i-25zq6kyad</span><br><span class="line">i-25yentipk</span><br><span class="line">（3）已使用时长所对应的费用不退回，请您确认已知晓； 确认</span><br><span class="line">（4）代金券支付部分无法退回，请您确认已知晓： 确认</span><br><span class="line">（5）主机或实例是否已备份？若已备份，请回复“数据已备份”；若无需备份，请回复“数据无需备份” 。（退款后服务器实例立即被清除，数据不再保留，请提前备份数据）  数据已备份。</span><br></pre></td></tr></table></figure>
-]]></content>
   </entry>
   <entry>
     <title>阿里巴巴DevOps实践手册</title>

@@ -27,13 +27,14 @@
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="TCP连接的建立与终止">
 <meta property="og:locale">
+<meta property="og:image" content="http://yoursite.com/tcp/z.jpg">
 <meta property="og:image" content="http://yoursite.com/tcp/tcp_3.png">
 <meta property="og:image" content="http://yoursite.com/tcp/tcp_4.png">
 <meta property="article:published_time" content="2020-12-25T02:24:27.000Z">
-<meta property="article:modified_time" content="2020-12-25T02:31:20.652Z">
+<meta property="article:modified_time" content="2021-01-27T07:04:21.657Z">
 <meta property="article:author" content="GeekSRE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/tcp/tcp_3.png">
+<meta name="twitter:image" content="http://yoursite.com/tcp/z.jpg">
 
 <link rel="canonical" href="http://yoursite.com/tcp/">
 
@@ -215,10 +216,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-25 10:24:27 / Modified: 10:31:20" itemprop="dateCreated datePublished" datetime="2020-12-25T10:24:27+08:00">2020-12-25</time>
+              <time title="Created: 2020-12-25 10:24:27" itemprop="dateCreated datePublished" datetime="2020-12-25T10:24:27+08:00">2020-12-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-27 15:04:21" itemprop="dateModified" datetime="2021-01-27T15:04:21+08:00">2021-01-27</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -239,7 +246,19 @@
 
       
         <p>TCP连接的建立与终止</p>
+<p><img src="/tcp/./z.jpg" alt></p>
 <a id="more"></a>
+<hr>
+<p><strong>这个网上转载的例子不错：</strong></p>
+<p><strong>三次握手：</strong><br>A:“喂，你听得到吗？”A-&gt;SYN_SEND</p>
+<p>B:“我听得到呀，你听得到我吗？”应答与请求同时发出 B-&gt;SYN_RCVD | A-&gt;ESTABLISHED</p>
+<p>A:“我能听到你，今天balabala……”B-&gt;ESTABLISHED</p>
+<p><strong>四次挥手：</strong><br>A:“喂，我不说了。”A-&gt;FIN_WAIT1</p>
+<p>B:“我知道了。等下，上一句还没说完。Balabala…..”B-&gt;CLOSE_WAIT | A-&gt;FIN_WAIT2</p>
+<p>B:”好了，说完了，我也不说了。”B-&gt;LAST_ACK</p>
+<p>A:”我知道了。”A-&gt;TIME_WAIT | B-&gt;CLOSED</p>
+<p>A等待2MSL,保证B收到了消息,否则重说一次”我知道了”,A-&gt;CLOSED</p>
+<hr>
 <h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p>TCP是面向连接的，无论哪一方向另一方发送数据之前，都必须先在双方之间建立一条连接。在TCP/IP协议中，TCP协议提供可靠的连接服务，连接是通过三次握手进行初始化的。三次握手的目的是同步连接双方的序列号和确认号并交换 TCP窗口大小信息。</p>
 <p><img src="/tcp/./tcp_3.png" alt="图片"></p>
 <ul>
@@ -284,7 +303,7 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/%E6%8C%96%E7%9F%BF%E7%A8%8B%E5%BA%8F%E5%A4%84%E7%90%86%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" rel="prev" title="挖矿程序处理最佳实践">
+    <a href="/safe-wakuang/" rel="prev" title="挖矿程序处理最佳实践">
       <i class="fa fa-chevron-left"></i> 挖矿程序处理最佳实践
     </a></div>
       <div class="post-nav-item">
@@ -362,7 +381,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">88</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -373,7 +392,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

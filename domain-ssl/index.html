@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="SSL证书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="域名SSL证书">
+<meta property="og:url" content="http://yoursite.com/domain-ssl/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="SSL证书">
+<meta property="og:locale">
+<meta property="og:image" content="http://yoursite.com/domain-ssl/免费SSL证书购买.jpg">
+<meta property="article:published_time" content="2019-04-16T07:04:09.000Z">
+<meta property="article:modified_time" content="2020-10-15T07:59:49.197Z">
+<meta property="article:author" content="GeekSRE">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="SSL证书">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/domain-ssl/免费SSL证书购买.jpg">
+
+<link rel="canonical" href="http://yoursite.com/domain-ssl/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>域名SSL证书 | GeekSRE</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">GeekSRE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeekSRE" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/domain-ssl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          域名SSL证书
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-16 15:04:09" itemprop="dateCreated datePublished" datetime="2019-04-16T15:04:09+08:00">2019-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 15:59:49" itemprop="dateModified" datetime="2020-10-15T15:59:49+08:00">2020-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/SSL%E8%AF%81%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">SSL证书</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>SSL证书<br><a id="more"></a></p>
+<h2 id="SSL证书"><a href="#SSL证书" class="headerlink" title="SSL证书"></a>SSL证书</h2><ul>
+<li><p>什么是数字证书？</p>
+<p>数字证书是一个经权威授权机构数字签名、包含公开密钥拥有者信息以及公开密钥的文件，是权威机构颁发给网站的可信凭证。最简单的证书包含一个公开密钥、证书名称以及证书授权中心的数字签名。</p>
+<p>数字证书还有一个重要的特征：只在特定的时间段内有效。</p>
+</li>
+<li><p>什么是SSL？</p>
+<p>SSL协议是一种可实现网络通信加密的安全协议，可在浏览器和网站之间建立加密通道，保障数据在传输的过程中不被篡改或窃取。</p>
+</li>
+<li><p>什么是SSL证书？</p>
+<p>SSL证书采用SSL协议进行通信，是由权威机构颁发给网站的可信凭证。</p>
+<p>SSL证书采用SSL协议进行通信。SSL证书部署到Web服务器后，Web服务器访问将启用HTTPS协议。您的网站将会通过 HTTPS 加密协议来传输数据，可帮助Web服务器和网站间建立可信的加密链接，从而保证网络数据传输的安全。</p>
+</li>
+<li><p>什么是HTTPS？</p>
+<p>HTTPS是一种基于SSL协议的网站加密传输协议。</p>
+<p>网站安装SSL证书后，使用HTTPS加密协议访问，可激活客户端浏览器到网站服务器之间的<strong>SSL加密通道</strong>（SSL协议），从而实现高强度双向加密传输，防止传输数据被泄露或篡改。HTTPS 也就是HTTP + SSL，是HTTP的安全版。</p>
+</li>
+<li><p>什么是CA认证中心？</p>
+<p>CA认证中心（CA机构），即证书授权中心（Certificate Authority），或称证书授权机构。</p>
+<p>CA认证中心作为电子商务交易中受信任的第三方，承担公钥体系中公钥合法性检验的责任。</p>
+</li>
+</ul>
+<h2 id="SSL证书类型配置表"><a href="#SSL证书类型配置表" class="headerlink" title="SSL证书类型配置表"></a>SSL证书类型配置表</h2><p>证书根据不同的验证级别，分为以下三类：</p>
+<ul>
+<li>域名型SSL（DV SSL）</li>
+<li>企业型SSL（OV SSL）</li>
+<li>增强型SSL（EV SSL）</li>
+</ul>
+<p>根据保护域名的数量需求，SSL 证书又分为：</p>
+<ul>
+<li>单域名版：只保护一个域名，例如 <a target="_blank" rel="noopener" href="http://www.abc.com">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
+<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a target="_blank" rel="noopener" href="http://www.abc.com">www.abc.com</a> , <a target="_blank" rel="noopener" href="http://www.bcd.com">www.bcd.com</a>, pay.efg.com 等</li>
+<li>通配符版：一张证书保护同一个主域名下同一级的所有子域名，不限个数，形如 *.abc.com 。注意，通配符版只有 DVSSL 和 OVSSL 具有， EVSSL 不具有通配符版本。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">证书品牌</th>
+<th style="text-align:left">证书类型</th>
+<th style="text-align:left">保护域名的类型</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GeoTrust</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">1个带通配符的域名1个明细域名多个明细域名</td>
+<td style="text-align:left">提供加密功能，对申请者的身份进行严格的审核验证，可提供可信身份证明。多个域名例上限为300个。如: buy1.example.com, buy2.example.com, next.buy.example2.com, 上述3个明细子域名计算为3个域名。</td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">GlobalSign</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">CFCA</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Symantec</td>
+<td style="text-align:left">专业版OV SSL</td>
+<td style="text-align:left">通配符域名1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者进行严格的身份审核验证，提供可信身份证明。</td>
+</tr>
+<tr>
+<td style="text-align:left">通配符DV SSL</td>
+<td style="text-align:left">通配符域名</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">增强型OV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供站点加密功能，需要核验组织注册信息，证书中会显示组织名称。组织信息验证通过后，3个工作日内颁发证书。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">高级版EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">提供加密功能，对申请者做最严格的身份审核验证，提供最高度可信身份证明，提供浏览器绿色地址栏。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">增强型EV SSL</td>
+<td style="text-align:left">1个域名多个域名</td>
+<td style="text-align:left">增强型EV SSL提供站点加密功能，浏览器绿色地址栏显示组织信息强化信任。组织信息验证通过后7个工作日内颁发证书。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">免费型DV SSL</td>
+<td style="text-align:left">1个域名</td>
+<td style="text-align:left">免费新根证书，切入DigiCert PKI体系，兼容性操作系统版本IOS 5.0+、Android 2.3.3+、JRE 1.6.5+、WIN 7+。最多保护一个明细子域名，不支持通配符，一个阿里云帐户最多签发20张免费证书。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SSL证书购买"><a href="#SSL证书购买" class="headerlink" title="SSL证书购买"></a>SSL证书购买</h2><p>登录阿里云控制台，进入SSL证书服务。</p>
+<p><img src="/domain-ssl/免费SSL证书购买.jpg" alt="免费SSL证书购买"></p>
+<h2 id="SSL证书更新"><a href="#SSL证书更新" class="headerlink" title="SSL证书更新"></a>SSL证书更新</h2><p>公司域名SSL证书即将到期，替换SSL证书需知道哪些二级域名使用了HTTPS访问，并且获取SSL证书过期时间，来验证证书是否更新。</p>
+<h5 id="获取域名下的解析信息"><a href="#获取域名下的解析信息" class="headerlink" title="获取域名下的解析信息"></a>获取域名下的解析信息</h5><p>登录域名服务商控制条—云解析—域名解析列表—导出解析记录</p>
+<p>将二级域名的记录写入domains.txt文件备用</p>
+<h5 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for domain in `cat domains.txt` #读取存储了需要监测的域名的文件</span><br><span class="line">do</span><br><span class="line">    curl $domain.vcg.com:443 1&gt;/dev/null 2&gt;/dev/null --connect-timeout 3</span><br><span class="line">    if [[ $? -eq 0  ]]; then</span><br><span class="line">      END_TIME=$(echo | openssl s_client -servername $domain.vcg.com  -connect $domain.vcg.com:443 2&gt;/dev/null | openssl x509 -noout -dates |grep &#x27;After&#x27;| awk -F &#x27;=&#x27; &#x27;&#123;print $2&#125;&#x27;| awk -F &#x27; +&#x27; &#x27;&#123;print $1,$2,$4 &#125;&#x27; )</span><br><span class="line">      echo &quot;$domain.vcg.com 的SSL证书到期时间为 $END_TIME  &quot;  &gt;&gt; result1.txt</span><br><span class="line">    else</span><br><span class="line">      echo &quot;$domain.vcg.com 没https &quot; &gt;&gt; result1.txt</span><br><span class="line">    fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h5 id="根据输出文件查看SSL证书过期时间，进行证书替换工作"><a href="#根据输出文件查看SSL证书过期时间，进行证书替换工作" class="headerlink" title="根据输出文件查看SSL证书过期时间，进行证书替换工作"></a>根据输出文件查看SSL证书过期时间，进行证书替换工作</h5><h5 id="SSL证书更新的配置路径"><a href="#SSL证书更新的配置路径" class="headerlink" title="SSL证书更新的配置路径"></a>SSL证书更新的配置路径</h5><ul>
+<li>阿里云OSS-对象存储</li>
+<li>阿里云WAF-Web防火墙</li>
+<li>阿里云SLB-负载均衡</li>
+<li>Nginx</li>
+</ul>
+<p>##### </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/SSL%E8%AF%81%E4%B9%A6/" rel="tag"># SSL证书</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/baoli-pojie-fangyu/" rel="prev" title="暴力破解攻击和防御">
+      <i class="fa fa-chevron-left"></i> 暴力破解攻击和防御
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/GitLab%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/" rel="next" title="GitLab代码托管">
+      GitLab代码托管 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL%E8%AF%81%E4%B9%A6"><span class="nav-number">1.</span> <span class="nav-text">SSL证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL%E8%AF%81%E4%B9%A6%E7%B1%BB%E5%9E%8B%E9%85%8D%E7%BD%AE%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">SSL证书类型配置表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL%E8%AF%81%E4%B9%A6%E8%B4%AD%E4%B9%B0"><span class="nav-number">3.</span> <span class="nav-text">SSL证书购买</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%96%B0"><span class="nav-number">4.</span> <span class="nav-text">SSL证书更新</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%E4%B8%8B%E7%9A%84%E8%A7%A3%E6%9E%90%E4%BF%A1%E6%81%AF"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">获取域名下的解析信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">编写脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8BSSL%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%8C%E8%BF%9B%E8%A1%8C%E8%AF%81%E4%B9%A6%E6%9B%BF%E6%8D%A2%E5%B7%A5%E4%BD%9C"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">根据输出文件查看SSL证书过期时间，进行证书替换工作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SSL%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%96%B0%E7%9A%84%E9%85%8D%E7%BD%AE%E8%B7%AF%E5%BE%84"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">SSL证书更新的配置路径</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">GeekSRE</p>
+  <div class="site-description" itemprop="description">GeekSRE</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vcg.com" title="https://vcg.com" rel="noopener" target="_blank">视觉中国</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://veer.com" title="https://veer.com" rel="noopener" target="_blank">Veer图库</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.aliyun.com/" title="https://www.aliyun.com/" rel="noopener" target="_blank">阿里云</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://help.aliyun.com/" title="https://help.aliyun.com/" rel="noopener" target="_blank">阿里云帮助文档</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">京ICP备17002268号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
