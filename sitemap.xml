@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/k8s-ingress-nginx-demo/</loc>
+    
+    <lastmod>2021-01-29T02:11:41.519Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/k8s-pod-can-t-access-ingress-slb/</loc>
     
     <lastmod>2021-01-29T01:59:25.279Z</lastmod>
