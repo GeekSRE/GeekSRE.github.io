@@ -2457,7 +2457,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </tags>
   </entry>
   <entry>
-    <title>k8s-pod-can-not-access-ingress-slb</title>
+    <title>k8s内pod访问本集群ingress-ip异常</title>
     <url>/k8s-pod-can-t-access-ingress-slb/</url>
     <content><![CDATA[<p><img src="/k8s-pod-can-t-access-ingress-slb/./z.jpg" alt><br><a id="more"></a></p>
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在Kubernetes集群中有部分节点能访问集群暴露出去的Local类型SLB，但是也有部分节点不能访问，且Ingress出现该问题较多。</p>
