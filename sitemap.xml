@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/kubernetes-dashboard/</loc>
+    
+    <lastmod>2021-02-01T10:01:41.109Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/openvpn/</loc>
+    
+    <lastmod>2021-01-29T07:56:43.055Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/k8s-ingress-nginx-demo/</loc>
     
     <lastmod>2021-01-29T02:11:41.519Z</lastmod>
