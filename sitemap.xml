@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/mysql-design-and-use-specification/</loc>
+    
+    <lastmod>2021-02-08T04:55:47.099Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/redis-design-and-use-specification/</loc>
+    
+    <lastmod>2021-02-08T04:52:59.913Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/django-orm/</loc>
+    
+    <lastmod>2021-02-08T04:47:04.033Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/vue/</loc>
+    
+    <lastmod>2021-02-05T03:52:25.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/vscode/</loc>
+    
+    <lastmod>2021-02-05T03:46:12.588Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/kubernetes-dashboard/</loc>
     
     <lastmod>2021-02-01T10:01:41.109Z</lastmod>

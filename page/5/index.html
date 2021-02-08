@@ -187,6 +187,354 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/CentOS%E9%85%8D%E7%BD%AEyum%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/CentOS%E9%85%8D%E7%BD%AEyum%E6%BA%90/" class="post-title-link" itemprop="url">CentOS配置yum源</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-08-07 16:27:04 / Modified: 16:28:02" itemprop="dateCreated datePublished" datetime="2019-08-07T16:27:04+08:00">2019-08-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>推荐使用<a target="_blank" rel="noopener" href="https://opsx.alibaba.com/?lang=zh-CN">阿里源</a></p>
+<h5 id="基础源"><a href="#基础源" class="headerlink" title="基础源"></a>基础源</h5><h6 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<h6 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> CentOS 6</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> CentOS 7</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h6 id="生成缓存"><a href="#生成缓存" class="headerlink" title="生成缓存"></a>生成缓存</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+<h5 id="EPEL源"><a href="#EPEL源" class="headerlink" title="EPEL源"></a>EPEL源</h5><h6 id="备份-1"><a href="#备份-1" class="headerlink" title="备份"></a>备份</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup</span><br><span class="line">mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup</span><br></pre></td></tr></table></figure>
+<h6 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> epel(RHEL 7)</span></span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> epel(RHEL 6)</span></span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> epel(RHEL 5)</span></span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-5.repo</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/gitlab-remove-to-coding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/gitlab-remove-to-coding/" class="post-title-link" itemprop="url">代码迁移-更改Git远程仓库-从gitlab上迁移到coding</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-08-06 10:31:03 / Modified: 10:31:39" itemprop="dateCreated datePublished" datetime="2019-08-06T10:31:03+08:00">2019-08-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@git.test.com:test/test.git</span><br></pre></td></tr></table></figure>
+<h5 id="进入项目"><a href="#进入项目" class="headerlink" title="进入项目"></a>进入项目</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd test</span><br></pre></td></tr></table></figure>
+<h5 id="删除-git文件"><a href="#删除-git文件" class="headerlink" title="删除.git文件"></a>删除.git文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git</span><br></pre></td></tr></table></figure>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h5 id="绑定远程仓库"><a href="#绑定远程仓库" class="headerlink" title="绑定远程仓库"></a>绑定远程仓库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:xxx/test.git </span><br></pre></td></tr></table></figure>
+<h5 id="更新到远端"><a href="#更新到远端" class="headerlink" title="更新到远端"></a>更新到远端</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;init&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/zip-and-tar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/zip-and-tar/" class="post-title-link" itemprop="url">压缩、解压工具-Zip和Tar</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-08-05 15:28:58 / Modified: 15:29:35" itemprop="dateCreated datePublished" datetime="2019-08-05T15:28:58+08:00">2019-08-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>压缩、解压工具-Zip和Tar</p>
+<h5 id="ZIP"><a href="#ZIP" class="headerlink" title="ZIP"></a>ZIP</h5><p>zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有”.zip”扩展名的压缩文件。</p>
+<h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install zip -y</span><br></pre></td></tr></table></figure>
+<h6 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip +参数 +文件名.zip +原文件</span><br></pre></td></tr></table></figure>
+<h6 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">-A 调整可执行的自动解压缩文件。</span><br><span class="line">-b&lt;工作目录&gt; 指定暂时存放文件的目录。</span><br><span class="line">-c 替每个被压缩的文件加上注释。</span><br><span class="line">-d 从压缩文件内删除指定的文件。</span><br><span class="line">-D 压缩文件内不建立目录名称。</span><br><span class="line">-f 此参数的效果和指定&quot;-u&quot;参数类似，但不仅更新既有文件，如果某些文件原本不存在于压缩文件内，使用本参数会一并将其加入压缩文件中。</span><br><span class="line">-F 尝试修复已损坏的压缩文件。</span><br><span class="line">-g 将文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。</span><br><span class="line">-h 在线帮助。</span><br><span class="line">-i&lt;范本样式&gt; 只压缩符合条件的文件。</span><br><span class="line">-j 只保存文件名称及其内容，而不存放任何目录名称。</span><br><span class="line">-J 删除压缩文件前面不必要的数据。</span><br><span class="line">-k 使用MS-DOS兼容格式的文件名称。</span><br><span class="line">-l 压缩文件时，把LF字符置换成LF+CR字符。</span><br><span class="line">-ll 压缩文件时，把LF+CR字符置换成LF字符。</span><br><span class="line">-L 显示版权信息。</span><br><span class="line">-m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。</span><br><span class="line">-n&lt;字尾字符串&gt; 不压缩具有特定字尾字符串的文件。</span><br><span class="line">-o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。</span><br><span class="line">-q 不显示指令执行过程。</span><br><span class="line">-r 递归处理，将指定目录下的所有文件和子目录一并处理。</span><br><span class="line">-S 包含系统和隐藏文件。</span><br><span class="line">-t&lt;日期时间&gt; 把压缩文件的日期设成指定的日期。</span><br><span class="line">-T 检查备份文件内的每个文件是否正确无误。</span><br><span class="line">-u 更换较新的文件到压缩文件内。</span><br><span class="line">-v 显示指令执行过程或显示版本信息。</span><br><span class="line">-V 保存VMS操作系统的文件属性。</span><br><span class="line">-w 在文件名称里假如版本编号，本参数仅在VMS操作系统下有效。</span><br><span class="line">-x&lt;范本样式&gt; 压缩时排除符合条件的文件。</span><br><span class="line">-X 不保存额外的文件属性。</span><br><span class="line">-y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。</span><br><span class="line">-z 替压缩文件加上注释。</span><br><span class="line"><span class="meta">-$</span><span class="bash"> 保存第一个被压缩文件所在磁盘的卷册名称。</span></span><br><span class="line">-&lt;压缩效率&gt; 压缩效率是一个介于1-9的数值。</span><br></pre></td></tr></table></figure>
+<h6 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h6><ul>
+<li><p>将 /home/html/ 这个目录下所有文件和文件夹打包为当前目录下的 html.zip：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -q -r html.zip /home/html</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果在我们在 /home/html 目录下，可以执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -q -r html.zip *</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从压缩文件 cp.zip 中删除文件 a.c</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -dv cp.zip a.c</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="UNZIP"><a href="#UNZIP" class="headerlink" title="UNZIP"></a>UNZIP</h5><h6 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install unzip -y</span><br></pre></td></tr></table></figure>
+<h6 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h6><ul>
+<li><p>解压test.zip 文件到当前目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip test.zip </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压test.zip 文件到/root/目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip test.zip -d &#x2F;root</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="TAR"><a href="#TAR" class="headerlink" title="TAR"></a>TAR</h5><h6 id="压缩命令"><a href="#压缩命令" class="headerlink" title="压缩命令"></a>压缩命令</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将 <span class="built_in">test</span> 目录压缩为 test.tar.gz </span></span><br><span class="line">tar zcvf test.tar.gz test/</span><br></pre></td></tr></table></figure>
+<p>解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf test.tar.gz</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/python/" class="post-title-link" itemprop="url">Python学习进阶之路</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-08-05 14:54:08 / Modified: 14:54:55" itemprop="dateCreated datePublished" datetime="2019-08-05T14:54:08+08:00">2019-08-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/python/./python.png" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ali-tuikuan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ali-tuikuan/" class="post-title-link" itemprop="url">阿里云产品我想退款如何操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-07-31 09:49:12 / Modified: 09:49:33" itemprop="dateCreated datePublished" datetime="2019-07-31T09:49:12+08:00">2019-07-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>阿里云产品退款工单怎么填</p>
+<h5 id="进入“工单系统”"><a href="#进入“工单系统”" class="headerlink" title="进入“工单系统”"></a>进入“工单系统”</h5><p><img src="/ali-tuikuan/./1564537171046.jpg" alt></p>
+<h5 id="选择相关产品，点击“提问”"><a href="#选择相关产品，点击“提问”" class="headerlink" title="选择相关产品，点击“提问”"></a>选择相关产品，点击“提问”</h5><p><strong>本次演示为ECS实例退款</strong></p>
+<p><img src="/ali-tuikuan/./1564537202981.jpg" alt></p>
+<h5 id="选择“续费-配置变更”-创建工单"><a href="#选择“续费-配置变更”-创建工单" class="headerlink" title="选择“续费/配置变更”-创建工单"></a>选择“续费/配置变更”-创建工单</h5><p><img src="/ali-tuikuan/./1564537232860.jpg" alt></p>
+<h5 id="填写工单"><a href="#填写工单" class="headerlink" title="填写工单"></a>填写工单</h5><p><img src="/ali-tuikuan/./1564537617373.jpg" alt></p>
+<p>问题描述内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1）退款原因（以便我方改进产品不足）： 业务不再需要</span><br><span class="line">（2）申请退款的产品实例ID：</span><br><span class="line">i-2ze73nwbpiwe8oy2s8fd</span><br><span class="line">i-2zeeif4aj2ietoreexyz</span><br><span class="line">i-2zebsfqkvhcijbbtuqqj</span><br><span class="line">i-2zeixwbfspqnyju4qvdk</span><br><span class="line">i-2zeacxjlg8xlgh1kp053</span><br><span class="line">i-2zeawy8pclj79pt1amvx</span><br><span class="line">i-2ze095o6ifge7szwor5j</span><br><span class="line">i-2zea9n9e5ru6ebvf4nuv</span><br><span class="line">i-2zea410j2fhwth7wp0s6</span><br><span class="line">i-25z4mycbd</span><br><span class="line">i-25m8j9t4v</span><br><span class="line">i-251nzqk8t</span><br><span class="line">i-25zq6kyad</span><br><span class="line">i-25yentipk</span><br><span class="line">（3）已使用时长所对应的费用不退回，请您确认已知晓； 确认</span><br><span class="line">（4）代金券支付部分无法退回，请您确认已知晓： 确认</span><br><span class="line">（5）主机或实例是否已备份？若已备份，请回复“数据已备份”；若无需备份，请回复“数据无需备份” 。（退款后服务器实例立即被清除，数据不再保留，请提前备份数据）  数据已备份。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/nodejs-npm-cnpm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -572,459 +920,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ab-Apache-HTTP%E5%8E%8B%E6%B5%8B%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ab-Apache-HTTP%E5%8E%8B%E6%B5%8B%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">ab-Apache_HTTP压测工具</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-16 14:13:29 / Modified: 14:13:46" itemprop="dateCreated datePublished" datetime="2019-07-16T14:13:29+08:00">2019-07-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="官网："><a href="#官网：" class="headerlink" title="官网："></a>官网：</h4><p><a target="_blank" rel="noopener" href="https://httpd.apache.org/docs/2.4/programs/ab.html">https://httpd.apache.org/docs/2.4/programs/ab.html</a></p>
-<h4 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h4><p>网站性能压力测试是服务器网站性能调优过程中必不可缺少的一环。只有让服务器处在高压情况下，才能真正体现出软件、硬件等各种设置不当所暴露出的问题。</p>
-<p>性能测试工具目前最常见的有以下几种：ab、http_load、webbench、siege。今天我们专门来介绍ab。</p>
-<p>ab是apache自带的压力测试工具。ab非常实用，它不仅可以对apache服务器进行网站访问压力测试，也可以对或其它类型的服务器进行压力测试。比如nginx、tomcat、IIS等。 </p>
-<h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><p>ab是apachebench命令的缩写。</p>
-<p>ab的原理：ab命令会创建多个并发访问线程，模拟多个访问者同时对某一URL地址进行访问。它的测试目标是基于URL的，因此，它既可以用来测试apache的负载压力，也可以测试nginx、lighthttp、tomcat、IIS等其它Web服务器的压力。</p>
-<p>ab命令对发出负载的计算机要求很低，它既不会占用很高CPU，也不会占用很多内存。但却会给目标服务器造成巨大的负载，其原理类似CC攻击。自己测试使用也需要注意，否则一次上太多的负载。可能造成目标服务器资源耗完，严重时甚至导致死机。</p>
-<h4 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd-tools</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@ops-jenkins-master ~]# ab -V</span><br><span class="line"></span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br></pre></td></tr></table></figure>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数:"></a>参数:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -help</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">-n  在测试会话中所执行的请求个数。默认时，仅执行一个请求。</span><br><span class="line"></span><br><span class="line">-c  一次产生的请求个数。默认是一次一个。</span><br><span class="line"></span><br><span class="line">-t  测试所进行的最大秒数。其内部隐含值是-n 50000，它可以使对服务器的测试限制在一个固定的总时间以内。默认时，没有时间限制。</span><br><span class="line"></span><br><span class="line">-p  包含了需要POST的数据的文件。</span><br><span class="line"></span><br><span class="line">-P  对一个中转代理提供BASIC认证信任。用户名和密码由一个:隔开，并以base64编码形式发送。无论服务器是否需要(即, 是否发送了401认证需求代码)，此字符串都会被发送。</span><br><span class="line"></span><br><span class="line">-T  POST数据所使用的Content-type头信息。</span><br><span class="line"></span><br><span class="line">-v  设置显示信息的详细程度-4或更大值会显示头信息，3或更大值可以显示响应代码(404,200等),2或更大值可以显示警告和其他信息。</span><br><span class="line"></span><br><span class="line">-V  显示版本号并退出。</span><br><span class="line"></span><br><span class="line">-w  以HTML表的格式输出结果。默认时，它是白色背景的两列宽度的一张表。</span><br><span class="line"></span><br><span class="line">-i  执行HEAD请求，而不是GET。</span><br><span class="line"></span><br><span class="line">-x  设置&lt;table&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-X  对请求使用代理服务器。</span><br><span class="line"></span><br><span class="line">-y  设置&lt;tr&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-z  设置&lt;td&gt;属性的字符串。</span><br><span class="line"></span><br><span class="line">-C  对请求附加一个Cookie:行。其典型形式是name&#x3D;value的一个参数对，此参数可以重复。</span><br><span class="line"></span><br><span class="line">-H  对请求附加额外的头信息。此参数的典型形式是一个有效的头信息行，其中包含了以冒号分隔的字段和值的对(如,&quot;Accept-Encoding:zip&#x2F;zop;8bit&quot;)。</span><br><span class="line"></span><br><span class="line">-A  对服务器提供BASIC认证信任。用户名和密码由一个:隔开，并以base64编码形式发送。无论服务器是否需要(即,是否发送了401认证需求代码)，此字符串都会被发送。</span><br><span class="line"></span><br><span class="line">-h  显示使用方法。</span><br><span class="line"></span><br><span class="line">-d  不显示&quot;percentage served within XX [ms] table&quot;的消息(为以前的版本提供支持)。</span><br><span class="line"></span><br><span class="line">-e  产生一个以逗号分隔的(CSV)文件，其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间。由于这种格式已经“二进制化”，所以比&#39;gnuplot&#39;格式更有用。</span><br><span class="line"></span><br><span class="line">-g  把所有测试结果写入一个&#39;gnuplot&#39;或者TSV(以Tab分隔的)文件。此文件可以方便地导入到Gnuplot,IDL,Mathematica,Igor甚至Excel中。其中的第一行为标题。</span><br><span class="line"></span><br><span class="line">-i  执行HEAD请求，而不是GET。</span><br><span class="line"></span><br><span class="line">-k  启用HTTP KeepAlive功能，即在一个HTTP会话中执行多个请求。默认时，不启用KeepAlive功能。</span><br><span class="line"></span><br><span class="line">-q  如果处理的请求数大于150，ab每处理大约10%或者100个请求时，会在stderr输出一个进度计数。此-q标记可以抑制这些信息。</span><br></pre></td></tr></table></figure>
-<h4 id="性能指标："><a href="#性能指标：" class="headerlink" title="性能指标："></a>性能指标：</h4><ul>
-<li><p><strong>吞吐率（Requests per second）</strong></p>
-<p>概念：服务器并发处理能力的量化描述，单位是reqs/s，指的是某个并发用户数下单位时间内处理的请求数。某个并发用户数下单位时间内能处理的最大请求数，称之为最大吞吐率。</p>
-<p>计算公式：总请求数 / 处理完成这些请求数所花费的时间，即<br>Request per second = Complete requests / Time taken for tests</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>并发连接数（The number of concurrent connections）</strong></p>
-<p>概念：某个时刻服务器所接受的请求数目，简单的讲，就是一个会话。</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>并发用户数（The number of concurrent users，Concurrency Level）</strong></p>
-<p>概念：要注意区分这个概念和并发连接数之间的区别，一个用户可能同时会产生多个会话，也即连接数。</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>用户平均请求等待时间（Time per request）</strong></p>
-<p>计算公式：处理完成所有请求数所花费的时间/ （总请求数 / 并发用户数），即<br>Time per request = Time taken for tests /（ Complete requests / Concurrency Level）</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>服务器平均请求等待时间（Time per request: across all concurrent requests）</strong></p>
-<p>计算公式：处理完成所有请求数所花费的时间 / 总请求数，即<br>Time taken for / testsComplete requests<br>可以看到，它是吞吐率的倒数。<br>同时，它也=用户平均请求等待时间/并发用户数，即<br>Time per request / Concurrency Level</p>
-</li>
-</ul>
-<h4 id="示例一："><a href="#示例一：" class="headerlink" title="示例一："></a>示例一：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 请求访问 https://www.zhaohongye.com/ ，访问 -n 100次，并发 -c 10次</span></span><br><span class="line"></span><br><span class="line">ab -c 10 -n 100 https://www.zhaohongye.com/</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  请求结果</span></span><br><span class="line"></span><br><span class="line">This is ApacheBench, Version 2.3 &lt;$Revision: 1430300 $&gt;</span><br><span class="line">Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/</span><br><span class="line">Licensed to The Apache Software Foundation, http://www.apache.org/</span><br><span class="line"></span><br><span class="line">Benchmarking www.zhaohongye.com (be patient).....done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Server Software:        nginx/1.12.2         # 服务器软件</span><br><span class="line">Server Hostname:        www.zhaohongye.com   # 域名</span><br><span class="line">Server Port:            443                  # 请求端口号</span><br><span class="line">SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256</span><br><span class="line"></span><br><span class="line">Document Path:          /                    # 文件路径</span><br><span class="line">Document Length:        68872 bytes          # 页面字节数</span><br><span class="line"></span><br><span class="line">Concurrency Level:      10                   # 请求并发数</span><br><span class="line">Time taken for tests:   14.797 seconds       # 总访问时间</span><br><span class="line">Complete requests:      100                  # 总请求次数</span><br><span class="line">Failed requests:        0                    # 失败请求次数</span><br><span class="line">Write errors:           0            </span><br><span class="line">Total transferred:      6901400 bytes      # 请求总数据大小（包括header头信息）</span><br><span class="line">HTML transferred:       6887200 bytes      # html页面实际总字节数</span><br><span class="line">Requests per second:    6.76 [#/sec] (mean)   # 每秒多少请求，服务器的吞吐量</span><br><span class="line">Time per request:       1479.677 [ms] (mean)   # 用户平均请求等待时间 </span><br><span class="line">Time per request:       147.968 [ms] (mean, across all concurrent requests)                     # 服务器平均处理时间，也就是服务器吞吐量的倒数 </span><br><span class="line">Transfer rate:          455.48 [Kbytes/sec] received   #每秒获取的数据长度</span><br><span class="line"></span><br><span class="line">Connection Times (ms)</span><br><span class="line">              min  mean[+/-sd] median   max</span><br><span class="line">Connect:        5   12   3.3     12      19</span><br><span class="line">Processing:   156 1429 207.5   1462    1626</span><br><span class="line">Waiting:      155 1426 207.2   1449    1623</span><br><span class="line">Total:        165 1441 207.9   1476    1636</span><br><span class="line"></span><br><span class="line">Percentage of the requests served within a certain time (ms)</span><br><span class="line"><span class="meta">  50%</span><span class="bash">   1476   <span class="comment">#50%用户请求在1476ms内返回</span></span></span><br><span class="line"><span class="meta">  66%</span><span class="bash">   1489   <span class="comment">#60%用户请求在1489ms内返回</span></span></span><br><span class="line"><span class="meta">  75%</span><span class="bash">   1524</span></span><br><span class="line"><span class="meta">  80%</span><span class="bash">   1572</span></span><br><span class="line"><span class="meta">  90%</span><span class="bash">   1594</span></span><br><span class="line"><span class="meta">  95%</span><span class="bash">   1635</span></span><br><span class="line"><span class="meta">  98%</span><span class="bash">   1636</span></span><br><span class="line"><span class="meta">  99%</span><span class="bash">   1636</span></span><br><span class="line"><span class="meta"> 100%</span><span class="bash">   1636 (longest request)</span></span><br></pre></td></tr></table></figure>
-<h4 id="示例二："><a href="#示例二：" class="headerlink" title="示例二："></a>示例二：</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ab -k -c 600 -n 100000 -p 1000.txt -T application/x-www-form-urlencoded -H &quot;api-key:d99caed6d0997c4d3f141249c346e9d4&quot; -H &quot;authorization:Bearer xx&quot; &#x27;http://172.16.237.108/ai/search/photo/wps1&#x27;</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1000.txt 的内容</span></span><br><span class="line"></span><br><span class="line">img_url=https://goss1.vcg.com/editorial/vcg/400/new/VCG111160779787.jpg&amp;result_size=30&amp;image_type=url</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Jenkins-RobotFramework执行自动化测试</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-03 10:22:45 / Modified: 10:24:32" itemprop="dateCreated datePublished" datetime="2019-07-03T10:22:45+08:00">2019-07-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Jenkins-RobotFramework执行自动化测试</p>
-<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest1.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest2.jpg" alt></p>
-<h5 id="添加slave节点"><a href="#添加slave节点" class="headerlink" title="添加slave节点"></a>添加slave节点</h5><p>由于master节点是linux服务器，RobotFramework软件部署在windows服务器上。</p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest3.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest4.jpg" alt></p>
-<h5 id="新建freestyle项目"><a href="#新建freestyle项目" class="headerlink" title="新建freestyle项目"></a>新建freestyle项目</h5><p>指定slave节点构建</p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest4-1.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest5.jpg" alt></p>
-<p>配置通过百分比和邮件通知</p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest6.jpg" alt></p>
-<h5 id="构建效果"><a href="#构建效果" class="headerlink" title="构建效果"></a>构建效果</h5><p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest7.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest8.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest9.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest10.jpg" alt></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Jenkins-API/" class="post-title-link" itemprop="url">Jenkins-API</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-01 16:38:05 / Modified: 16:44:23" itemprop="dateCreated datePublished" datetime="2019-07-01T16:38:05+08:00">2019-07-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Jenkins-API</p>
-<h5 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h5><p>在自动化平台中调用jenkins API，实现程序发版、自定义任务等</p>
-<h5 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h5><p><a target="_blank" rel="noopener" href="https://python-jenkins.readthedocs.io/en/latest/api.html">Python API</a></p>
-<ul>
-<li><p>安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python-jenkins</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>examples</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line"></span><br><span class="line">server = jenkins.Jenkins(<span class="string">&#x27;http://localhost:8080&#x27;</span>, username=<span class="string">&#x27;myuser&#x27;</span>, password=<span class="string">&#x27;mypassword&#x27;</span>)</span><br><span class="line">user = server.get_whoami()</span><br><span class="line">version = server.get_version()</span><br><span class="line">print(<span class="string">&#x27;Hello %s from Jenkins %s&#x27;</span> % (user[<span class="string">&#x27;fullName&#x27;</span>], version))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line">job_name=<span class="string">&#x27;k8s/cicd-test-0613&#x27;</span></span><br><span class="line">jenkins_server_url=<span class="string">&#x27;http://jenkins.visualchina.com/jenkins&#x27;</span></span><br><span class="line">user_id=<span class="string">&#x27;vcgdev&#x27;</span></span><br><span class="line">api_token=<span class="string">&#x27;***************************&#x27;</span></span><br><span class="line">server=jenkins.Jenkins(jenkins_server_url, username=user_id, password=api_token)</span><br><span class="line"><span class="comment">#String参数化构建job名为job_name的job, 参数param_dict为字典形式，如：param_dict= &#123;&quot;param1&quot;：“value1”， “param2”：“value2”&#125;</span></span><br><span class="line">param_dict= &#123;<span class="string">&quot;Action&quot;</span>:<span class="string">&quot;程序发版&quot;</span>,<span class="string">&quot;Scope&quot;</span>:<span class="string">&quot;生产环境&quot;</span>,<span class="string">&quot;JenkinsApi&quot;</span>:<span class="string">&quot;true&quot;</span>&#125;</span><br><span class="line">server.build_job(job_name, parameters=param_dict)</span><br><span class="line">last_build_number = server.get_job_info(job_name)[<span class="string">&#x27;lastCompletedBuild&#x27;</span>][<span class="string">&#x27;number&#x27;</span>]</span><br><span class="line">build_info = server.get_build_info(job_name, last_build_number)</span><br><span class="line">print(build_info)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h5><p><img src="/Jenkins-API/./jenkins.png" alt></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/" class="post-title-link" itemprop="url">Jenkins-GitLab_WebHook自动构建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-01 16:19:06 / Modified: 16:24:22" itemprop="dateCreated datePublished" datetime="2019-07-01T16:19:06+08:00">2019-07-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Jenkins-GitLab_WebHook自动构建</p>
-<p>插件：<a target="_blank" rel="noopener" href="https://wiki.jenkins-ci.org/display/JENKINS/GitLab+Plugin">GitLab Plugin</a></p>
-<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook1.jpg" alt></p>
-<h5 id="开启触发器"><a href="#开启触发器" class="headerlink" title="开启触发器"></a>开启触发器</h5><p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook2.jpg" alt></p>
-<h5 id="创建只读账号"><a href="#创建只读账号" class="headerlink" title="创建只读账号"></a>创建只读账号</h5><p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook3.jpg" alt></p>
-<h5 id="创建只读角色"><a href="#创建只读角色" class="headerlink" title="创建只读角色"></a>创建只读角色</h5><p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook4.jpg" alt></p>
-<p>分配角色给readonly账号</p>
-<p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook5.jpg" alt></p>
-<h5 id="在GitLab代码项目中配置WebHook"><a href="#在GitLab代码项目中配置WebHook" class="headerlink" title="在GitLab代码项目中配置WebHook"></a>在GitLab代码项目中配置WebHook</h5><p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook6.jpg" alt></p>
-<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook7.jpg" alt></p>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook8.jpg" alt></p>
-<p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook9.jpg" alt></p>
-<h5 id="实战下构建情况"><a href="#实战下构建情况" class="headerlink" title="实战下构建情况"></a>实战下构建情况</h5><p><img src="/Jenkins-GitLab-WebHook%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/./webhook10.jpg" alt></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/" class="post-title-link" itemprop="url">Jenkins-邮件通知</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-01 15:41:21 / Modified: 15:48:12" itemprop="dateCreated datePublished" datetime="2019-07-01T15:41:21+08:00">2019-07-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Jenkins-邮件通知</p>
-<h4 id="默认自带邮件功能"><a href="#默认自带邮件功能" class="headerlink" title="默认自带邮件功能"></a>默认自带邮件功能</h4><ol>
-<li><h5 id="配置系统管理员邮件地址"><a href="#配置系统管理员邮件地址" class="headerlink" title="配置系统管理员邮件地址"></a>配置<code>系统管理员邮件地址</code></h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail1.jpg" alt></p>
-</li>
-<li><h5 id="配置邮件通知，并发送测试邮件"><a href="#配置邮件通知，并发送测试邮件" class="headerlink" title="配置邮件通知，并发送测试邮件"></a>配置<code>邮件通知</code>，并发送测试邮件</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail2.jpg" alt></p>
-</li>
-<li><h5 id="查收邮件"><a href="#查收邮件" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail3.jpg" alt></p>
-</li>
-<li><h5 id="job中配置邮件通知"><a href="#job中配置邮件通知" class="headerlink" title="job中配置邮件通知"></a>job中配置邮件通知</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail4.jpg" alt></p>
-</li>
-<li><h5 id="查看job日志"><a href="#查看job日志" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail5.jpg" alt></p>
-</li>
-<li><h5 id="查收邮件-1"><a href="#查收邮件-1" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail6.jpg" alt></p>
-</li>
-<li><h5 id="再将第四步中错误命令修复好，重新构建"><a href="#再将第四步中错误命令修复好，重新构建" class="headerlink" title="再将第四步中错误命令修复好，重新构建"></a>再将第四步中错误命令修复好，重新构建</h5></li>
-<li><h5 id="查看job日志-1"><a href="#查看job日志-1" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail7.jpg" alt></p>
-</li>
-<li><h5 id="查收恢复邮件"><a href="#查收恢复邮件" class="headerlink" title="查收恢复邮件"></a>查收恢复邮件</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail8.jpg" alt></p>
-</li>
-</ol>
-<h4 id="使用Email-ext插件"><a href="#使用Email-ext插件" class="headerlink" title="使用Email-ext插件"></a>使用Email-ext插件</h4><p><a target="_blank" rel="noopener" href="https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin">Email-ext+plugin</a></p>
-<ol>
-<li><h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p>可以通过系统管理→管理插件→可选插件，选择<strong>Email Extension</strong>插件进行安装：</p>
-<p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail9.jpg" alt></p>
-</li>
-</ol>
-<ol start="2">
-<li><h5 id="配置发件人账号密码，smtp服务器地址，端口"><a href="#配置发件人账号密码，smtp服务器地址，端口" class="headerlink" title="配置发件人账号密码，smtp服务器地址，端口"></a>配置发件人账号密码，smtp服务器地址，端口</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail11.jpg" alt></p>
-</li>
-<li><h5 id="配置邮件文本类型，模板内容"><a href="#配置邮件文本类型，模板内容" class="headerlink" title="配置邮件文本类型，模板内容"></a>配置邮件文本类型，模板内容</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail12.jpg" alt></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">(本邮件是程序自动下发，请勿回复!)<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">Jenkins地址: $HUDSON_URL<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">项目名称： $PROJECT_NAME<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">构建编号： $BUILD_NUMBER<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建状态： $BUILD_STATUS<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">触发原因： $&#123;CAUSE&#125;<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建日志地址： <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;BUILD_URL&#125;console&quot;</span>&gt;</span>$&#123;BUILD_URL&#125;console<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建地址： <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$BUILD_URL&quot;</span>&gt;</span>$BUILD_URL<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">变更集： $&#123;JELLY_SCRIPT,template=&quot;html&quot;&#125;<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><h5 id="配置发送规则"><a href="#配置发送规则" class="headerlink" title="配置发送规则"></a>配置发送规则</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail13.jpg" alt></p>
-</li>
-<li><h5 id="开启邮件通知"><a href="#开启邮件通知" class="headerlink" title="开启邮件通知"></a>开启邮件通知</h5><p><code>增加构建后操作步骤</code>，选择<strong>Editable Email Notifiation</strong></p>
-<p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail14.jpg" alt></p>
-</li>
-<li><h5 id="配置收件人、抄送人、是否发送附件（构建日志）等"><a href="#配置收件人、抄送人、是否发送附件（构建日志）等" class="headerlink" title="配置收件人、抄送人、是否发送附件（构建日志）等"></a>配置收件人、抄送人、是否发送附件（构建日志）等</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail15.jpg" alt></p>
-<p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail16.jpg" alt></p>
-</li>
-<li><h5 id="查看job日志-2"><a href="#查看job日志-2" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail17.jpg" alt></p>
-</li>
-<li><h5 id="查收邮件-2"><a href="#查收邮件-2" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/Jenkins-%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5/./mail18.jpg" alt></p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1093,7 +988,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1104,7 +999,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
