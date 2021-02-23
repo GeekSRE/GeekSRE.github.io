@@ -187,6 +187,244 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/devops/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/devops/" class="post-title-link" itemprop="url">全面解读 DevOps 概念：与 k8s、容器、 CI/CD 有什么关系？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-23 10:49:31 / Modified: 10:50:05" itemprop="dateCreated datePublished" datetime="2021-02-23T10:49:31+08:00">2021-02-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>DevOps 是指对企业文化、业务自动化和平台设计等方面进行全方位变革，从而实现迅捷、优质的服务交付，提升企业响应能力和价值。只有通过快速迭代的 IT 服务交付，这一切才能实现。DevOps 可以将传统应用和最新的云原生应用与基础架构彼此相连。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/devops/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/what-is-cicd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/what-is-cicd/" class="post-title-link" itemprop="url">CI/CD是什么？如何理解持续集成、持续交付和持续部署</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-23 10:37:30 / Modified: 10:45:53" itemprop="dateCreated datePublished" datetime="2021-02-23T10:37:30+08:00">2021-02-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<p>CI/CD 是一种通过在应用开发阶段引入<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/automation/whats-it-automation">自动化</a>来频繁向客户交付应用的方法。CI/CD 的核心概念是持续集成、持续交付和持续部署。作为一个面向开发和运营团队的解决方案，CI/CD 主要针对在集成新代码时所引发的问题（亦称：“<a target="_blank" rel="noopener" href="https://www.solutionsiq.com/agile-glossary/integration-hell/">集成地狱</a>”）。</p>
+<p>具体而言，CI/CD 可让持续自动化和持续监控贯穿于应用的整个生命周期（从集成和测试阶段，到交付和部署）。这些关联的事务通常被统称为“CI/CD 管道”，由<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/devops">开发和运维团队</a>以敏捷方式协同支持。</p>
+<hr>
+<h2 id="CI-是什么？CI-和-CD-有什么区别？"><a href="#CI-是什么？CI-和-CD-有什么区别？" class="headerlink" title="CI 是什么？CI 和 CD 有什么区别？"></a>CI 是什么？CI 和 CD 有什么区别？</h2><p>缩略词 CI / CD 具有几个不同的含义。CI/CD 中的“CI”始终指持续集成，它属于开发人员的自动化流程。成功的 CI 意味着应用代码的新更改会定期构建、测试并合并到共享存储库中。该解决方案可以解决在一次开发中有太多应用分支，从而导致相互冲突的问题。</p>
+<p>CI/CD 中的“CD”指的是持续交付和/或持续部署，这些相关概念有时会交叉使用。两者都事关管道后续阶段的自动化，但它们有时也会单独使用，用于说明自动化程度。</p>
+<p>持续<em>交付</em>通常是指开发人员对应用的更改会自动进行错误测试并上传到存储库（如 <a target="_blank" rel="noopener" href="https://redhatofficial.github.io/#!/main">GitHub</a> 或容器注册表），然后由运维团队将其部署到实时生产环境中。这旨在解决开发和运维团队之间可见性及沟通较差的问题。因此，持续交付的目的就是确保尽可能减少部署新代码时所需的工作量。</p>
+<p>持续<em>部署</em>（另一种“CD”）指的是自动将开发人员的更改从存储库发布到生产环境，以供客户使用。它主要为了解决因手动流程降低应用交付速度，从而使运维团队超负荷的问题。持续部署以持续交付的优势为根基，实现了管道后续阶段的自动化。</p>
+<p><img src="https://www.redhat.com/cms/managed-files/ci-cd-flow-desktop_1.png" alt="CI/CD 流程"></p>
+<p>CI/CD 既可能仅指持续集成和持续交付构成的关联环节，也可以指持续集成、持续交付和持续部署这三项构成的关联环节。更为复杂的是，有时“持续交付”也包含了持续部署流程。</p>
+<p>归根结底，我们没必要纠结于这些语义，您只需记得 CI/CD 其实就是一个流程（通常形象地表述为管道），用于实现应用开发中的高度持续自动化和持续监控。因案例而异，该术语的具体含义取决于 CI/CD 管道的自动化程度。许多企业最开始先添加 CI，然后逐步实现交付和部署的自动化（例如作为<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/cloud-native-apps">云原生应用</a>的一部分）。</p>
+<hr>
+<h2 id="CI-持续集成（Continuous-Integration）"><a href="#CI-持续集成（Continuous-Integration）" class="headerlink" title="CI 持续集成（Continuous Integration）"></a>CI 持续集成（Continuous Integration）</h2><p><a target="_blank" rel="noopener" href="https://www.redhat.com/zh/solutions/cloud-native-development">现代应用开发</a>的目标是让多位开发人员同时处理同一应用的不同功能。但是，如果企业安排在一天内将所有分支源代码合并在一起（称为“<a target="_blank" rel="noopener" href="https://thedailywtf.com/articles/Happy_Merge_Day!">合并日</a>”），最终可能造成工作繁琐、耗时，而且需要手动完成。这是因为当一位独立工作的开发人员对应用进行更改时，有可能会与其他开发人员同时进行的更改发生冲突。如果每个开发人员都自定义自己的本地<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/middleware/what-is-ide">集成开发环境（IDE）</a>，而不是让团队就一个基于云的 IDE 达成一致，那么就会让问题更加雪上加霜。</p>
+<p>持续集成（CI）可以帮助开发人员更加频繁地（有时甚至每天）将代码更改合并到共享分支或“主干”中。一旦开发人员对应用所做的更改被合并，系统就会通过自动构建应用并运行不同级别的自动化测试（通常是单元测试和集成测试）来验证这些更改，确保这些更改没有对应用造成破坏。这意味着测试内容涵盖了从类和函数到构成整个应用的不同模块。如果自动化测试发现新代码和现有代码之间存在冲突，CI 可以更加轻松地快速修复这些错误。</p>
+<p><a target="_blank" rel="noopener" href="https://developers.redhat.com/blog/2017/09/06/continuous-integration-a-typical-process/">进一步了解技术细节</a></p>
+<hr>
+<h2 id="CD-持续交付（Continuous-Delivery）"><a href="#CD-持续交付（Continuous-Delivery）" class="headerlink" title="CD 持续交付（Continuous Delivery）"></a>CD 持续交付（Continuous Delivery）</h2><p>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。</p>
+<p>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中。</p>
+<hr>
+<h2 id="CD-持续部署（Continuous-Deployment）"><a href="#CD-持续部署（Continuous-Deployment）" class="headerlink" title="CD 持续部署（Continuous Deployment）"></a>CD 持续部署（Continuous Deployment）</h2><p>对于一个成熟的 CI/CD 管道来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。由于在生产之前的管道阶段没有手动门控，因此持续部署在很大程度上都得依赖精心设计的测试自动化。</p>
+<p>实际上，持续部署意味着开发人员对应用的更改在编写后的几分钟内就能生效（假设它通过了自动化测试）。这更加便于持续接收和整合用户反馈。总而言之，所有这些 CI/CD 的关联步骤都有助于降低应用的部署风险，因此更便于以小件的方式（而非一次性）发布对应用的更改。不过，由于还需要编写自动化测试以适应 CI/CD 管道中的各种测试和发布阶段，因此前期投资还是会很大。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/what-is-sre/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/what-is-sre/" class="post-title-link" itemprop="url">什么是 SRE（站点可靠性工程）？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-23 10:34:42 / Modified: 10:37:09" itemprop="dateCreated datePublished" datetime="2021-02-23T10:34:42+08:00">2021-02-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<p>站点可靠性工程（SRE）是 IT 运维的软件工程方案。SRE 团队使用软件作为工具，来管理系统、解决问题并实现运维任务<a target="_blank" rel="noopener" href="https://www.zhaohongye.com/automation">自动化</a>。</p>
+<p>SRE 执行的任务以前通常由运维团队手动执行，或者交给使用软件和自动化来解决问题和管理生产系统的工程师或运维团队来执行。 </p>
+<p>在创建可扩展和高度可靠的软件系统时，SRE 是宝贵的实践。它可帮助您通过代码管理大型系统，对于管理成千上万台机器的系统管理员来说，代码更具可扩展性和可持续性。 </p>
+<p>站点可靠性工程的概念由 Google 工程团队的 Ben Treynor Sloss 第一个提出。 </p>
+<p>SRE 可以帮助团队在发布新功能和确保用户可靠性之间找到平衡。</p>
+<p>标准化和自动化是 SRE 模型的两大重要部分。站点可靠性工程师应始终致力于增强和自动化运维任务。</p>
+<p>这样一来，SRE 就能帮助提高现有系统的可靠性，同时优化体量逐渐庞大的系统。 </p>
+<p>SRE 支持团队从传统 IT 运维方案迁移至<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/cloud-native-apps">云原生</a>方案。</p>
+<h2 id="站点可靠性工程师的工作是什么？"><a href="#站点可靠性工程师的工作是什么？" class="headerlink" title="站点可靠性工程师的工作是什么？"></a>站点可靠性工程师的工作是什么？</h2><p>站点可靠性工程师是一个独特的岗位，要么必须是有运维经验的软件开发人员；要么必须是有软件开发技能的系统管理员或的 IT 运维人员。 </p>
+<p>SRE 团队负责部署、配置和监控代码，以及生产服务的可用性、延迟、变更管理、应急响应和容量管理。</p>
+<p>站点可靠性工程可帮助团队确定可以要启动哪些新功能，以及在何时根据服务水平协议（SLA）并利用服务水平指标（SLI）和服务水平目标（SLO）定义系统所需的可靠性。 </p>
+<p>SLI 是针对提供的服务水平的特定方面所定义的测量指标。关键 SLI 包括请求延迟性、可用性、错误率和系统吞吐量。SLO 基于根据 SLI 而指定的服务水平的目标值或范围。</p>
+<p>然后，根据认定为可接受的停机时间确定所需系统可靠性的 SLO。这个停机时间称为误差量，即出错和中断的最大允许阈值。 </p>
+<p>SRE 并不是要实现 100% 可靠性，而是针对故障做好计划并妥善应对。 </p>
+<p>开发团队在发布新功能时允许出现这一定量的误差。利用 SLO 和误差量，开发团队可确定产品或服务是否能够在可用误差量的基础上启动。</p>
+<p>如果某个服务在运行时处于误差量以内，则开发团队可在任何时间发布它，但是，如果系统当前有太多错误或停机时间超过误差量的允许范围，则必须使错误数减少至误差量以内后才能发布。  </p>
+<p>开发团队可执行自动化运维测试以验证可靠性。 </p>
+<p>站点可靠性工程师的时间要均衡分配给运维任务和项目工作。根据 Google 的 SRE 最佳实践，站点可靠性工程师最多只能将一半的时间花在运维上，所以应该监控确保不会超过这个时间。 </p>
+<p>剩余的时间应专注于开发任务上，比如创建新功能，扩展系统，以及实施自动化。</p>
+<p>额外的运维工作和表现欠佳的服务应重新指定给开发团队，而不是让站点可靠性工程师将太多时间花在应用或服务的运维上。 </p>
+<p>自动化是站点可靠性工程师的重要工作部分。如果他们要反复处理一个问题，就会努力实现解决方案自动化。这也有助于控制运维工作在他们工作中所占的比例。 </p>
+<p>保持运维和开发工作之间的平衡是 SRE 的重要组成部分。 </p>
+<h2 id="DevOps-和SRE"><a href="#DevOps-和SRE" class="headerlink" title="DevOps 和SRE"></a>DevOps 和SRE</h2><p><a target="_blank" rel="noopener" href="https://www.zhaohongye.com/devops">DevOps</a> 是指对企业文化、业务自动化和平台设计等方面进行全方位变革，从而实现迅捷、优质的服务交付，提升企业价值和响应能力。SRE 可视为 DevOps 的实施。</p>
+<p>和 DevOps 一样，SRE 也与团队文化和关系密切相连。SRE 和 DevOps 都致力于搭建开发团队和运维团队之间的互通桥梁，以便加快交付服务。 </p>
+<p>DevOps 和 SRE 实践都可以实现更快的应用开发生命周期、改进的服务质量和可靠性，以及缩短的 IT 应用开发时间等优势。</p>
+<p>但 SRE 有所不同的是，它依赖于开发团队中的站点可靠性工程师，这些工程师也要有解决通信和工作流程问题的运维背景。</p>
+<p>站点可靠性工程师本身要求职责重叠，兼具开发团队和运维团队的技能。 </p>
+<p>DevOps 团队的开发人员常常疲于处理运维任务，需要拥有更专业运维技能，而 SRE 就能派上用场。 </p>
+<p>在代码和新功能方面，DevOps 专注于有效通过开发流程，而 SRE 专注于通过创建新功能来平衡站点可靠性。 </p>
+<p>基于容器技术、Kubernetes 和<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/microservices/what-are-microservices">微服务</a>的现代化应用平台是落实 DevOps 实践的关键所在，可帮助企业交付安全的创新软件服务。</p>
+<p><a target="_blank" rel="noopener" href="https://go.redhat.com/accelerate-devops-openshift-20180918?intcmp=701f2000001OMH6AAO">了解如何通过 Kubernetes 平台实施 DevOps</a></p>
+<h2 id="支持-SRE-的技术"><a href="#支持-SRE-的技术" class="headerlink" title="支持 SRE 的技术"></a>支持 SRE 的技术</h2><p>SRE 在<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/devops/what-is-application-lifecycle-management-alm">应用的整个生命周期中</a>，都要确保日常运维任务自动化和标准化。<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/containers/whats-a-linux-container">Linux® 容器</a>可为您的团队提供云原生开发所需的底层技术。容器支持集开发、交付、集成和自动化于一体的统一环境。</p>
+<p>而 <a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/containers/what-is-kubernetes">Kubernetes</a> 是实现 Linux 容器操作自动化的现代方法。Kubernetes 可帮助您轻松高效地管理在公共云、私有云或混合云中运行 Linux 容器的集群。</p>
+<p>选择好合适的平台后，您就可以充分利用已经实施的文化和流程变革。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/ali-sls-cost-optimization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -646,204 +884,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/openvpn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/openvpn/" class="post-title-link" itemprop="url">OpenVPN</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-29 15:55:49 / Modified: 15:56:43" itemprop="dateCreated datePublished" datetime="2021-01-29T15:55:49+08:00">2021-01-29</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/openvpn/./z.jpg" alt></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/openvpn/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/k8s-ingress-nginx-demo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/k8s-ingress-nginx-demo/" class="post-title-link" itemprop="url">k8s-ingress-nginx-demo</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-29 10:11:13 / Modified: 10:11:41" itemprop="dateCreated datePublished" datetime="2021-01-29T10:11:13+08:00">2021-01-29</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/k8s-ingress-nginx-demo/./z.jpg" alt></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/k8s-ingress-nginx-demo/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/k8s-pod-can-t-access-ingress-slb/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/k8s-pod-can-t-access-ingress-slb/" class="post-title-link" itemprop="url">k8s内pod访问本集群ingress-ip异常</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-29 09:55:20 / Modified: 09:59:25" itemprop="dateCreated datePublished" datetime="2021-01-29T09:55:20+08:00">2021-01-29</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/k8s-pod-can-t-access-ingress-slb/./z.jpg" alt><br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/k8s-pod-can-t-access-ingress-slb/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -912,7 +952,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

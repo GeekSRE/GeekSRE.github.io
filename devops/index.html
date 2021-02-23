@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="DevOps 是指对企业文化、业务自动化和平台设计等方面进行全方位变革，从而实现迅捷、优质的服务交付，提升企业响应能力和价值。只有通过快速迭代的 IT 服务交付，这一切才能实现。DevOps 可以将传统应用和最新的云原生应用与基础架构彼此相连。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全面解读 DevOps 概念：与 k8s、容器、 CI&#x2F;CD 有什么关系？">
+<meta property="og:url" content="http://yoursite.com/devops/index.html">
+<meta property="og:site_name" content="GeekSRE">
+<meta property="og:description" content="DevOps 是指对企业文化、业务自动化和平台设计等方面进行全方位变革，从而实现迅捷、优质的服务交付，提升企业响应能力和价值。只有通过快速迭代的 IT 服务交付，这一切才能实现。DevOps 可以将传统应用和最新的云原生应用与基础架构彼此相连。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-02-23T02:49:31.000Z">
+<meta property="article:modified_time" content="2021-02-23T02:50:05.115Z">
+<meta property="article:author" content="GeekSRE">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/devops/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>全面解读 DevOps 概念：与 k8s、容器、 CI/CD 有什么关系？ | GeekSRE</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">GeekSRE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeekSRE" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/devops/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          全面解读 DevOps 概念：与 k8s、容器、 CI/CD 有什么关系？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-23 10:49:31 / Modified: 10:50:05" itemprop="dateCreated datePublished" datetime="2021-02-23T10:49:31+08:00">2021-02-23</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>DevOps 是指对企业文化、业务自动化和平台设计等方面进行全方位变革，从而实现迅捷、优质的服务交付，提升企业响应能力和价值。只有通过快速迭代的 IT 服务交付，这一切才能实现。DevOps 可以将传统应用和最新的云原生应用与基础架构彼此相连。</p>
+<a id="more"></a>
+<p>文章转自<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/devops#">https://www.redhat.com/zh/topics/devops#</a>?</p>
+<h2 id="DevOps-到底是什么意思？"><a href="#DevOps-到底是什么意思？" class="headerlink" title="DevOps 到底是什么意思？"></a>DevOps 到底是什么意思？</h2><p>从字面上来看，“DevOps”一词是由英文 Development（开发）和 Operations （运维）组合而成，但它所代表的理念和实践要比这广阔的多。DevOps 涵盖了安全、协作方式、数据分析等许多方面。但它是什么呢？</p>
+<p>DevOps 强调通过一系列手段来实现既快又稳的工作流程，使每个想法（比如一个新的软件功能，一个功能增强请求或者一个 bug 修复）在从开发到生产环境部署的整个流程中，都能不断地为用户带来价值。这种方式需要开发团队和运维团队密切交流、高效协作并且彼此体谅。此外，DevOps 还要能够方便扩展，灵活部署。有了 DevOps，需求最迫切的工作就能通过自助服务和自动化得到解决；通常在<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/middleware/what-is-ide">标准开发环境编写代码</a>的开发人员也可与 IT 运维人员紧密合作，加速软件的构建、测试和发布，同时保障开发成果的稳定可靠。</p>
+<p>当然，这意味着更改代码会更频繁，基础架构的使用也会更灵活。所以传统的管理策略无法满足这种需求。您也需要应势而变，赢得先机。</p>
+<h2 id="DevOps-与容器"><a href="#DevOps-与容器" class="headerlink" title="DevOps 与容器"></a>DevOps 与容器</h2><p>DevOps 可以加快一个想法从提出到部署的整个过程。DevOps 的核心在于，在应用的整个生命周期中，都要确保日常运维任务自动化和环境的标准化。容器可以提供标准化的环境，您需要一个平台来管理它们，同时提供内置的自动化功能并支持各种基础架构。红帽 OpenShift 4 就是一个支持 DevOps 的企业就绪型 Kubernetes 平台。</p>
+<h2 id="DevOps-文化、流程和平台"><a href="#DevOps-文化、流程和平台" class="headerlink" title="DevOps 文化、流程和平台"></a>DevOps 文化、流程和平台</h2><h3 id="DevOps文化"><a href="#DevOps文化" class="headerlink" title="DevOps文化"></a>DevOps文化</h3><p>开发运维依赖于一种协作文化，需要与<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/open-source/what-is-open-source">开源原则</a>和透明<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/devops/what-is-agile-methodology">敏捷</a>的工作方法协同一致。您可以通过为期 5 天的“<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/services/training/do500-devops-culture-and-practice-enablement">文化与实践支持（DO500）</a>”大师班，探索开发运维与敏捷价值相辅相成的关系。</p>
+<p>可将<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/open-source/what-is-open-source-software">开源软件</a>项目的文化作为蓝图，据此构建开发运维文化。自由共享信息是开源社区默认的协作之道。这有助于实施一系列文化变革，比如提高决策透明度、鼓励实验，战胜对失败的恐惧，或者实施奖励制度，鼓励彼此信任和协作。</p>
+<p>有了正确的领导和激励计划，您的开发和运维团队将能更好地促进开放文化。当整个公司都贯彻了这种文化，开发运维就能发挥最佳成效。固然开发运维字面上指的是开发和运维，但它需要每一个人的参与。</p>
+<p>红帽的文化根植于开放和透明的基础上。在过去逾 25 年里，红帽人一直秉承着这一思想理念。协助客户采用开源技术策略时，我们始终遵循开放原则，热忱地帮助其逐步实现 DevOps 业务模式。</p>
+<h3 id="DevOps流程"><a href="#DevOps流程" class="headerlink" title="DevOps流程"></a>DevOps流程</h3><p>现代应用程序的开发流程不同于以往。许多团队都开始采用敏捷软件开发方法。在他们看来，DevOps 并不是什么新概念。事实上，“持续不断地尽早交付软件以满足客户需要”是《敏捷宣言》12 大原则中第一条原则。这就是为什么持续集成和持续部署（CI/CD）对 DevOps 团队至关重要。</p>
+<p>但仅仅改变开发和运维流程还不够。您还需要系统化思考，找到办法真正地优化软件交付方式。也就是说，DevOps 既会为需要开发工作的业务部门带来改变，也会让支持终端用户的团队进行革新。关键是从终端用户到业务的持续反馈周期。</p>
+<p>您的流程需要改变的不仅仅是工作方式。您的工作内容也不可避免地会发生变化。DevOps 不仅是为了加速创建原来的单体式应用，还要创建更适合这种持续交付节奏的新软件。</p>
+<p>因此，DevOps 团队经常会使用<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/microservices">微服务</a>架构来构建软件，并通过 <a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/api/what-are-application-programming-interfaces">API</a> 将这些服务彼此相连。通过构建较小的功能单元，开发团队就可以加速交付。因此，您必须关注如何管理这些服务和 API，并制定敏捷集成等策略，让它们能够协同工作。</p>
+<p>这样的变革需要付出大量努力，但有了合适的技术，您就可以马上开始。自动化能够加快流程，并最终帮助你将 DevOps 工作负载迁移至云中。IDC 的一项研究1 表明，85% 的 IT 领导者认为自动化对于其 DevOps 战略至关重要。这是因为自动化使基础架构能够承受 DevOps 带来的代码频繁更改，并让环境能够轻松地连续扩展。自动化可以解决重复繁琐的日常任务，让您的 IT 精英将精力投入到更重要的工作上。</p>
+<p>我们的专家可帮助您的组织开发所需的实践、工具和文化，以便更有效地现代化改造现有应用并构建新的应用。</p>
+<h3 id="DevOps平台和工具"><a href="#DevOps平台和工具" class="headerlink" title="DevOps平台和工具"></a>DevOps平台和工具</h3><p>选择支持流程的工具对于 DevOps 的成功至关重要。运维团队要跟上快速开发周期，就需要利用高度灵活的平台，并像开发团队对待代码一样，对待平台的基础架构。手动部署不仅速度慢，而且可能出错。</p>
+<p>因此，您也可通过自动化来简化平台置备和部署。<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/devops/what-is-sre">站点可靠性工程（SRE）</a>承担这些手动操作任务，并使用软件和自动化对其进行管理。SRE 方法可以进一步支持 DevOps 团队的目标。</p>
+<p><a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/containers">容器</a>可以方便地在开发、测试和生产环境之间移动应用。开发人员可以利用容器打包并隔离应用及其运行所需的一切，包括应用程序文件、<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/technologies/cloud-computing/openshift/application-runtimes">运行时环境</a>、依赖库和配置。</p>
+<h2 id="DevOps-与-k8s"><a href="#DevOps-与-k8s" class="headerlink" title="DevOps 与 k8s"></a>DevOps 与 k8s</h2><p>DevOps 方法加上 Linux® 容器，可为您的团队提供云原生开发所需的底层技术。容器支持集开发、交付、集成和自动化于一体的统一环境。</p>
+<p>而 Kubernetes 是实现 Linux 容器操作自动化的现代方法。Kubernetes 可帮助您轻松高效地管理在公共云、私有云或混合云中运行 Linux 容器的集群。 </p>
+<p>选择容器内外的可靠平台，如<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/enterprise-linux-8">红帽® 企业 Linux</a> 和<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/technologies/cloud-computing/openshift">红帽 OpenShift®</a>，可以保障顺利可靠的扩展和自动化。选择好合适的平台后，您就可以充分利用已经实施的文化和流程变更。</p>
+<h2 id="DevOps-与-CI-CD"><a href="#DevOps-与-CI-CD" class="headerlink" title="DevOps 与 CI/CD"></a>DevOps 与 CI/CD</h2><p><a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/devops/what-is-ci-cd">持续集成和持续部署管道</a>（CI/CD）是实施开发运维 的一大重要成果。CI/CD 可帮助您频繁地向客户交付应用并检验软件质量，而且只需极少的人工干预。</p>
+<p>具体而言，CI/CD 在整个应用生命周期内（从集成和测试阶段，到<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/automation/what-is-deployment-automation">交付和部署</a>）都引入了持续<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/automation/whats-it-automation">自动化</a>和持续监控，让您能够快速识别和改正问题与缺陷。这些关联的事务通常被统称为”<a target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/devops/what-cicd-pipeline">CI/CD 管道</a>“，由开发和运维团队以敏捷方式协同支持。</p>
+<h2 id="DevOps-与安全防护"><a href="#DevOps-与安全防护" class="headerlink" title="DevOps 与安全防护"></a>DevOps 与安全防护</h2><p>正如我们前面所说，DevOps 不仅仅涉及开发和运维团队。为了充分利用 DevOps，企业还必须考虑安全防护如何在应用生命周期内发挥作用。所以，您从规划阶段开始就得要考虑核心安防问题。同时，您还应在一些安全功能方面采用自动化技术，防止 DevOps 工作流程阻滞变慢。选择合适的工具来集成安全功能，有助于您实现 DevOps 安全目标。</p>
+<p>但是高效的 DevOps 安防需要的不仅是新工具。它更需要整个公司实现 DevOps 文化变革，从而在流程早期就集成进安全团队的工作。DevOps 通过紧密连接开发和运维之间来加速交付速度，但糟糕的安全规划则可能会拖慢速度。</p>
+<p>从前，安全防护只是单个团队的责任，在开发的最后阶段才会介入。如今，在 DevOps 协作框架下，安全防护是整个 IT 团队的共同责任，需要贯穿至整个生命周期的每一个环节。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/what-is-cicd/" rel="prev" title="CI/CD是什么？如何理解持续集成、持续交付和持续部署">
+      <i class="fa fa-chevron-left"></i> CI/CD是什么？如何理解持续集成、持续交付和持续部署
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DevOps-%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">DevOps 到底是什么意思？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DevOps-%E4%B8%8E%E5%AE%B9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">DevOps 与容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DevOps-%E6%96%87%E5%8C%96%E3%80%81%E6%B5%81%E7%A8%8B%E5%92%8C%E5%B9%B3%E5%8F%B0"><span class="nav-number">3.</span> <span class="nav-text">DevOps 文化、流程和平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DevOps%E6%96%87%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">DevOps文化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DevOps%E6%B5%81%E7%A8%8B"><span class="nav-number">3.2.</span> <span class="nav-text">DevOps流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DevOps%E5%B9%B3%E5%8F%B0%E5%92%8C%E5%B7%A5%E5%85%B7"><span class="nav-number">3.3.</span> <span class="nav-text">DevOps平台和工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DevOps-%E4%B8%8E-k8s"><span class="nav-number">4.</span> <span class="nav-text">DevOps 与 k8s</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DevOps-%E4%B8%8E-CI-CD"><span class="nav-number">5.</span> <span class="nav-text">DevOps 与 CI&#x2F;CD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DevOps-%E4%B8%8E%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4"><span class="nav-number">6.</span> <span class="nav-text">DevOps 与安全防护</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">GeekSRE</p>
+  <div class="site-description" itemprop="description">GeekSRE</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vcg.com" title="https://vcg.com" rel="noopener" target="_blank">视觉中国</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://veer.com" title="https://veer.com" rel="noopener" target="_blank">Veer图库</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.aliyun.com/" title="https://www.aliyun.com/" rel="noopener" target="_blank">阿里云</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://help.aliyun.com/" title="https://help.aliyun.com/" rel="noopener" target="_blank">阿里云帮助文档</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">京ICP备17002268号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GeekSRE</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

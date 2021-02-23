@@ -2249,6 +2249,39 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </tags>
   </entry>
   <entry>
+    <title>全面解读 DevOps 概念：与 k8s、容器、 CI/CD 有什么关系？</title>
+    <url>/devops/</url>
+    <content><![CDATA[<p>DevOps 是指对企业文化、业务自动化和平台设计等方面进行全方位变革，从而实现迅捷、优质的服务交付，提升企业响应能力和价值。只有通过快速迭代的 IT 服务交付，这一切才能实现。DevOps 可以将传统应用和最新的云原生应用与基础架构彼此相连。</p>
+<a id="more"></a>
+<p>文章转自<a href="https://www.redhat.com/zh/topics/devops#">https://www.redhat.com/zh/topics/devops#</a>?</p>
+<h2 id="DevOps-到底是什么意思？"><a href="#DevOps-到底是什么意思？" class="headerlink" title="DevOps 到底是什么意思？"></a>DevOps 到底是什么意思？</h2><p>从字面上来看，“DevOps”一词是由英文 Development（开发）和 Operations （运维）组合而成，但它所代表的理念和实践要比这广阔的多。DevOps 涵盖了安全、协作方式、数据分析等许多方面。但它是什么呢？</p>
+<p>DevOps 强调通过一系列手段来实现既快又稳的工作流程，使每个想法（比如一个新的软件功能，一个功能增强请求或者一个 bug 修复）在从开发到生产环境部署的整个流程中，都能不断地为用户带来价值。这种方式需要开发团队和运维团队密切交流、高效协作并且彼此体谅。此外，DevOps 还要能够方便扩展，灵活部署。有了 DevOps，需求最迫切的工作就能通过自助服务和自动化得到解决；通常在<a href="https://www.redhat.com/zh/topics/middleware/what-is-ide">标准开发环境编写代码</a>的开发人员也可与 IT 运维人员紧密合作，加速软件的构建、测试和发布，同时保障开发成果的稳定可靠。</p>
+<p>当然，这意味着更改代码会更频繁，基础架构的使用也会更灵活。所以传统的管理策略无法满足这种需求。您也需要应势而变，赢得先机。</p>
+<h2 id="DevOps-与容器"><a href="#DevOps-与容器" class="headerlink" title="DevOps 与容器"></a>DevOps 与容器</h2><p>DevOps 可以加快一个想法从提出到部署的整个过程。DevOps 的核心在于，在应用的整个生命周期中，都要确保日常运维任务自动化和环境的标准化。容器可以提供标准化的环境，您需要一个平台来管理它们，同时提供内置的自动化功能并支持各种基础架构。红帽 OpenShift 4 就是一个支持 DevOps 的企业就绪型 Kubernetes 平台。</p>
+<h2 id="DevOps-文化、流程和平台"><a href="#DevOps-文化、流程和平台" class="headerlink" title="DevOps 文化、流程和平台"></a>DevOps 文化、流程和平台</h2><h3 id="DevOps文化"><a href="#DevOps文化" class="headerlink" title="DevOps文化"></a>DevOps文化</h3><p>开发运维依赖于一种协作文化，需要与<a href="https://www.redhat.com/zh/topics/open-source/what-is-open-source">开源原则</a>和透明<a href="https://www.redhat.com/zh/devops/what-is-agile-methodology">敏捷</a>的工作方法协同一致。您可以通过为期 5 天的“<a href="https://www.redhat.com/zh/services/training/do500-devops-culture-and-practice-enablement">文化与实践支持（DO500）</a>”大师班，探索开发运维与敏捷价值相辅相成的关系。</p>
+<p>可将<a href="https://www.redhat.com/zh/topics/open-source/what-is-open-source-software">开源软件</a>项目的文化作为蓝图，据此构建开发运维文化。自由共享信息是开源社区默认的协作之道。这有助于实施一系列文化变革，比如提高决策透明度、鼓励实验，战胜对失败的恐惧，或者实施奖励制度，鼓励彼此信任和协作。</p>
+<p>有了正确的领导和激励计划，您的开发和运维团队将能更好地促进开放文化。当整个公司都贯彻了这种文化，开发运维就能发挥最佳成效。固然开发运维字面上指的是开发和运维，但它需要每一个人的参与。</p>
+<p>红帽的文化根植于开放和透明的基础上。在过去逾 25 年里，红帽人一直秉承着这一思想理念。协助客户采用开源技术策略时，我们始终遵循开放原则，热忱地帮助其逐步实现 DevOps 业务模式。</p>
+<h3 id="DevOps流程"><a href="#DevOps流程" class="headerlink" title="DevOps流程"></a>DevOps流程</h3><p>现代应用程序的开发流程不同于以往。许多团队都开始采用敏捷软件开发方法。在他们看来，DevOps 并不是什么新概念。事实上，“持续不断地尽早交付软件以满足客户需要”是《敏捷宣言》12 大原则中第一条原则。这就是为什么持续集成和持续部署（CI/CD）对 DevOps 团队至关重要。</p>
+<p>但仅仅改变开发和运维流程还不够。您还需要系统化思考，找到办法真正地优化软件交付方式。也就是说，DevOps 既会为需要开发工作的业务部门带来改变，也会让支持终端用户的团队进行革新。关键是从终端用户到业务的持续反馈周期。</p>
+<p>您的流程需要改变的不仅仅是工作方式。您的工作内容也不可避免地会发生变化。DevOps 不仅是为了加速创建原来的单体式应用，还要创建更适合这种持续交付节奏的新软件。</p>
+<p>因此，DevOps 团队经常会使用<a href="https://www.redhat.com/zh/topics/microservices">微服务</a>架构来构建软件，并通过 <a href="https://www.redhat.com/zh/topics/api/what-are-application-programming-interfaces">API</a> 将这些服务彼此相连。通过构建较小的功能单元，开发团队就可以加速交付。因此，您必须关注如何管理这些服务和 API，并制定敏捷集成等策略，让它们能够协同工作。</p>
+<p>这样的变革需要付出大量努力，但有了合适的技术，您就可以马上开始。自动化能够加快流程，并最终帮助你将 DevOps 工作负载迁移至云中。IDC 的一项研究1 表明，85% 的 IT 领导者认为自动化对于其 DevOps 战略至关重要。这是因为自动化使基础架构能够承受 DevOps 带来的代码频繁更改，并让环境能够轻松地连续扩展。自动化可以解决重复繁琐的日常任务，让您的 IT 精英将精力投入到更重要的工作上。</p>
+<p>我们的专家可帮助您的组织开发所需的实践、工具和文化，以便更有效地现代化改造现有应用并构建新的应用。</p>
+<h3 id="DevOps平台和工具"><a href="#DevOps平台和工具" class="headerlink" title="DevOps平台和工具"></a>DevOps平台和工具</h3><p>选择支持流程的工具对于 DevOps 的成功至关重要。运维团队要跟上快速开发周期，就需要利用高度灵活的平台，并像开发团队对待代码一样，对待平台的基础架构。手动部署不仅速度慢，而且可能出错。</p>
+<p>因此，您也可通过自动化来简化平台置备和部署。<a href="https://www.redhat.com/zh/topics/devops/what-is-sre">站点可靠性工程（SRE）</a>承担这些手动操作任务，并使用软件和自动化对其进行管理。SRE 方法可以进一步支持 DevOps 团队的目标。</p>
+<p><a href="https://www.redhat.com/zh/topics/containers">容器</a>可以方便地在开发、测试和生产环境之间移动应用。开发人员可以利用容器打包并隔离应用及其运行所需的一切，包括应用程序文件、<a href="https://www.redhat.com/zh/technologies/cloud-computing/openshift/application-runtimes">运行时环境</a>、依赖库和配置。</p>
+<h2 id="DevOps-与-k8s"><a href="#DevOps-与-k8s" class="headerlink" title="DevOps 与 k8s"></a>DevOps 与 k8s</h2><p>DevOps 方法加上 Linux® 容器，可为您的团队提供云原生开发所需的底层技术。容器支持集开发、交付、集成和自动化于一体的统一环境。</p>
+<p>而 Kubernetes 是实现 Linux 容器操作自动化的现代方法。Kubernetes 可帮助您轻松高效地管理在公共云、私有云或混合云中运行 Linux 容器的集群。 </p>
+<p>选择容器内外的可靠平台，如<a href="https://www.redhat.com/zh/enterprise-linux-8">红帽® 企业 Linux</a> 和<a href="https://www.redhat.com/zh/technologies/cloud-computing/openshift">红帽 OpenShift®</a>，可以保障顺利可靠的扩展和自动化。选择好合适的平台后，您就可以充分利用已经实施的文化和流程变更。</p>
+<h2 id="DevOps-与-CI-CD"><a href="#DevOps-与-CI-CD" class="headerlink" title="DevOps 与 CI/CD"></a>DevOps 与 CI/CD</h2><p><a href="https://www.redhat.com/zh/topics/devops/what-is-ci-cd">持续集成和持续部署管道</a>（CI/CD）是实施开发运维 的一大重要成果。CI/CD 可帮助您频繁地向客户交付应用并检验软件质量，而且只需极少的人工干预。</p>
+<p>具体而言，CI/CD 在整个应用生命周期内（从集成和测试阶段，到<a href="https://www.redhat.com/zh/topics/automation/what-is-deployment-automation">交付和部署</a>）都引入了持续<a href="https://www.redhat.com/zh/topics/automation/whats-it-automation">自动化</a>和持续监控，让您能够快速识别和改正问题与缺陷。这些关联的事务通常被统称为”<a href="https://www.redhat.com/zh/topics/devops/what-cicd-pipeline">CI/CD 管道</a>“，由开发和运维团队以敏捷方式协同支持。</p>
+<h2 id="DevOps-与安全防护"><a href="#DevOps-与安全防护" class="headerlink" title="DevOps 与安全防护"></a>DevOps 与安全防护</h2><p>正如我们前面所说，DevOps 不仅仅涉及开发和运维团队。为了充分利用 DevOps，企业还必须考虑安全防护如何在应用生命周期内发挥作用。所以，您从规划阶段开始就得要考虑核心安防问题。同时，您还应在一些安全功能方面采用自动化技术，防止 DevOps 工作流程阻滞变慢。选择合适的工具来集成安全功能，有助于您实现 DevOps 安全目标。</p>
+<p>但是高效的 DevOps 安防需要的不仅是新工具。它更需要整个公司实现 DevOps 文化变革，从而在流程早期就集成进安全团队的工作。DevOps 通过紧密连接开发和运维之间来加速交付速度，但糟糕的安全规划则可能会拖慢速度。</p>
+<p>从前，安全防护只是单个团队的责任，在开发的最后阶段才会介入。如今，在 DevOps 协作框架下，安全防护是整个 IT 团队的共同责任，需要贯穿至整个生命周期的每一个环节。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Django-ORM</title>
     <url>/django-orm/</url>
     <content><![CDATA[<p><img src="/django-orm/./orm1.png" alt></p>
@@ -3629,6 +3662,72 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 <li><a href="https://www.pingxx.com/api/API 文档简介.html">Ping++ API</a></li>
 </ul>
 <p><strong>文章转自：<a href="https://kalasearch.cn/blog/what-is-api/">卡拉搜索</a></strong></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>CI/CD是什么？如何理解持续集成、持续交付和持续部署</title>
+    <url>/what-is-cicd/</url>
+    <content><![CDATA[<a id="more"></a>
+<p>CI/CD 是一种通过在应用开发阶段引入<a href="https://www.redhat.com/zh/topics/automation/whats-it-automation">自动化</a>来频繁向客户交付应用的方法。CI/CD 的核心概念是持续集成、持续交付和持续部署。作为一个面向开发和运营团队的解决方案，CI/CD 主要针对在集成新代码时所引发的问题（亦称：“<a href="https://www.solutionsiq.com/agile-glossary/integration-hell/">集成地狱</a>”）。</p>
+<p>具体而言，CI/CD 可让持续自动化和持续监控贯穿于应用的整个生命周期（从集成和测试阶段，到交付和部署）。这些关联的事务通常被统称为“CI/CD 管道”，由<a href="https://www.redhat.com/zh/topics/devops">开发和运维团队</a>以敏捷方式协同支持。</p>
+<hr>
+<h2 id="CI-是什么？CI-和-CD-有什么区别？"><a href="#CI-是什么？CI-和-CD-有什么区别？" class="headerlink" title="CI 是什么？CI 和 CD 有什么区别？"></a>CI 是什么？CI 和 CD 有什么区别？</h2><p>缩略词 CI / CD 具有几个不同的含义。CI/CD 中的“CI”始终指持续集成，它属于开发人员的自动化流程。成功的 CI 意味着应用代码的新更改会定期构建、测试并合并到共享存储库中。该解决方案可以解决在一次开发中有太多应用分支，从而导致相互冲突的问题。</p>
+<p>CI/CD 中的“CD”指的是持续交付和/或持续部署，这些相关概念有时会交叉使用。两者都事关管道后续阶段的自动化，但它们有时也会单独使用，用于说明自动化程度。</p>
+<p>持续<em>交付</em>通常是指开发人员对应用的更改会自动进行错误测试并上传到存储库（如 <a href="https://redhatofficial.github.io/#!/main">GitHub</a> 或容器注册表），然后由运维团队将其部署到实时生产环境中。这旨在解决开发和运维团队之间可见性及沟通较差的问题。因此，持续交付的目的就是确保尽可能减少部署新代码时所需的工作量。</p>
+<p>持续<em>部署</em>（另一种“CD”）指的是自动将开发人员的更改从存储库发布到生产环境，以供客户使用。它主要为了解决因手动流程降低应用交付速度，从而使运维团队超负荷的问题。持续部署以持续交付的优势为根基，实现了管道后续阶段的自动化。</p>
+<p><img src="https://www.redhat.com/cms/managed-files/ci-cd-flow-desktop_1.png" alt="CI/CD 流程"></p>
+<p>CI/CD 既可能仅指持续集成和持续交付构成的关联环节，也可以指持续集成、持续交付和持续部署这三项构成的关联环节。更为复杂的是，有时“持续交付”也包含了持续部署流程。</p>
+<p>归根结底，我们没必要纠结于这些语义，您只需记得 CI/CD 其实就是一个流程（通常形象地表述为管道），用于实现应用开发中的高度持续自动化和持续监控。因案例而异，该术语的具体含义取决于 CI/CD 管道的自动化程度。许多企业最开始先添加 CI，然后逐步实现交付和部署的自动化（例如作为<a href="https://www.redhat.com/zh/topics/cloud-native-apps">云原生应用</a>的一部分）。</p>
+<hr>
+<h2 id="CI-持续集成（Continuous-Integration）"><a href="#CI-持续集成（Continuous-Integration）" class="headerlink" title="CI 持续集成（Continuous Integration）"></a>CI 持续集成（Continuous Integration）</h2><p><a href="https://www.redhat.com/zh/solutions/cloud-native-development">现代应用开发</a>的目标是让多位开发人员同时处理同一应用的不同功能。但是，如果企业安排在一天内将所有分支源代码合并在一起（称为“<a href="https://thedailywtf.com/articles/Happy_Merge_Day!">合并日</a>”），最终可能造成工作繁琐、耗时，而且需要手动完成。这是因为当一位独立工作的开发人员对应用进行更改时，有可能会与其他开发人员同时进行的更改发生冲突。如果每个开发人员都自定义自己的本地<a href="https://www.redhat.com/zh/topics/middleware/what-is-ide">集成开发环境（IDE）</a>，而不是让团队就一个基于云的 IDE 达成一致，那么就会让问题更加雪上加霜。</p>
+<p>持续集成（CI）可以帮助开发人员更加频繁地（有时甚至每天）将代码更改合并到共享分支或“主干”中。一旦开发人员对应用所做的更改被合并，系统就会通过自动构建应用并运行不同级别的自动化测试（通常是单元测试和集成测试）来验证这些更改，确保这些更改没有对应用造成破坏。这意味着测试内容涵盖了从类和函数到构成整个应用的不同模块。如果自动化测试发现新代码和现有代码之间存在冲突，CI 可以更加轻松地快速修复这些错误。</p>
+<p><a href="https://developers.redhat.com/blog/2017/09/06/continuous-integration-a-typical-process/">进一步了解技术细节</a></p>
+<hr>
+<h2 id="CD-持续交付（Continuous-Delivery）"><a href="#CD-持续交付（Continuous-Delivery）" class="headerlink" title="CD 持续交付（Continuous Delivery）"></a>CD 持续交付（Continuous Delivery）</h2><p>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。</p>
+<p>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中。</p>
+<hr>
+<h2 id="CD-持续部署（Continuous-Deployment）"><a href="#CD-持续部署（Continuous-Deployment）" class="headerlink" title="CD 持续部署（Continuous Deployment）"></a>CD 持续部署（Continuous Deployment）</h2><p>对于一个成熟的 CI/CD 管道来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。由于在生产之前的管道阶段没有手动门控，因此持续部署在很大程度上都得依赖精心设计的测试自动化。</p>
+<p>实际上，持续部署意味着开发人员对应用的更改在编写后的几分钟内就能生效（假设它通过了自动化测试）。这更加便于持续接收和整合用户反馈。总而言之，所有这些 CI/CD 的关联步骤都有助于降低应用的部署风险，因此更便于以小件的方式（而非一次性）发布对应用的更改。不过，由于还需要编写自动化测试以适应 CI/CD 管道中的各种测试和发布阶段，因此前期投资还是会很大。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>什么是 SRE（站点可靠性工程）？</title>
+    <url>/what-is-sre/</url>
+    <content><![CDATA[<a id="more"></a>
+<p>站点可靠性工程（SRE）是 IT 运维的软件工程方案。SRE 团队使用软件作为工具，来管理系统、解决问题并实现运维任务<a href="https://www.zhaohongye.com/automation">自动化</a>。</p>
+<p>SRE 执行的任务以前通常由运维团队手动执行，或者交给使用软件和自动化来解决问题和管理生产系统的工程师或运维团队来执行。 </p>
+<p>在创建可扩展和高度可靠的软件系统时，SRE 是宝贵的实践。它可帮助您通过代码管理大型系统，对于管理成千上万台机器的系统管理员来说，代码更具可扩展性和可持续性。 </p>
+<p>站点可靠性工程的概念由 Google 工程团队的 Ben Treynor Sloss 第一个提出。 </p>
+<p>SRE 可以帮助团队在发布新功能和确保用户可靠性之间找到平衡。</p>
+<p>标准化和自动化是 SRE 模型的两大重要部分。站点可靠性工程师应始终致力于增强和自动化运维任务。</p>
+<p>这样一来，SRE 就能帮助提高现有系统的可靠性，同时优化体量逐渐庞大的系统。 </p>
+<p>SRE 支持团队从传统 IT 运维方案迁移至<a href="https://www.redhat.com/zh/topics/cloud-native-apps">云原生</a>方案。</p>
+<h2 id="站点可靠性工程师的工作是什么？"><a href="#站点可靠性工程师的工作是什么？" class="headerlink" title="站点可靠性工程师的工作是什么？"></a>站点可靠性工程师的工作是什么？</h2><p>站点可靠性工程师是一个独特的岗位，要么必须是有运维经验的软件开发人员；要么必须是有软件开发技能的系统管理员或的 IT 运维人员。 </p>
+<p>SRE 团队负责部署、配置和监控代码，以及生产服务的可用性、延迟、变更管理、应急响应和容量管理。</p>
+<p>站点可靠性工程可帮助团队确定可以要启动哪些新功能，以及在何时根据服务水平协议（SLA）并利用服务水平指标（SLI）和服务水平目标（SLO）定义系统所需的可靠性。 </p>
+<p>SLI 是针对提供的服务水平的特定方面所定义的测量指标。关键 SLI 包括请求延迟性、可用性、错误率和系统吞吐量。SLO 基于根据 SLI 而指定的服务水平的目标值或范围。</p>
+<p>然后，根据认定为可接受的停机时间确定所需系统可靠性的 SLO。这个停机时间称为误差量，即出错和中断的最大允许阈值。 </p>
+<p>SRE 并不是要实现 100% 可靠性，而是针对故障做好计划并妥善应对。 </p>
+<p>开发团队在发布新功能时允许出现这一定量的误差。利用 SLO 和误差量，开发团队可确定产品或服务是否能够在可用误差量的基础上启动。</p>
+<p>如果某个服务在运行时处于误差量以内，则开发团队可在任何时间发布它，但是，如果系统当前有太多错误或停机时间超过误差量的允许范围，则必须使错误数减少至误差量以内后才能发布。  </p>
+<p>开发团队可执行自动化运维测试以验证可靠性。 </p>
+<p>站点可靠性工程师的时间要均衡分配给运维任务和项目工作。根据 Google 的 SRE 最佳实践，站点可靠性工程师最多只能将一半的时间花在运维上，所以应该监控确保不会超过这个时间。 </p>
+<p>剩余的时间应专注于开发任务上，比如创建新功能，扩展系统，以及实施自动化。</p>
+<p>额外的运维工作和表现欠佳的服务应重新指定给开发团队，而不是让站点可靠性工程师将太多时间花在应用或服务的运维上。 </p>
+<p>自动化是站点可靠性工程师的重要工作部分。如果他们要反复处理一个问题，就会努力实现解决方案自动化。这也有助于控制运维工作在他们工作中所占的比例。 </p>
+<p>保持运维和开发工作之间的平衡是 SRE 的重要组成部分。 </p>
+<h2 id="DevOps-和SRE"><a href="#DevOps-和SRE" class="headerlink" title="DevOps 和SRE"></a>DevOps 和SRE</h2><p><a href="https://www.zhaohongye.com/devops">DevOps</a> 是指对企业文化、业务自动化和平台设计等方面进行全方位变革，从而实现迅捷、优质的服务交付，提升企业价值和响应能力。SRE 可视为 DevOps 的实施。</p>
+<p>和 DevOps 一样，SRE 也与团队文化和关系密切相连。SRE 和 DevOps 都致力于搭建开发团队和运维团队之间的互通桥梁，以便加快交付服务。 </p>
+<p>DevOps 和 SRE 实践都可以实现更快的应用开发生命周期、改进的服务质量和可靠性，以及缩短的 IT 应用开发时间等优势。</p>
+<p>但 SRE 有所不同的是，它依赖于开发团队中的站点可靠性工程师，这些工程师也要有解决通信和工作流程问题的运维背景。</p>
+<p>站点可靠性工程师本身要求职责重叠，兼具开发团队和运维团队的技能。 </p>
+<p>DevOps 团队的开发人员常常疲于处理运维任务，需要拥有更专业运维技能，而 SRE 就能派上用场。 </p>
+<p>在代码和新功能方面，DevOps 专注于有效通过开发流程，而 SRE 专注于通过创建新功能来平衡站点可靠性。 </p>
+<p>基于容器技术、Kubernetes 和<a href="https://www.redhat.com/zh/topics/microservices/what-are-microservices">微服务</a>的现代化应用平台是落实 DevOps 实践的关键所在，可帮助企业交付安全的创新软件服务。</p>
+<p><a href="https://go.redhat.com/accelerate-devops-openshift-20180918?intcmp=701f2000001OMH6AAO">了解如何通过 Kubernetes 平台实施 DevOps</a></p>
+<h2 id="支持-SRE-的技术"><a href="#支持-SRE-的技术" class="headerlink" title="支持 SRE 的技术"></a>支持 SRE 的技术</h2><p>SRE 在<a href="https://www.redhat.com/zh/topics/devops/what-is-application-lifecycle-management-alm">应用的整个生命周期中</a>，都要确保日常运维任务自动化和标准化。<a href="https://www.redhat.com/zh/topics/containers/whats-a-linux-container">Linux® 容器</a>可为您的团队提供云原生开发所需的底层技术。容器支持集开发、交付、集成和自动化于一体的统一环境。</p>
+<p>而 <a href="https://www.redhat.com/zh/topics/containers/what-is-kubernetes">Kubernetes</a> 是实现 Linux 容器操作自动化的现代方法。Kubernetes 可帮助您轻松高效地管理在公共云、私有云或混合云中运行 Linux 容器的集群。</p>
+<p>选择好合适的平台后，您就可以充分利用已经实施的文化和流程变革。</p>
 ]]></content>
   </entry>
   <entry>
