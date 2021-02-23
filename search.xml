@@ -3667,7 +3667,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>CI/CD是什么？如何理解持续集成、持续交付和持续部署</title>
     <url>/what-is-cicd/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>CI/CD 可让持续自动化和持续监控贯穿于应用的整个生命周期（从集成和测试阶段，到交付和部署）<br><a id="more"></a></p>
 <p>CI/CD 是一种通过在应用开发阶段引入<a href="https://www.redhat.com/zh/topics/automation/whats-it-automation">自动化</a>来频繁向客户交付应用的方法。CI/CD 的核心概念是持续集成、持续交付和持续部署。作为一个面向开发和运营团队的解决方案，CI/CD 主要针对在集成新代码时所引发的问题（亦称：“<a href="https://www.solutionsiq.com/agile-glossary/integration-hell/">集成地狱</a>”）。</p>
 <p>具体而言，CI/CD 可让持续自动化和持续监控贯穿于应用的整个生命周期（从集成和测试阶段，到交付和部署）。这些关联的事务通常被统称为“CI/CD 管道”，由<a href="https://www.redhat.com/zh/topics/devops">开发和运维团队</a>以敏捷方式协同支持。</p>
 <hr>
@@ -3693,7 +3693,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
   <entry>
     <title>什么是 SRE（站点可靠性工程）？</title>
     <url>/what-is-sre/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>站点可靠性工程（SRE）是 IT 运维的软件工程方案。<br><a id="more"></a></p>
 <p>站点可靠性工程（SRE）是 IT 运维的软件工程方案。SRE 团队使用软件作为工具，来管理系统、解决问题并实现运维任务<a href="https://www.zhaohongye.com/automation">自动化</a>。</p>
 <p>SRE 执行的任务以前通常由运维团队手动执行，或者交给使用软件和自动化来解决问题和管理生产系统的工程师或运维团队来执行。 </p>
 <p>在创建可扩展和高度可靠的软件系统时，SRE 是宝贵的实践。它可帮助您通过代码管理大型系统，对于管理成千上万台机器的系统管理员来说，代码更具可扩展性和可持续性。 </p>
