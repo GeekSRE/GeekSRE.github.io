@@ -187,6 +187,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%88%B0%E4%BA%AC%E4%B8%9C%E4%BA%91OSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%88%B0%E4%BA%AC%E4%B8%9C%E4%BA%91OSS/" class="post-title-link" itemprop="url">阿里云OSS对象存储中的图片数据迁移到京东云OSS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-06-13 10:00:40 / Modified: 10:01:06" itemprop="dateCreated datePublished" datetime="2019-06-13T10:00:40+08:00">2019-06-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>阿里云OSS对象存储中的图片数据迁移到京东云OSS</p>
+<h4 id="下载数据"><a href="#下载数据" class="headerlink" title="下载数据"></a>下载数据</h4><p>使用阿里云提供的 <a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/50452.html">ossutil</a> 工具进行下载操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ossutil cp oss://static-vcg/veer/static/ veer/static/</span><br></pre></td></tr></table></figure>
+<h4 id="上传数据"><a href="#上传数据" class="headerlink" title="上传数据"></a>上传数据</h4><p>使用Amazon提供的 <a target="_blank" rel="noopener" href="https://docs.jdcloud.com/cn/object-storage-service/s3cmd">s3cmd</a> 工具进行上传操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s3cmd put --recursive static/ s3://vcg-veer-static/static/</span><br></pre></td></tr></table></figure>
+<h4 id="异常问题"><a href="#异常问题" class="headerlink" title="异常问题"></a>异常问题</h4><p>上传到京东云后发现浏览器访问oss里的图片，会以下载的形式展示，需要更改为在线展示。</p>
+<p>询问京东技术后重新上传，增加 <strong>–content-type=”image/svg+xml”</strong>参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup s3cmd put --recursive --content-type&#x3D;&quot;image&#x2F;svg+xml&quot;   static&#x2F; s3:&#x2F;&#x2F;vcg-veer-static&#x2F;static&#x2F; &amp;</span><br></pre></td></tr></table></figure>
+<p>重新上传后，清除本地缓存，刷新CDN目录或指定资源即可正常访问。</p>
+<h4 id="调用京东云SDK获取OSS文件的属性"><a href="#调用京东云SDK获取OSS文件的属性" class="headerlink" title="调用京东云SDK获取OSS文件的属性"></a>调用京东云SDK获取OSS文件的属性</h4><p><a target="_blank" rel="noopener" href="https://docs.jdcloud.com/cn/object-storage-service/sdk-python">SDK-Python</a></p>
+<h5 id="安装pip和boto3"><a href="#安装pip和boto3" class="headerlink" title="安装pip和boto3"></a>安装pip和boto3</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install boto3</span><br></pre></td></tr></table></figure>
+<p>创建client</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3  </span><br><span class="line">        </span><br><span class="line">ACCESS_KEY = <span class="string">&#x27;your accesskey&#x27;</span>  </span><br><span class="line">SECRET_KEY = <span class="string">&#x27;your secretkey&#x27;</span>  </span><br><span class="line">s3 = boto3.client(  </span><br><span class="line">    <span class="string">&#x27;s3&#x27;</span>,  </span><br><span class="line">    aws_access_key_id=ACCESS_KEY,  </span><br><span class="line">    aws_secret_access_key=SECRET_KEY,  </span><br><span class="line">    <span class="comment">#下面给出一个endpoint_url的例子  </span></span><br><span class="line">    endpoint_url=<span class="string">&#x27;https://s3.cn-north-1.jdcloud-oss.com&#x27;</span>  </span><br><span class="line">    )  </span><br><span class="line">s3.head_object(Bucket=<span class="string">&#x27;vcg-veer-static&#x27;</span>,Key=<span class="string">&#x27;static/landing/icon_search_white.svg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值如下：</p>
+<p><img src="/%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%88%B0%E4%BA%AC%E4%B8%9C%E4%BA%91OSS/./jd-sdk-python.jpg" alt="jd-sdk-python.jpg"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Python-%E8%B0%83%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91API%E5%AE%9E%E7%8E%B0Swarm%E9%9B%86%E7%BE%A4%E5%BA%94%E7%94%A8%E7%9A%84%E6%9B%B4%E6%96%B0%E6%88%96%E9%87%8D%E5%90%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -841,82 +914,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Kubernetes-Secrets/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Kubernetes-Secrets/" class="post-title-link" itemprop="url">Kubernetes-Secrets</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-05-05 15:01:47" itemprop="dateCreated datePublished" datetime="2019-05-05T15:01:47+08:00">2019-05-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-15 16:04:28" itemprop="dateModified" datetime="2020-10-15T16:04:28+08:00">2020-10-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Kubernetes保密字典<br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Kubernetes-Secrets/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -981,7 +982,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">101</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1034,7 +1035,7 @@
         
 
         
-  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">ICP证\:京ICP备17002268号-1 </a>
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">ICP证:京ICP备17002268号-1 </a>
   </div>
 
 <div class="copyright">
