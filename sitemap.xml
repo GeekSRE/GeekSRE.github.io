@@ -2,30 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/katalon/</loc>
+    <loc>http://yoursite.com/%25E9%2598%25BF%25E9%2587%258C%25E5%25B7%25B4%25E5%25B7%25B4DevOps%25E5%25AE%259E%25E8%25B7%25B5%25E6%2589%258B%25E5%2586%258C/</loc>
     
-    <lastmod>2021-03-24T01:58:56.925Z</lastmod>
+    <lastmod>2021-04-07T08:54:37.356Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/what-is-api/</loc>
+    
+    <lastmod>2021-04-07T08:50:58.652Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/what-is-sre/</loc>
     
-    <lastmod>2021-02-23T02:52:34.971Z</lastmod>
+    <lastmod>2021-04-07T08:50:46.502Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/what-is-cicd/</loc>
     
-    <lastmod>2021-02-23T02:52:04.013Z</lastmod>
+    <lastmod>2021-04-07T08:50:36.903Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/devops/</loc>
     
-    <lastmod>2021-02-23T02:50:05.115Z</lastmod>
+    <lastmod>2021-04-07T08:50:00.080Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/katalon/</loc>
+    
+    <lastmod>2021-04-07T08:49:40.754Z</lastmod>
     
   </url>
   
@@ -131,13 +145,6 @@
     <loc>http://yoursite.com/rest-api-best-practices/</loc>
     
     <lastmod>2021-01-26T09:48:53.900Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/what-is-api/</loc>
-    
-    <lastmod>2021-01-26T09:44:11.367Z</lastmod>
     
   </url>
   
@@ -467,13 +474,6 @@
     <loc>http://yoursite.com/Confluence%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593SSL%25E8%25AD%25A6%25E5%2591%258A/</loc>
     
     <lastmod>2020-07-20T10:49:35.771Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/%25E9%2598%25BF%25E9%2587%258C%25E5%25B7%25B4%25E5%25B7%25B4DevOps%25E5%25AE%259E%25E8%25B7%25B5%25E6%2589%258B%25E5%2586%258C/</loc>
-    
-    <lastmod>2020-07-20T10:48:37.631Z</lastmod>
     
   </url>
   

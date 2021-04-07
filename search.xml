@@ -2249,7 +2249,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </tags>
   </entry>
   <entry>
-    <title>全面解读 DevOps 概念：与 k8s、容器、 CI/CD 有什么关系？</title>
+    <title>(转载)全面解读 DevOps 概念：与 k8s、容器、 CI/CD 有什么关系？</title>
     <url>/devops/</url>
     <content><![CDATA[<p>DevOps 是指对企业文化、业务自动化和平台设计等方面进行全方位变革，从而实现迅捷、优质的服务交付，提升企业响应能力和价值。只有通过快速迭代的 IT 服务交付，这一切才能实现。DevOps 可以将传统应用和最新的云原生应用与基础架构彼此相连。</p>
 <a id="more"></a>
@@ -3620,7 +3620,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </tags>
   </entry>
   <entry>
-    <title>API是什么:一篇讲透API</title>
+    <title>(转载)API是什么:一篇讲透API</title>
     <url>/what-is-api/</url>
     <content><![CDATA[<p><img src="/what-is-api/./api-header.jpg" alt></p>
 <a id="more"></a>
@@ -3691,7 +3691,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
-    <title>CI/CD是什么？如何理解持续集成、持续交付和持续部署</title>
+    <title>(转载)CI/CD是什么？如何理解持续集成、持续交付和持续部署</title>
     <url>/what-is-cicd/</url>
     <content><![CDATA[<p>CI/CD 可让持续自动化和持续监控贯穿于应用的整个生命周期（从集成和测试阶段，到交付和部署）<br><a id="more"></a></p>
 <p>CI/CD 是一种通过在应用开发阶段引入<a href="https://www.redhat.com/zh/topics/automation/whats-it-automation">自动化</a>来频繁向客户交付应用的方法。CI/CD 的核心概念是持续集成、持续交付和持续部署。作为一个面向开发和运营团队的解决方案，CI/CD 主要针对在集成新代码时所引发的问题（亦称：“<a href="https://www.solutionsiq.com/agile-glossary/integration-hell/">集成地狱</a>”）。</p>
@@ -3717,7 +3717,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
-    <title>什么是 SRE（站点可靠性工程）？</title>
+    <title>(转载)什么是 SRE（站点可靠性工程）？</title>
     <url>/what-is-sre/</url>
     <content><![CDATA[<p>站点可靠性工程（SRE）是 IT 运维的软件工程方案。<br><a id="more"></a></p>
 <p>站点可靠性工程（SRE）是 IT 运维的软件工程方案。SRE 团队使用软件作为工具，来管理系统、解决问题并实现运维任务<a href="https://www.zhaohongye.com/automation">自动化</a>。</p>
@@ -3861,7 +3861,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </tags>
   </entry>
   <entry>
-    <title>阿里巴巴DevOps实践手册</title>
+    <title>(转载)阿里巴巴DevOps实践手册</title>
     <url>/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4DevOps%E5%AE%9E%E8%B7%B5%E6%89%8B%E5%86%8C/</url>
     <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br><div class="pdfobject-container" data-target="./阿里巴巴DevOps实践手册.pdf" data-height="500px"></div></p>
 ]]></content>

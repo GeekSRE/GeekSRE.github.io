@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/katalon/</loc>
-    <lastmod>2021-03-24</lastmod>
+    <loc>http://yoursite.com/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4DevOps%E5%AE%9E%E8%B7%B5%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2021-04-07</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/what-is-api/</loc>
+    <lastmod>2021-04-07</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/what-is-sre/</loc>
-    <lastmod>2021-02-23</lastmod>
+    <lastmod>2021-04-07</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/what-is-cicd/</loc>
-    <lastmod>2021-02-23</lastmod>
+    <lastmod>2021-04-07</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/devops/</loc>
-    <lastmod>2021-02-23</lastmod>
+    <lastmod>2021-04-07</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/katalon/</loc>
+    <lastmod>2021-04-07</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/ali-sls-cost-optimization/</loc>
@@ -74,10 +82,6 @@
   </url>
   <url>
     <loc>http://yoursite.com/rest-api-best-practices/</loc>
-    <lastmod>2021-01-26</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/what-is-api/</loc>
     <lastmod>2021-01-26</lastmod>
   </url>
   <url>
@@ -262,10 +266,6 @@
   </url>
   <url>
     <loc>http://yoursite.com/Confluence%E6%95%B0%E6%8D%AE%E5%BA%93SSL%E8%AD%A6%E5%91%8A/</loc>
-    <lastmod>2020-07-20</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4DevOps%E5%AE%9E%E8%B7%B5%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2020-07-20</lastmod>
   </url>
   <url>
