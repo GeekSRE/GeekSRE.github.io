@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-04-22 16:29:03 / Modified: 16:29:59" itemprop="dateCreated datePublished" datetime="2021-04-22T16:29:03+08:00">2021-04-22</time>
+              <time title="Created: 2021-04-22 16:29:03 / Modified: 16:32:13" itemprop="dateCreated datePublished" datetime="2021-04-22T16:29:03+08:00">2021-04-22</time>
             </span>
 
           
@@ -226,15 +226,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Kubernetes的node节点修改默认存储路径</p>
-<h4 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h4><p>根目录存储小，/data/目录存储空间大，将Kubernetes的node节点修改默认存储路径由/var/lib/kubelet/改为/data/kubelet/</p>
-<p><img src="/k8s-change-rootdir/./kuboard01.png" alt></p>
-<p><img src="/k8s-change-rootdir/./k8s-change-rootdir.png" alt></p>
-<h4 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h4><h5 id="备份配置"><a href="#备份配置" class="headerlink" title="备份配置"></a>备份配置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf-bak</span><br></pre></td></tr></table></figure>
-<h5 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加  --root-dir=/data/kubelet</span></span><br><span class="line">Environment=&quot;KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml --root-dir=/data/kubelet&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart kubelet</span><br></pre></td></tr></table></figure>
-<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p><img src="/k8s-change-rootdir/./kuboard02.png" alt></p>
-
+          <p>Kubernetes的node节点修改默认存储路径<br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/k8s-change-rootdir/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
