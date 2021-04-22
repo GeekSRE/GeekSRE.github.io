@@ -2738,6 +2738,22 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </tags>
   </entry>
   <entry>
+    <title>K8S的node节点修改默认存储路径</title>
+    <url>/k8s-change-rootdir/</url>
+    <content><![CDATA[<p>Kubernetes的node节点修改默认存储路径</p>
+<h4 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h4><p>根目录存储小，/data/目录存储空间大，将Kubernetes的node节点修改默认存储路径由/var/lib/kubelet/改为/data/kubelet/</p>
+<p><img src="/k8s-change-rootdir/./kuboard01.png" alt></p>
+<p><img src="/k8s-change-rootdir/./k8s-change-rootdir.png" alt></p>
+<h4 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h4><h5 id="备份配置"><a href="#备份配置" class="headerlink" title="备份配置"></a>备份配置</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf-bak</span><br></pre></td></tr></table></figure>
+<h5 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加  --root-dir=/data/kubelet</span></span><br><span class="line">Environment=&quot;KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml --root-dir=/data/kubelet&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart kubelet</span><br></pre></td></tr></table></figure>
+<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p><img src="/k8s-change-rootdir/./kuboard02.png" alt></p>
+]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k8s内pod访问本集群ingress-ip异常</title>
     <url>/k8s-pod-can-t-access-ingress-slb/</url>
     <content><![CDATA[<p><img src="/k8s-pod-can-t-access-ingress-slb/./z.jpg" alt><br><a id="more"></a></p>

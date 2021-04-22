@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/k8s-change-rootdir/</loc>
+    
+    <lastmod>2021-04-22T08:29:59.583Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/%25E9%2598%25BF%25E9%2587%258C%25E5%25B7%25B4%25E5%25B7%25B4DevOps%25E5%25AE%259E%25E8%25B7%25B5%25E6%2589%258B%25E5%2586%258C/</loc>
     
     <lastmod>2021-04-07T08:54:37.356Z</lastmod>
