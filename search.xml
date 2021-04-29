@@ -2057,50 +2057,6 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
-    <title>阿里日志服务-费用优化实践</title>
-    <url>/ali-sls-cost-optimization/</url>
-    <content><![CDATA[<p><img src="/ali-sls-cost-optimization/z.jpg" alt></p>
-<a id="more"></a>
-<h2 id="背景情况"><a href="#背景情况" class="headerlink" title="背景情况"></a>背景情况</h2><p>日志服务存储量较大，费用明显增高</p>
-<p><img src="/ali-sls-cost-optimization/./sls01.png" alt></p>
-<p>查看费用账单，可以看到日志服务费用为7万5千块钱，费用较高。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>首先在<strong>账单明细</strong>中查看日志服务详细的计量计费信息，包括请求次数、存储空间、索引流量、活跃Shard租用等。</p>
-<p><img src="/ali-sls-cost-optimization/./sls03.png" alt="image-20210219090909012"></p>
-<p>表格排序后看到存储量较大的project和logstore信息。</p>
-<h2 id="费用优化"><a href="#费用优化" class="headerlink" title="费用优化"></a>费用优化</h2><p>费用和两方面因素相关：</p>
-<ul>
-<li>数据量：用户的数据量是业务决定的，无法优化。</li>
-<li>配置：使用和数据量相匹配的配置，选择最优的解决方案，才能使成本最小化。</li>
-</ul>
-<h3 id="优化配置"><a href="#优化配置" class="headerlink" title="优化配置"></a>优化配置</h3><p>配置可以从以下两个方面进行优化：</p>
-<ul>
-<li><p>分区个数</p>
-<p>一个分区最大可以处理5M/s的数据。只有readwrite的分区会收费。请调整分区个数，使其正好能处理5M/s的数据。减少分区个数请合并分区。</p>
-</li>
-<li><p>Logstore 数据保存周期</p>
-<p>针对您对日志的查询、存储的需求不同，建议您优化Logstore 数据保存周期。</p>
-<ul>
-<li>如果您收集日志是为了做流计算，建议您只使用LogHub，不创建索引。</li>
-<li>如果您需要经常查询最近90天的日志数据，偶尔查询90天前的数据，建议您把Logstore 数据保存周期调整到90天，同时把数据导入MaxCompute。查询90天内数据，使用日志服务，查询90天前数据，使用MaxCompute。</li>
-<li>如果您对日志有长时间存储和备份的需求，建议您把日志导入到OSS。</li>
-</ul>
-</li>
-</ul>
-<h3 id="其他优化建议"><a href="#其他优化建议" class="headerlink" title="其他优化建议"></a>其他优化建议</h3><ul>
-<li>使用Logtail：有 Batch 与断点续传功能，在保障实时性的同时以最优算法传输数据。Logtail 消耗资源是开源软件（Logstash，FluentD）的1/4，减少CPU消耗。</li>
-<li>API写入用户尽量使用64KB~1MB大包写入，减少请求次数。</li>
-<li>索引关键字段，例如UserID，Action等，对无用字段不配置索引。</li>
-</ul>
-<h2 id="脚本优化方案："><a href="#脚本优化方案：" class="headerlink" title="脚本优化方案："></a>脚本优化方案：</h2><p>通过脚本实现批量修改logstore数据保存周期</p>
-<p>1、获取北京区域日志服务所有logstore的ttl保留时间配置</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> aliyun.log <span class="keyword">import</span> LogClient</span><br><span class="line">endpoint = <span class="string">&#x27;cn-beijing.log.aliyuncs.com&#x27;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 只读ak即可</span></span><br><span class="line">accessKeyId = <span class="string">&#x27;&#x27;</span></span><br><span class="line">accessKey = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">client = LogClient(endpoint, accessKeyId, accessKey)</span><br><span class="line"></span><br><span class="line">projectsList = client.list_project().get_body()[<span class="string">&#x27;projects&#x27;</span>]</span><br><span class="line"><span class="comment"># project</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> project <span class="keyword">in</span> projectsList:</span><br><span class="line">    projectName = project[<span class="string">&#x27;projectName&#x27;</span>]</span><br><span class="line">    <span class="comment"># 获取所有logstore</span></span><br><span class="line">    logstoresList=client.list_logstore(projectName).get_body()[<span class="string">&#x27;logstores&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> logstoreName <span class="keyword">in</span> logstoresList:</span><br><span class="line">        ttl = client.get_logstore(projectName,logstoreName).get_body()[<span class="string">&#x27;ttl&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> int(ttl) <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">3</span>,<span class="number">7</span>):</span><br><span class="line">            print(<span class="string">&#x27;%s,%s,%s&#x27;</span> % (projectName,logstoreName,ttl))</span><br></pre></td></tr></table></figure>
-<p>2、统一修改ttl</p>
-<p>首先要确定数据保留的规则，我们目前的规范为：</p>
-<p>生产数据保留7天，非生产保留3天，nginx日志长期保留，特殊日志、有指定需求的日志长期保留。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> aliyun.log <span class="keyword">import</span> LogClient</span><br><span class="line">endpoint = <span class="string">&#x27;cn-beijing.log.aliyuncs.com&#x27;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">#需对日志服务有写权限</span></span><br><span class="line">accessKeyId = <span class="string">&#x27;&#x27;</span></span><br><span class="line">accessKey = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">client = LogClient(endpoint, accessKeyId, accessKey)</span><br><span class="line"></span><br><span class="line"><span class="comment">#只改特定几个project</span></span><br><span class="line">projectsList = [<span class="string">&#x27;k8s-log-cb16adeacafeb4b9b988ae5d7e8bf0fc1&#x27;</span>,<span class="string">&#x27;k8s-log-c2ab41eea4b8143efa03879fb49a9a282&#x27;</span>,<span class="string">&#x27;k8s-log-c502d303ba7fb4fd5b01aa091f9cc79fe&#x27;</span>,<span class="string">&#x27;proj-xtrace-eb2cce493ffc5c6328dfd9e39e9f38c-cn-beijing&#x27;</span>,<span class="string">&#x27;k8s-log-c37c707c4b45b4b7ab09265f449492802&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> projectName <span class="keyword">in</span> projectsList:</span><br><span class="line">    <span class="comment"># 获取所有logstore</span></span><br><span class="line">    logstoresList=client.list_logstore(projectName).get_body()[<span class="string">&#x27;logstores&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> logstoreName <span class="keyword">in</span> logstoresList:</span><br><span class="line">        ttl = client.get_logstore(projectName,logstoreName).get_body()[<span class="string">&#x27;ttl&#x27;</span>]</span><br><span class="line">        <span class="comment"># 保留时间不是3的，改为3。</span></span><br><span class="line">        <span class="keyword">if</span> int(ttl) != <span class="number">3</span>:</span><br><span class="line">           print(<span class="string">&#x27;%s,%s,%s&#x27;</span> % (projectName,logstoreName,ttl))</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 系统生产的特定logstore，无权修改ttl值，需排除</span></span><br><span class="line">        <span class="keyword">if</span> logstoreName <span class="keyword">in</span> [<span class="string">&#x27;internal-diagnostic_log&#x27;</span>,<span class="string">&#x27;internal-operation_log&#x27;</span>]:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            client.update_logstore(projectName,logstoreName,ttl=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>ali_safe-centos_7&amp;8_hostBase</title>
     <url>/ali-safe-centos-7-8-hostBase/</url>
     <content><![CDATA[<p>阿里云标准-CentOS Linux 7/8安全基线检查<br><a id="more"></a><br><strong>注意：操作时建议做好记录或备份</strong></p>
@@ -2170,6 +2126,50 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
         <tag>Linux</tag>
         <tag>Safe</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>阿里日志服务-费用优化实践</title>
+    <url>/ali-sls-cost-optimization/</url>
+    <content><![CDATA[<p><img src="/ali-sls-cost-optimization/z.jpg" alt></p>
+<a id="more"></a>
+<h2 id="背景情况"><a href="#背景情况" class="headerlink" title="背景情况"></a>背景情况</h2><p>日志服务存储量较大，费用明显增高</p>
+<p><img src="/ali-sls-cost-optimization/./sls01.png" alt></p>
+<p>查看费用账单，可以看到日志服务费用为7万5千块钱，费用较高。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>首先在<strong>账单明细</strong>中查看日志服务详细的计量计费信息，包括请求次数、存储空间、索引流量、活跃Shard租用等。</p>
+<p><img src="/ali-sls-cost-optimization/./sls03.png" alt="image-20210219090909012"></p>
+<p>表格排序后看到存储量较大的project和logstore信息。</p>
+<h2 id="费用优化"><a href="#费用优化" class="headerlink" title="费用优化"></a>费用优化</h2><p>费用和两方面因素相关：</p>
+<ul>
+<li>数据量：用户的数据量是业务决定的，无法优化。</li>
+<li>配置：使用和数据量相匹配的配置，选择最优的解决方案，才能使成本最小化。</li>
+</ul>
+<h3 id="优化配置"><a href="#优化配置" class="headerlink" title="优化配置"></a>优化配置</h3><p>配置可以从以下两个方面进行优化：</p>
+<ul>
+<li><p>分区个数</p>
+<p>一个分区最大可以处理5M/s的数据。只有readwrite的分区会收费。请调整分区个数，使其正好能处理5M/s的数据。减少分区个数请合并分区。</p>
+</li>
+<li><p>Logstore 数据保存周期</p>
+<p>针对您对日志的查询、存储的需求不同，建议您优化Logstore 数据保存周期。</p>
+<ul>
+<li>如果您收集日志是为了做流计算，建议您只使用LogHub，不创建索引。</li>
+<li>如果您需要经常查询最近90天的日志数据，偶尔查询90天前的数据，建议您把Logstore 数据保存周期调整到90天，同时把数据导入MaxCompute。查询90天内数据，使用日志服务，查询90天前数据，使用MaxCompute。</li>
+<li>如果您对日志有长时间存储和备份的需求，建议您把日志导入到OSS。</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他优化建议"><a href="#其他优化建议" class="headerlink" title="其他优化建议"></a>其他优化建议</h3><ul>
+<li>使用Logtail：有 Batch 与断点续传功能，在保障实时性的同时以最优算法传输数据。Logtail 消耗资源是开源软件（Logstash，FluentD）的1/4，减少CPU消耗。</li>
+<li>API写入用户尽量使用64KB~1MB大包写入，减少请求次数。</li>
+<li>索引关键字段，例如UserID，Action等，对无用字段不配置索引。</li>
+</ul>
+<h2 id="脚本优化方案："><a href="#脚本优化方案：" class="headerlink" title="脚本优化方案："></a>脚本优化方案：</h2><p>通过脚本实现批量修改logstore数据保存周期</p>
+<p>1、获取北京区域日志服务所有logstore的ttl保留时间配置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> aliyun.log <span class="keyword">import</span> LogClient</span><br><span class="line">endpoint = <span class="string">&#x27;cn-beijing.log.aliyuncs.com&#x27;</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 只读ak即可</span></span><br><span class="line">accessKeyId = <span class="string">&#x27;&#x27;</span></span><br><span class="line">accessKey = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">client = LogClient(endpoint, accessKeyId, accessKey)</span><br><span class="line"></span><br><span class="line">projectsList = client.list_project().get_body()[<span class="string">&#x27;projects&#x27;</span>]</span><br><span class="line"><span class="comment"># project</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> project <span class="keyword">in</span> projectsList:</span><br><span class="line">    projectName = project[<span class="string">&#x27;projectName&#x27;</span>]</span><br><span class="line">    <span class="comment"># 获取所有logstore</span></span><br><span class="line">    logstoresList=client.list_logstore(projectName).get_body()[<span class="string">&#x27;logstores&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> logstoreName <span class="keyword">in</span> logstoresList:</span><br><span class="line">        ttl = client.get_logstore(projectName,logstoreName).get_body()[<span class="string">&#x27;ttl&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> int(ttl) <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">3</span>,<span class="number">7</span>):</span><br><span class="line">            print(<span class="string">&#x27;%s,%s,%s&#x27;</span> % (projectName,logstoreName,ttl))</span><br></pre></td></tr></table></figure>
+<p>2、统一修改ttl</p>
+<p>首先要确定数据保留的规则，我们目前的规范为：</p>
+<p>生产数据保留7天，非生产保留3天，nginx日志长期保留，特殊日志、有指定需求的日志长期保留。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> aliyun.log <span class="keyword">import</span> LogClient</span><br><span class="line">endpoint = <span class="string">&#x27;cn-beijing.log.aliyuncs.com&#x27;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">#需对日志服务有写权限</span></span><br><span class="line">accessKeyId = <span class="string">&#x27;&#x27;</span></span><br><span class="line">accessKey = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">client = LogClient(endpoint, accessKeyId, accessKey)</span><br><span class="line"></span><br><span class="line"><span class="comment">#只改特定几个project</span></span><br><span class="line">projectsList = [<span class="string">&#x27;k8s-log-cb16adeacafeb4b9b988ae5d7e8bf0fc1&#x27;</span>,<span class="string">&#x27;k8s-log-c2ab41eea4b8143efa03879fb49a9a282&#x27;</span>,<span class="string">&#x27;k8s-log-c502d303ba7fb4fd5b01aa091f9cc79fe&#x27;</span>,<span class="string">&#x27;proj-xtrace-eb2cce493ffc5c6328dfd9e39e9f38c-cn-beijing&#x27;</span>,<span class="string">&#x27;k8s-log-c37c707c4b45b4b7ab09265f449492802&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> projectName <span class="keyword">in</span> projectsList:</span><br><span class="line">    <span class="comment"># 获取所有logstore</span></span><br><span class="line">    logstoresList=client.list_logstore(projectName).get_body()[<span class="string">&#x27;logstores&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> logstoreName <span class="keyword">in</span> logstoresList:</span><br><span class="line">        ttl = client.get_logstore(projectName,logstoreName).get_body()[<span class="string">&#x27;ttl&#x27;</span>]</span><br><span class="line">        <span class="comment"># 保留时间不是3的，改为3。</span></span><br><span class="line">        <span class="keyword">if</span> int(ttl) != <span class="number">3</span>:</span><br><span class="line">           print(<span class="string">&#x27;%s,%s,%s&#x27;</span> % (projectName,logstoreName,ttl))</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 系统生产的特定logstore，无权修改ttl值，需排除</span></span><br><span class="line">        <span class="keyword">if</span> logstoreName <span class="keyword">in</span> [<span class="string">&#x27;internal-diagnostic_log&#x27;</span>,<span class="string">&#x27;internal-operation_log&#x27;</span>]:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            client.update_logstore(projectName,logstoreName,ttl=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>阿里云产品我想退款如何操作</title>
@@ -2836,6 +2836,24 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 <p>访问：<a href="http://127.0.0.1:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login">http://127.0.0.1:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login</a></p>
 <p><img src="/kubernetes-dashboard/./kubernetes-dashboard01.png" alt></p>
 <p><img src="/kubernetes-dashboard/./kubernetes-dashboard.png" alt></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Mac网络快捷指令-实现快速开启关闭网络Proxy</title>
+    <url>/mac-networksetup-proxy/</url>
+    <content><![CDATA[<p><code>networksetup -setwebproxystate &#39;Thunderbolt Ethernet&#39; on</code><br><a id="more"></a></p>
+<h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><p>想快速切换网络代理的状态（on 或 off）</p>
+<h3 id="确定方案"><a href="#确定方案" class="headerlink" title="确定方案"></a>确定方案</h3><p><a href="https://support.apple.com/zh-cn/guide/remote-desktop/apdd0c5a2d5/mac">https://support.apple.com/zh-cn/guide/remote-desktop/apdd0c5a2d5/mac</a></p>
+<p>从官方帮助手册看到networksetup命令，通过<code>networksetup -help</code>获取命令帮助手册</p>
+<p>可以看到：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看网络代理状态</span></span><br><span class="line">networksetup -getwebproxy &lt;networkservice&gt;</span><br><span class="line">networksetup -getsecurewebproxy &lt;networkservice&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看网络接口</span></span><br><span class="line">networksetup -listallnetworkservices</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置网络代理：http 和 https </span></span><br><span class="line">networksetup -setwebproxy &lt;networkservice&gt; &lt;domain&gt; &lt;port number&gt; &lt;authenticated&gt; &lt;username&gt; &lt;password&gt;</span><br><span class="line">networksetup -setsecurewebproxy &lt;networkservice&gt; &lt;domain&gt; &lt;port number&gt; &lt;authenticated&gt; &lt;username&gt; &lt;password&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置网络代理状态</span></span><br><span class="line">networksetup -setwebproxystate &lt;networkservice&gt; &lt;on off&gt;</span><br><span class="line">networksetup -setsecurewebproxystate &lt;networkservice&gt; &lt;on off&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="do-it"><a href="#do-it" class="headerlink" title="do it"></a>do it</h3><h4 id="获取网络接口"><a href="#获取网络接口" class="headerlink" title="获取网络接口"></a>获取网络接口</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">networksetup -listallnetworkservices</span><br><span class="line"></span><br><span class="line">    An asterisk (*) denotes that a network service is disabled.</span><br><span class="line">    Wi-Fi</span><br><span class="line">    Thunderbolt Bridge</span><br><span class="line">    Thunderbolt Ethernet</span><br><span class="line">    iPhone USB</span><br><span class="line">    Bluetooth PAN</span><br></pre></td></tr></table></figure>
+<h4 id="配置代理信息"><a href="#配置代理信息" class="headerlink" title="配置代理信息"></a>配置代理信息</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建议是在图形界面-网络管理中配置</span></span><br><span class="line"><span class="comment"># 以下是命令行方式</span></span><br><span class="line"></span><br><span class="line">networksetup -setwebproxy <span class="string">&#x27;Thunderbolt Ethernet&#x27;</span> 172.16.242.47 3128 username password</span><br><span class="line">networksetup -setsecurewebproxy <span class="string">&#x27;Thunderbolt Ethernet&#x27;</span> 172.16.242.47 3128 username password</span><br></pre></td></tr></table></figure>
+<h4 id="开启代理"><a href="#开启代理" class="headerlink" title="开启代理"></a>开启代理</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">networksetup -setwebproxystate <span class="string">&#x27;Thunderbolt Ethernet&#x27;</span> on</span><br><span class="line">networksetup -setsecurewebproxystate <span class="string">&#x27;Thunderbolt Ethernet&#x27;</span> on</span><br></pre></td></tr></table></figure>
+<h4 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">networksetup -getsecurewebproxy <span class="string">&#x27;Thunderbolt Ethernet&#x27;</span></span><br><span class="line"></span><br><span class="line">    Enabled: Yes</span><br><span class="line">    Server: 172.16.242.47</span><br><span class="line">    Port: 3128</span><br><span class="line">    Authenticated Proxy Enabled: 0</span><br><span class="line">    </span><br><span class="line">networksetup -getwebproxy <span class="string">&#x27;Thunderbolt Ethernet&#x27;</span></span><br><span class="line"></span><br><span class="line">    Enabled: Yes</span><br><span class="line">    Server: 172.16.242.47</span><br><span class="line">    Port: 3128</span><br><span class="line">    Authenticated Proxy Enabled: 0</span><br></pre></td></tr></table></figure>
+<h3 id="shuttle实现快捷切换"><a href="#shuttle实现快捷切换" class="headerlink" title="shuttle实现快捷切换"></a><a href="https://github.com/fitztrev/shuttle">shuttle</a>实现快捷切换</h3><p><a href="https://github.com/fitztrev/shuttle">https://github.com/fitztrev/shuttle</a></p>
+<p>.shuttle.json 的配置</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;_comments&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;Valid terminals include: &#x27;Terminal.app&#x27; or &#x27;iTerm&#x27;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;In the editor value change &#x27;default&#x27; to &#x27;nano&#x27;, &#x27;vi&#x27;, or another terminal based editor.&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Hosts will also be read from your ~/.ssh/config or /etc/ssh_config file, if available&quot;</span>,</span><br><span class="line">    <span class="string">&quot;For more information on how to configure, please see http://fitztrev.github.io/shuttle/&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;editor&quot;</span>: <span class="string">&quot;default&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;launch_at_login&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">&quot;terminal&quot;</span>: <span class="string">&quot;iTerm.app&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;iTerm_version&quot;</span>: <span class="string">&quot;nightly&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;default_theme&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;open_in&quot;</span>: <span class="string">&quot;new&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;show_ssh_config_hosts&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">&quot;ssh_config_ignore_hosts&quot;</span>: [],</span><br><span class="line">  <span class="attr">&quot;ssh_config_ignore_keywords&quot;</span>: [],</span><br><span class="line">  <span class="attr">&quot;hosts&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;Proxy&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;cmd&quot;</span>: <span class="string">&quot;networksetup -setwebproxystate &#x27;Thunderbolt Ethernet&#x27; on &amp;&amp; networksetup -setsecurewebproxystate &#x27;Thunderbolt Ethernet&#x27; on&quot;</span>,</span><br><span class="line">          <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;开启代理&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;cmd&quot;</span>: <span class="string">&quot;networksetup -setwebproxystate &#x27;Thunderbolt Ethernet&#x27; off &amp;&amp; networksetup -setsecurewebproxystate &#x27;Thunderbolt Ethernet&#x27; off&quot;</span>,</span><br><span class="line">          <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;关闭代理&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;cmd&quot;</span>: <span class="string">&quot;networksetup -getwebproxy &#x27;Thunderbolt Ethernet&#x27; &amp;&amp; networksetup -getsecurewebproxy &#x27;Thunderbolt Ethernet&#x27;&quot;</span>,</span><br><span class="line">          <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;获取当前状态&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
