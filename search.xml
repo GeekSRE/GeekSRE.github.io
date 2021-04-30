@@ -3010,6 +3010,33 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
 ]]></content>
   </entry>
   <entry>
+    <title>Open-LDAP容器化部署</title>
+    <url>/open-ldap/</url>
+    <content><![CDATA[<p>Docker部署<strong>LDAP</strong>，安装<strong>LDAP Account Manager (LAM)</strong>来网页端管理user和group<br><img src="/open-ldap/./ldap-07.png" alt></p>
+<a id="more"></a>
+<p>OpenLDAP官网：<a href="https://www.openldap.org/">https://www.openldap.org/</a></p>
+<p>LDAP Account Manager官网：<a href="https://www.ldap-account-manager.org/lamcms/">https://www.ldap-account-manager.org/lamcms/</a></p>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h4 id="Open-LDAP"><a href="#Open-LDAP" class="headerlink" title="Open LDAP"></a>Open LDAP</h4><p>可参考<a href="https://github.com/osixia/docker-openldap">https://github.com/osixia/docker-openldap</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 389:389 --name open-ldap \</span><br><span class="line">	--env LDAP_ORGANISATION=<span class="string">&quot;ops&quot;</span> \</span><br><span class="line">	--env LDAP_DOMAIN=<span class="string">&quot;ops.work&quot;</span> \</span><br><span class="line">	--env LDAP_ADMIN_PASSWORD=<span class="string">&quot;*****&quot;</span> \</span><br><span class="line">	--env LDAP_BASE_DN=<span class="string">&quot;dc=ops,dc=work&quot;</span> \</span><br><span class="line">	--detach osixia/openldap:1.5.0</span><br></pre></td></tr></table></figure>
+<h4 id="LAM"><a href="#LAM" class="headerlink" title="LAM"></a>LAM</h4><p>可参考<a href="https://github.com/LDAPAccountManager/lam">https://github.com/LDAPAccountManager/lam</a></p>
+<p>环境变量请参考：<a href="https://github.com/LDAPAccountManager/lam/blob/develop/lam-packaging/docker/.env">https://github.com/LDAPAccountManager/lam/blob/develop/lam-packaging/docker/.env</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 80:80 --name ldap-lam \</span><br><span class="line">	--env LDAP_DOMAIN=<span class="string">&quot;ops.work&quot;</span> \</span><br><span class="line">	--env LDAP_BASE_DN=<span class="string">&quot;dc=ops,dc=work&quot;</span> \</span><br><span class="line">	--env LDAP_USERS_DN=<span class="string">&quot;ou=people,dc=ops,dc=work&quot;</span> \</span><br><span class="line">	--env LDAP_GROUPS_DN=<span class="string">&quot;ou=group,dc=ops,dc=work&quot;</span> \</span><br><span class="line">  --env LDAP_SERVER=<span class="string">&quot;ldap://open-lan:389&quot;</span> \</span><br><span class="line">	--env LDAP_USER=<span class="string">&quot;cn=admin,dc=ops,dc=work&quot;</span> \</span><br><span class="line">	--env LAM_PASSWORD=<span class="string">&quot;*****&quot;</span> \</span><br><span class="line">	--detach osixia/openldap:1.5.0</span><br></pre></td></tr></table></figure>
+<p>我是部署在k8s里，环境变量配置如下：</p>
+<p><img src="/open-ldap/./ldap-01.png" alt></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><img src="/open-ldap/./ldap-02.png" alt></p>
+<p><img src="/open-ldap/./ldap-03.png" alt></p>
+<p><img src="/open-ldap/./ldap-04.png" alt></p>
+<p><img src="/open-ldap/./ldap-05.png" alt></p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p><img src="/open-ldap/./ldap-06.png" alt></p>
+<p><img src="/open-ldap/./ldap-07.png" alt></p>
+<p>完工，嘻嘻😝</p>
+]]></content>
+      <tags>
+        <tag>ldap</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenVPN</title>
     <url>/openvpn/</url>
     <content><![CDATA[<p><img src="/openvpn/./z.jpg" alt></p>
@@ -3898,6 +3925,30 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
     <title>(转载)阿里巴巴DevOps实践手册</title>
     <url>/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4DevOps%E5%AE%9E%E8%B7%B5%E6%89%8B%E5%86%8C/</url>
     <content><![CDATA[<p>do what you loveeee<br><a id="more"></a><br><div class="pdfobject-container" data-target="./阿里巴巴DevOps实践手册.pdf" data-height="500px"></div></p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/open-ldap/open-ldap/</url>
+    <content><![CDATA[<p>Docker部署<strong>LDAP</strong>，安装<strong>LDAP Account Manager (LAM)</strong>来网页端管理user和group</p>
+<a id="more"></a>
+<p>OpenLDAP官网：<a href="https://www.openldap.org/">https://www.openldap.org/</a></p>
+<p>LDAP Account Manager官网：<a href="https://www.ldap-account-manager.org/lamcms/">https://www.ldap-account-manager.org/lamcms/</a></p>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h4 id="Open-LDAP"><a href="#Open-LDAP" class="headerlink" title="Open LDAP"></a>Open LDAP</h4><p>可参考<a href="https://github.com/osixia/docker-openldap">https://github.com/osixia/docker-openldap</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 389:389 --name open-ldap \</span><br><span class="line">	--env LDAP_ORGANISATION=<span class="string">&quot;ops&quot;</span> \</span><br><span class="line">	--env LDAP_DOMAIN=<span class="string">&quot;ops.work&quot;</span> \</span><br><span class="line">	--env LDAP_ADMIN_PASSWORD=<span class="string">&quot;*****&quot;</span> \</span><br><span class="line">	--env LDAP_BASE_DN=<span class="string">&quot;dc=ops,dc=work&quot;</span> \</span><br><span class="line">	--detach osixia/openldap:1.5.0</span><br></pre></td></tr></table></figure>
+<h4 id="LAM"><a href="#LAM" class="headerlink" title="LAM"></a>LAM</h4><p>可参考<a href="https://github.com/LDAPAccountManager/lam">https://github.com/LDAPAccountManager/lam</a></p>
+<p>环境变量请参考：<a href="https://github.com/LDAPAccountManager/lam/blob/develop/lam-packaging/docker/.env">https://github.com/LDAPAccountManager/lam/blob/develop/lam-packaging/docker/.env</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 80:80 --name ldap-lam \</span><br><span class="line">	--env LDAP_DOMAIN=<span class="string">&quot;ops.work&quot;</span> \</span><br><span class="line">	--env LDAP_BASE_DN=<span class="string">&quot;dc=ops,dc=work&quot;</span> \</span><br><span class="line">	--env LDAP_USERS_DN=<span class="string">&quot;ou=people,dc=ops,dc=work&quot;</span> \</span><br><span class="line">	--env LDAP_GROUPS_DN=<span class="string">&quot;ou=group,dc=ops,dc=work&quot;</span> \</span><br><span class="line">  --env LDAP_SERVER=<span class="string">&quot;ldap://open-lan:389&quot;</span> \</span><br><span class="line">	--env LDAP_USER=<span class="string">&quot;cn=admin,dc=ops,dc=work&quot;</span> \</span><br><span class="line">	--env LAM_PASSWORD=<span class="string">&quot;*****&quot;</span> \</span><br><span class="line">	--detach osixia/openldap:1.5.0</span><br></pre></td></tr></table></figure>
+<p>我是部署在k8s里，环境变量配置如下：</p>
+<p><img src="/open-ldap/open-ldap/./ldap-01.png" alt></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><img src="/open-ldap/open-ldap/./ldap-02.png" alt></p>
+<p><img src="/open-ldap/open-ldap/./ldap-03.png" alt></p>
+<p><img src="/open-ldap/open-ldap/./ldap-04.png" alt></p>
+<p><img src="/open-ldap/open-ldap/./ldap-05.png" alt></p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p><img src="/open-ldap/open-ldap/./ldap-06.png" alt></p>
+<p><img src="/open-ldap/open-ldap/./ldap-07.png" alt></p>
+<p>完工，嘻嘻😝</p>
 ]]></content>
   </entry>
   <entry>

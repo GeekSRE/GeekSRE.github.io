@@ -187,6 +187,197 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96%E6%B7%BB%E5%8A%A0live2d%E5%8A%A8%E7%94%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96%E6%B7%BB%E5%8A%A0live2d%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">Hexo博客美化添加live2d动画</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-05-27 16:07:34" itemprop="dateCreated datePublished" datetime="2019-05-27T16:07:34+08:00">2019-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-10-15 15:56:34" itemprop="dateModified" datetime="2020-10-15T15:56:34+08:00">2020-10-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<p><a target="_blank" rel="noopener" href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md"><strong>hexo-helper-live2d GitHub地址</strong></a></p>
+<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><ol>
+<li><p>在hexo根目录执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择动画模型</p>
+<p><a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">模型地址</a></p>
+<ul>
+<li>live2d-widget-model-chitose</li>
+<li>live2d-widget-model-epsilon2_1</li>
+<li>live2d-widget-model-gf</li>
+<li>live2d-widget-model-haru</li>
+<li>live2d-widget-model-haruto</li>
+<li>live2d-widget-model-hibiki</li>
+<li>live2d-widget-model-hijiki</li>
+<li>live2d-widget-model-izumi</li>
+<li>live2d-widget-model-koharu</li>
+<li>live2d-widget-model-miku</li>
+<li>live2d-widget-model-ni-j</li>
+<li>live2d-widget-model-nico</li>
+<li>live2d-widget-model-nietzsche</li>
+<li>live2d-widget-model-nipsilon</li>
+<li>live2d-widget-model-nito</li>
+<li>live2d-widget-model-shizuku</li>
+<li>live2d-widget-model-tororo</li>
+<li>live2d-widget-model-tsumiki</li>
+<li>live2d-widget-model-unitychan</li>
+<li>live2d-widget-model-wanko</li>
+<li>live2d-widget-model-z16</li>
+</ul>
+</li>
+<li><p>本次选择安装live2d-widget-model-haruto</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live2d-widget-model-haruto</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="拷贝资源"><a href="#拷贝资源" class="headerlink" title="拷贝资源"></a>拷贝资源</h5><ol>
+<li><p>在hexo根目录live2d_models</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p live2d_models</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cp模型文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r node_modules&#x2F;live2d-widget-model-haruto&#x2F; live2d_models&#x2F;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="编辑主配置"><a href="#编辑主配置" class="headerlink" title="编辑主配置"></a>编辑主配置</h5><p>编辑_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw&#x2F;</span><br><span class="line">  pluginJsPath: lib&#x2F;</span><br><span class="line">  pluginModelPath: assets&#x2F;</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-haruto</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br></pre></td></tr></table></figure>
+<h5 id="重新部署"><a href="#重新部署" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>我部署到GitHub上的域名正常，服务器上的没生效，重启进程后生效。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Next%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%80%8F%E6%98%8E%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Next%E4%B8%BB%E9%A2%98%E5%A2%9E%E5%8A%A0%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%80%8F%E6%98%8E%E5%8C%96/" class="post-title-link" itemprop="url">Next主题增加动态背景并设置透明化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-05-27 15:16:18 / Modified: 15:16:51" itemprop="dateCreated datePublished" datetime="2019-05-27T15:16:18+08:00">2019-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="编辑主题配置"><a href="#编辑主题配置" class="headerlink" title="编辑主题配置"></a>编辑主题配置</h5><p>编辑 themes/next/_config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#canvas_nest: false</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: true</span><br><span class="line">  onmobile: true # display on mobile or not</span><br><span class="line">  color: &#39;0,0,255&#39; # RGB values, use &#39;,&#39; to separate</span><br><span class="line">  opacity: 0.5 # the opacity of line: 0~1</span><br><span class="line">  zIndex: -1 # z-index property of the background</span><br><span class="line">  count: 99 # the number of lines</span><br></pre></td></tr></table></figure>
+<h5 id="重新部署"><a href="#重新部署" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Hexo-Next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -795,168 +986,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/%E9%98%BF%E9%87%8C%E4%BA%91WAF-Kubernetes-Ingress-%E6%9E%B6%E6%9E%84%E4%B8%8B%E6%97%A0%E6%B3%95%E6%8B%BF%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP%E7%9A%84%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E9%98%BF%E9%87%8C%E4%BA%91WAF-Kubernetes-Ingress-%E6%9E%B6%E6%9E%84%E4%B8%8B%E6%97%A0%E6%B3%95%E6%8B%BF%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP%E7%9A%84%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">阿里云WAF + Kubernetes Ingress 架构下无法拿到客户端真实IP的问题处理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-21 19:00:55" itemprop="dateCreated datePublished" datetime="2019-04-21T19:00:55+08:00">2019-04-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-15 16:08:39" itemprop="dateModified" datetime="2020-10-15T16:08:39+08:00">2020-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>运维经验分享<br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E9%98%BF%E9%87%8C%E4%BA%91WAF-Kubernetes-Ingress-%E6%9E%B6%E6%9E%84%E4%B8%8B%E6%97%A0%E6%B3%95%E6%8B%BF%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP%E7%9A%84%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Kubernetes-kubectl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Kubernetes-kubectl/" class="post-title-link" itemprop="url">Kubernetes-kubectl</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-04-21 15:02:52" itemprop="dateCreated datePublished" datetime="2019-04-21T15:02:52+08:00">2019-04-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-15 16:08:00" itemprop="dateModified" datetime="2020-10-15T16:08:00+08:00">2020-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>管理Kubernetes集群的工具</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Kubernetes-kubectl/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1025,7 +1054,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1036,7 +1065,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
