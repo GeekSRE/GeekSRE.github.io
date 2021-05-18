@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/open-ldap/open-ldap/</loc>
+    <loc>http://yoursite.com/django-ldap/</loc>
     
-    <lastmod>2021-04-30T02:40:05.124Z</lastmod>
+    <lastmod>2021-05-18T09:23:59.138Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/django-celery/</loc>
+    
+    <lastmod>2021-05-18T09:00:27.376Z</lastmod>
     
   </url>
   
@@ -450,13 +457,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Django-Celery%25E5%25BC%2582%25E6%25AD%25A5%25E4%25BB%25BB%25E5%258A%25A1%25E8%25B0%2583%25E5%25BA%25A6%25E5%25B7%25A5%25E5%2585%25B7/</loc>
-    
-    <lastmod>2020-09-25T01:37:28.290Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/Nexus%25E6%2589%258B%25E5%258A%25A8%25E4%25B8%258A%25E4%25BC%25A0%25E4%25BE%259D%25E8%25B5%2596%25E5%258C%2585/</loc>
     
     <lastmod>2020-09-25T01:36:45.595Z</lastmod>
@@ -509,13 +509,6 @@
     <loc>http://yoursite.com/%25E6%25B7%25B1%25E5%2585%25A5%25E6%25B5%2585%25E5%2587%25BAKubernetes/</loc>
     
     <lastmod>2020-07-20T10:48:08.494Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/Django-LDAP%25E7%25BB%259F%25E4%25B8%2580%25E8%25AE%25A4%25E8%25AF%2581/</loc>
-    
-    <lastmod>2020-07-20T10:35:31.957Z</lastmod>
     
   </url>
   

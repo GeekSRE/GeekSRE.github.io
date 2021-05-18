@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/open-ldap/open-ldap/</loc>
-    <lastmod>2021-04-30</lastmod>
+    <loc>http://yoursite.com/django-ldap/</loc>
+    <lastmod>2021-05-18</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/django-celery/</loc>
+    <lastmod>2021-05-18</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/open-ldap/</loc>
@@ -257,10 +261,6 @@
     <lastmod>2020-09-25</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/Django-Celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2020-09-25</lastmod>
-  </url>
-  <url>
     <loc>http://yoursite.com/Nexus%E6%89%8B%E5%8A%A8%E4%B8%8A%E4%BC%A0%E4%BE%9D%E8%B5%96%E5%8C%85/</loc>
     <lastmod>2020-09-25</lastmod>
   </url>
@@ -286,10 +286,6 @@
   </url>
   <url>
     <loc>http://yoursite.com/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAKubernetes/</loc>
-    <lastmod>2020-07-20</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite.com/Django-LDAP%E7%BB%9F%E4%B8%80%E8%AE%A4%E8%AF%81/</loc>
     <lastmod>2020-07-20</lastmod>
   </url>
   <url>
