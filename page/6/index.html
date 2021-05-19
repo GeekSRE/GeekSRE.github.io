@@ -187,6 +187,70 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/gitlab-remove-to-coding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/gitlab-remove-to-coding/" class="post-title-link" itemprop="url">代码迁移-更改Git远程仓库-从gitlab上迁移到coding</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-08-06 10:31:03 / Modified: 10:31:39" itemprop="dateCreated datePublished" datetime="2019-08-06T10:31:03+08:00">2019-08-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@git.test.com:test/test.git</span><br></pre></td></tr></table></figure>
+<h5 id="进入项目"><a href="#进入项目" class="headerlink" title="进入项目"></a>进入项目</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd test</span><br></pre></td></tr></table></figure>
+<h5 id="删除-git文件"><a href="#删除-git文件" class="headerlink" title="删除.git文件"></a>删除.git文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .git</span><br></pre></td></tr></table></figure>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h5 id="绑定远程仓库"><a href="#绑定远程仓库" class="headerlink" title="绑定远程仓库"></a>绑定远程仓库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@git.coding.net:xxx/test.git </span><br></pre></td></tr></table></figure>
+<h5 id="更新到远端"><a href="#更新到远端" class="headerlink" title="更新到远端"></a>更新到远端</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;init&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/zip-and-tar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -891,88 +955,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" class="post-title-link" itemprop="url">Jenkins-RobotFramework执行自动化测试</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-03 10:22:45 / Modified: 10:24:32" itemprop="dateCreated datePublished" datetime="2019-07-03T10:22:45+08:00">2019-07-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Jenkins-RobotFramework执行自动化测试</p>
-<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest1.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest2.jpg" alt></p>
-<h5 id="添加slave节点"><a href="#添加slave节点" class="headerlink" title="添加slave节点"></a>添加slave节点</h5><p>由于master节点是linux服务器，RobotFramework软件部署在windows服务器上。</p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest3.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest4.jpg" alt></p>
-<h5 id="新建freestyle项目"><a href="#新建freestyle项目" class="headerlink" title="新建freestyle项目"></a>新建freestyle项目</h5><p>指定slave节点构建</p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest4-1.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest5.jpg" alt></p>
-<p>配置通过百分比和邮件通知</p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest6.jpg" alt></p>
-<h5 id="构建效果"><a href="#构建效果" class="headerlink" title="构建效果"></a>构建效果</h5><p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest7.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest8.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest9.jpg" alt></p>
-<p><img src="/Jenkins-RobotFramework%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/./autotest10.jpg" alt></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1041,7 +1023,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
