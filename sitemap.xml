@@ -51,7 +51,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/%25E9%2598%25BF%25E9%2587%258C%25E5%25B7%25B4%25E5%25B7%25B4DevOps%25E5%25AE%259E%25E8%25B7%25B5%25E6%2589%258B%25E5%2586%258C/</loc>
+    <loc>http://yoursite.com/ali-devops-practice/</loc>
     
     <lastmod>2021-04-07T08:54:37.356Z</lastmod>
     
@@ -219,7 +219,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-Pipelines%25E6%25B5%2581%25E6%25B0%25B4%25E7%25BA%25BF%25E5%25AE%259E%25E8%25B7%25B5/</loc>
+    <loc>http://yoursite.com/jenkins-pipelines-practice/</loc>
     
     <lastmod>2020-12-29T08:53:53.354Z</lastmod>
     
@@ -282,14 +282,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Ansible-%25E6%2589%25B9%25E9%2587%258F%25E4%25BF%25AE%25E6%2594%25B9%25E5%25AF%2586%25E7%25A0%2581/</loc>
+    <loc>http://yoursite.com/ansible-change-password/</loc>
     
     <lastmod>2020-10-15T08:09:10.273Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/%25E9%2598%25BF%25E9%2587%258C%25E4%25BA%2591WAF-Kubernetes-Ingress-%25E6%259E%25B6%25E6%259E%2584%25E4%25B8%258B%25E6%2597%25A0%25E6%25B3%2595%25E6%258B%25BF%25E5%2588%25B0%25E5%25AE%25A2%25E6%2588%25B7%25E7%25AB%25AF%25E7%259C%259F%25E5%25AE%259EIP%25E7%259A%2584%25E9%2597%25AE%25E9%25A2%2598%25E5%25A4%2584%25E7%2590%2586/</loc>
+    <loc>http://yoursite.com/ali-waf-realip/</loc>
     
     <lastmod>2020-10-15T08:08:39.532Z</lastmod>
     
@@ -303,14 +303,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Docker%25E5%25AE%25B9%25E5%2599%25A8%25E7%25BD%2591%25E7%25BB%259C%25E6%258A%2593%25E5%258C%2585%25E6%25A1%2588%25E4%25BE%258B/</loc>
+    <loc>http://yoursite.com/docker-tcpdump/</loc>
     
     <lastmod>2020-10-15T08:07:29.660Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Docker-%25E9%2595%259C%25E5%2583%258Fimage/</loc>
+    <loc>http://yoursite.com/docker-image/</loc>
     
     <lastmod>2020-10-15T08:07:08.457Z</lastmod>
     
@@ -324,14 +324,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Confluence%25E5%25AE%2589%25E8%25A3%2585-%25E7%25BB%25B4%25E6%258A%25A4-%25E8%25BF%2581%25E7%25A7%25BB%25E5%25AE%259E%25E8%25B7%25B5/</loc>
+    <loc>http://yoursite.com/confluence-ops/</loc>
     
     <lastmod>2020-10-15T08:05:34.190Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Nginx-ingress-controller%25E9%2583%25A8%25E7%25BD%25B2/</loc>
+    <loc>http://yoursite.com/k8s-nginx-ingress-controller-install/</loc>
     
     <lastmod>2020-10-15T08:04:51.302Z</lastmod>
     
@@ -352,14 +352,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Hexo-Next%25E4%25B8%25BB%25E9%25A2%2598%25E6%25B7%25BB%25E5%258A%25A0%25E6%2590%259C%25E7%25B4%25A2%25E5%258A%259F%25E8%2583%25BD/</loc>
+    <loc>http://yoursite.com/hexo-next-add-search/</loc>
     
     <lastmod>2020-10-15T08:03:09.994Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Archer-SQL%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E5%25B9%25B3%25E5%258F%25B0/</loc>
+    <loc>http://yoursite.com/archer/</loc>
     
     <lastmod>2020-10-15T08:02:31.560Z</lastmod>
     
@@ -380,14 +380,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Ansible-%25E5%25BF%25AB%25E9%2580%259F%25E6%25B7%25BB%25E5%258A%25A0%25E5%2585%258D%25E5%25AF%2586%25E7%25A0%2581%25E8%25AE%25A4%25E8%25AF%2581/</loc>
+    <loc>http://yoursite.com/ansible-config-password-auth/</loc>
     
     <lastmod>2020-10-15T08:00:38.742Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Elasticsearch%25E6%259C%258D%25E5%258A%25A1%25E5%25AE%2589%25E5%2585%25A8%25E5%258A%25A0%25E5%259B%25BA/</loc>
+    <loc>http://yoursite.com/es-safe/</loc>
     
     <lastmod>2020-10-15T08:00:11.571Z</lastmod>
     
@@ -401,7 +401,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Linux%25E6%2593%258D%25E4%25BD%259C%25E7%25B3%25BB%25E7%25BB%259F%25E5%258A%25A0%25E5%259B%25BA/</loc>
+    <loc>http://yoursite.com/linux-jiagu/</loc>
     
     <lastmod>2020-10-15T07:58:30.043Z</lastmod>
     
@@ -415,21 +415,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/GitLab%25E4%25BB%25A3%25E7%25A0%2581%25E6%2589%2598%25E7%25AE%25A1/</loc>
+    <loc>http://yoursite.com/gitlab/</loc>
     
     <lastmod>2020-10-15T07:56:59.198Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Hexo%25E5%258D%259A%25E5%25AE%25A2%25E7%25BE%258E%25E5%258C%2596%25E6%25B7%25BB%25E5%258A%25A0live2d%25E5%258A%25A8%25E7%2594%25BB/</loc>
+    <loc>http://yoursite.com/hexo-live2d/</loc>
     
     <lastmod>2020-10-15T07:56:34.675Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Hexo-%25E5%258D%259A%25E5%25AE%25A2%25E4%25B8%25AD%25E6%25B7%25BB%25E5%258A%25A0%25E5%259B%25BE%25E7%2589%2587%25E7%25AD%2589%25E8%25B5%2584%25E6%25BA%2590/</loc>
+    <loc>http://yoursite.com/hexo-add-images/</loc>
     
     <lastmod>2020-10-15T07:56:06.874Z</lastmod>
     
@@ -450,28 +450,28 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Hexo-%25E5%258D%259A%25E5%25AE%25A2/</loc>
+    <loc>http://yoursite.com/hexo/</loc>
     
     <lastmod>2020-10-15T07:52:00.187Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins%25E4%25BB%258B%25E7%25BB%258D/</loc>
+    <loc>http://yoursite.com/what-is-jenkins/</loc>
     
     <lastmod>2020-09-28T06:33:23.614Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020%25E6%2596%25B0%25E7%2589%2588%25E4%25BA%2591%25E6%2595%2588-%25E6%25B5%2581%25E6%25B0%25B4%25E7%25BA%25BF%25E4%25BD%2593%25E9%25AA%258C/</loc>
+    <loc>http://yoursite.com/ali-yunxiao-tiyan/</loc>
     
     <lastmod>2020-09-25T01:38:06.440Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Nexus%25E6%2589%258B%25E5%258A%25A8%25E4%25B8%258A%25E4%25BC%25A0%25E4%25BE%259D%25E8%25B5%2596%25E5%258C%2585/</loc>
+    <loc>http://yoursite.com/nexus-upload-jar/</loc>
     
     <lastmod>2020-09-25T01:36:45.595Z</lastmod>
     
@@ -499,42 +499,42 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/CentOS7%25E5%25AE%2589%25E8%25A3%2585MariaDB/</loc>
+    <loc>http://yoursite.com/mariadb-install/</loc>
     
     <lastmod>2020-07-20T10:50:35.116Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/pip-%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B0/</loc>
+    <loc>http://yoursite.com/pip/</loc>
     
     <lastmod>2020-07-20T10:50:12.477Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Confluence%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593SSL%25E8%25AD%25A6%25E5%2591%258A/</loc>
+    <loc>http://yoursite.com/confluence-db-ssl-warning/</loc>
     
     <lastmod>2020-07-20T10:49:35.771Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/%25E6%25B7%25B1%25E5%2585%25A5%25E6%25B5%2585%25E5%2587%25BAKubernetes/</loc>
+    <loc>http://yoursite.com/what-is-k8s/</loc>
     
     <lastmod>2020-07-20T10:48:08.494Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-%25E6%2597%25A5%25E5%25B8%25B8%25E7%25BB%25B4%25E6%258A%25A4/</loc>
+    <loc>http://yoursite.com/jenkins-ops/</loc>
     
     <lastmod>2020-07-20T10:34:15.518Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/CentOS%25E9%2585%258D%25E7%25BD%25AEyum%25E6%25BA%2590/</loc>
+    <loc>http://yoursite.com/centos-yum-repo/</loc>
     
     <lastmod>2019-08-07T08:28:02.437Z</lastmod>
     
@@ -590,28 +590,28 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Linux-tree%25E5%2591%25BD%25E4%25BB%25A4/</loc>
+    <loc>http://yoursite.com/linux-tree/</loc>
     
     <lastmod>2019-07-16T08:59:47.926Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Helm-%25E7%25AE%2580%25E5%258C%2596%25E5%25BA%2594%25E7%2594%25A8%25E9%2583%25A8%25E7%25BD%25B2/</loc>
+    <loc>http://yoursite.com/helm/</loc>
     
     <lastmod>2019-07-16T06:18:45.827Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ab-Apache-HTTP%25E5%258E%258B%25E6%25B5%258B%25E5%25B7%25A5%25E5%2585%25B7/</loc>
+    <loc>http://yoursite.com/linux-ab/</loc>
     
     <lastmod>2019-07-16T06:13:46.686Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-RobotFramework%25E6%2589%25A7%25E8%25A1%258C%25E8%2587%25AA%25E5%258A%25A8%25E5%258C%2596%25E6%25B5%258B%25E8%25AF%2595/</loc>
+    <loc>http://yoursite.com/jenkins-robotframework/</loc>
     
     <lastmod>2019-07-03T02:24:32.654Z</lastmod>
     
@@ -625,35 +625,35 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-GitLab-WebHook%25E8%2587%25AA%25E5%258A%25A8%25E6%259E%2584%25E5%25BB%25BA/</loc>
+    <loc>http://yoursite.com/jenkins-gitlab-webhook/</loc>
     
     <lastmod>2019-07-01T08:24:22.611Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-%25E9%2582%25AE%25E4%25BB%25B6%25E9%2580%259A%25E7%259F%25A5/</loc>
+    <loc>http://yoursite.com/jenkins-mail/</loc>
     
     <lastmod>2019-07-01T07:48:12.135Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-%25E5%259F%259F%25E5%2590%258D%25E8%25A7%25A3%25E6%259E%2590-Nginx%25E4%25BB%25A3%25E7%2590%2586/</loc>
+    <loc>http://yoursite.com/jenkins-nginx/</loc>
     
     <lastmod>2019-07-01T03:30:37.528Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-%25E7%2594%25A8%25E6%2588%25B7%25E6%259D%2583%25E9%2599%2590%25E7%25AE%25A1%25E7%2590%2586/</loc>
+    <loc>http://yoursite.com/jenkins-rbac/</loc>
     
     <lastmod>2019-07-01T02:29:56.076Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-%25E6%258F%2592%25E4%25BB%25B6%25E7%25AE%25A1%25E7%2590%2586/</loc>
+    <loc>http://yoursite.com/jenkins-plugins/</loc>
     
     <lastmod>2019-06-29T07:19:33.005Z</lastmod>
     
@@ -667,28 +667,28 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-%25E5%2588%259B%25E5%25BB%25BAfreestyle%25E9%25A3%258E%25E6%25A0%25BC%25E9%25A1%25B9%25E7%259B%25AE/</loc>
+    <loc>http://yoursite.com/jenkins-freestyle/</loc>
     
     <lastmod>2019-06-29T05:39:44.753Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-%25E5%25AE%2589%25E8%25A3%2585/</loc>
+    <loc>http://yoursite.com/jenkins-install/</loc>
     
     <lastmod>2019-06-29T04:28:51.302Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/GitLab-%25E7%25AE%25A1%25E7%2590%2586%25E5%2591%2598%25E5%25AF%2586%25E7%25A0%2581%25E9%2587%258D%25E7%25BD%25AE/</loc>
+    <loc>http://yoursite.com/gitlab-reset-admin-password/</loc>
     
     <lastmod>2019-06-27T07:33:57.698Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/GitLab%25E6%2597%25A7%25E7%2589%2588%25E6%259C%25AC%25E5%25AE%2589%25E8%25A3%2585/</loc>
+    <loc>http://yoursite.com/gitlab-oldversion-install/</loc>
     
     <lastmod>2019-06-27T07:28:39.135Z</lastmod>
     
@@ -709,14 +709,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/%25E9%2598%25BF%25E9%2587%258C%25E4%25BA%2591OSS%25E5%25AF%25B9%25E8%25B1%25A1%25E5%25AD%2598%25E5%2582%25A8%25E4%25B8%25AD%25E7%259A%2584%25E5%259B%25BE%25E7%2589%2587%25E6%2595%25B0%25E6%258D%25AE%25E8%25BF%2581%25E7%25A7%25BB%25E5%2588%25B0%25E4%25BA%25AC%25E4%25B8%259C%25E4%25BA%2591OSS/</loc>
+    <loc>http://yoursite.com/ali-oss-cp-jd-oss/</loc>
     
     <lastmod>2019-06-13T02:01:06.456Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Python-%25E8%25B0%2583%25E7%2594%25A8%25E9%2598%25BF%25E9%2587%258C%25E4%25BA%2591API%25E5%25AE%259E%25E7%258E%25B0Swarm%25E9%259B%2586%25E7%25BE%25A4%25E5%25BA%2594%25E7%2594%25A8%25E7%259A%2584%25E6%259B%25B4%25E6%2596%25B0%25E6%2588%2596%25E9%2587%258D%25E5%2590%25AF/</loc>
+    <loc>http://yoursite.com/python-ali-swarm-app-ops/</loc>
     
     <lastmod>2019-06-04T11:12:56.264Z</lastmod>
     
@@ -737,14 +737,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/Nginx-%25E6%2597%25A5%25E5%25BF%2597%25E5%2588%2587%25E5%2589%25B2/</loc>
+    <loc>http://yoursite.com/nginx-log-qiege-shell/</loc>
     
     <lastmod>2019-05-27T08:54:35.930Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Next%25E4%25B8%25BB%25E9%25A2%2598%25E5%25A2%259E%25E5%258A%25A0%25E5%258A%25A8%25E6%2580%2581%25E8%2583%258C%25E6%2599%25AF%25E5%25B9%25B6%25E8%25AE%25BE%25E7%25BD%25AE%25E9%2580%258F%25E6%2598%258E%25E5%258C%2596/</loc>
+    <loc>http://yoursite.com/hexo-next-config/</loc>
     
     <lastmod>2019-05-27T07:16:51.064Z</lastmod>
     
