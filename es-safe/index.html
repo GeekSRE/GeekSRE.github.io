@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Elasticsearch 是一个基于 Lucene 的搜索服务">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Elasticsearch服务安全加固">
-<meta property="og:url" content="http://yoursite.com/es-safe/index.html">
+<meta property="og:url" content="https://zhaohongye.com/es-safe/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="Elasticsearch 是一个基于 Lucene 的搜索服务">
 <meta property="og:locale">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="Elasticsearch">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/es-safe/">
+<link rel="canonical" href="https://zhaohongye.com/es-safe/">
 
 
 <script id="page-configurations">
@@ -114,24 +114,29 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-标签">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-归档">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -191,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/es-safe/">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/es-safe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -251,7 +256,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Elasticsearch 是一个基于 Lucene 的搜索服务<br><a id="more"></a></p>
+        <p>Elasticsearch 是一个基于 Lucene 的搜索服务<br><span id="more"></span></p>
 <blockquote>
 <p>引用自阿里云<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/49913.html">https://help.aliyun.com/knowledge_detail/49913.html</a>&gt;</p>
 </blockquote>
@@ -302,11 +307,11 @@
 <li>使用 <a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/25475.html">阿里云安全组防火墙</a> 或本地操作系统防火墙对访问源 IP 进行隔离控制。</li>
 </ul>
 <h4 id="绑定访问源-IP"><a href="#绑定访问源-IP" class="headerlink" title="绑定访问源 IP"></a>绑定访问源 IP</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">network.bind_host: 192.168.0.1</span><br><span class="line"># 设置绑定的 IP 地址，可以是 IPv4 或 IPv6 地址，默认为 0.0.0.0。</span><br><span class="line">network.publish_host: 192.168.0.1</span><br><span class="line"># 设置其它节点和该节点交互的 IP 地址，如果不设置它会自动判断，值必须是个真实的 IP 地址。</span><br><span class="line">network.host: 192.168.0.1</span><br><span class="line"># 同时设置上述两个参数：bind_host 和 publish_host。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">network.bind_host: 192.168.0.1</span><br><span class="line"># 设置绑定的 IP 地址，可以是 IPv4 或 IPv6 地址，默认为 0.0.0.0。</span><br><span class="line">network.publish_host: 192.168.0.1</span><br><span class="line"># 设置其它节点和该节点交互的 IP 地址，如果不设置它会自动判断，值必须是个真实的 IP 地址。</span><br><span class="line">network.host: 192.168.0.1</span><br><span class="line"># 同时设置上述两个参数：bind_host 和 publish_host。</span><br></pre></td></tr></table></figure>
 <h4 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ransport.tcp.port: 9300</span><br><span class="line"># 设置节点间交互的 TCP 端口，默认是 9300。</span><br><span class="line">transport.tcp.compress: true</span><br><span class="line"># 设置是否压缩 TCP 传输时的数据，默认为 false，即不压缩。</span><br><span class="line">http.port: 9200</span><br><span class="line"># 设置对外服务的 HTTP 端口，默认为 9200。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ransport.tcp.port: 9300</span><br><span class="line"># 设置节点间交互的 TCP 端口，默认是 9300。</span><br><span class="line">transport.tcp.compress: true</span><br><span class="line"># 设置是否压缩 TCP 传输时的数据，默认为 false，即不压缩。</span><br><span class="line">http.port: 9200</span><br><span class="line"># 设置对外服务的 HTTP 端口，默认为 9200。</span><br></pre></td></tr></table></figure>
 <h4 id="关闭-HTTP-访问"><a href="#关闭-HTTP-访问" class="headerlink" title="关闭 HTTP 访问"></a>关闭 HTTP 访问</h4><p>进入 <code>config</code> 目录，修改 <code>elasticsearch.yml</code> 配置文件中以下参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.enabled: false</span><br><span class="line"># 是否使用 HTTP 协议对外提供服务，默认为 true，即开启。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.enabled: false</span><br><span class="line"># 是否使用 HTTP 协议对外提供服务，默认为 true，即开启。</span><br></pre></td></tr></table></figure>
 <h4 id="使用-Shield-安全插件"><a href="#使用-Shield-安全插件" class="headerlink" title="使用 Shield 安全插件"></a>使用 Shield 安全插件</h4><p>Shield 是 Elastic 公司为 Elasticsearch 开发的一个安全插件。在安装此插件后，Shield 会拦截所有对 Elasticsearch 的请求，并进行认证与加密，保障 Elasticsearch 及相关系统的安全性。Shield 是商业插件，需要 Elasticsearch 的商业许可。第一次安装许可的时候，会提供 30 天的免费试用权限。30 天后，Shield 将会屏蔽 clusterhealth, cluster stats, index stats 等 API，其余功能不受影响。</p>
 <h5 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h5><p>使用 Shield 可以定义一系列已知的用户，并用其认证用户请求。这些用户存在于抽象的“域”中。一个“域”可以是下面几种类型：</p>
 <ul>
@@ -330,28 +335,28 @@
 <p>参照以下步骤完成安装：</p>
 <ol>
 <li><p>进入 Elasticsearch 安装目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;share&#x2F;elasticsearch</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/elasticsearch</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装 Elasticsearch 许可插件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;plugin -i elasticsearch&#x2F;license&#x2F;latest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/plugin -i elasticsearch/license/latest</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装 Shield 插件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;plugin -i elasticsearch&#x2F;shield&#x2F;latest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/plugin -i elasticsearch/shield/latest</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将 Shield 配置文件移动或链接至 <code>/etc/elasticsearch/shield</code> 目录中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;config&#x2F;shield &#x2F;etc&#x2F;elasticsearch&#x2F;shield</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/share/elasticsearch/config/shield /etc/elasticsearch/shield</span><br></pre></td></tr></table></figure>
 <p><strong>说明</strong>：Elasticsearch 服务在启动时会在 <code>/etc/elasticsearch/shield</code> 目录下寻找 Shield 配置文件，而这些配置文件在安装 Shield 时会出现在 <code>/usr/share/elasticsearch/config/shield</code> 中，因此需要将配置文件移动或链接至该目录。</p>
 </li>
 <li><p>重启 Elasticsearch 服务：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service elasticsearch restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service elasticsearch restart</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>新建一个 Elasticsearch 管理员账户，填写新密码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;shield&#x2F;esusersuseradd es_admin -r admin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/shield/esusersuseradd es_admin -r admin</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>直接使用 RESTFUL API 访问 Elasticsearch 的请求都会被拒绝：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XGET&#39;http:&#x2F;&#x2F;localhost:9200&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XGET&#x27;http://localhost:9200/&#x27;</span><br></pre></td></tr></table></figure>
 <p>需要在请求中添加用户名和密码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -u es_admin -XGET &#39;http:&#x2F;&#x2F;localhost:9200&#x2F;&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -u es_admin -XGET &#x27;http://localhost:9200/&#x27;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>更多信息，请参考：</p>
@@ -362,7 +367,7 @@
 <h4 id="修改默认的-Elasticsearch-集群名称"><a href="#修改默认的-Elasticsearch-集群名称" class="headerlink" title="修改默认的 Elasticsearch 集群名称"></a>修改默认的 Elasticsearch 集群名称</h4><p>Elasticsearch 默认的集群名称是 elasticsearch，请在您的生产环境中将其修改成其他名称。确保在不同的环境和不同的集群下使用不同的名称；并且在监控集群节点时，如果有未知节点加入，一定要及时预警。</p>
 <h4 id="不要以-root-身份运行-Elasticsearch"><a href="#不要以-root-身份运行-Elasticsearch" class="headerlink" title="不要以 root 身份运行 Elasticsearch"></a>不要以 root 身份运行 Elasticsearch</h4><p>不要以 root 身份来运行 Elasticsearch，不要和其他服务共用相同的用户，并把用户的权限最小化。</p>
 <p>应用示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u es-user ES_JAVA_OPTS&#x3D;&quot;-Xms1024m -Xmx1024m&quot;&#x2F;opt&#x2F;elasticsearch&#x2F;bin&#x2F;elasticsearc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u es-user ES_JAVA_OPTS=&quot;-Xms1024m -Xmx1024m&quot;/opt/elasticsearch/bin/elasticsearc</span><br></pre></td></tr></table></figure>
 <h4 id="正确设置-Elasticsearch-的数据目录"><a href="#正确设置-Elasticsearch-的数据目录" class="headerlink" title="正确设置 Elasticsearch 的数据目录"></a>正确设置 Elasticsearch 的数据目录</h4><p>请确保为 Elasticsearch 的目录分配了合理的读写权限，避免使用共享文件系统。确保只有 Elasticsearch 的启动用户才有权访问目录。日志目录也需要正确配置，避免泄露敏感信息。</p>
 <h4 id="定期对-Elasticsearch-进行备份"><a href="#定期对-Elasticsearch-进行备份" class="headerlink" title="定期对 Elasticsearch 进行备份"></a>定期对 Elasticsearch 进行备份</h4><p>使用 Elasticsearch 提供的备份还原机制，定期对 Elasticsearch 的数据进行快照备份。</p>
 <h4 id="禁用批量删除索引"><a href="#禁用批量删除索引" class="headerlink" title="禁用批量删除索引"></a>禁用批量删除索引</h4><p>Elasticsearch 支持使用全部（<code>_all</code>）和通配符（<code>*</code>）来批量删除索引。在生产环境，该操作存在一定风险，你可以通过设置 <code>action.destructive_requires_name: true</code> 参数来禁用它。</p>
@@ -372,7 +377,7 @@
 <li><code>logging.yml</code>：日志配置文件。由于 Elasticsearch 使用 log4j 来记录日志的，<code>logging.yml</code> 中的设置请按普通 log4j 配置文件进行设置。</li>
 </ul>
 <p>启用日志功能需要修改 <code>elasticsearch.yml</code> 配置文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.logs: &#x2F;path&#x2F;to&#x2F;logs# 设置日志文件的存储路径，默认是 Elasticsearch 根目录下的 logs 文件夹</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.logs: /path/to/logs# 设置日志文件的存储路径，默认是 Elasticsearch 根目录下的 logs 文件夹</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -469,7 +474,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -480,7 +485,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

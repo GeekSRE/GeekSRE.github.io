@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="GitLab 是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的web服务。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitLab代码托管">
-<meta property="og:url" content="http://yoursite.com/gitlab/index.html">
+<meta property="og:url" content="https://zhaohongye.com/gitlab/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="GitLab 是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的web服务。">
 <meta property="og:locale">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="GitLab">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/gitlab/">
+<link rel="canonical" href="https://zhaohongye.com/gitlab/">
 
 
 <script id="page-configurations">
@@ -114,24 +114,29 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-标签">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-归档">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -191,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/gitlab/">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/gitlab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -251,15 +256,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>GitLab 是一个用于仓库管理系统的开源项目，使用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。<br><a id="more"></a><br>官网：<a target="_blank" rel="noopener" href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
+        <p>GitLab 是一个用于仓库管理系统的开源项目，使用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Git">Git</a>作为代码管理工具，并在此基础上搭建起来的web服务。<br><span id="more"></span><br>官网：<a target="_blank" rel="noopener" href="https://about.gitlab.com/stages-devops-lifecycle/">https://about.gitlab.com/stages-devops-lifecycle/</a></p>
 <hr>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h5 id="配置Yum源"><a href="#配置Yum源" class="headerlink" title="配置Yum源"></a>配置Yum源</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/gitlab_gitlab-ee.repo</span><br><span class="line">[gitlab-ce]</span><br><span class="line">name=Gitlab CE Repository</span><br><span class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure>
 <h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y postfix</span><br><span class="line">yum install gitlab-ce -y</span><br></pre></td></tr></table></figure>
 <h5 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h5><p>配置文件：/etc/gitlab/gitlab.rb    (建议每次修改前备份此文件)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">	external_url &#x27;https://git.visualchina.com&#x27;    # 域名配置</span><br><span class="line">	gitlab_rails[&#x27;time_zone&#x27;] = &#x27;Asia/Shanghai&#x27;   # 时区</span><br><span class="line">	</span><br><span class="line">	nginx[&#x27;redirect_http_to_https&#x27;] = true        # SSL证书</span><br><span class="line">	nginx[&#x27;ssl_certificate&#x27;] = &quot;/data/vcg/ssl/visualchina.pem&quot;</span><br><span class="line">	nginx[&#x27;ssl_certificate_key&#x27;] = &quot;/data/vcg/ssl/visualchina.key&quot;</span><br><span class="line">	</span><br><span class="line">	gitlab_rails[&#x27;ldap_enabled&#x27;] = true</span><br><span class="line">gitlab_rails[&#x27;ldap_servers&#x27;] = YAML.load &lt;&lt;-&#x27;EOS&#x27; # remember to close this block with &#x27;EOS&#x27; below</span><br><span class="line">  main: # &#x27;main&#x27; is the GitLab &#x27;provider ID&#x27; of this LDAP server</span><br><span class="line">    label: &#x27;LDAP&#x27;</span><br><span class="line">    host: &#x27;172.16.239.3&#x27;</span><br><span class="line">    port: 389</span><br><span class="line">    uid: &#x27;cn&#x27;</span><br><span class="line">    method: &#x27;plain&#x27; # &quot;tls&quot; or &quot;ssl&quot; or &quot;plain&quot;</span><br><span class="line">    bind_dn: &#x27;cn=root,dc=vcg,dc=com&#x27;</span><br><span class="line">    password: &#x27;vcg@2018&#x27;</span><br><span class="line">    active_directory: true</span><br><span class="line">    allow_username_or_email_login: false</span><br><span class="line">    block_auto_created_users: false</span><br><span class="line">    base: &#x27;ou=People,dc=vcg,dc=com&#x27;</span><br><span class="line">    user_filter: &#x27;&#x27;</span><br><span class="line">    attributes:</span><br><span class="line">      username: [&#x27;cn&#x27;]</span><br><span class="line">      email:    [&#x27;mail&#x27;]</span><br><span class="line">      name:       &#x27;cn&#x27;</span><br><span class="line">      first_name: &#x27;givenName&#x27;</span><br><span class="line">      last_name:  &#x27;sn&#x27;</span><br><span class="line">EOS</span><br></pre></td></tr></table></figure>
 <h5 id="配置完成后进行配置更新"><a href="#配置完成后进行配置更新" class="headerlink" title="配置完成后进行配置更新"></a>配置完成后进行配置更新</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure>
-<h5 id="检查是否配置成功"><a href="#检查是否配置成功" class="headerlink" title="检查是否配置成功"></a>检查是否配置成功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:ldap:check（列出前100个用户）</span><br></pre></td></tr></table></figure>
-<h5 id="重启gitlab服务"><a href="#重启gitlab服务" class="headerlink" title="重启gitlab服务"></a>重启gitlab服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
+<h5 id="检查是否配置成功"><a href="#检查是否配置成功" class="headerlink" title="检查是否配置成功"></a>检查是否配置成功</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:ldap:check（列出前100个用户）</span><br></pre></td></tr></table></figure>
+<h5 id="重启gitlab服务"><a href="#重启gitlab服务" class="headerlink" title="重启gitlab服务"></a>重启gitlab服务</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
 <h5 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h5><p>访问ip:80端口 配置root密码，至此部署完成。</p>
 <h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><h5 id="升级规范和建议"><a href="#升级规范和建议" class="headerlink" title="升级规范和建议"></a>升级规范和建议</h5><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations">https://docs.gitlab.com/ee/policy/maintenance.html#upgrade-recommendations</a></p>
 <p>首先升级到主要版本中的最新可用次要版本</p>
@@ -269,7 +274,7 @@
 <h6 id="1、下载10-8-7版本的rpm包"><a href="#1、下载10-8-7版本的rpm包" class="headerlink" title="1、下载10.8.7版本的rpm包"></a>1、下载10.8.7版本的rpm包</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-10.8.7-ce.0.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
 <h6 id="2、安装升级到10-8-7版本"><a href="#2、安装升级到10-8-7版本" class="headerlink" title="2、安装升级到10.8.7版本"></a>2、安装升级到10.8.7版本</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh gitlab-ce-10.8.7-ce.0.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
 <h6 id="3、再升级到11-9-8版本"><a href="#3、再升级到11-9-8版本" class="headerlink" title="3、再升级到11.9.8版本"></a>3、再升级到11.9.8版本</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gitlab-ce.x86_64</span><br></pre></td></tr></table></figure>
-<h4 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h4><h5 id="备份源GitLab数据"><a href="#备份源GitLab数据" class="headerlink" title="备份源GitLab数据"></a>备份源GitLab数据</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create RAILS_ENV=production</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Creating backup archive: 1555983152_2019_04_23_11.9.8_gitlab_backup.tar ...</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 数据保存在 /var/opt/gitlab/backups，自动生成文件名，比如本次的 1555983152_2019_04_23_11.9.8_gitlab_backup.tar</span></span><br></pre></td></tr></table></figure>
+<h4 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h4><h5 id="备份源GitLab数据"><a href="#备份源GitLab数据" class="headerlink" title="备份源GitLab数据"></a>备份源GitLab数据</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:create RAILS_ENV=production</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Creating backup archive: 1555983152_2019_04_23_11.9.8_gitlab_backup.tar ...</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 数据保存在 /var/opt/gitlab/backups，自动生成文件名，比如本次的 1555983152_2019_04_23_11.9.8_gitlab_backup.tar</span></span><br></pre></td></tr></table></figure>
 <h5 id="SCP迁移数据"><a href="#SCP迁移数据" class="headerlink" title="SCP迁移数据"></a>SCP迁移数据</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">按需替换目标地址</span></span><br><span class="line">scp /var/opt/gitlab/backups/1555983152_2019_04_23_11.9.8_gitlab_backup.tar root@1.1.1.1:/root/var/opt/gitlab/backups</span><br></pre></td></tr></table></figure>
 <h5 id="安装GitLab"><a href="#安装GitLab" class="headerlink" title="安装GitLab"></a>安装GitLab</h5><p>请参考 安装 章节</p>
 <h5 id="恢复数据"><a href="#恢复数据" class="headerlink" title="恢复数据"></a>恢复数据</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:restore RAILS_ENV=production BACKUP=1555983152_2019_04_23_11.9.8</span><br><span class="line"><span class="meta">#</span><span class="bash"> BACKUP的时间点必须与原服务器备份后的文件名一致</span></span><br></pre></td></tr></table></figure>
@@ -371,7 +376,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -382,7 +387,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

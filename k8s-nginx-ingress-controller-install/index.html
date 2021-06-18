@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Ingress 是从Kubernetes集群外部访问集群内部服务的入口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx-ingress controller部署">
-<meta property="og:url" content="http://yoursite.com/k8s-nginx-ingress-controller-install/index.html">
+<meta property="og:url" content="https://zhaohongye.com/k8s-nginx-ingress-controller-install/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="Ingress 是从Kubernetes集群外部访问集群内部服务的入口">
 <meta property="og:locale">
@@ -34,7 +34,7 @@
 <meta property="article:tag" content="Ingress">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/k8s-nginx-ingress-controller-install/">
+<link rel="canonical" href="https://zhaohongye.com/k8s-nginx-ingress-controller-install/">
 
 
 <script id="page-configurations">
@@ -115,24 +115,29 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-标签">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-归档">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -192,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/k8s-nginx-ingress-controller-install/">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/k8s-nginx-ingress-controller-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -252,12 +257,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口<br><a id="more"></a></p>
+        <p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口<br><span id="more"></span></p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller">https://docs.jdcloud.com/cn/jcs-for-kubernetes/deploy-ingress-nginx-controller</a></p>
 </blockquote>
 <p>Ingress 是从Kubernetes集群外部访问集群内部服务的入口，概念示意可参考下方说明。你可以给Ingress配置提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机等。用户通过POST Ingress资源到API server的方式来请求ingress。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">internet</span><br><span class="line">     |</span><br><span class="line">[ Ingress ]</span><br><span class="line">--|-----|--</span><br><span class="line">[ Services ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">internet</span><br><span class="line">     |</span><br><span class="line">[ Ingress ]</span><br><span class="line">--|-----|--</span><br><span class="line">[ Services ]</span><br></pre></td></tr></table></figure>
 <p>Ingress controller负责实现Ingress。Ingress controller在Kubernetes集群中默认不会自动启用，您可以在一个pod中部署任意类型的自定义Ingress Controller。本文将以Nginx-ingress controller为例，说明Controller部署和Ingress定义。更多外部类型的Ingresss Controller参考<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Kubernetes官方文档</a>。</p>
 <h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><ol>
 <li><h5 id="从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录："><a href="#从github下载nginx-ingress-controller最新的安装部署文件-并将部署文件解压缩到本地目录：" class="headerlink" title="从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录："></a>从github下载nginx-ingress controller最新的安装部署文件,并将部署文件解压缩到本地目录：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/nginxinc/kubernetes-ingress/archive/v1.4.5.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf v1.4.5.tar.gz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -265,33 +270,33 @@
 </li>
 </ol>
 <ol start="2">
-<li><h5 id="进入解压缩后的nginx-ingress-controller安装目录；"><a href="#进入解压缩后的nginx-ingress-controller安装目录；" class="headerlink" title="进入解压缩后的nginx-ingress controller安装目录；"></a>进入解压缩后的nginx-ingress controller安装目录；</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd kubernetes-ingress-1.4.5&#x2F;deployments</span><br></pre></td></tr></table></figure>
+<li><h5 id="进入解压缩后的nginx-ingress-controller安装目录；"><a href="#进入解压缩后的nginx-ingress-controller安装目录；" class="headerlink" title="进入解压缩后的nginx-ingress controller安装目录；"></a>进入解压缩后的nginx-ingress controller安装目录；</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd kubernetes-ingress-1.4.5/deployments</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="安装nginx-ingress-controller"><a href="#安装nginx-ingress-controller" class="headerlink" title="安装nginx-ingress controller"></a>安装nginx-ingress controller</h4><ol>
-<li><h5 id="为nginx-ingress-controller创建一个namespace和service-account："><a href="#为nginx-ingress-controller创建一个namespace和service-account：" class="headerlink" title="为nginx-ingress controller创建一个namespace和service account："></a>为nginx-ingress controller创建一个namespace和service account：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;ns-and-sa.yaml</span><br></pre></td></tr></table></figure>
+<li><h5 id="为nginx-ingress-controller创建一个namespace和service-account："><a href="#为nginx-ingress-controller创建一个namespace和service-account：" class="headerlink" title="为nginx-ingress controller创建一个namespace和service account："></a>为nginx-ingress controller创建一个namespace和service account：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common/ns-and-sa.yaml</span><br></pre></td></tr></table></figure>
 </li>
-<li><h5 id="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："><a href="#为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：" class="headerlink" title="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："></a>为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;default-server-secret.yaml</span><br></pre></td></tr></table></figure>
+<li><h5 id="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："><a href="#为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：" class="headerlink" title="为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中："></a>为NGINX默认Server配置TLS证书和key，并将TLS证书和key保存到secret中：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common/default-server-secret.yaml</span><br></pre></td></tr></table></figure>
 <p><strong>说明</strong>：建议使用合适的TLS证书和key替换default-server-secret.yaml文件中自签发的证书和key。</p>
 </li>
 </ol>
 <ol start="3">
-<li><h5 id="创建config-map保存NGINX的自定义配置："><a href="#创建config-map保存NGINX的自定义配置：" class="headerlink" title="创建config map保存NGINX的自定义配置："></a>创建config map保存NGINX的自定义配置：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common&#x2F;nginx-config.yaml</span><br></pre></td></tr></table></figure>
+<li><h5 id="创建config-map保存NGINX的自定义配置："><a href="#创建config-map保存NGINX的自定义配置：" class="headerlink" title="创建config map保存NGINX的自定义配置："></a>创建config map保存NGINX的自定义配置：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f common/nginx-config.yaml</span><br></pre></td></tr></table></figure>
 <p><strong>说明</strong>：目前提供的config map中的data为空，您可以按需添加自定义配置。</p>
 </li>
 </ol>
 <ol start="4">
-<li><h5 id="为第1步中创建的service-account配置RBAC："><a href="#为第1步中创建的service-account配置RBAC：" class="headerlink" title="为第1步中创建的service account配置RBAC："></a>为第1步中创建的service account配置RBAC：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f rbac&#x2F;rbac.yaml</span><br></pre></td></tr></table></figure>
+<li><h5 id="为第1步中创建的service-account配置RBAC："><a href="#为第1步中创建的service-account配置RBAC：" class="headerlink" title="为第1步中创建的service account配置RBAC："></a>为第1步中创建的service account配置RBAC：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f rbac/rbac.yaml</span><br></pre></td></tr></table></figure>
 </li>
-<li><h5 id="以Deployment的方式部署nginx-ingress-controller"><a href="#以Deployment的方式部署nginx-ingress-controller" class="headerlink" title="以Deployment的方式部署nginx-ingress controller:"></a>以Deployment的方式部署nginx-ingress controller:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment&#x2F;nginx-ingress.yaml</span><br></pre></td></tr></table></figure>
+<li><h5 id="以Deployment的方式部署nginx-ingress-controller"><a href="#以Deployment的方式部署nginx-ingress-controller" class="headerlink" title="以Deployment的方式部署nginx-ingress controller:"></a>以Deployment的方式部署nginx-ingress controller:</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment/nginx-ingress.yaml</span><br></pre></td></tr></table></figure>
 </li>
-<li><h5 id="执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常："><a href="#执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常：" class="headerlink" title="执行如下命令，确定部署nginx-ingress controller的Deployment运行正常："></a>执行如下命令，确定部署nginx-ingress controller的Deployment运行正常：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> kubectl get deployment -n nginx-ingress</span><br><span class="line"> </span><br><span class="line">NAME            DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line"> nginx-ingress   1         1         1            1           24d</span><br></pre></td></tr></table></figure>
+<li><h5 id="执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常："><a href="#执行如下命令，确定部署nginx-ingress-controller的Deployment运行正常：" class="headerlink" title="执行如下命令，确定部署nginx-ingress controller的Deployment运行正常："></a>执行如下命令，确定部署nginx-ingress controller的Deployment运行正常：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> kubectl get deployment -n nginx-ingress</span><br><span class="line"> </span><br><span class="line">NAME            DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line"> nginx-ingress   1         1         1            1           24d</span><br></pre></td></tr></table></figure>
 </li>
 <li><h5 id="创建ingress的LoadBalance"><a href="#创建ingress的LoadBalance" class="headerlink" title="创建ingress的LoadBalance"></a>创建ingress的LoadBalance</h5><p>在 Kubernetes集群中，每个Pod都具有唯一的内部 IP 地址，但是Deployment中的Pod随时可能被删除或创建，导致Pod IP地址不断变化。因此需要创建一个Service对外暴露Pod中的应用。Service具有唯一的固定IP地址且能够为后端添加的成员Pod提供负载均衡。在京东云Kubernetes集群中您可以使用LoadBalance类型的Service，为Service关联创建一个应用负载均衡，并通过负载均衡绑定的公网IP，将Service后端关联的nginx-ingress controller应用暴露到公网：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-ingress</span>       <span class="comment">#建议Service使用与nginx-ingress controller对应的Deployment名称相同的名称</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">nginx-ingress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">LoadBalancer</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">http</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">443</span></span><br><span class="line">     <span class="attr">targetPort:</span> <span class="number">443</span></span><br><span class="line">     <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">     <span class="attr">name:</span> <span class="string">https</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx-ingress</span></span><br></pre></td></tr></table></figure>
 <p><strong>说明</strong>：本例使用80和443端口绑定nginx-ingress controller应用</p>
 <p>将上述Service定义到ingress.yaml文件，执行如下命令创建对应的Service：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f ingress.yaml</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create -f ingress.yaml</span><br></pre></td></tr></table></figure>
 </li>
 <li><h5 id="获取公网IP"><a href="#获取公网IP" class="headerlink" title="获取公网IP"></a>获取公网IP</h5><p>等待一段时间，确定Service已经配置完成，并获取Service上配置的External IP字段</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl get svc -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME            TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                      AGE</span><br><span class="line">nginx-ingress   LoadBalancer   192.168.58.218   114.67.80.218   80:32436/TCP,443:30110/TCP   3h13m</span><br></pre></td></tr></table></figure>
@@ -302,7 +307,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment/nginx-ingress.yaml        #重新部署nginx-ingress controller</span><br></pre></td></tr></table></figure>
 </li>
 <li><h5 id="验证Pod"><a href="#验证Pod" class="headerlink" title="验证Pod"></a>验证Pod</h5><p>执行如下命令确定nginx-ingress controller相关的Pod运行正常，即可完成nginx ingress controller部署：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">nginx-ingress-f67b87b88-5cspd   1&#x2F;1     Running   0          3h11m</span><br><span class="line">nginx-ingress-f67b87b88-n7qnw   1&#x2F;1     Running   0          3h13m</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pod -n nginx-ingress</span><br><span class="line"></span><br><span class="line">NAME                            READY   STATUS    RESTARTS   AGE</span><br><span class="line">nginx-ingress-f67b87b88-5cspd   1/1     Running   0          3h11m</span><br><span class="line">nginx-ingress-f67b87b88-n7qnw   1/1     Running   0          3h13m</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="示例应用"><a href="#示例应用" class="headerlink" title="示例应用"></a>示例应用</h4><p>例如：配置www2.veer.com的ingress配置</p>
@@ -404,7 +409,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -415,7 +420,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

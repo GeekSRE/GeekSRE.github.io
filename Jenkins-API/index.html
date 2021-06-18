@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,25 +17,25 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Jenkins-API 需求：在自动化平台中调用jenkins API，实现程序发版、自定义任务等 实现：Python API  安装 1pip install python-jenkins  examples 123456import jenkinsserver &#x3D; jenkins.Jenkins(&amp;#x27;http:&#x2F;&#x2F;localhost:8080&amp;#x27;, username&#x3D;&amp;#x27">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins-API">
-<meta property="og:url" content="http://yoursite.com/Jenkins-API/index.html">
+<meta property="og:url" content="https://zhaohongye.com/Jenkins-API/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="Jenkins-API 需求：在自动化平台中调用jenkins API，实现程序发版、自定义任务等 实现：Python API  安装 1pip install python-jenkins  examples 123456import jenkinsserver &#x3D; jenkins.Jenkins(&amp;#x27;http:&#x2F;&#x2F;localhost:8080&amp;#x27;, username&#x3D;&amp;#x27">
 <meta property="og:locale">
-<meta property="og:image" content="http://yoursite.com/Jenkins-API/jenkins.png">
+<meta property="og:image" content="https://zhaohongye.com/Jenkins-API/jenkins.png">
 <meta property="article:published_time" content="2019-07-01T08:38:05.000Z">
 <meta property="article:modified_time" content="2019-07-01T08:44:23.909Z">
 <meta property="article:author" content="GeekSRE">
 <meta property="article:tag" content="Jenkins">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/Jenkins-API/jenkins.png">
+<meta name="twitter:image" content="https://zhaohongye.com/Jenkins-API/jenkins.png">
 
-<link rel="canonical" href="http://yoursite.com/Jenkins-API/">
+<link rel="canonical" href="https://zhaohongye.com/Jenkins-API/">
 
 
 <script id="page-configurations">
@@ -116,24 +116,29 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-标签">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-归档">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -193,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Jenkins-API/">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/Jenkins-API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -255,8 +260,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python-jenkins</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>examples</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line"></span><br><span class="line">server = jenkins.Jenkins(<span class="string">&#x27;http://localhost:8080&#x27;</span>, username=<span class="string">&#x27;myuser&#x27;</span>, password=<span class="string">&#x27;mypassword&#x27;</span>)</span><br><span class="line">user = server.get_whoami()</span><br><span class="line">version = server.get_version()</span><br><span class="line">print(<span class="string">&#x27;Hello %s from Jenkins %s&#x27;</span> % (user[<span class="string">&#x27;fullName&#x27;</span>], version))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line">job_name=<span class="string">&#x27;k8s/cicd-test-0613&#x27;</span></span><br><span class="line">jenkins_server_url=<span class="string">&#x27;http://jenkins.visualchina.com/jenkins&#x27;</span></span><br><span class="line">user_id=<span class="string">&#x27;vcgdev&#x27;</span></span><br><span class="line">api_token=<span class="string">&#x27;***************************&#x27;</span></span><br><span class="line">server=jenkins.Jenkins(jenkins_server_url, username=user_id, password=api_token)</span><br><span class="line"><span class="comment">#String参数化构建job名为job_name的job, 参数param_dict为字典形式，如：param_dict= &#123;&quot;param1&quot;：“value1”， “param2”：“value2”&#125;</span></span><br><span class="line">param_dict= &#123;<span class="string">&quot;Action&quot;</span>:<span class="string">&quot;程序发版&quot;</span>,<span class="string">&quot;Scope&quot;</span>:<span class="string">&quot;生产环境&quot;</span>,<span class="string">&quot;JenkinsApi&quot;</span>:<span class="string">&quot;true&quot;</span>&#125;</span><br><span class="line">server.build_job(job_name, parameters=param_dict)</span><br><span class="line">last_build_number = server.get_job_info(job_name)[<span class="string">&#x27;lastCompletedBuild&#x27;</span>][<span class="string">&#x27;number&#x27;</span>]</span><br><span class="line">build_info = server.get_build_info(job_name, last_build_number)</span><br><span class="line">print(build_info)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line"></span><br><span class="line">server = jenkins.Jenkins(<span class="string">&#x27;http://localhost:8080&#x27;</span>, username=<span class="string">&#x27;myuser&#x27;</span>, password=<span class="string">&#x27;mypassword&#x27;</span>)</span><br><span class="line">user = server.get_whoami()</span><br><span class="line">version = server.get_version()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Hello %s from Jenkins %s&#x27;</span> % (user[<span class="string">&#x27;fullName&#x27;</span>], version))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jenkins</span><br><span class="line">job_name=<span class="string">&#x27;k8s/cicd-test-0613&#x27;</span></span><br><span class="line">jenkins_server_url=<span class="string">&#x27;http://jenkins.visualchina.com/jenkins&#x27;</span></span><br><span class="line">user_id=<span class="string">&#x27;vcgdev&#x27;</span></span><br><span class="line">api_token=<span class="string">&#x27;***************************&#x27;</span></span><br><span class="line">server=jenkins.Jenkins(jenkins_server_url, username=user_id, password=api_token)</span><br><span class="line"><span class="comment">#String参数化构建job名为job_name的job, 参数param_dict为字典形式，如：param_dict= &#123;&quot;param1&quot;：“value1”， “param2”：“value2”&#125;</span></span><br><span class="line">param_dict= &#123;<span class="string">&quot;Action&quot;</span>:<span class="string">&quot;程序发版&quot;</span>,<span class="string">&quot;Scope&quot;</span>:<span class="string">&quot;生产环境&quot;</span>,<span class="string">&quot;JenkinsApi&quot;</span>:<span class="string">&quot;true&quot;</span>&#125;</span><br><span class="line">server.build_job(job_name, parameters=param_dict)</span><br><span class="line">last_build_number = server.get_job_info(job_name)[<span class="string">&#x27;lastCompletedBuild&#x27;</span>][<span class="string">&#x27;number&#x27;</span>]</span><br><span class="line">build_info = server.get_build_info(job_name, last_build_number)</span><br><span class="line"><span class="built_in">print</span>(build_info)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h5><p><img src="/Jenkins-API/./jenkins.png" alt></p>
@@ -356,7 +361,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -367,7 +372,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

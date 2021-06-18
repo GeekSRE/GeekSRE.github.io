@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,23 +17,23 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="article">
 <meta property="og:title" content="(转载)API是什么:一篇讲透API">
-<meta property="og:url" content="http://yoursite.com/what-is-api/index.html">
+<meta property="og:url" content="https://zhaohongye.com/what-is-api/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:locale">
-<meta property="og:image" content="http://yoursite.com/what-is-api/api-header.jpg">
-<meta property="og:image" content="http://yoursite.com/what-is-api/api-relationship.png">
+<meta property="og:image" content="https://zhaohongye.com/what-is-api/api-header.jpg">
+<meta property="og:image" content="https://zhaohongye.com/what-is-api/api-relationship.png">
 <meta property="article:published_time" content="2021-01-26T09:23:53.000Z">
 <meta property="article:modified_time" content="2021-04-07T08:50:58.652Z">
 <meta property="article:author" content="GeekSRE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/what-is-api/api-header.jpg">
+<meta name="twitter:image" content="https://zhaohongye.com/what-is-api/api-header.jpg">
 
-<link rel="canonical" href="http://yoursite.com/what-is-api/">
+<link rel="canonical" href="https://zhaohongye.com/what-is-api/">
 
 
 <script id="page-configurations">
@@ -114,24 +114,29 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-标签">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-归档">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -191,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/what-is-api/">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/what-is-api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -243,7 +248,7 @@
 
       
         <p><img src="/what-is-api/./api-header.jpg" alt></p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="API-Application-Programming-Interface"><a href="#API-Application-Programming-Interface" class="headerlink" title="API = Application Programming Interface"></a>API = Application Programming Interface</h2><p>API的英文即<strong>A</strong>pplication <strong>P</strong>rogramming <strong>I</strong>nterface首字母的缩写，直译过来的意思就是：程序之间的接口。</p>
 <p>我更倾向于把API理解为，程序之间的合约。</p>
 <p>那么，究竟什么是程序之间的合约呢？</p>
@@ -252,14 +257,14 @@
 <p>对于绝大多数人来讲，在请家政公司的阿姨前，你脑子里肯定已经有了一个预期了。阿姨是来给你打扫卫生的，如果你想让阿姨来家里给你做火锅的话，那就略奇怪了（也许你该找海底捞？）。那么我们可以说，作为一个用户，你理解这个服务包含的内容。</p>
 <p>于是，阿姨来到你家里，开始辛苦打扫卫生。打扫的过程中，阿姨会问你：小伙子，你家垃圾桶在哪里呀？作为一个正常人，听到阿姨的要求你自然就会告诉阿姨垃圾桶的位置。那么我们说，作为用户的你，给服务提供商提供了必要的信息。</p>
 <p>至此，类比已结束。在上面的例子中，家政公司提供了一个API，这个API的唯一作用就是帮你打扫卫生。而作为用户的你，为了让API完成它的工作，必须提供一些必要的信息，比如垃圾桶的位置。伪代码如下</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def do_clean(trash_can): # 打扫卫生的API</span><br><span class="line">  wipe_window()          # 阿姨擦窗</span><br><span class="line">  wipe_floor()           # 阿姨擦地</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def do_clean(trash_can): # 打扫卫生的API</span><br><span class="line">  wipe_window()          # 阿姨擦窗</span><br><span class="line">  wipe_floor()           # 阿姨擦地</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
 <p>但是要注意，在这里你当然知道阿姨擦窗、擦地这些细节。但很多时候，API的实现细节你是不清楚的，而且作为用户，你可能也没有必要和动机去了解细节——毕竟给你提供好服务就可以了，你管它活儿怎么干的干嘛？</p>
 <h3 id="API和函数的关系是什么"><a href="#API和函数的关系是什么" class="headerlink" title="API和函数的关系是什么"></a>API和函数的关系是什么</h3><p>那么你要说了，上面的代码不就是一个函数吗？</p>
 <p>的确，很多情况下，如果你在直接使用语言提供的API的话，API的形式可能就是一个函数。</p>
 <p>但其实不然，因为还有很多其它的情况，API并不一定是一个函数，有可能是一个类，一个HTTP网络请求（最主要的API，请见下文）等</p>
 <h3 id="API的主要形式有哪些"><a href="#API的主要形式有哪些" class="headerlink" title="API的主要形式有哪些"></a>API的主要形式有哪些</h3><p>通常在说到API时，有几个地方经常会出现</p>
 <h4 id="出现在程序语言中"><a href="#出现在程序语言中" class="headerlink" title="出现在程序语言中"></a>出现在程序语言中</h4><p>比如在Python语言中，当你需要算一个数的N次方时，你会用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = pow(<span class="number">4</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">pow</span>(<span class="number">4</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p>来表示4的2次方。而这里的<code>pow</code>函数，就是语言为你提供的API。这样的API的文档，通常在语言官方的文档中可以找到。</p>
 <h4 id="出现在安装的依赖中"><a href="#出现在安装的依赖中" class="headerlink" title="出现在安装的依赖中"></a>出现在安装的依赖中</h4><p>上面说的<code>pow</code>函数，是Python自带的函数。但如果要完成更复杂的操作，通常你需要安装一些依赖。比如说，如果需要请求http服务的话，你可能会用到<code>requests</code>这个库（不知道具体这个库是什么没关系，不影响阅读本文）。而这个库它有自己的API，而这样的库的文档，一般在对应的官网或者github页面上可以找到。</p>
 <h4 id="用了第三方服务以网络形式请求出现"><a href="#用了第三方服务以网络形式请求出现" class="headerlink" title="用了第三方服务以网络形式请求出现"></a>用了第三方服务以网络形式请求出现</h4><p>这是本文将会介绍的最主要的形式。第三方的服务以网络形式提供API，基本构成了现代互联网的整个基础，下一节我们详细展开说明为什么API这么重要。</p>
@@ -283,7 +288,7 @@
 <p>这个功能当然很蠢，但是不妨碍我们当例子来说明。</p>
 <p>第一部中，所有的逻辑判断当然都可以直接调用手机的GPS来作检测即可。而在第2步中，你就必须向滴滴提供的API发出一个打车的API请求。</p>
 <p>这个请求中，有两个参数，一个是出发地地址，另一个是目的地地址。以下是一个我虚构出来的API请求（因为我实在没找着滴滴的API），在这个请求中，我们向端点<code>http://www.didi.com/taxi</code>发送一个<code>POST</code>请求，参数为JSON中的出发地和目的地。如果你把这个形式记住，照葫芦画瓢，99%的标准REST API的形式都是长这个样子的。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.didi.com/taxi </span><br><span class="line">&#123;</span><br><span class="line">    &quot;from&quot;: &quot;北京市云南大厦&quot;,</span><br><span class="line">    &quot;to&quot;: &quot;天安门&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST http://www.didi.com/taxi </span><br><span class="line">&#123;</span><br><span class="line">    &quot;from&quot;: &quot;北京市云南大厦&quot;,</span><br><span class="line">    &quot;to&quot;: &quot;天安门&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="API到底是谁提供的"><a href="#API到底是谁提供的" class="headerlink" title="API到底是谁提供的"></a>API到底是谁提供的</h3><p>以网络请求为基础的API，通常是互联网公司自己编写和提供的。上文举的例子中，滴滴的这个API几乎一定是滴滴自己写并且提供出来的。原因很简单，只有滴滴才能向它的司机端APP发送消息。也就是说，必须要服务的提供商，才有可能向外界提供一个API。</p>
 <p>为什么这些公司有动机提供一个API呢？</p>
 <p>原因是他们希望自己的服务可以被更广泛的人群使用。作为开发者的你，如果用了他们提供的API，那么某种程序上你可能帮助了他们传播他们的服务（比如更多人在你的APP里可能可以用滴滴的出租车服务）。</p>
@@ -294,7 +299,7 @@
 <p><img src="/what-is-api/./api-relationship.png" alt="API调用与API提供者之间的关系"></p>
 <p>图中最左边，即API的调用者，通过网络请求，向右边的API服务器（由互联网公司编写和维护）发送请求。这些服务器可能可以操作其后台的数据库之类系统，最后会返回一个结果给调用者。</p>
 <p>比方说，滴滴的API可能接收到一个请求后，向最近的司机发送一个消息，让他去你指定的出发地去接你。而完成后，滴滴的服务器可能向后台数据库中添加一条记录，记下来你的行程。这样，你就通过网络请求完成了一次向滴滴API的请求。</p>
-<h2 id="API接口如何定义"><a href="#API接口如何定义" class="headerlink" title="API接口如何定义"></a>API接口如何定义</h2><p>目前最通用、使用最广泛的API标准叫作REST API。具体如何设计REST API请参考文章: <a target="_blank" rel="noopener" href="https://zhaohongye.com//rest-api-best-practices/">REST API设计指南</a></p>
+<h2 id="API接口如何定义"><a href="#API接口如何定义" class="headerlink" title="API接口如何定义"></a>API接口如何定义</h2><p>目前最通用、使用最广泛的API标准叫作REST API。具体如何设计REST API请参考文章: <a href="https://zhaohongye.com//rest-api-best-practices/">REST API设计指南</a></p>
 <h2 id="哪里有API的一些例子"><a href="#哪里有API的一些例子" class="headerlink" title="哪里有API的一些例子"></a>哪里有API的一些例子</h2><p>如上文所说，国内的互联网公司开放API的进程还比较慢，如果你可以阅读英文，我们推荐你参考以下优秀的API</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://docs.github.com/en/rest">GitHub API</a></li>
@@ -401,7 +406,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -412,7 +417,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

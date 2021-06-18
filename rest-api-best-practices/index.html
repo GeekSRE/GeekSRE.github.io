@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,24 +17,24 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="article">
 <meta property="og:title" content="优秀的 REST API 设计指南">
-<meta property="og:url" content="http://yoursite.com/rest-api-best-practices/index.html">
+<meta property="og:url" content="https://zhaohongye.com/rest-api-best-practices/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:locale">
-<meta property="og:image" content="http://yoursite.com/rest-api-best-practices/code.jpg">
+<meta property="og:image" content="https://zhaohongye.com/rest-api-best-practices/code.jpg">
 <meta property="og:image" content="https://kalasearch.cn/static/0f972adb9bbda638b254409234373894/c08c5/communication.jpg">
 <meta property="og:image" content="https://kalasearch.cn/static/55c01643c832a4d0dc733495966cedc6/29d31/rest-api-cartoon.jpg">
 <meta property="article:published_time" content="2021-01-26T09:47:01.000Z">
 <meta property="article:modified_time" content="2021-01-26T09:48:53.900Z">
 <meta property="article:author" content="GeekSRE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/rest-api-best-practices/code.jpg">
+<meta name="twitter:image" content="https://zhaohongye.com/rest-api-best-practices/code.jpg">
 
-<link rel="canonical" href="http://yoursite.com/rest-api-best-practices/">
+<link rel="canonical" href="https://zhaohongye.com/rest-api-best-practices/">
 
 
 <script id="page-configurations">
@@ -115,24 +115,29 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-标签">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-归档">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -192,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/rest-api-best-practices/">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/rest-api-best-practices/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +243,7 @@
 
       
         <p><img src="/rest-api-best-practices/./code.jpg" alt></p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
 <p>作为一名优秀的后端程序员，你照着产品需求设计好了模型，设计好了关联关系。</p>
 <p>把这些模型和关系一再打磨了一番之后，你想是时候把API设计出来，与前端沟通了。</p>
@@ -277,12 +282,12 @@
 <p>我们来详细解释一下这两点</p>
 <h3 id="什么是-REST-API-里的-Resource（即资源）"><a href="#什么是-REST-API-里的-Resource（即资源）" class="headerlink" title="什么是 REST API 里的 Resource（即资源）"></a>什么是 REST API 里的 Resource（即资源）</h3><p>这里的资源是指你的 API 用户可操作的逻辑对象，举个例子</p>
 <p>如果你的 API 中允许调用者对用户进行操作，比如说用户注册，那么 API 类似于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;users</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST /users</span><br></pre></td></tr></table></figure>
 <p>在这里，资源即为 <code>users</code>。在很多情况下，API 中的资源与你的数据模型（也就是数据库的表）是一一对应的。当然也有例外情况，比如说你的数据库中存有用户，但是你现在想要让调用者可以创建“管理员”，那么 API 可能是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;admins</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST /admins</span><br></pre></td></tr></table></figure>
 <p>然而，你的表中并没有 <code>admins</code> 这个表，而是否是 admin 是 Users 表中的一个属性，比如 <code>role=admin</code>。</p>
 <p>请注意，REST API中的资源一定需要是名词，即一定是一个实在存在的概念比如 <code>用户</code>, <code>帐号</code>, <code>车票</code>等，或一个抽象的概念比如 <code>权限</code> 等。如果你需要提供一个创建某种资源的API接口，上述则可以表述为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;indexes</span><br><span class="line">POST &#x2F;accounts</span><br><span class="line">POST &#x2F;docs</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">POST /indexes</span><br><span class="line">POST /accounts</span><br><span class="line">POST /docs</span><br></pre></td></tr></table></figure>
 <p>等等。</p>
 <p>通常对于资源的命名，我们建议统一命名为为英文的复数。比如说 <code>users</code> 而不是 <code>user</code>。同时请注意保持一致性，在所有地方用一样的复数。</p>
 <h3 id="什么是-REST-API-里的操作"><a href="#什么是-REST-API-里的操作" class="headerlink" title="什么是 REST API 里的操作"></a>什么是 REST API 里的操作</h3><p>一旦你定义了资源，接下来你需要定义允许调用者在这些资源上做什么操作。</p>
@@ -298,7 +303,7 @@
 <p>请注意，到这里为止，你应该可以总结出来REST的大致设计思路了。它由两部分组成，第一部分是 <code>操作</code>，第二部分是可操作的 <code>资源</code>。比如上文中的 <code>GET /tickets</code>，操作是 GET，可操作的资源是车票。</p>
 <p>那么读到这里，如果你严格遵循了REST的设计准则，以及你的调用者也了解 REST 的准则的话，那么对于很多 API 调用，你们不用再参考互相写的文档了。如果需要调用一张车票的信息，你的调用者自然会知道应该用GET去查看一个车票资源的信息，即 <code>GET /tickets/:ticketId</code>。这样就极大降低了沟通成本和出错成本，提升效率。</p>
 <h3 id="如何在-API-中表示实体（数据库表）间关系"><a href="#如何在-API-中表示实体（数据库表）间关系" class="headerlink" title="如何在 API 中表示实体（数据库表）间关系"></a>如何在 API 中表示实体（数据库表）间关系</h3><p>在后端设计中，有的资源逻辑上无法独立存在。比如说，在卡拉搜索的例子里，用户的文档是无法独立于索引存在的。那么自然地，我们用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;indexes&#x2F;index_abc&#x2F;docs&#x2F;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /indexes/index_abc/docs/1</span><br></pre></td></tr></table></figure>
 <p>来表达获取索引 <code>index_abc</code> 中编号为 <code>1</code> 的文档。因此，对于所有资源需要依赖于另一个资源存在时，我们就按顺序在端点中将资源列出来。对于卡拉搜索中，索引和文档的关系，我们有以下接口</p>
 <ul>
 <li><code>GET /indexes/index_abc/docs/1</code> - 获取index id为 <code>index_abc</code> 下的id为 <code>1</code> 的文档</li>
@@ -306,9 +311,9 @@
 <li><code>POST /indexes/index_abc/docs</code> - 在index id为 <code>index_abc</code> 的索引中，添加文档 …</li>
 </ul>
 <p>如果一个资源可以独立于另一个资源存在，并且你期望你的API调用者频繁调用，那么可以考虑直接提供子端点。比如说，如果一个宠物店主人和宠物信息分别都常常被同时调用，那么你可以考虑</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /owners/  - 获取所有主人信息</span><br><span class="line">GET /owners/1/pets/ 获取 id 为 1 的主人的所有宠物</span><br><span class="line">GET /pets/ - 获取所有宠物信息（宠物店所有宠物）</span><br><span class="line">GET /pets/13 - 直接获取 id 为 13 的宠物</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /owners/  - 获取所有主人信息</span><br><span class="line">GET /owners/1/pets/ 获取 id 为 1 的主人的所有宠物</span><br><span class="line">GET /pets/ - 获取所有宠物信息（宠物店所有宠物）</span><br><span class="line">GET /pets/13 - 直接获取 id 为 13 的宠物</span><br></pre></td></tr></table></figure>
 <h3 id="REST-API中如何表示一个动作"><a href="#REST-API中如何表示一个动作" class="headerlink" title="REST API中如何表示一个动作"></a>REST API中如何表示一个动作</h3><p>有时候，当我们试图表达一些接口时，会发现REST的准则很难直接应用。比如说，当你需要一个接口让用户登录时</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;users&#x2F;signin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST /users/signin</span><br></pre></td></tr></table></figure>
 <p>但要注意，这里的 <code>signin</code> 即登录，是一个动词。这里是采用REST准则时需要考虑的地方，你有三个选择</p>
 <ol>
 <li>如果你希望严格地遵循 REST 原则，那么你需要找一个替代动词的名词。比如说，这里的 <code>signin</code> 可以替换为<code>login</code>。或者，如果你是以 token 密钥的方式登录的话，也许可以改为 <code>POST /users/token</code>，即创建一个 user token(也就是登录了)</li>
@@ -326,7 +331,7 @@
 <p>多数情况下，在一版 API 已经成熟的前提下，可以提前发布，同时开始进行下一版的开发。而你只需要在URL中区分好 API 的版本即可。</p>
 <p>比如说，如果在大致将 v1 开发完毕后，v1 前缀的 API 就应该稳定下来，所有的改动进入 v2。同时你应该开始通知所有使用 v1 的用户，给他们几周到几个月的时间，帮助他们平滑迁移到 v2</p>
 <p>带有版本前缀的 API 示例如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;v1&#x2F;indexes&#x2F;</span><br><span class="line">GET &#x2F;v1&#x2F;indexes&#x2F;abc&#x2F;</span><br><span class="line">POST &#x2F;v1&#x2F;indexes&#x2F;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /v1/indexes/</span><br><span class="line">GET /v1/indexes/abc/</span><br><span class="line">POST /v1/indexes/</span><br></pre></td></tr></table></figure>
 <h3 id="REST-API-应该返回什么"><a href="#REST-API-应该返回什么" class="headerlink" title="REST API 应该返回什么"></a>REST API 应该返回什么</h3><p>作为一个通则，我们建议 REST API 永远返回 JSON 格式的结果。</p>
 <p>原因有几个：</p>
 <p>首先，JSON 作为互联网上使用最广泛的格式，在几乎任何语言的任何框架中都有广泛的支持。</p>
@@ -345,9 +350,9 @@
 <h4 id="打开-Gzip"><a href="#打开-Gzip" class="headerlink" title="打开 Gzip"></a>打开 Gzip</h4><p>Gzip 非常好理解，在目前的普通手机算力已经接近十几年前的顶配计算机的前提下，CPU 不再是运算的瓶颈。而网络带宽的扩宽速度则远没有追上 CPU 变快的速度。因此，如果有可能的话，用 CPU 的时间换取网络的传输时间是非常值得的。这也就是说，打开默认 Gzip 压缩，会让你的 JSON 结果耗费少量的服务器 CPU，但却能大大加快传输速度。</p>
 <p>因此我们建议默认将 Gzip 打开。</p>
 <h4 id="打开-Pretty-Print"><a href="#打开-Pretty-Print" class="headerlink" title="打开 Pretty Print"></a>打开 Pretty Print</h4><p>什么是 Pretty print 呢？简单说就是在 JSON 中插入空格和换行，让 JSON 变得美观，方便人阅读。比如下面不是Pretty print:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;name&quot;:&quot;大话西游&quot;,&quot;actor&quot;:&quot;周星驰”&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;name&quot;:&quot;大话西游&quot;,&quot;actor&quot;:&quot;周星驰”&#125;</span><br></pre></td></tr></table></figure>
 <p>而下面是打开 Pretty print 后的同一个 JSON</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;大话西游&quot;,</span><br><span class="line">  &quot;actor&quot;: &quot;周星驰”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;大话西游&quot;,</span><br><span class="line">  &quot;actor&quot;: &quot;周星驰”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在 JSON 稍变得复杂之后，如果没有 Pretty print 的 JSON 将会变得完全不可读。虽然打开 Pretty print 会增加一些空白字符，但是由于打开 Gzip 压缩，这些空白字符所占用的空间都会被压缩掉，所以并不用担心网络传输时，JSON 变得更大更慢。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>API是程序员与程序员沟通的语言，一个优秀的API不光可以让你维护起来更轻松，也会让你的调用者在使用时更得心应手。遵循 REST 准则设计出来的优秀的 API，可以减少你与调用者之间的沟通成本，让你可以用更多的时间专注在其它更重要的事情上。</p>
 <p>本文中我们从 REST 的设计准则开始讲起，用例子说明如何设计出更出色的 API。</p>
@@ -445,7 +450,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -456,7 +461,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

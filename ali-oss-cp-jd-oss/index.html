@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,24 +17,24 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="阿里云OSS对象存储中的图片数据迁移到京东云OSS 下载数据使用阿里云提供的 ossutil 工具进行下载操作 1ossutil cp oss:&#x2F;&#x2F;static-vcg&#x2F;veer&#x2F;static&#x2F; veer&#x2F;static&#x2F; 上传数据使用Amazon提供的 s3cmd 工具进行上传操作 1s3cmd put --recursive static&#x2F; s3:&#x2F;&#x2F;vcg-veer-static&#x2F;static">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里云OSS对象存储中的图片数据迁移到京东云OSS">
-<meta property="og:url" content="http://yoursite.com/ali-oss-cp-jd-oss/index.html">
+<meta property="og:url" content="https://zhaohongye.com/ali-oss-cp-jd-oss/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="阿里云OSS对象存储中的图片数据迁移到京东云OSS 下载数据使用阿里云提供的 ossutil 工具进行下载操作 1ossutil cp oss:&#x2F;&#x2F;static-vcg&#x2F;veer&#x2F;static&#x2F; veer&#x2F;static&#x2F; 上传数据使用Amazon提供的 s3cmd 工具进行上传操作 1s3cmd put --recursive static&#x2F; s3:&#x2F;&#x2F;vcg-veer-static&#x2F;static">
 <meta property="og:locale">
-<meta property="og:image" content="http://yoursite.com/ali-oss-cp-jd-oss/jd-sdk-python.jpg">
+<meta property="og:image" content="https://zhaohongye.com/ali-oss-cp-jd-oss/jd-sdk-python.jpg">
 <meta property="article:published_time" content="2019-06-13T02:00:40.000Z">
 <meta property="article:modified_time" content="2019-06-13T02:01:06.456Z">
 <meta property="article:author" content="GeekSRE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/ali-oss-cp-jd-oss/jd-sdk-python.jpg">
+<meta name="twitter:image" content="https://zhaohongye.com/ali-oss-cp-jd-oss/jd-sdk-python.jpg">
 
-<link rel="canonical" href="http://yoursite.com/ali-oss-cp-jd-oss/">
+<link rel="canonical" href="https://zhaohongye.com/ali-oss-cp-jd-oss/">
 
 
 <script id="page-configurations">
@@ -115,24 +115,29 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-标签">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-归档">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -192,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ali-oss-cp-jd-oss/">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/ali-oss-cp-jd-oss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -244,10 +249,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s3cmd put --recursive static/ s3://vcg-veer-static/static/</span><br></pre></td></tr></table></figure>
 <h4 id="异常问题"><a href="#异常问题" class="headerlink" title="异常问题"></a>异常问题</h4><p>上传到京东云后发现浏览器访问oss里的图片，会以下载的形式展示，需要更改为在线展示。</p>
 <p>询问京东技术后重新上传，增加 <strong>–content-type=”image/svg+xml”</strong>参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup s3cmd put --recursive --content-type&#x3D;&quot;image&#x2F;svg+xml&quot;   static&#x2F; s3:&#x2F;&#x2F;vcg-veer-static&#x2F;static&#x2F; &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup s3cmd put --recursive --content-type=&quot;image/svg+xml&quot;   static/ s3://vcg-veer-static/static/ &amp;</span><br></pre></td></tr></table></figure>
 <p>重新上传后，清除本地缓存，刷新CDN目录或指定资源即可正常访问。</p>
 <h4 id="调用京东云SDK获取OSS文件的属性"><a href="#调用京东云SDK获取OSS文件的属性" class="headerlink" title="调用京东云SDK获取OSS文件的属性"></a>调用京东云SDK获取OSS文件的属性</h4><p><a target="_blank" rel="noopener" href="https://docs.jdcloud.com/cn/object-storage-service/sdk-python">SDK-Python</a></p>
-<h5 id="安装pip和boto3"><a href="#安装pip和boto3" class="headerlink" title="安装pip和boto3"></a>安装pip和boto3</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install boto3</span><br></pre></td></tr></table></figure>
+<h5 id="安装pip和boto3"><a href="#安装pip和boto3" class="headerlink" title="安装pip和boto3"></a>安装pip和boto3</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install boto3</span><br></pre></td></tr></table></figure>
 <p>创建client</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto3  </span><br><span class="line">        </span><br><span class="line">ACCESS_KEY = <span class="string">&#x27;your accesskey&#x27;</span>  </span><br><span class="line">SECRET_KEY = <span class="string">&#x27;your secretkey&#x27;</span>  </span><br><span class="line">s3 = boto3.client(  </span><br><span class="line">    <span class="string">&#x27;s3&#x27;</span>,  </span><br><span class="line">    aws_access_key_id=ACCESS_KEY,  </span><br><span class="line">    aws_secret_access_key=SECRET_KEY,  </span><br><span class="line">    <span class="comment">#下面给出一个endpoint_url的例子  </span></span><br><span class="line">    endpoint_url=<span class="string">&#x27;https://s3.cn-north-1.jdcloud-oss.com&#x27;</span>  </span><br><span class="line">    )  </span><br><span class="line">s3.head_object(Bucket=<span class="string">&#x27;vcg-veer-static&#x27;</span>,Key=<span class="string">&#x27;static/landing/icon_search_white.svg&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>返回值如下：</p>
@@ -345,7 +350,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -356,7 +361,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

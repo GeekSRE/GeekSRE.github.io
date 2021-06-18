@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="如果您的服务器使用弱口令登录，黑客可能会非法登录您的服务器，窃取服务器数据或破坏服务器。建议您为服务器设置复杂登录口令，并定期提升登录口令的安全性。本文介绍如何提升登录口令的安全性以及常见的修改方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="提升登录口令安全最佳实践">
-<meta property="og:url" content="http://yoursite.com/ops-safe-weak-passwords/index.html">
+<meta property="og:url" content="https://zhaohongye.com/ops-safe-weak-passwords/index.html">
 <meta property="og:site_name" content="GeekSRE">
 <meta property="og:description" content="如果您的服务器使用弱口令登录，黑客可能会非法登录您的服务器，窃取服务器数据或破坏服务器。建议您为服务器设置复杂登录口令，并定期提升登录口令的安全性。本文介绍如何提升登录口令的安全性以及常见的修改方法。">
 <meta property="og:locale">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1182590061/p170023.png">
 
-<link rel="canonical" href="http://yoursite.com/ops-safe-weak-passwords/">
+<link rel="canonical" href="https://zhaohongye.com/ops-safe-weak-passwords/">
 
 
 <script id="page-configurations">
@@ -117,24 +117,29 @@
 
 <nav class="site-nav">
   <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-主页">
+        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
-
-  </li>
-        <li class="menu-item menu-item-标签">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-        <li class="menu-item menu-item-分类">
+        <li class="menu-item menu-item-about">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-        <li class="menu-item menu-item-归档">
+        <li class="menu-item menu-item-tags">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -194,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/ops-safe-weak-passwords/">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/ops-safe-weak-passwords/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -240,7 +245,7 @@
 
       
         <p>如果您的服务器使用弱口令登录，黑客可能会非法登录您的服务器，窃取服务器数据或破坏服务器。建议您为服务器设置复杂登录口令，并定期提升登录口令的安全性。本文介绍如何提升登录口令的安全性以及常见的修改方法。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="背景信息"><a href="#背景信息" class="headerlink" title="背景信息"></a>背景信息</h2><p>在服务器系统中使用弱口令可能会造成以下危害：</p>
 <ul>
 <li>个人用户使用的弱口令可能会被猜解或被破解工具破解，从而泄露个人隐私信息，甚至造成财产损失。</li>
@@ -350,28 +355,28 @@
 <h4 id="Linux系统登录弱口令检查"><a href="#Linux系统登录弱口令检查" class="headerlink" title="Linux系统登录弱口令检查"></a>Linux系统登录弱口令检查</h4><h5 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h5><p>若系统使用弱口令，存在极大的被恶意猜解入侵风险，需立即修复。</p>
 <h5 id="检查提示"><a href="#检查提示" class="headerlink" title="检查提示"></a>检查提示</h5><p>存在弱密码(用户名/密码):root/12**56</p>
 <h5 id="加固建议"><a href="#加固建议" class="headerlink" title="加固建议"></a>加固建议</h5><p>执行命令<code>passwd [&lt;user&gt;]</code>，然后根据提示输入新口令完成修改，其中<user>为用户名，如果不输入则修改的是当前用户的口令。口令应符合复杂性要求：</user></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
 <h4 id="MySQL数据库登录弱口令检查"><a href="#MySQL数据库登录弱口令检查" class="headerlink" title="MySQL数据库登录弱口令检查"></a>MySQL数据库登录弱口令检查</h4><h5 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h5><p>若系统使用弱口令，存在极大的被恶意猜解入侵风险，需立即修复。</p>
-<h5 id="加固建议-1"><a href="#加固建议-1" class="headerlink" title="加固建议"></a>加固建议</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">登录mysql数据库；</span><br><span class="line">查看数据库用户密码信息：&#96;SELECT user, host, authentication_string FROM user;&#96; 部分版本查询命令为：&#96;SELECT user, host, password FROM user;&#96; </span><br><span class="line">根据查询结果及弱密码告警信息修改具体用户的密码：&#96;SET PASSWORD FOR &#39;用户名&#39;@&#39;主机&#39; &#x3D; PASSWORD(&#39;新密码&#39;);&#96;</span><br><span class="line">执行刷新命令：&#96;flush privileges;&#96; </span><br></pre></td></tr></table></figure>
-<h6 id="新口令应符合复杂性要求："><a href="#新口令应符合复杂性要求：" class="headerlink" title="新口令应符合复杂性要求："></a>新口令应符合复杂性要求：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<h5 id="加固建议-1"><a href="#加固建议-1" class="headerlink" title="加固建议"></a>加固建议</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">登录mysql数据库；</span><br><span class="line">查看数据库用户密码信息：`SELECT user, host, authentication_string FROM user;` 部分版本查询命令为：`SELECT user, host, password FROM user;` </span><br><span class="line">根据查询结果及弱密码告警信息修改具体用户的密码：`SET PASSWORD FOR &#x27;用户名&#x27;@&#x27;主机&#x27; = PASSWORD(&#x27;新密码&#x27;);`</span><br><span class="line">执行刷新命令：`flush privileges;` </span><br></pre></td></tr></table></figure>
+<h6 id="新口令应符合复杂性要求："><a href="#新口令应符合复杂性要求：" class="headerlink" title="新口令应符合复杂性要求："></a>新口令应符合复杂性要求：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
 <h4 id="Redis数据库登录弱口令检查"><a href="#Redis数据库登录弱口令检查" class="headerlink" title="Redis数据库登录弱口令检查"></a>Redis数据库登录弱口令检查</h4><h5 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h5><p>redis在redis.conf配置文件中，设置配置项requirepass， 开户密码认证。 redis因查询效率高，auth这种命令每秒能处理9w次以上，简单的redis的密码极容易为攻击者暴破。</p>
 <h5 id="检查提示-1"><a href="#检查提示-1" class="headerlink" title="检查提示"></a>检查提示</h5><p>存在弱密码(配置文件|密码):/etc/redis.conf|</p>
 <h5 id="加固建议-2"><a href="#加固建议-2" class="headerlink" title="加固建议"></a>加固建议</h5><p>打开redis.conf，找到requirepass所在的地方，修改为指定的密码，密码应符合复杂性要求：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
 <p>再去掉前面的#号注释符，然后重启redis</p>
 <h4 id="Apache-Tomcat控制台弱口令检查"><a href="#Apache-Tomcat控制台弱口令检查" class="headerlink" title="Apache Tomcat控制台弱口令检查"></a>Apache Tomcat控制台弱口令检查</h4><h5 id="描述-3"><a href="#描述-3" class="headerlink" title="描述"></a>描述</h5><p>tomcat-manger是Tomcat提供的web应用热部署功能，该功能具有较高权限，会直接控制Tomcat应用，应尽量避免使用此功能。如有特殊需求，请务必确保为该功能配置了强口令</p>
 <h5 id="检查提示-2"><a href="#检查提示-2" class="headerlink" title="检查提示"></a>检查提示</h5><p>存在弱密码(配置文件：用户名|密码):/data1/tom-7.0.73/conf/tomcat-users.xml:tungstar|tu<strong><strong>***</strong></strong>cg</p>
 <h5 id="加固建议-3"><a href="#加固建议-3" class="headerlink" title="加固建议"></a>加固建议</h5><p>编辑Tomcat根目录下的配置文件conf/tomcat-user.xml，修改user节点的password属性值为复杂口令, 口令应符合复杂性要求：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
 <p>操作时建议做好记录或备份</p>
 <h4 id="PostgreSQL数据库登录弱口令检查"><a href="#PostgreSQL数据库登录弱口令检查" class="headerlink" title="PostgreSQL数据库登录弱口令检查"></a>PostgreSQL数据库登录弱口令检查</h4><h5 id="描述-4"><a href="#描述-4" class="headerlink" title="描述"></a>描述</h5><p>若系统使用弱口令，存在极大的被恶意猜解入侵风险，需立即修复。</p>
 <h5 id="加固建议-4"><a href="#加固建议-4" class="headerlink" title="加固建议"></a>加固建议</h5><p>登录postgresql，使用如下命令修改弱口令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &lt;user&gt; WITH PASSWORD &#39;&lt;newpassword&gt;&#39;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &lt;user&gt; WITH PASSWORD &#x27;&lt;newpassword&gt;&#x27;;</span><br></pre></td></tr></table></figure>
 <p>其中<user>为用户名，<newpassword>为新口令。新口令应符合复杂性要求：</newpassword></user></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上</span><br><span class="line">2、包含以下四类字符中的三类字符:</span><br><span class="line">英文大写字母(A 到 Z)</span><br><span class="line">英文小写字母(a 到 z)</span><br><span class="line">10 个基本数字(0 到 9)</span><br><span class="line">非字母字符(例如 !、$、#、%、@、^、&amp;)</span><br><span class="line">3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等</span><br></pre></td></tr></table></figure>
 <h4 id="Windows系统登录弱口令检查"><a href="#Windows系统登录弱口令检查" class="headerlink" title="Windows系统登录弱口令检查"></a>Windows系统登录弱口令检查</h4><h5 id="描述-5"><a href="#描述-5" class="headerlink" title="描述"></a>描述</h5><p>若系统使用弱口令，存在极大的被恶意猜解入侵风险，需立即修复。</p>
 <h5 id="加固建议-5"><a href="#加固建议-5" class="headerlink" title="加固建议"></a>加固建议</h5><p>以win10为例，依次选择“开始 ”菜单&gt;“设置 ”&gt;“帐户 ” &gt;“登录选项 ”。在“密码”下面，选择“更改”按钮，然后按照步骤操作输入原口令和新口令，完成设置。新口令应符合复杂性要求：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上 2、包含以下四类字符中的三类字符: 英文大写字母(A 到 Z) 英文小写字母(a 到 z) 10 个基本数字(0 到 9) 非字母字符(例如 !、$、#、%、@、^、&amp;) 3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等 </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、长度8位以上 2、包含以下四类字符中的三类字符: 英文大写字母(A 到 Z) 英文小写字母(a 到 z) 10 个基本数字(0 到 9) 非字母字符(例如 !、$、#、%、@、^、&amp;) 3、避免使用已公开的弱口令，如：abcd.1234 、admin@123等 </span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -465,7 +470,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -476,7 +481,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

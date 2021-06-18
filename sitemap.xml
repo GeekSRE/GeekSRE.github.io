@@ -2,763 +2,770 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/django-ssl/</loc>
+    <loc>https://zhaohongye.com/vcg-devops-share/</loc>
+    
+    <lastmod>2021-06-18T07:47:23.975Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhaohongye.com/about/index.html</loc>
+    
+    <lastmod>2021-06-17T12:13:13.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhaohongye.com/django-ssl/</loc>
     
     <lastmod>2021-05-21T09:27:58.122Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/django-audit/</loc>
+    <loc>https://zhaohongye.com/django-audit/</loc>
     
     <lastmod>2021-05-19T07:09:43.896Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/django-ldap/</loc>
+    <loc>https://zhaohongye.com/django-ldap/</loc>
     
     <lastmod>2021-05-18T09:23:59.138Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/django-celery/</loc>
+    <loc>https://zhaohongye.com/django-celery/</loc>
     
     <lastmod>2021-05-18T09:00:27.376Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/open-ldap/</loc>
+    <loc>https://zhaohongye.com/open-ldap/</loc>
     
     <lastmod>2021-04-30T02:39:29.801Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/mac-networksetup-proxy/</loc>
+    <loc>https://zhaohongye.com/mac-networksetup-proxy/</loc>
     
     <lastmod>2021-04-29T02:33:41.766Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/k8s-change-rootdir/</loc>
+    <loc>https://zhaohongye.com/k8s-change-rootdir/</loc>
     
     <lastmod>2021-04-22T08:32:13.214Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-devops-practice/</loc>
+    <loc>https://zhaohongye.com/ali-devops-practice/</loc>
     
     <lastmod>2021-04-07T08:54:37.356Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/what-is-api/</loc>
+    <loc>https://zhaohongye.com/what-is-api/</loc>
     
     <lastmod>2021-04-07T08:50:58.652Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/what-is-sre/</loc>
+    <loc>https://zhaohongye.com/what-is-sre/</loc>
     
     <lastmod>2021-04-07T08:50:46.502Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/what-is-cicd/</loc>
+    <loc>https://zhaohongye.com/what-is-cicd/</loc>
     
     <lastmod>2021-04-07T08:50:36.903Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/devops/</loc>
+    <loc>https://zhaohongye.com/devops/</loc>
     
     <lastmod>2021-04-07T08:50:00.080Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/katalon/</loc>
+    <loc>https://zhaohongye.com/katalon/</loc>
     
     <lastmod>2021-04-07T08:49:40.754Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-sls-cost-optimization/</loc>
+    <loc>https://zhaohongye.com/ali-sls-cost-optimization/</loc>
     
     <lastmod>2021-02-19T01:27:38.329Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/redis-design-and-use-specification/</loc>
+    <loc>https://zhaohongye.com/redis-design-and-use-specification/</loc>
     
     <lastmod>2021-02-08T04:57:45.145Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/mysql-design-and-use-specification/</loc>
+    <loc>https://zhaohongye.com/mysql-design-and-use-specification/</loc>
     
     <lastmod>2021-02-08T04:56:52.854Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/django-orm/</loc>
+    <loc>https://zhaohongye.com/django-orm/</loc>
     
     <lastmod>2021-02-08T04:47:04.033Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/vue/</loc>
+    <loc>https://zhaohongye.com/vue/</loc>
     
     <lastmod>2021-02-05T03:52:25.985Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/vscode/</loc>
+    <loc>https://zhaohongye.com/vscode/</loc>
     
     <lastmod>2021-02-05T03:46:12.588Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/kubernetes-dashboard/</loc>
+    <loc>https://zhaohongye.com/kubernetes-dashboard/</loc>
     
     <lastmod>2021-02-01T10:01:41.109Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/openvpn/</loc>
+    <loc>https://zhaohongye.com/openvpn/</loc>
     
     <lastmod>2021-01-29T07:56:43.055Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/k8s-ingress-nginx-demo/</loc>
+    <loc>https://zhaohongye.com/k8s-ingress-nginx-demo/</loc>
     
     <lastmod>2021-01-29T02:11:41.519Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/k8s-pod-can-t-access-ingress-slb/</loc>
+    <loc>https://zhaohongye.com/k8s-pod-can-t-access-ingress-slb/</loc>
     
     <lastmod>2021-01-29T01:59:25.279Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/teshuxuqiu-jenkins-job/</loc>
+    <loc>https://zhaohongye.com/teshuxuqiu-jenkins-job/</loc>
     
     <lastmod>2021-01-27T07:20:04.363Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/tcp/</loc>
+    <loc>https://zhaohongye.com/tcp/</loc>
     
     <lastmod>2021-01-27T07:04:21.657Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/mysql-master-slave/</loc>
+    <loc>https://zhaohongye.com/mysql-master-slave/</loc>
     
     <lastmod>2021-01-27T06:51:53.758Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/terraform/</loc>
+    <loc>https://zhaohongye.com/terraform/</loc>
     
     <lastmod>2021-01-27T03:29:14.814Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/rest-api-best-practices/</loc>
+    <loc>https://zhaohongye.com/rest-api-best-practices/</loc>
     
     <lastmod>2021-01-26T09:48:53.900Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/nginx-proxy-demo/</loc>
+    <loc>https://zhaohongye.com/nginx-proxy-demo/</loc>
     
     <lastmod>2021-01-18T07:59:17.637Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-flow-autotest-robot-web-ui/</loc>
+    <loc>https://zhaohongye.com/ali-flow-autotest-robot-web-ui/</loc>
     
     <lastmod>2021-01-18T02:04:02.020Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/elk/</loc>
+    <loc>https://zhaohongye.com/elk/</loc>
     
     <lastmod>2021-01-07T09:56:06.576Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-pipelines-practice/</loc>
+    <loc>https://zhaohongye.com/jenkins-pipelines-practice/</loc>
     
     <lastmod>2020-12-29T08:53:53.354Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/safe-wakuang/</loc>
+    <loc>https://zhaohongye.com/safe-wakuang/</loc>
     
     <lastmod>2020-12-22T08:08:19.722Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ops-safe-weak-passwords/</loc>
+    <loc>https://zhaohongye.com/ops-safe-weak-passwords/</loc>
     
     <lastmod>2020-12-22T08:01:23.548Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/kubectl-get-all-api-resources/</loc>
+    <loc>https://zhaohongye.com/kubectl-get-all-api-resources/</loc>
     
     <lastmod>2020-11-10T07:34:43.717Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Istio-Application-Service-Mesh/</loc>
+    <loc>https://zhaohongye.com/Istio-Application-Service-Mesh/</loc>
     
     <lastmod>2020-10-20T03:00:17.245Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-update-error-Signature-verification-failed-in-update-site/</loc>
+    <loc>https://zhaohongye.com/Jenkins-update-error-Signature-verification-failed-in-update-site/</loc>
     
     <lastmod>2020-10-20T02:21:43.594Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-safe-centos-7-8-hostBase/</loc>
+    <loc>https://zhaohongye.com/ali-safe-centos-7-8-hostBase/</loc>
     
     <lastmod>2020-10-15T08:15:08.976Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Kubernetes/</loc>
+    <loc>https://zhaohongye.com/Kubernetes/</loc>
     
     <lastmod>2020-10-15T08:14:25.545Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/GoAccess-Nginx-log/</loc>
+    <loc>https://zhaohongye.com/GoAccess-Nginx-log/</loc>
     
     <lastmod>2020-10-15T08:13:53.377Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ansible-change-password/</loc>
+    <loc>https://zhaohongye.com/ansible-change-password/</loc>
     
     <lastmod>2020-10-15T08:09:10.273Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-waf-realip/</loc>
+    <loc>https://zhaohongye.com/ali-waf-realip/</loc>
     
     <lastmod>2020-10-15T08:08:39.532Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Kubernetes-kubectl/</loc>
+    <loc>https://zhaohongye.com/Kubernetes-kubectl/</loc>
     
     <lastmod>2020-10-15T08:08:00.819Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/docker-tcpdump/</loc>
+    <loc>https://zhaohongye.com/docker-tcpdump/</loc>
     
     <lastmod>2020-10-15T08:07:29.660Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/docker-image/</loc>
+    <loc>https://zhaohongye.com/docker-image/</loc>
     
     <lastmod>2020-10-15T08:07:08.457Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/java-docker-ops/</loc>
+    <loc>https://zhaohongye.com/java-docker-ops/</loc>
     
     <lastmod>2020-10-15T08:06:28.959Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/confluence-ops/</loc>
+    <loc>https://zhaohongye.com/confluence-ops/</loc>
     
     <lastmod>2020-10-15T08:05:34.190Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/k8s-nginx-ingress-controller-install/</loc>
+    <loc>https://zhaohongye.com/k8s-nginx-ingress-controller-install/</loc>
     
     <lastmod>2020-10-15T08:04:51.302Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Kubernetes-Secrets/</loc>
+    <loc>https://zhaohongye.com/Kubernetes-Secrets/</loc>
     
     <lastmod>2020-10-15T08:04:28.662Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Kubernetes-HostAliases/</loc>
+    <loc>https://zhaohongye.com/Kubernetes-HostAliases/</loc>
     
     <lastmod>2020-10-15T08:03:55.522Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/hexo-next-add-search/</loc>
+    <loc>https://zhaohongye.com/hexo-next-add-search/</loc>
     
     <lastmod>2020-10-15T08:03:09.994Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/archer/</loc>
+    <loc>https://zhaohongye.com/archer/</loc>
     
     <lastmod>2020-10-15T08:02:31.560Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/nginx-ssl/</loc>
+    <loc>https://zhaohongye.com/nginx-ssl/</loc>
     
     <lastmod>2020-10-15T08:02:10.753Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Cookie-Session/</loc>
+    <loc>https://zhaohongye.com/Cookie-Session/</loc>
     
     <lastmod>2020-10-15T08:01:25.555Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ansible-config-password-auth/</loc>
+    <loc>https://zhaohongye.com/ansible-config-password-auth/</loc>
     
     <lastmod>2020-10-15T08:00:38.742Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/es-safe/</loc>
+    <loc>https://zhaohongye.com/es-safe/</loc>
     
     <lastmod>2020-10-15T08:00:11.571Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/domain-ssl/</loc>
+    <loc>https://zhaohongye.com/domain-ssl/</loc>
     
     <lastmod>2020-10-15T07:59:49.197Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/linux-jiagu/</loc>
+    <loc>https://zhaohongye.com/linux-jiagu/</loc>
     
     <lastmod>2020-10-15T07:58:30.043Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/baoli-pojie-fangyu/</loc>
+    <loc>https://zhaohongye.com/baoli-pojie-fangyu/</loc>
     
     <lastmod>2020-10-15T07:57:55.479Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/gitlab/</loc>
+    <loc>https://zhaohongye.com/gitlab/</loc>
     
     <lastmod>2020-10-15T07:56:59.198Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/hexo-live2d/</loc>
+    <loc>https://zhaohongye.com/hexo-live2d/</loc>
     
     <lastmod>2020-10-15T07:56:34.675Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/hexo-add-images/</loc>
+    <loc>https://zhaohongye.com/hexo-add-images/</loc>
     
     <lastmod>2020-10-15T07:56:06.874Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/hello-world/</loc>
+    <loc>https://zhaohongye.com/hello-world/</loc>
     
     <lastmod>2020-10-15T07:54:44.558Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Kubernetes-Nginx-Ingress/</loc>
+    <loc>https://zhaohongye.com/Kubernetes-Nginx-Ingress/</loc>
     
     <lastmod>2020-10-15T07:53:00.419Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/hexo/</loc>
+    <loc>https://zhaohongye.com/hexo/</loc>
     
     <lastmod>2020-10-15T07:52:00.187Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/what-is-jenkins/</loc>
+    <loc>https://zhaohongye.com/what-is-jenkins/</loc>
     
     <lastmod>2020-09-28T06:33:23.614Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-yunxiao-tiyan/</loc>
+    <loc>https://zhaohongye.com/ali-yunxiao-tiyan/</loc>
     
     <lastmod>2020-09-25T01:38:06.440Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/nexus-upload-jar/</loc>
+    <loc>https://zhaohongye.com/nexus-upload-jar/</loc>
     
     <lastmod>2020-09-25T01:36:45.595Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2020-09-25T01:34:31.632Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/Container_and_Docker/</loc>
+    <loc>https://zhaohongye.com/Container_and_Docker/</loc>
     
     <lastmod>2020-09-24T09:02:31.862Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-kt/</loc>
+    <loc>https://zhaohongye.com/ali-kt/</loc>
     
     <lastmod>2020-09-02T07:15:32.345Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/mariadb-install/</loc>
+    <loc>https://zhaohongye.com/mariadb-install/</loc>
     
     <lastmod>2020-07-20T10:50:35.116Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/pip/</loc>
+    <loc>https://zhaohongye.com/pip/</loc>
     
     <lastmod>2020-07-20T10:50:12.477Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/confluence-db-ssl-warning/</loc>
+    <loc>https://zhaohongye.com/confluence-db-ssl-warning/</loc>
     
     <lastmod>2020-07-20T10:49:35.771Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/what-is-k8s/</loc>
+    <loc>https://zhaohongye.com/what-is-k8s/</loc>
     
     <lastmod>2020-07-20T10:48:08.494Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-ops/</loc>
+    <loc>https://zhaohongye.com/jenkins-ops/</loc>
     
     <lastmod>2020-07-20T10:34:15.518Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/centos-yum-repo/</loc>
+    <loc>https://zhaohongye.com/centos-yum-repo/</loc>
     
     <lastmod>2019-08-07T08:28:02.437Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/gitlab-remove-to-coding/</loc>
+    <loc>https://zhaohongye.com/gitlab-remove-to-coding/</loc>
     
     <lastmod>2019-08-06T02:31:39.259Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/zip-and-tar/</loc>
+    <loc>https://zhaohongye.com/zip-and-tar/</loc>
     
     <lastmod>2019-08-05T07:29:35.706Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/python/</loc>
+    <loc>https://zhaohongye.com/python/</loc>
     
     <lastmod>2019-08-05T06:54:55.767Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-tuikuan/</loc>
+    <loc>https://zhaohongye.com/ali-tuikuan/</loc>
     
     <lastmod>2019-07-31T01:49:33.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/nodejs-npm-cnpm/</loc>
+    <loc>https://zhaohongye.com/nodejs-npm-cnpm/</loc>
     
     <lastmod>2019-07-30T07:32:00.236Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/confluence-jira-license/</loc>
+    <loc>https://zhaohongye.com/confluence-jira-license/</loc>
     
     <lastmod>2019-07-23T09:18:39.300Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/sonarqube/</loc>
+    <loc>https://zhaohongye.com/sonarqube/</loc>
     
     <lastmod>2019-07-17T06:46:13.045Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/linux-tree/</loc>
+    <loc>https://zhaohongye.com/linux-tree/</loc>
     
     <lastmod>2019-07-16T08:59:47.926Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/helm/</loc>
+    <loc>https://zhaohongye.com/helm/</loc>
     
     <lastmod>2019-07-16T06:18:45.827Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/linux-ab/</loc>
+    <loc>https://zhaohongye.com/linux-ab/</loc>
     
     <lastmod>2019-07-16T06:13:46.686Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-robotframework/</loc>
+    <loc>https://zhaohongye.com/jenkins-robotframework/</loc>
     
     <lastmod>2019-07-03T02:24:32.654Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-API/</loc>
+    <loc>https://zhaohongye.com/Jenkins-API/</loc>
     
     <lastmod>2019-07-01T08:44:23.909Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-gitlab-webhook/</loc>
+    <loc>https://zhaohongye.com/jenkins-gitlab-webhook/</loc>
     
     <lastmod>2019-07-01T08:24:22.611Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-mail/</loc>
+    <loc>https://zhaohongye.com/jenkins-mail/</loc>
     
     <lastmod>2019-07-01T07:48:12.135Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-nginx/</loc>
+    <loc>https://zhaohongye.com/jenkins-nginx/</loc>
     
     <lastmod>2019-07-01T03:30:37.528Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-rbac/</loc>
+    <loc>https://zhaohongye.com/jenkins-rbac/</loc>
     
     <lastmod>2019-07-01T02:29:56.076Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-plugins/</loc>
+    <loc>https://zhaohongye.com/jenkins-plugins/</loc>
     
     <lastmod>2019-06-29T07:19:33.005Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/Jenkins-Pipeline/</loc>
+    <loc>https://zhaohongye.com/Jenkins-Pipeline/</loc>
     
     <lastmod>2019-06-29T05:57:09.846Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-freestyle/</loc>
+    <loc>https://zhaohongye.com/jenkins-freestyle/</loc>
     
     <lastmod>2019-06-29T05:39:44.753Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/jenkins-install/</loc>
+    <loc>https://zhaohongye.com/jenkins-install/</loc>
     
     <lastmod>2019-06-29T04:28:51.302Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/gitlab-reset-admin-password/</loc>
+    <loc>https://zhaohongye.com/gitlab-reset-admin-password/</loc>
     
     <lastmod>2019-06-27T07:33:57.698Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/gitlab-oldversion-install/</loc>
+    <loc>https://zhaohongye.com/gitlab-oldversion-install/</loc>
     
     <lastmod>2019-06-27T07:28:39.135Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/rds-optimize/</loc>
+    <loc>https://zhaohongye.com/rds-optimize/</loc>
     
     <lastmod>2019-06-23T07:24:54.683Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/shence-logagent-k8s-log/</loc>
+    <loc>https://zhaohongye.com/shence-logagent-k8s-log/</loc>
     
     <lastmod>2019-06-19T06:47:28.011Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/ali-oss-cp-jd-oss/</loc>
+    <loc>https://zhaohongye.com/ali-oss-cp-jd-oss/</loc>
     
     <lastmod>2019-06-13T02:01:06.456Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/python-ali-swarm-app-ops/</loc>
+    <loc>https://zhaohongye.com/python-ali-swarm-app-ops/</loc>
     
     <lastmod>2019-06-04T11:12:56.264Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/python-ali-slb/</loc>
+    <loc>https://zhaohongye.com/python-ali-slb/</loc>
     
     <lastmod>2019-06-04T11:08:20.665Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/shell-delete-faild-pod/</loc>
+    <loc>https://zhaohongye.com/shell-delete-faild-pod/</loc>
     
     <lastmod>2019-06-03T06:31:14.679Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/nginx-log-qiege-shell/</loc>
+    <loc>https://zhaohongye.com/nginx-log-qiege-shell/</loc>
     
     <lastmod>2019-05-27T08:54:35.930Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/hexo-next-config/</loc>
+    <loc>https://zhaohongye.com/hexo-next-config/</loc>
     
     <lastmod>2019-05-27T07:16:51.064Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
+    <loc>https://zhaohongye.com/tags/index.html</loc>
     
     <lastmod>2019-04-05T04:32:40.286Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
+    <loc>https://zhaohongye.com/categories/index.html</loc>
     
     <lastmod>2019-04-05T01:45:12.671Z</lastmod>
     
