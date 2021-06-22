@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhaohongye.com/django-models-serializer-view-demo/</loc>
+    
+    <lastmod>2021-06-22T02:42:29.559Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhaohongye.com/vcg-devops-share/</loc>
     
     <lastmod>2021-06-18T07:47:23.975Z</lastmod>
