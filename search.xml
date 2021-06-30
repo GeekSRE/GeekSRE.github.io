@@ -475,6 +475,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Airflow</title>
+    <url>/airflow/</url>
+    <content><![CDATA[<p> Airflow，一个可编程，调度和监控的工作流平台</p>
+<span id="more"></span>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p><a href="http://airflow.apache.org/">http://airflow.apache.org/</a></p>
+</blockquote>
+<h4 id="什么是Airflow"><a href="#什么是Airflow" class="headerlink" title="什么是Airflow"></a>什么是Airflow</h4><p>Airflow 是一个使用 python 语言编写的 data pipeline 调度和监控工作流的平台。 Airflow 是通过 DAG（Directed acyclic graph 有向无环图）来管理任务流程的任务调度工具， 不需要知道业务数据的具体内容，设置任务的依赖关系即可实现任务调度。</p>
+<p>当工作流被定义为代码时，它们变得更加可维护、可版本化、可测试和协作。</p>
+<p>这个平台拥有和 Hive、Presto、MySQL、HDFS、Postgres 等数据源之间交互的能力，并且提供了钩子（hook）使其拥有很好地扩展性。 除了一个命令行界面，该工具还提供了一个基于 Web 的用户界面可以可视化管道的依赖关系、监控进度、触发任务等。</p>
+<h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><ul>
+<li>可扩展：Airflow 具有模块化架构，并使用消息队列来编排任意数量的 worker。Airflow已准备好无限扩展。</li>
+<li>动态的：在 Python 中定义，允许动态pipelines生成。这允许编写动态实例化管道的代码。</li>
+<li>可扩展：轻松定义您自己的运算符并扩展库以适应适合您环境的抽象级别。</li>
+<li>优雅的：Airflow pipelines精简而明确。参数化是使用强大的 Jinja 模板引擎构建到其核心中的。</li>
+</ul>
+<h4 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h4><ul>
+<li>纯Python</li>
+<li>UI界面</li>
+<li>强大的集成</li>
+<li>易于使用</li>
+<li>开源</li>
+</ul>
+<h4 id="Airflow的架构"><a href="#Airflow的架构" class="headerlink" title="Airflow的架构"></a>Airflow的架构</h4><p>Airflow 安装通常由以下组件组成：</p>
+<ul>
+<li>调度器<a href="http://airflow.apache.org/docs/apache-airflow/stable/concepts/scheduler.html">Scheduler</a>：它处理触发调度的工作流，并将<a href="http://airflow.apache.org/docs/apache-airflow/stable/concepts/tasks.html">任务</a>提交给执行程序以运行。</li>
+<li>执行器<a href="http://airflow.apache.org/docs/apache-airflow/stable/executor/index.html">Executor</a>：处理正在运行的任务</li>
+<li>webserver：它提供了一个方便的用户界面来检查、触发和调试 DAG 和任务的行为。</li>
+<li><em>DAG 文件</em>夹，由调度程序和执行程序（以及执行程序拥有的任何工人）读取</li>
+<li><em>元数据库</em>，供调度器、执行器和网络服务器用来存储状态</li>
+</ul>
+<p><img src="/airflow/./airflow03.png" alt></p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><h4 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h4><blockquote>
+<p><a href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. Clear old package</span></span><br><span class="line">yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-engine</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Install dependent package</span></span><br><span class="line">yum install -y yum-utils</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. Install docker-ce</span></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">yum install -y docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+<h4 id="镜像加速器"><a href="#镜像加速器" class="headerlink" title="镜像加速器"></a>镜像加速器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/docker</span><br><span class="line">tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://48lglssc.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<h4 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h4><blockquote>
+<p><a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. Download docker-compose binary file</span></span><br><span class="line">curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Add execute permission</span></span><br><span class="line">chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. link docker-compose</span></span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/bin/docker-compose /usr/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. View version</span></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+<h4 id="部署airflow"><a href="#部署airflow" class="headerlink" title="部署airflow"></a>部署airflow</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. Create docker-compose directory</span></span><br><span class="line">mkdir deploy</span><br><span class="line"><span class="built_in">cd</span> deploy </span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Download docker-compose.yaml</span></span><br><span class="line">curl -LfO <span class="string">&#x27;https://airflow.apache.org/docs/apache-airflow/2.0.1/docker-compose.yaml&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. Init airflow, database migrations and create the first user account</span></span><br><span class="line"><span class="comment"># dags 存放自定义的dag文件</span></span><br><span class="line"><span class="comment"># logs  存放服务的日志文件</span></span><br><span class="line"><span class="comment"># plugins 存放插件文件</span></span><br><span class="line">mkdir ./dags ./logs ./plugins</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;AIRFLOW_UID=<span class="subst">$(id -u)</span>\nAIRFLOW_GID=0\nAIRFLOW_IMAGE_NAME=apache/airflow:2.1.0 &quot;</span> &gt; .env</span><br><span class="line"><span class="comment"># export AIRFLOW_IMAGE_NAME=apache/airflow:2.1.0  # fix https://github.com/apache/airflow/issues/15312</span></span><br><span class="line">docker-compose up airflow-init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. Start all services</span></span><br><span class="line">docker-compose up</span><br><span class="line">docker-compose stop</span><br><span class="line"><span class="comment">#docker-compose up -d #后台运行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. View all containers</span></span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<h3 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h3><p><img src="/airflow/./airflow01.jpg" alt></p>
+<p>Airflow 带有一个用户界面，可让您查看 DAG 及其任务正在执行的操作、触发 DAG 的运行、查看日志以及对 DAG 进行一些有限的调试和解决问题。</p>
+<p><img src="/airflow/./airflow02.png" alt></p>
+]]></content>
+      <tags>
+        <tag>Airflow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>(转载)阿里巴巴DevOps实践手册</title>
     <url>/ali-devops-practice/</url>
     <content><![CDATA[<p>do what you loveeee<br><span id="more"></span><br><div class="pdfobject-container" data-target="./阿里巴巴DevOps实践手册.pdf" data-height="500px"></div></p>
@@ -2614,6 +2665,23 @@ wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.235.1/jenkins.war
       </categories>
       <tags>
         <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jupyter</title>
+    <url>/jupyter/</url>
+    <content><![CDATA[<p>jupyter</p>
+<span id="more"></span>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install jupyter</span><br></pre></td></tr></table></figure>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jupyter-notebook</span><br></pre></td></tr></table></figure>
+<h4 id="配置venv"><a href="#配置venv" class="headerlink" title="配置venv"></a>配置venv</h4><h5 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -m venv .venv</span><br></pre></td></tr></table></figure>
+<h5 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">source .venv/bin/activate</span><br></pre></td></tr></table></figure>
+<h5 id="配置jupyter内核"><a href="#配置jupyter内核" class="headerlink" title="配置jupyter内核"></a>配置jupyter内核</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install ipykernel</span><br><span class="line">python -m ipykernel install --name venv --display-name &quot;venv&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="退出虚拟环境"><a href="#退出虚拟环境" class="headerlink" title="退出虚拟环境"></a>退出虚拟环境</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+<h5 id="切换内核"><a href="#切换内核" class="headerlink" title="切换内核"></a>切换内核</h5><p><img src="/jupyter/./jupyter.png" alt></p>
+]]></content>
+      <tags>
+        <tag>Jupyter</tag>
       </tags>
   </entry>
   <entry>

@@ -193,6 +193,147 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/nodejs-npm-cnpm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/nodejs-npm-cnpm/" class="post-title-link" itemprop="url">nodejs-npm-cnpm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-07-30 15:30:37 / Modified: 15:32:00" itemprop="dateCreated datePublished" datetime="2019-07-30T15:30:37+08:00">2019-07-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://npm.taobao.org/">淘宝NPM镜像官网</a></p>
+<h5 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h5><h6 id="node-8-16-0"><a href="#node-8-16-0" class="headerlink" title="node:8.16.0"></a>node:8.16.0</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、创建目录</span></span><br><span class="line">mkdir -p /usr/local/lib/nodejs/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、下载安装包</span></span><br><span class="line">wget https://nodejs.org/dist/v8.16.0/node-v8.16.0-linux-x64.tar.xz</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、解压</span></span><br><span class="line">tar -xJvf node-v8.16.0-linux-x64.tar.xz -C /usr/local/lib/nodejs/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、配置环境变量</span></span><br><span class="line">vim ~/.bash_profile</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Nodejs</span></span><br><span class="line">VERSION=v8.16.0</span><br><span class="line">DISTRO=linux-x64</span><br><span class="line">export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h5 id="node-10-16-0"><a href="#node-10-16-0" class="headerlink" title="node:10.16.0"></a>node:10.16.0</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、创建目录</span></span><br><span class="line">mkdir -p /usr/local/lib/nodejs/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、下载安装包</span></span><br><span class="line">wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.xz</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、解压</span></span><br><span class="line">tar -xJvf node-v10.16.0-linux-x64.tar.xz -C /usr/local/lib/nodejs/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、配置环境变量</span></span><br><span class="line">vim ~/.bash_profile</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Nodejs</span></span><br><span class="line">VERSION=v10.16.0</span><br><span class="line">DISTRO=linux-x64</span><br><span class="line">export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h5 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/confluence-jira-license/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/confluence-jira-license/" class="post-title-link" itemprop="url">申请Confluence和Jira的试用版license</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-07-23 17:16:33 / Modified: 17:18:39" itemprop="dateCreated datePublished" datetime="2019-07-23T17:16:33+08:00">2019-07-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p>访问<a target="_blank" rel="noopener" href="https://www.atlassian.com/，登录账号">https://www.atlassian.com/，登录账号</a></p>
+<p><img src="/confluence-jira-license/./image2019-7-23_16-56-18.png" alt></p>
+<p><img src="/confluence-jira-license/./image2019-7-23_16-58-42.png" alt></p>
+</li>
+<li><p>点击“licenses”，url为<a target="_blank" rel="noopener" href="https://my.atlassian.com/product">https://my.atlassian.com/product</a></p>
+<p><img src="/confluence-jira-license/./image2019-7-23_17-0-29.png" alt></p>
+</li>
+<li><p>创建新的认证：</p>
+<p><img src="/confluence-jira-license/./image2019-7-23_17-2-25.png" alt></p>
+</li>
+<li><p>获取service ID</p>
+<p>使用admin账号登录系统，<strong>系统</strong>-<strong>系统信息</strong>可以获取service ID</p>
+<p><img src="/confluence-jira-license/./1563872961498.jpg" alt></p>
+<p><img src="/confluence-jira-license/./1563872994300.jpg" alt></p>
+</li>
+<li><p>激活license</p>
+<p><img src="/confluence-jira-license/./1563873215131.jpg" alt></p>
+<p><img src="/confluence-jira-license/./1563873261297.jpg" alt></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/sonarqube/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -890,147 +1031,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/jenkins-nginx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/jenkins-nginx/" class="post-title-link" itemprop="url">Jenkins-域名解析+Nginx代理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-01 11:21:00 / Modified: 11:30:37" itemprop="dateCreated datePublished" datetime="2019-07-01T11:21:00+08:00">2019-07-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="配置Jenkins-URL"><a href="#配置Jenkins-URL" class="headerlink" title="配置Jenkins URL"></a>配置Jenkins URL</h4><p><img src="/jenkins-nginx/./yuming1.jpg" alt></p>
-<h4 id="配置域名解析"><a href="#配置域名解析" class="headerlink" title="配置域名解析"></a>配置域名解析</h4><p><img src="/jenkins-nginx/./yuming2.jpg" alt></p>
-<h4 id="添加Nginx解析"><a href="#添加Nginx解析" class="headerlink" title="添加Nginx解析"></a>添加Nginx解析</h4><p>nginx配置文件如下：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="attribute">server_name</span> jenkins.visualchina.com;</span><br><span class="line"> <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> http://jenkins.visualchina.com/jenkins;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="attribute">location</span> /jenkins &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:8080/jenkins;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> Host $host;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Real-IP $remote_addr;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded_For $proxy_add_x_forwarded_for;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">	<span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">	<span class="attribute">server_name</span> jenkins.visualchina.com;</span><br><span class="line">	<span class="attribute">access_log</span>  /var/log/nginx/jenkins.visualchina.com main;</span><br><span class="line">	<span class="attribute">error_log</span>  /var/log/nginx/jenkins.visualchina.com.<span class="literal">error</span>.log;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">ssl</span> <span class="literal">on</span>;                                                               <span class="comment">#ssl功能开启</span></span><br><span class="line">	<span class="attribute">ssl_certificate</span> sslfile/visualchina.pem;                         <span class="comment">#证书路径</span></span><br><span class="line">	<span class="attribute">ssl_certificate_key</span> sslfile/visualchina.key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/(.*)$</span> http://jenkins.visualchina.com/jenkins;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="attribute">location</span> /jenkins &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:8080/jenkins;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> Host $host;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Real-IP $remote_addr;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded_For $proxy_add_x_forwarded_for;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/jenkins-rbac/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/jenkins-rbac/" class="post-title-link" itemprop="url">Jenkins-用户权限管理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-07-01 10:27:37 / Modified: 10:29:56" itemprop="dateCreated datePublished" datetime="2019-07-01T10:27:37+08:00">2019-07-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Jenkins-用户权限管理</p>
-<p>使用<a target="_blank" rel="noopener" href="http://wiki.jenkins-ci.org/display/JENKINS/Role+Strategy+Plugin">Role-based Authorization Strategy</a>插件实现权限管理</p>
-<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p><img src="/jenkins-rbac/./quanxian1.jpg" alt></p>
-<p>确认安装完成</p>
-<p><img src="/jenkins-rbac/./quanxian2.jpg" alt></p>
-<h4 id="激活基于角色的策略"><a href="#激活基于角色的策略" class="headerlink" title="激活基于角色的策略"></a>激活基于角色的策略</h4><p><img src="/jenkins-rbac/./quanxian3.jpg" alt></p>
-<h4 id="自定义角色权限"><a href="#自定义角色权限" class="headerlink" title="自定义角色权限"></a>自定义角色权限</h4><p><img src="/jenkins-rbac/./quanxian4.jpg" alt></p>
-<h4 id="分配角色给用户"><a href="#分配角色给用户" class="headerlink" title="分配角色给用户"></a>分配角色给用户</h4><p><img src="/jenkins-rbac/./quanxian5.jpg" alt></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1095,7 +1099,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-count">111</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1106,7 +1110,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
