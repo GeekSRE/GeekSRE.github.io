@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhaohongye.com/ansible/</loc>
+    
+    <lastmod>2021-07-02T09:28:47.736Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhaohongye.com/airflow/</loc>
     
     <lastmod>2021-06-30T01:28:23.783Z</lastmod>

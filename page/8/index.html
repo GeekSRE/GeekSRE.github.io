@@ -193,6 +193,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/jenkins-mail/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="GeekSRE">
+      <meta itemprop="description" content="GeekSRE">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GeekSRE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/jenkins-mail/" class="post-title-link" itemprop="url">Jenkins-邮件通知</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-07-01 15:41:21 / Modified: 15:48:12" itemprop="dateCreated datePublished" datetime="2019-07-01T15:41:21+08:00">2019-07-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jenkins/" itemprop="url" rel="index"><span itemprop="name">Jenkins</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Jenkins-邮件通知</p>
+<h4 id="默认自带邮件功能"><a href="#默认自带邮件功能" class="headerlink" title="默认自带邮件功能"></a>默认自带邮件功能</h4><ol>
+<li><h5 id="配置系统管理员邮件地址"><a href="#配置系统管理员邮件地址" class="headerlink" title="配置系统管理员邮件地址"></a>配置<code>系统管理员邮件地址</code></h5><p><img src="/jenkins-mail/./mail1.jpg" alt></p>
+</li>
+<li><h5 id="配置邮件通知，并发送测试邮件"><a href="#配置邮件通知，并发送测试邮件" class="headerlink" title="配置邮件通知，并发送测试邮件"></a>配置<code>邮件通知</code>，并发送测试邮件</h5><p><img src="/jenkins-mail/./mail2.jpg" alt></p>
+</li>
+<li><h5 id="查收邮件"><a href="#查收邮件" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/jenkins-mail/./mail3.jpg" alt></p>
+</li>
+<li><h5 id="job中配置邮件通知"><a href="#job中配置邮件通知" class="headerlink" title="job中配置邮件通知"></a>job中配置邮件通知</h5><p><img src="/jenkins-mail/./mail4.jpg" alt></p>
+</li>
+<li><h5 id="查看job日志"><a href="#查看job日志" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/jenkins-mail/./mail5.jpg" alt></p>
+</li>
+<li><h5 id="查收邮件-1"><a href="#查收邮件-1" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/jenkins-mail/./mail6.jpg" alt></p>
+</li>
+<li><h5 id="再将第四步中错误命令修复好，重新构建"><a href="#再将第四步中错误命令修复好，重新构建" class="headerlink" title="再将第四步中错误命令修复好，重新构建"></a>再将第四步中错误命令修复好，重新构建</h5></li>
+<li><h5 id="查看job日志-1"><a href="#查看job日志-1" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/jenkins-mail/./mail7.jpg" alt></p>
+</li>
+<li><h5 id="查收恢复邮件"><a href="#查收恢复邮件" class="headerlink" title="查收恢复邮件"></a>查收恢复邮件</h5><p><img src="/jenkins-mail/./mail8.jpg" alt></p>
+</li>
+</ol>
+<h4 id="使用Email-ext插件"><a href="#使用Email-ext插件" class="headerlink" title="使用Email-ext插件"></a>使用Email-ext插件</h4><p><a target="_blank" rel="noopener" href="https://wiki.jenkins.io/display/JENKINS/Email-ext+plugin">Email-ext+plugin</a></p>
+<ol>
+<li><h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p>可以通过系统管理→管理插件→可选插件，选择<strong>Email Extension</strong>插件进行安装：</p>
+<p><img src="/jenkins-mail/./mail9.jpg" alt></p>
+</li>
+</ol>
+<ol start="2">
+<li><h5 id="配置发件人账号密码，smtp服务器地址，端口"><a href="#配置发件人账号密码，smtp服务器地址，端口" class="headerlink" title="配置发件人账号密码，smtp服务器地址，端口"></a>配置发件人账号密码，smtp服务器地址，端口</h5><p><img src="/jenkins-mail/./mail11.jpg" alt></p>
+</li>
+<li><h5 id="配置邮件文本类型，模板内容"><a href="#配置邮件文本类型，模板内容" class="headerlink" title="配置邮件文本类型，模板内容"></a>配置邮件文本类型，模板内容</h5><p><img src="/jenkins-mail/./mail12.jpg" alt></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">(本邮件是程序自动下发，请勿回复!)<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">Jenkins地址: $HUDSON_URL<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">项目名称： $PROJECT_NAME<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">构建编号： $BUILD_NUMBER<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建状态： $BUILD_STATUS<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">触发原因： $&#123;CAUSE&#125;<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建日志地址： <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$&#123;BUILD_URL&#125;console&quot;</span>&gt;</span>$&#123;BUILD_URL&#125;console<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">构建地址： <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$BUILD_URL&quot;</span>&gt;</span>$BUILD_URL<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">变更集： $&#123;JELLY_SCRIPT,template=&quot;html&quot;&#125;<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="配置发送规则"><a href="#配置发送规则" class="headerlink" title="配置发送规则"></a>配置发送规则</h5><p><img src="/jenkins-mail/./mail13.jpg" alt></p>
+</li>
+<li><h5 id="开启邮件通知"><a href="#开启邮件通知" class="headerlink" title="开启邮件通知"></a>开启邮件通知</h5><p><code>增加构建后操作步骤</code>，选择<strong>Editable Email Notifiation</strong></p>
+<p><img src="/jenkins-mail/./mail14.jpg" alt></p>
+</li>
+<li><h5 id="配置收件人、抄送人、是否发送附件（构建日志）等"><a href="#配置收件人、抄送人、是否发送附件（构建日志）等" class="headerlink" title="配置收件人、抄送人、是否发送附件（构建日志）等"></a>配置收件人、抄送人、是否发送附件（构建日志）等</h5><p><img src="/jenkins-mail/./mail15.jpg" alt></p>
+<p><img src="/jenkins-mail/./mail16.jpg" alt></p>
+</li>
+<li><h5 id="查看job日志-2"><a href="#查看job日志-2" class="headerlink" title="查看job日志"></a>查看job日志</h5><p><img src="/jenkins-mail/./mail17.jpg" alt></p>
+</li>
+<li><h5 id="查收邮件-2"><a href="#查收邮件-2" class="headerlink" title="查收邮件"></a>查收邮件</h5><p><img src="/jenkins-mail/./mail18.jpg" alt></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/jenkins-nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1047,89 +1159,6 @@ user.save!
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/shence-logagent-k8s-log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="GeekSRE">
-      <meta itemprop="description" content="GeekSRE">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GeekSRE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/shence-logagent-k8s-log/" class="post-title-link" itemprop="url">神策logagent收集Kubernetes-Pod日志</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-06-19 14:16:19 / Modified: 14:47:28" itemprop="dateCreated datePublished" datetime="2019-06-19T14:16:19+08:00">2019-06-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>神策logagent收集Kubernetes Pod日志</p>
-<hr>
-<h4 id="项目背景："><a href="#项目背景：" class="headerlink" title="项目背景："></a>项目背景：</h4><p>神策logagent需要收集到java程序输出的日志，用于分析用户行为等</p>
-<p>想到两种方案</p>
-<ol>
-<li>pod指定部署到某台宿主机上，日志目录挂载到宿主机，宿主机上启动logagent程序。</li>
-<li>sidecar的形式</li>
-</ol>
-<p>目前使用第一种方案，比较稳妥，后续技术扎实后会替换成第二种，更稳定高效。</p>
-<h4 id="部署logagent"><a href="#部署logagent" class="headerlink" title="部署logagent"></a>部署logagent</h4><p><a target="_blank" rel="noopener" href="https://www.sensorsdata.cn/manual/log_agent.html">官方部署文档</a></p>
-<h5 id="安装Jdk"><a href="#安装Jdk" class="headerlink" title="安装Jdk"></a>安装Jdk</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y java-1.8.0-openjdk.x86_64</span><br></pre></td></tr></table></figure>
-<h5 id="下载LogAgent部署包和解压"><a href="#下载LogAgent部署包和解压" class="headerlink" title="下载LogAgent部署包和解压"></a>下载LogAgent部署包和解压</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.sensorsdata.cn/release/logagent/logagent_20190605.tgz</span><br><span class="line">tar zxvf logagent_20190605.tgz</span><br></pre></td></tr></table></figure>
-<h5 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim logagent/logagent.conf</span><br><span class="line"></span><br><span class="line">path=/var/log/veercms      #本地路径</span><br><span class="line">logagent_id=veerservice_2_241    #id</span><br><span class="line">pattern=cms.veerservice.log*     #log名称格式</span><br><span class="line">project=production</span><br><span class="line">pid_file=/data/vcg/logagent/logagent.pid</span><br><span class="line">host=172.16.249.136    #server端地址</span><br><span class="line">port=8106</span><br></pre></td></tr></table></figure>
-<h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup bin/logagent &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-<h5 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /data/vcg/logagent/log/logagent.log</span><br></pre></td></tr></table></figure>
-<h4 id="配置节点标签"><a href="#配置节点标签" class="headerlink" title="配置节点标签"></a>配置节点标签</h4><p>两种方式实现：</p>
-<ol>
-<li><p>控制台上添加标签</p>
-<p><img src="/shence-logagent-k8s-log/./1560925678009.jpg" alt="image-20190619142748161"></p>
-</li>
-<li><p>命令行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">例如给 cn-beijing.i-2ze7nm52ylwxd8j4d0lq 这个node添加标签：</span></span><br><span class="line">kubectl label nodes cn-beijing.i-2ze7nm52ylwxd8j4d0lq test-key=test-value</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">查看标签：</span></span><br><span class="line">kubectl get node --show-labels </span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="配置k8s-yaml"><a href="#配置k8s-yaml" class="headerlink" title="配置k8s yaml"></a>配置k8s yaml</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1beta2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">6</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line">      <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line">      <span class="attr">schedulerName:</span> <span class="string">default-scheduler</span></span><br><span class="line">      <span class="attr">securityContext:</span> &#123;&#125;</span><br><span class="line">      <span class="attr">terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br><span class="line">      <span class="attr">imagePullSecrets:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">registry-vpc.cn-beijing.aliyuncs.com</span>   <span class="comment">## 保密字典中的仓储认证</span></span><br><span class="line">      <span class="attr">affinity:</span></span><br><span class="line">        <span class="attr">nodeAffinity:</span></span><br><span class="line">          <span class="attr">preferredDuringSchedulingIgnoredDuringExecution:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">preference:</span> &#123;&#125;</span><br><span class="line">              <span class="attr">weight:</span> <span class="number">100</span></span><br><span class="line">          <span class="attr">requiredDuringSchedulingIgnoredDuringExecution:</span></span><br><span class="line">            <span class="attr">nodeSelectorTerms:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="attr">matchExpressions:</span></span><br><span class="line">                  <span class="bullet">-</span> <span class="attr">key:</span> <span class="string">vcgapp</span></span><br><span class="line">                    <span class="attr">operator:</span> <span class="string">In</span></span><br><span class="line">                    <span class="attr">values:</span></span><br><span class="line">                      <span class="bullet">-</span> <span class="string">veerlogagent</span>     <span class="comment">## node节点亲和性</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">&#x27;registry-vpc.cn-beijing.aliyuncs.com/vcg/com-veer-veerservice:pro-20190610183629&#x27;</span>   <span class="comment">## 镜像地址</span></span><br><span class="line">          <span class="attr">env:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">aliyun_logs_com-veer-veerservice</span>     <span class="comment">## 日志服务</span></span><br><span class="line">              <span class="attr">value:</span> <span class="string">stdout</span></span><br><span class="line">          <span class="attr">imagePullPolicy:</span> <span class="string">Always</span></span><br><span class="line">          <span class="attr">volumeMounts:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/var/log/veerservice_log</span>   <span class="comment"># 容器内路径</span></span><br><span class="line">              <span class="attr">name:</span> <span class="string">volume-veerservice</span></span><br><span class="line">          <span class="attr">resources:</span></span><br><span class="line">            <span class="attr">limits:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">4Gi</span></span><br><span class="line">            <span class="attr">requests:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">500m</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">1000Mi</span></span><br><span class="line">          <span class="attr">livenessProbe:</span>        <span class="comment">## 存活检测</span></span><br><span class="line">            <span class="attr">initialDelaySeconds:</span> <span class="number">80</span></span><br><span class="line">            <span class="attr">periodSeconds:</span> <span class="number">10</span></span><br><span class="line">            <span class="attr">timeoutSeconds:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">successThreshold:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">failureThreshold:</span> <span class="number">3</span></span><br><span class="line">            <span class="attr">tcpSocket:</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">9101</span></span><br><span class="line">          <span class="attr">readinessProbe:</span>         <span class="comment">## 就绪检测</span></span><br><span class="line">            <span class="attr">initialDelaySeconds:</span> <span class="number">80</span></span><br><span class="line">            <span class="attr">periodSeconds:</span> <span class="number">10</span></span><br><span class="line">            <span class="attr">timeoutSeconds:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">successThreshold:</span> <span class="number">1</span></span><br><span class="line">            <span class="attr">failureThreshold:</span> <span class="number">3</span></span><br><span class="line">            <span class="attr">tcpSocket:</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">9101</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">hostPath:</span></span><br><span class="line">            <span class="attr">path:</span> <span class="string">/var/log/veerservice</span>  <span class="comment"># 主机路径</span></span><br><span class="line">            <span class="attr">type:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">volume-veerservice</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">com-veer-veerservice</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">9101</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">ClusterIP</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1198,7 +1227,7 @@ user.save!
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">112</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
