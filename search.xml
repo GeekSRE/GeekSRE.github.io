@@ -960,7 +960,7 @@
   <entry>
     <title>ansible</title>
     <url>/ansible/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>ansible<br><span id="more"></span></p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="Ansible是什么？"><a href="#Ansible是什么？" class="headerlink" title="Ansible是什么？"></a>Ansible是什么？</h3><p>Ansible作为自动化运维工具，基于Python开发，可实现批量系统配置、批量程序部署、批量运行命令等功能。</p>
 <h3 id="Ansible特点"><a href="#Ansible特点" class="headerlink" title="Ansible特点"></a>Ansible特点</h3><ul>
 <li>部署简单，只需在主控端部署Ansible环境，被控端无需做任何操作；</li>
