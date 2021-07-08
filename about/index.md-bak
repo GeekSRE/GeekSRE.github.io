@@ -1,123 +1,72 @@
 ---
-title: 个人信息
+title: 小赵同学是真的帅
 date: 2019-04-05 00:53:39
 ---
-## 个人信息
+
+<html>
+    <head>
+        <title>Welcome</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style rel="stylesheet" type="text/css">
+            html {
+                background-image: url(https://geeksre.zhaohongye.com/other-web-index-html/html-background.png);
+                background-color: white;
+                font-family: "DejaVu Sans", "Liberation Sans", sans-serif;
+                font-size: 0.85em;
+                line-height: 1.25em;
+                margin: 0 4% 0 4%;
+            }
+
+            body {
+                border: 10px solid #fff;
+                margin: 0;
+                padding: 0;
+                background: #fff;
+            }
+
+            p {
+                line-height: 1.5em;
+            }
+
+            h1 {
+                margin-bottom: 0;
+                line-height: 1.9em;
+            }
+            h2 {
+                margin-top: 0;
+                line-height: 1.7em;
+            }
+
+            #content {
+                margin: auto;
+                clear: both;
+                padding: 10px;
+                width: 50%;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 30px;
+                border-bottom: 5px solid #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <h1>Hi, 好久不见</h1>
+            <h3>Have belief in your ability .</h3>
+            <h3>Focus on your blessings, not your troubles .</h3>
+            <br />
+
+            <p>其实技术的路没有捷径,只有踏实的积累。</p>
+            <p>也不用担心天赋，因为以大多数人的努力程度之低，其实轮不到拼天赋。</p>
+            <p>很多人梦想找到一个牛逼的师傅，几天速成后笑傲江湖。</p>
+            <p>可是每一个真正练就一身武艺的人都是靠冬练三九夏练三伏这么过来的，</p>
+            <p>他们靠着一种忘我的热情持续投入进去磨练，数年如一日，</p>
+            <p>最终自己也不知道怎么就发现具备了无坚不摧的实力！😄</p>
+            <br />
 
 
-
-- 姓名：赵宏业 
-
-- 性别：男
-
-- 生日：1992年07月28日
-
-- 职位：运维工程师
-
-- 就职公司：视觉中国
-
-- 工作地点：北京
-
-- 个人网站：
-
-  - http://zhaohongye.com
-
-  - http://ops.ren
-
-  - http://ops.work
-
-  - http://zhy.io
-
-    
-
-## 联系方式
+        </div>
+    </body>
+</html>
 
 
-
-- QQ：724045150
-
-- Email：vip@zhaohongye.com
-
-  
-
-## 工作经历
-
-#### **视觉中国**    2018/01 - 至今
-
-- 负责运维规范、运营体系能力建设，不断提升运营水平，包括设架构审核、容量规划、容灾演练等工作；
-
-- 解决业务上线过程，遇到的技术难题，并对业务线上环境中存在的问题进行定期反馈和推动改善；
-
-- 负责快速响应线上突发事件，追踪定位，分析和解决问题，并制定和跟进后续的改进和规避方案；
-
-- 参与系统架构的设计、评审、优化等工作；
-
-- 培养和辅导初中级运维工程师。
-
-  
-
-#### 必要商城    2017/11 - 2018/01
-
-- 负责公司日常系统的管理工作，包括机房管理、账号管理、安全设置、服务部署等相关运维工作。
-
-- 负责公司的系统应用运维工作，包括应用故障处理、配置管理、系统监控、系统升级、系统安全、性能优化、版本发布更新等工作；
-
-- 参与运维支撑平台、自动化平台的建设，编写相关的运维手册及维护文档；
-
-- .负责公司现有资产管理系统、监控系统、发布系统的开发和维护工作，后期技术支持；
-
-- 完成上级交付的工作任务。
-
-  
-
-#### **国信优易数据有限公司**    2016/06 - 2017/11
-
-- 负责研发事业部应用系统的部署、发布、性能优化、监控、维护
-
-- 配合需求部门，快速交付运维基础资源及数据资源
-
-- 及时响应及处理故障，并输入文档报告，保障线上系统稳定运行
-
-- 参与系统架构设计、改进、优化，并实施技术方案
-
-- 常见应用配置及优化，如Nginx/Apache、Mysql/Oracle、Bind、Tomcat、LVS、Memcache等
-
-- 编写Shell、Python脚本代替重复手工性工作，使用开源工具提升运维效率，如Zabbix、Ansible、蓝鲸智云等
-
-- 私有云、容器云部署、维护工作，包含虚机以及池管理
-
-- Ambari环境部署维护Hadoop大数据环境
-
-- 服务器上架工作，包含组Raid、装系统、网络配置、应用部署
-
-- 服务器采购、域名备份、域名解析、网络映射工作
-
-- 邮箱、SVN、OA等系统帐号维护和权限分配工作
-
-- 参与团队管理工作
-
-  
-
-#### **博雅软件**    2015/04 - 2016/06
-
-- 根据开发需求搭建环境；
-- 构建及维护单机版监控系统；
-- 编写Shell/Python脚本进行自动化运维；
-- 负责CMDB开发及维护，实现日志可视化；
-- 编写发布脚本，对线上代码使用脚本发布。
-
-
-
-#### **玲珑视界科技(北京)有限公司**    2013/07 - 2015/04
-
-- 搭建及维护LNMP/LAMP环境；
-
-- 负责MySQL的数据备份和归档；
-
-- 编写Shell脚本进行自动化运维；
-
-- 负责服务器及应用的监控，熟练掌握Nagios/Cacti/Zabbix工具；
-
-- Apache/Nginx、Tomcat/NodeJS等服务应用配置和维护工作。
-
-  
