@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhaohongye.com/static-web/</loc>
+    
+    <lastmod>2021-07-08T09:13:13.758Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhaohongye.com/open-ldap/</loc>
+    
+    <lastmod>2021-07-08T06:17:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhaohongye.com/django-ssl/</loc>
+    
+    <lastmod>2021-07-08T06:16:16.456Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhaohongye.com/mysql-binlog/</loc>
+    
+    <lastmod>2021-07-08T06:14:05.558Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhaohongye.com/vcg-devops-share/</loc>
+    
+    <lastmod>2021-07-08T06:12:21.557Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhaohongye.com/ansible/</loc>
     
-    <lastmod>2021-07-07T08:55:00.331Z</lastmod>
+    <lastmod>2021-07-08T06:10:22.200Z</lastmod>
     
   </url>
   
@@ -37,23 +72,9 @@
   </url>
   
   <url>
-    <loc>https://zhaohongye.com/vcg-devops-share/</loc>
-    
-    <lastmod>2021-06-18T07:47:23.975Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhaohongye.com/about/index.html</loc>
     
     <lastmod>2021-06-17T12:13:13.229Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhaohongye.com/django-ssl/</loc>
-    
-    <lastmod>2021-05-21T09:27:58.122Z</lastmod>
     
   </url>
   
@@ -75,13 +96,6 @@
     <loc>https://zhaohongye.com/django-celery/</loc>
     
     <lastmod>2021-05-18T09:00:27.376Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhaohongye.com/open-ldap/</loc>
-    
-    <lastmod>2021-04-30T02:39:29.801Z</lastmod>
     
   </url>
   
