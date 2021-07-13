@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhaohongye.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Markdown是非常棒以及流行的写作语法，平文本，「易读易写」">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown">
+<meta property="og:url" content="https://zhaohongye.com/markdown/index.html">
+<meta property="og:site_name" content="运维小学生">
+<meta property="og:description" content="Markdown是非常棒以及流行的写作语法，平文本，「易读易写」">
+<meta property="og:locale">
+<meta property="og:image" content="https://zhaohongye.com/markdown/Users/zhaohongye/Documents/Markdown/图片的url">
+<meta property="og:image" content="https://zhaohongye.com/markdown/Users/zhaohongye/Documents/Markdown/图片的url">
+<meta property="article:published_time" content="2021-07-13T02:43:10.000Z">
+<meta property="article:modified_time" content="2021-07-13T02:46:49.016Z">
+<meta property="article:author" content="小赵同学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhaohongye.com/markdown/Users/zhaohongye/Documents/Markdown/图片的url">
+
+<link rel="canonical" href="https://zhaohongye.com/markdown/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Markdown | 运维小学生</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">运维小学生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/GeekSRE" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小赵同学">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="运维小学生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-07-13 10:43:10 / Modified: 10:46:49" itemprop="dateCreated datePublished" datetime="2021-07-13T10:43:10+08:00">2021-07-13</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Markdown是非常棒以及流行的写作语法，平文本，「易读易写」<br><span id="more"></span></p>
+<h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><blockquote>
+<p> Markdown是非常棒以及流行的写作语法，平文本，「易读易写」，一般只需几分钟就能学会Markdown的基本用法。</p>
+</blockquote>
+<h2 id="分隔符More"><a href="#分隔符More" class="headerlink" title="分隔符More"></a>分隔符More</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题:"></a>标题:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## 标题:</span><br><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p>分别对应HTML中的<code>&lt;h1&gt;一级标题&lt;/h1&gt;</code>，以此类推。</p>
+<p><strong>用两个星号标记起来，表示加粗</strong>，<em>一个星号，表示斜体</em>，<del>这样子表示删除</del>，这些就是最基本的语法了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**用两个星号标记起来，表示加粗**，*一个星号，表示斜体*，~~这样子表示删除~~，这些就是最基本的语法了。</span><br></pre></td></tr></table></figure>
+<h2 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h2><p><strong>插入链接:</strong><br>这是一个 <a target="_blank" rel="noopener" href="http://url.com/">链接</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个 [链接](http://url.com/)</span><br></pre></td></tr></table></figure>
+<p><strong>快速链接:</strong><br>只需要在网址头尾用尖括号包裹即可，比如<a target="_blank" rel="noopener" href="http://url.com">http://url.com</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只需要在网址头尾用尖括号包裹即可，比如&lt;http://url.com&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>邮箱链接:</strong><br>这是一个 <a href="mailto:&#x6d;&#x79;&#x6e;&#x61;&#109;&#x65;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x6d;&#x79;&#x6e;&#x61;&#109;&#x65;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;</a> 邮箱的链接。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个 &lt;myname@example.com&gt; 邮箱的链接。</span><br></pre></td></tr></table></figure>
+<p><strong>MarkEditor特别支持:</strong><br><a href="google.com">Google (target=_blank id=google_link)</a>  其中内容括号内的<code>target=_blank id=google_link</code> 会自动扩展到最终 HTML 对应 A 标签下的属性，另外，<code>google.com</code> 作为一个域名，不需要补全<code>http://</code>, 最终会自动补全。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Google (target=_blank id=google_link)](google.com)  其中内容括号内的`target=_blank id=google_link` 会自动扩展到最终 HTML 对应 A 标签下的属性，另外，`google.com` 作为一个域名，不需要补全`http://`, 最终会自动补全。</span><br></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p><strong>无序列表:</strong></p>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**无序列表:**</span><br><span class="line">- Red</span><br><span class="line">- Green</span><br><span class="line">- Blue</span><br></pre></td></tr></table></figure>
+<p><strong>有序列表则使用数字接着一个英文句点：</strong></p>
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.  Bird</span><br><span class="line">2.  McHale</span><br><span class="line">3.  Parish</span><br></pre></td></tr></table></figure>
+<p><strong>也可以混合在一起使用:</strong></p>
+<ul>
+<li>Bird<ul>
+<li>blue bird</li>
+</ul>
+</li>
+<li>McHale<ol>
+<li>a man</li>
+<li>HoustonRockets</li>
+</ol>
+</li>
+<li>Parish</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- Bird</span><br><span class="line">    - blue bird</span><br><span class="line">- McHale</span><br><span class="line">    1. a man</span><br><span class="line">    2. HoustonRockets</span><br><span class="line">- Parish</span><br></pre></td></tr></table></figure>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p><strong><code>-</code>加上空格组成，三个以上:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- - - - - -</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="样式修饰-居中、色彩、字体大小-etc"><a href="#样式修饰-居中、色彩、字体大小-etc" class="headerlink" title="样式修饰: 居中、色彩、字体大小 .etc"></a>样式修饰: 居中、色彩、字体大小 .etc</h2><p>在当前行的末尾添加(英文)中括号，可以对当前行进行额外的样式修正: [center]<br>也可以是多个关键词一起，比如: [center red 20px]</p>
+<p>修饰的关键词有如下类型:</p>
+<ul>
+<li>center (或 middle)、left、right，表示居中、居左、居右</li>
+<li><strong>n%</strong> 表示缩放， <code>200%</code> 表示放大到 2 倍</li>
+<li>小数点 (如x.y)  表示行高</li>
+<li>整数 表示字体大小</li>
+<li><strong>颜色值</strong> (如 blue #333) 表示字体色</li>
+<li><strong>@颜色值</strong> (如 @red @#888888) 表示背景色</li>
+</ul>
+<p>除以上规则之外，如果有一个不能匹配的关键词，则认为是字体，比如 <code>[15 red arial]</code> 认为是合理的修饰，而<code>[15 red arial more]</code> 则认为是不合理的修饰，会返回原始文字。</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>// 这是 MarkEditor 的特别支持!<br>/// 多了一个/，也是注释，但最终注释内容不会出现在源码中。<br>注释后的内容，最终会以 HTML 的注释格式<code>&lt;!--我是内容--&gt;</code>存在，不会显示在正文中，但包含在 HTML 的源码中；如果是<code>///</code>开头的，则也不包括在源码中。</p>
+<h2 id="内容引用"><a href="#内容引用" class="headerlink" title="内容引用"></a>内容引用</h2><p>用<code>&gt;</code>放在段首，之后是空格，输入文字:</p>
+<blockquote>
+<p>你<br>一会看我<br>一会看云</p>
+</blockquote>
+<blockquote>
+<p> 我觉得<br> 你看我时很远<br> 你看云时很近</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; 你</span><br><span class="line">&gt; 一会看我</span><br><span class="line">&gt; 一会看云</span><br><span class="line"></span><br><span class="line">&gt;  我觉得</span><br><span class="line">&gt;  你看我时很远</span><br><span class="line">&gt;  你看云时很近</span><br></pre></td></tr></table></figure>
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><blockquote>
+<p>插入图片的语法跟插链接很像，在MarkEditor中，一般可以通过拖拽的方式进行插图，不一定会看到这个语法，而可能直接看到图片本身。</p>
+</blockquote>
+<p><strong>插图语法:</strong><br><img src="/markdown/Users/zhaohongye/Documents/Markdown/图片的url" alt="图片的alt信息，可空"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片的alt信息，可空](图片的url)</span><br></pre></td></tr></table></figure>
+<p><strong>特别支持:</strong><br><img src="/markdown/Users/zhaohongye/Documents/Markdown/图片的url" alt="图片的alt信息，可空">的形式中，如果图片的 url 不是 Web 地址，而是本地的指向，则后面跟上<code>?r=90&amp;w=100&amp;h=100</code>，可以设定图片的尺寸。其中 r 表示缩放90%,  w 表示最大宽度 (像素)，h 表示最大高度。r、w、h 并不需要全部进行声明，按需则可。<br>如果是图片直接在编辑区域内可见(非 Markdown 语法显示)，双击图片，可以直接进行调整。</p>
+<h1 id="代码高亮语法"><a href="#代码高亮语法" class="headerlink" title="代码高亮语法"></a>代码高亮语法</h1><p>通过fenced code的方式(代码块的头尾被三个反引号包裹)，然后声明代码语言类型，即可实现代码高亮。不仅仅是最终的HTML预览会处理代码高亮，实时输入的过程中也是高亮的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​```python</span><br><span class="line">s = &#x27;hello world&#x27;</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;hello world&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>代码语言的类型后面跟上<code>:n</code>，则最终在渲染为HTML(预览)的时候，代码块会标示行数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​```python:n</span><br><span class="line">s = &#x27;hello world&#x27;</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = &#x27;hello world&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="代码高亮示例"><a href="#代码高亮示例" class="headerlink" title="代码高亮示例"></a>代码高亮示例</h2><blockquote>
+<p>MarkEditor支持超过300种代码类型的高亮，以下是一些示例:</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">​```python</span><br><span class="line">from settings import world</span><br><span class="line">if world == &#x27;mine&#x27;:</span><br><span class="line">   kept =  keep(world)</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> world</span><br><span class="line"><span class="keyword">if</span> world == <span class="string">&#x27;mine&#x27;</span>:</span><br><span class="line">   kept =  keep(world)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">​```ruby</span><br><span class="line">sum = 1 + 2</span><br><span class="line">a, b = 1, 2</span><br><span class="line">1 &gt; 2 ? true : false; puts &#x27;Hi&#x27;</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sum = <span class="number">1</span> + <span class="number">2</span></span><br><span class="line">a, b = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line"><span class="number">1</span> &gt; <span class="number">2</span> ? <span class="literal">true</span> : <span class="literal">false</span>; puts <span class="string">&#x27;Hi&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">​```swift</span><br><span class="line">import Cocoa</span><br><span class="line">let a = 4</span><br><span class="line">var s = &quot;Hello &quot; + &quot;World!&quot;</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Cocoa</span><br><span class="line"><span class="keyword">let</span> a <span class="operator">=</span> <span class="number">4</span></span><br><span class="line"><span class="keyword">var</span> s <span class="operator">=</span> <span class="string">&quot;Hello &quot;</span> <span class="operator">+</span> <span class="string">&quot;World!&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">​```js</span><br><span class="line">var express = require(&#x27;express&#x27;);</span><br><span class="line">var app = express();</span><br><span class="line">app.get(&#x27;/&#x27;, function(req, res)&#123;</span><br><span class="line">  res.send(&#x27;hello world&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(3000);</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line">app.get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">  res.send(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><blockquote>
+<p><strong>MarkEditor 不仅是更易于输入表格，还能自动生成线图、柱状图、饼图……</strong></p>
+</blockquote>
+<h2 id="MarkEditor风格的表格语法"><a href="#MarkEditor风格的表格语法" class="headerlink" title="MarkEditor风格的表格语法"></a>MarkEditor风格的表格语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">​```table</span><br><span class="line">项目        |      价格    |    描述</span><br><span class="line">尺子        |      ￥2      |   说明内容，也可为空</span><br><span class="line">本子        |      ￥8     (描述偷懒不写完第三项也可以，不会破坏表格结构)   </span><br><span class="line">Tip        |      ￥18    |  **光标在表格区域时，右键点击，有更简单的“编辑表格”命令**</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">项目        |      价格    |    描述</span><br><span class="line">尺子        |      ￥2      |   说明内容，也可为空</span><br><span class="line">本子        |      ￥8     (描述偷懒不写完第三项也可以，不会破坏表格结构)   </span><br><span class="line">Tip        |      ￥18    |  **光标在表格区域时，右键点击，有更简单的“编辑表格”命令**</span><br></pre></td></tr></table></figure>
+<p>第一行是表格的第一栏，每个项的文本中可以追加<code>(-)</code>、<code>(&gt;)</code>、<code>(&lt;)</code>来实现某列内的文本对齐，它们也分别等同于<code>(center)</code>、<code>(right)</code>、<code>(left)</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">​```table</span><br><span class="line">项目(-)     |      价格(&gt;)    |    描述(&lt;)  </span><br><span class="line">尺子        |      ￥20         |   ?         </span><br><span class="line">本子        |      ￥8 </span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">项目(-)     |      价格(&gt;)    |    描述(&lt;)  </span><br><span class="line">尺子        |      ￥20         |   ?         </span><br><span class="line">本子        |      ￥8 </span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>自定义补全缺失的字符</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">​```table:我是缺失的补全</span><br><span class="line">项目        |      价格    |    描述</span><br><span class="line">尺子        </span><br><span class="line">本子        </span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">项目        |      价格    |    描述</span><br><span class="line">尺子        </span><br><span class="line">本子        </span><br></pre></td></tr></table></figure>
+<p>表格会自动补全缺失的<strong>列</strong>，这样一来，<code>尺子</code>和<code>本子</code>的<code>价格</code>、<code>描述</code>就全部是<code>我是缺失的补全</code>了。</p>
+<h2 id="自动制图语法"><a href="#自动制图语法" class="headerlink" title="自动制图语法"></a>自动制图语法</h2><p>MarkEditor 支持三种类型的制图，声明 table 的时候，后面加上 line、pie、bar三者之一即可。<br>比如下面的 Demo (具体效果，可以查看预览)</p>
+<h3 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h3><p><strong>最简单的一个图表:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">​```table:bar</span><br><span class="line">衬衫   |   羊毛衫   |   雪纺衫   |   裤子   |   高跟鞋   |   袜子</span><br><span class="line">15   |   20   |   36   |   10   |   10   |   20</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">衬衫   |   羊毛衫   |   雪纺衫   |   裤子   |   高跟鞋   |   袜子</span><br><span class="line">15   |   20   |   36   |   10   |   10   |   20</span><br></pre></td></tr></table></figure>
+<p><strong>也可以是横向的</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">​```table:bar</span><br><span class="line">品类   |  数量</span><br><span class="line">衬衫   |   15</span><br><span class="line">羊毛衫   |   20  </span><br><span class="line">雪纺衫  |  36</span><br><span class="line">裤子 |  10</span><br><span class="line">高跟鞋 | 10</span><br><span class="line">袜子 |   20</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">品类   |  数量</span><br><span class="line">衬衫   |   15</span><br><span class="line">羊毛衫   |   20  </span><br><span class="line">雪纺衫  |  36</span><br><span class="line">裤子 |  10</span><br><span class="line">高跟鞋 | 10</span><br><span class="line">袜子 |   20</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>还可以是这种横纵两个维度的:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">​```table:bar</span><br><span class="line">季度 | 衬衫 | 羊毛衫 | 雪纺衫 | 裤子 | 高跟鞋 | 袜子</span><br><span class="line">1季度 | 5 | 20 | 36 | 10 | 10 | 21</span><br><span class="line">2季度 | 15 | 20 | 6 | 10 | 10 | 30</span><br><span class="line">3季度上(3季度) | 2 | 2 | 16 | 8 | 6 | 30</span><br><span class="line">3季度下(3季度) | 5 | 2 | 13 | 10 | 9 | 20</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">季度 | 衬衫 | 羊毛衫 | 雪纺衫 | 裤子 | 高跟鞋 | 袜子</span><br><span class="line">1季度 | 5 | 20 | 36 | 10 | 10 | 21</span><br><span class="line">2季度 | 15 | 20 | 6 | 10 | 10 | 30</span><br><span class="line">3季度上(3季度) | 2 | 2 | 16 | 8 | 6 | 30</span><br><span class="line">3季度下(3季度) | 5 | 2 | 13 | 10 | 9 | 20</span><br></pre></td></tr></table></figure>
+<p>注意: <code>3季度上(3季度)</code> 和 <code>3季度下(3季度)</code>会自动实现归档，合并到同一个柱状图中。</p>
+<h2 id="线图"><a href="#线图" class="headerlink" title="线图"></a>线图</h2><p>跟柱状图非常类似，只需要将上面柱状图的几个 demo，由<code>table:bar</code>改为<code>table:line</code>即可。</p>
+<h2 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h2><p><strong>最简单的一个图表:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">​```table:pie</span><br><span class="line">衬衫   |   羊毛衫   |   雪纺衫   |   裤子   |   高跟鞋   |   袜子</span><br><span class="line">15   |   20   |   36   |   10   |   10   |   20</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">衬衫   |   羊毛衫   |   雪纺衫   |   裤子   |   高跟鞋   |   袜子</span><br><span class="line">15   |   20   |   36   |   10   |   10   |   20</span><br></pre></td></tr></table></figure>
+<p><strong>也可以是横向的</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">​```table:pie</span><br><span class="line">品类   |  数量</span><br><span class="line">衬衫   |   15</span><br><span class="line">羊毛衫   |   20  </span><br><span class="line">雪纺衫  |  36</span><br><span class="line">裤子 |  10</span><br><span class="line">高跟鞋 | 10</span><br><span class="line">袜子 |   20</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">品类   |  数量</span><br><span class="line">衬衫   |   15</span><br><span class="line">羊毛衫   |   20  </span><br><span class="line">雪纺衫  |  36</span><br><span class="line">裤子 |  10</span><br><span class="line">高跟鞋 | 10</span><br><span class="line">袜子 |   20</span><br></pre></td></tr></table></figure>
+<p><strong>自动归档</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">​```table:pie</span><br><span class="line">品类   |  数量</span><br><span class="line">衬衫(衣服)   |   15</span><br><span class="line">羊毛衫(衣服)   |   20  </span><br><span class="line">雪纺衫(衣服)  |  36</span><br><span class="line">裤子 |  10</span><br><span class="line">高跟鞋(鞋袜) | 10</span><br><span class="line">袜子(鞋袜) |   20</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">品类   |  数量衬衫(衣服)   |   15羊毛衫(衣服)   |   20  雪纺衫(衣服)  |  36裤子 |  10高跟鞋(鞋袜) | 10袜子(鞋袜) |   20</span><br></pre></td></tr></table></figure>
+<h1 id="Meta"><a href="#Meta" class="headerlink" title="Meta"></a>Meta</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2015-01-10 19:55</span><br><span class="line">layout: &#x27;post&#x27;</span><br><span class="line">tags:</span><br><span class="line">    - &quot;hello&quot;</span><br><span class="line">    - &#x27;ruby&#x27;</span><br><span class="line">status: &#x27;public&#x27;</span><br><span class="line">categories : [lessons, beginner]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>如上所示，首行以<code>---</code>开始，内部使用yaml格式，并最终以<code>---</code>单独一行结束的，会最终解析为文章的元信息(描述性信息)，一般Jekyll、Hexo等静态博客用得比较多。</p>
+<p>另外，MarkEditor的Markdown解析，也支持FarBox的简洁性Meta声明，就是首行开始，每行用<code>key: value</code>格式进行声明的，其中<code>key</code>必须是英文名。</p>
+<p>比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">date: 2015-01-10 19:55</span><br><span class="line">layout: &#x27;post&#x27;</span><br><span class="line">title: &#x27;Blogging Like a Hacker&#x27;</span><br><span class="line"></span><br><span class="line">然后这里是正文的开始...</span><br></pre></td></tr></table></figure>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p>Markdown 最终会解析为 HTML，本身会采用 p、blockquote、ul、li 等 DOM 类型来表达文本的结构。在实际使用情况中，仅仅这些结构不足以满足排版的需要，因此，MarkEditor 在解析 Markdown 的时候，会进行一定结构性推断，赋予当前 DOM 元素一定的 class name，来标识潜在的文本语义结构。<br>那么，完成最终页面排版的 CSS 样式，就可以根据这些 css name，来实现更复杂一些的排版。</p>
+<h2 id="基本段落、行"><a href="#基本段落、行" class="headerlink" title="基本段落、行"></a>基本段落、行</h2><ul>
+<li><p>md_block 表示<code>段落</code>，一般(源文本中)两个空行会产生段落的分割</p>
+</li>
+<li><p>md_line 表示<code>行</code></p>
+</li>
+<li><p>md_line_dom_embed 当前行是以<code>&lt;</code>开头，<code>&gt;</code>结尾的，则认为内部有其它 HTML 元素</p>
+</li>
+<li><p>md_line_with_image 当前行包含图片，且位于行首</p>
+</li>
+<li><p>md_line_start 位于段落的首行</p>
+</li>
+<li><p>md_line_end 位于段落的尾行</p>
+</li>
+<li><p>only_img_before 上一行包含图片，且仅为图片</p>
+</li>
+<li><p>blockquote_lines_n 在 blockquot 这个 DOM 类型中，其中 <code>n</code> 为整数，表示当前的 blockquote 内有几行</p>
+</li>
+<li><p>h16, H1-H6 都会有这个额外的 css name</p>
+</li>
+</ul>
+<hr>
+<h2 id="段落块"><a href="#段落块" class="headerlink" title="段落块"></a>段落块</h2><h3 id="md-has-block-below"><a href="#md-has-block-below" class="headerlink" title="md_has_block_below"></a>md_has_block_below</h3><p>Dom 类型: P<br>作用: 表示紧跟其后的将是<code>ul、ol、blockquote、img</code>的元素。<br>特别说明: 如果后面是<code>ul</code>，则跟<code>md_has_block_below</code>同时出现的有<code>md_has_block_below_ul</code>; <code>ol、blockquote、img</code>也由此可推。</p>
+<h3 id="md-block-as-opening"><a href="#md-block-as-opening" class="headerlink" title="md_block_as_opening"></a>md_block_as_opening</h3><p>如果当前段，仅有一行，且行尾出现的是<code>：</code>(中文冒号) 或者 <code>:</code>(英文冒号)，并且紧跟其后的将是<code>ul、ol、blockquote、img</code>的元素，那么这<code>段落</code>生成的 HTML 结构中，会有一个 class name 为 <code>md_block_as_opening</code>。</p>
+<hr>
+<h2 id="代码相关"><a href="#代码相关" class="headerlink" title="代码相关"></a>代码相关</h2><ul>
+<li><p>highlight, 表示当前代码类型会进行高亮的对应</p>
+</li>
+<li><p>code_lang_xxx, 其中 xxx 类似 python 等具体的语言，表示当前代码高亮的语言类型</p>
+</li>
+<li><p>with_lines, 表示显示行数</p>
+</li>
+<li><p>lang_xxx, 其中 xxx 为具体的语言类型，DOM 类型为 <code>pre</code>，表示未能对应高亮的代码块</p>
+</li>
+</ul>
+<hr>
+<h2 id="列表项"><a href="#列表项" class="headerlink" title="列表项"></a>列表项</h2><h3 id="todo-item"><a href="#todo-item" class="headerlink" title="todo_item"></a>todo_item</h3><p>Dom 类型: LI<br>作用: <code>[x] done</code> &amp; <code>[ ] undone</code> 这个Markdown 语法产生的。<br>特别说明: 如果是 unone 的状态，还会同时拥有一个 class <code>todo_undone_item</code>； 反之已完成的则是 <code>todo_done_item</code>。</p>
+<hr>
+<h2 id="图片相关"><a href="#图片相关" class="headerlink" title="图片相关"></a>图片相关</h2><h2 id="md-scaled-image"><a href="#md-scaled-image" class="headerlink" title="md_scaled_image"></a>md_scaled_image</h2><p>Dom类型: IMG<br>作用: 如果图片实在 MarkEditor 中缩放过的，则会有这个 class。</p>
+<h3 id="img-before"><a href="#img-before" class="headerlink" title="img_before"></a>img_before</h3><p>Dom类型: P<br>作用: 当前 P 元素的前一个Dom元素是图片</p>
+<h3 id="x2-image"><a href="#x2-image" class="headerlink" title="x2_image"></a>x2_image</h3><p>Dom 类型: IMG<br>作用: 如果一个图片的 src，末尾是<code>@2x</code>的，则会有这个 class 对应。</p>
+<h3 id="x3-image"><a href="#x3-image" class="headerlink" title="x3_image"></a>x3_image</h3><p>类似<code>x2_image</code></p>
+<h3 id="x4-image"><a href="#x4-image" class="headerlink" title="x4_image"></a>x4_image</h3><p>类似<code>x2_image</code></p>
+<hr>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="toc"><a href="#toc" class="headerlink" title="toc"></a>toc</h3><p>Dom 类型: DIV<br>作用: <code>[TOC]</code>语法产生的 HTML 片段，由<code>&lt;div class=&quot;toc&quot;&quot;&gt;</code>进行包裹。</p>
+<hr>
+<h2 id="仅限-ME"><a href="#仅限-ME" class="headerlink" title="仅限 ME"></a>仅限 ME</h2><blockquote>
+<p>此处的规则仅限于 MarkEditor 中的预览、富文本导出逻辑，在其它场景下，会无效。</p>
+</blockquote>
+<ul>
+<li>md_block_section: 每个 HTML 片段构建的时候，会外部包括一个 section，其 class name</li>
+<li>md_block_section_for_xx: 如果当前 HTML 片段为 ul，则其也会有一个 class name 为 md_block_section_for_ul</li>
+</ul>
+<h2 id="flowchart"><a href="#flowchart" class="headerlink" title="flowchart"></a>flowchart</h2><h3 id="MarkEditor风格的流程图语法"><a href="#MarkEditor风格的流程图语法" class="headerlink" title="MarkEditor风格的流程图语法"></a>MarkEditor风格的流程图语法</h3><p>流程图的语法规则实际上是基于<a target="_blank" rel="noopener" href="http://adrai.github.io/flowchart.js/">http://adrai.github.io/flowchart.js/</a>实现的，只要申明语言类型为<code>flow</code>即可。<br>但是我们认为原始插件的语法有些晦涩，所以在兼容原有语法的基础上，又重新进行了演绎，效果如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">​```flow</span><br><span class="line">st: 起始</span><br><span class="line">register: 注册</span><br><span class="line">condition: 好人?</span><br><span class="line">check: 盘查一下</span><br><span class="line">end: 终了</span><br><span class="line"></span><br><span class="line">st &gt; condition</span><br><span class="line">condition(y) &gt; register &gt; end</span><br><span class="line">condition(n) &gt; check &gt; register</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">st: 起始</span><br><span class="line">register: 注册</span><br><span class="line">condition: 好人?</span><br><span class="line">check: 盘查一下</span><br><span class="line">end: 终了</span><br><span class="line"></span><br><span class="line">st &gt; condition</span><br><span class="line">condition(y) &gt; register &gt; end</span><br><span class="line">condition(n) &gt; check &gt; register</span><br></pre></td></tr></table></figure>
+<h3 id="原始语法-示例"><a href="#原始语法-示例" class="headerlink" title="原始语法(示例)"></a>原始语法(示例)</h3><blockquote>
+<p>更多请参考<a target="_blank" rel="noopener" href="http://adrai.github.io/flowchart.js/">http://adrai.github.io/flowchart.js/</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">​```flow</span><br><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: Your Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h2><p>MarkEditor 也同样支持 <a target="_blank" rel="noopener" href="https://github.com/knsv/mermaid">mermaid</a> 的语法。</p>
+<p><strong>注意:</strong> 不恰当的格式，会导致 mermaid 的渲染卡住整个 MarkEditor，要特别注意不要出现中文状态下的的某些字符，比如中文问号、中文括号。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">​```mermaid</span><br><span class="line">graph TD</span><br><span class="line">A[Christmas] --&gt;|Get money| B(Go shopping)</span><br><span class="line">B --&gt; C&#123;Let me think&#125;</span><br><span class="line">C --&gt;|One| D[Laptop]</span><br><span class="line">C --&gt;|Two| E[iPhone]</span><br><span class="line">C --&gt;|Three| F[Car]</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[Christmas] --&gt;|Get money| B(Go shopping)</span><br><span class="line">B --&gt; C&#123;Let me think&#125;</span><br><span class="line">C --&gt;|One| D[Laptop]</span><br><span class="line">C --&gt;|Two| E[iPhone]</span><br><span class="line">C --&gt;|Three| F[Car]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">​```mermaid</span><br><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">        section A section</span><br><span class="line">        Completed task            :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        Active task               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        Future task               :         des3, after des2, 5d</span><br><span class="line">        Future task2               :         des4, after des3, 5d</span><br><span class="line">        section Critical tasks</span><br><span class="line">        Completed task in the critical line :crit, done, 2014-01-06,24h</span><br><span class="line">        Implement parser and jison          :crit, done, after des1, 2d</span><br><span class="line">        Create tests for parser             :crit, active, 3d</span><br><span class="line">        Future task in critical line        :crit, 5d</span><br><span class="line">        Create tests for renderer           :2d</span><br><span class="line">        Add to mermaid                      :1d</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">        section A section</span><br><span class="line">        Completed task            :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        Active task               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        Future task               :         des3, after des2, 5d</span><br><span class="line">        Future task2               :         des4, after des3, 5d</span><br><span class="line">        section Critical tasks</span><br><span class="line">        Completed task in the critical line :crit, done, 2014-01-06,24h</span><br><span class="line">        Implement parser and jison          :crit, done, after des1, 2d</span><br><span class="line">        Create tests for parser             :crit, active, 3d</span><br><span class="line">        Future task in critical line        :crit, 5d</span><br><span class="line">        Create tests for renderer           :2d</span><br><span class="line">        Add to mermaid                      :1d</span><br></pre></td></tr></table></figure>
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><h2 id="TOC"><a href="#TOC" class="headerlink" title="TOC"></a>TOC</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[TOC]</span><br></pre></td></tr></table></figure>
+<p>[TOC]</p>
+<p>如上所示，单独一行的<code>[TOC]</code>，最终会被解析为当前文章的 <code>内容目录</code>。</p>
+<h2 id="PDF分页"><a href="#PDF分页" class="headerlink" title="PDF分页"></a>PDF分页</h2><p>导出PDF需要在指定位置强制分页的，可以单独一行输入<code>[PAGE]</code>。</p>
+<h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><p>使用插入代码的方式，但是需要声明语言为<code>mathjax</code>，示例如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​```mathjax</span><br><span class="line">x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​```mathjax</span><br><span class="line">E = mc^2</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E = mc^2</span><br></pre></td></tr></table></figure>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; 你</span><br><span class="line">&gt; 一会看我</span><br><span class="line">&gt; 一会看云</span><br><span class="line"></span><br><span class="line">&gt;  我觉得</span><br><span class="line">&gt;  你看我时很远</span><br><span class="line">&gt;  你看云时很近</span><br><span class="line"></span><br><span class="line">这首诗的作者是顾城[^gucheng]的《远和近》。</span><br><span class="line">其中`[^gucheng]`就是脚注的声明，你可以在文末对这个关键标注进行说明。除此之外，在标注内容上点击鼠标右键，可以让光标在标注、最终补充的(脚注)内容进行快速跳转。</span><br><span class="line"></span><br><span class="line">[^gucheng]: 顾城，童话诗人，以及坏掉了的人。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>你<br>一会看我<br>一会看云</p>
+</blockquote>
+<blockquote>
+<p> 我觉得<br> 你看我时很远<br> 你看云时很近</p>
+</blockquote>
+<p>这首诗的作者是顾城<a href="顾城，童话诗人，以及坏掉了的人。">^gucheng</a>的《远和近》。<br>其中<code>[^gucheng]</code>就是脚注的声明，你可以在文末对这个关键标注进行说明。除此之外，在标注内容上点击鼠标右键，可以让光标在标注、最终补充的(脚注)内容进行快速跳转。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/static-web/" rel="prev" title="如何快速上线一个静态网站">
+      <i class="fa fa-chevron-left"></i> 如何快速上线一个静态网站
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%9A%94%E7%AC%A6More"><span class="nav-number">1.1.</span> <span class="nav-text">分隔符More</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">标题:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">2.1.1.</span> <span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">2.1.1.1.1.</span> <span class="nav-text">五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-number">2.1.1.1.1.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E9%93%BE%E6%8E%A5"><span class="nav-number">2.2.</span> <span class="nav-text">插入链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">2.3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="nav-number">2.4.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E4%BF%AE%E9%A5%B0-%E5%B1%85%E4%B8%AD%E3%80%81%E8%89%B2%E5%BD%A9%E3%80%81%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F-etc"><span class="nav-number">2.5.</span> <span class="nav-text">样式修饰: 居中、色彩、字体大小 .etc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">2.6.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E5%BC%95%E7%94%A8"><span class="nav-number">2.7.</span> <span class="nav-text">内容引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-number">2.8.</span> <span class="nav-text">插入图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">代码高亮语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.1.</span> <span class="nav-text">代码高亮示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">4.</span> <span class="nav-text">表格</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MarkEditor%E9%A3%8E%E6%A0%BC%E7%9A%84%E8%A1%A8%E6%A0%BC%E8%AF%AD%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">MarkEditor风格的表格语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%88%B6%E5%9B%BE%E8%AF%AD%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">自动制图语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="nav-number">4.2.1.</span> <span class="nav-text">柱状图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E5%9B%BE"><span class="nav-number">4.3.</span> <span class="nav-text">线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A5%BC%E5%9B%BE"><span class="nav-number">4.4.</span> <span class="nav-text">饼图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Meta"><span class="nav-number">5.</span> <span class="nav-text">Meta</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">6.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%AE%B5%E8%90%BD%E3%80%81%E8%A1%8C"><span class="nav-number">6.1.</span> <span class="nav-text">基本段落、行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD%E5%9D%97"><span class="nav-number">6.2.</span> <span class="nav-text">段落块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#md-has-block-below"><span class="nav-number">6.2.1.</span> <span class="nav-text">md_has_block_below</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#md-block-as-opening"><span class="nav-number">6.2.2.</span> <span class="nav-text">md_block_as_opening</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3"><span class="nav-number">6.3.</span> <span class="nav-text">代码相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E9%A1%B9"><span class="nav-number">6.4.</span> <span class="nav-text">列表项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#todo-item"><span class="nav-number">6.4.1.</span> <span class="nav-text">todo_item</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E7%9B%B8%E5%85%B3"><span class="nav-number">6.5.</span> <span class="nav-text">图片相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md-scaled-image"><span class="nav-number">6.6.</span> <span class="nav-text">md_scaled_image</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#img-before"><span class="nav-number">6.6.1.</span> <span class="nav-text">img_before</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x2-image"><span class="nav-number">6.6.2.</span> <span class="nav-text">x2_image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x3-image"><span class="nav-number">6.6.3.</span> <span class="nav-text">x3_image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x4-image"><span class="nav-number">6.6.4.</span> <span class="nav-text">x4_image</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">6.7.</span> <span class="nav-text">其它</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#toc"><span class="nav-number">6.7.1.</span> <span class="nav-text">toc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%85%E9%99%90-ME"><span class="nav-number">6.8.</span> <span class="nav-text">仅限 ME</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flowchart"><span class="nav-number">6.9.</span> <span class="nav-text">flowchart</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MarkEditor%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%AD%E6%B3%95"><span class="nav-number">6.9.1.</span> <span class="nav-text">MarkEditor风格的流程图语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E8%AF%AD%E6%B3%95-%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.9.2.</span> <span class="nav-text">原始语法(示例)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mermaid"><span class="nav-number">6.10.</span> <span class="nav-text">mermaid</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other"><span class="nav-number">7.</span> <span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TOC"><span class="nav-number">7.1.</span> <span class="nav-text">TOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PDF%E5%88%86%E9%A1%B5"><span class="nav-number">7.2.</span> <span class="nav-text">PDF分页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="nav-number">7.3.</span> <span class="nav-text">数学公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%B3%A8"><span class="nav-number">7.4.</span> <span class="nav-text">脚注</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">小赵同学</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vcg.com" title="https://vcg.com" rel="noopener" target="_blank">视觉中国</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://veer.com" title="https://veer.com" rel="noopener" target="_blank">Veer图库</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.izuche.com/" title="https://www.izuche.com/" rel="noopener" target="_blank">首汽租车</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.aliyun.com/" title="https://www.aliyun.com/" rel="noopener" target="_blank">阿里云</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://help.aliyun.com/" title="https://help.aliyun.com/" rel="noopener" target="_blank">阿里云帮助文档</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">ICP证:京ICP备17002268号-1 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小赵同学</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

@@ -191,6 +191,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/gitlab-reset-admin-password/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小赵同学">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="运维小学生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/gitlab-reset-admin-password/" class="post-title-link" itemprop="url">GitLab-管理员密码重置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-06-27 15:32:46 / Modified: 15:33:57" itemprop="dateCreated datePublished" datetime="2019-06-27T15:32:46+08:00">2019-06-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GitLab/" itemprop="url" rel="index"><span itemprop="name">GitLab</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>官方文档地址：<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/security/reset_root_password.html">https://docs.gitlab.com/ce/security/reset_root_password.html</a></p>
+<p>操作如下：</p>
+<ol>
+<li><pre><code>gitlab-rails console production
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+user = User.where(id: 1).first
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+user.password = &apos;secret_pass&apos;
+user.password_confirmation = &apos;secret_pass&apos;
+例如：
+
+user.password = 123456789
+user.password_confirmation = 123456789
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+user.save!
+</code></pre></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/gitlab-oldversion-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -825,127 +909,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://zhaohongye.com/hexo-live2d/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="小赵同学">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="运维小学生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo-live2d/" class="post-title-link" itemprop="url">Hexo博客美化添加live2d动画</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-05-27 16:07:34" itemprop="dateCreated datePublished" datetime="2019-05-27T16:07:34+08:00">2019-05-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-15 15:56:34" itemprop="dateModified" datetime="2020-10-15T15:56:34+08:00">2020-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-<p><a target="_blank" rel="noopener" href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md"><strong>hexo-helper-live2d GitHub地址</strong></a></p>
-<h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><ol>
-<li><p>在hexo根目录执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>选择动画模型</p>
-<p><a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">模型地址</a></p>
-<ul>
-<li>live2d-widget-model-chitose</li>
-<li>live2d-widget-model-epsilon2_1</li>
-<li>live2d-widget-model-gf</li>
-<li>live2d-widget-model-haru</li>
-<li>live2d-widget-model-haruto</li>
-<li>live2d-widget-model-hibiki</li>
-<li>live2d-widget-model-hijiki</li>
-<li>live2d-widget-model-izumi</li>
-<li>live2d-widget-model-koharu</li>
-<li>live2d-widget-model-miku</li>
-<li>live2d-widget-model-ni-j</li>
-<li>live2d-widget-model-nico</li>
-<li>live2d-widget-model-nietzsche</li>
-<li>live2d-widget-model-nipsilon</li>
-<li>live2d-widget-model-nito</li>
-<li>live2d-widget-model-shizuku</li>
-<li>live2d-widget-model-tororo</li>
-<li>live2d-widget-model-tsumiki</li>
-<li>live2d-widget-model-unitychan</li>
-<li>live2d-widget-model-wanko</li>
-<li>live2d-widget-model-z16</li>
-</ul>
-</li>
-<li><p>本次选择安装live2d-widget-model-haruto</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live2d-widget-model-haruto</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="拷贝资源"><a href="#拷贝资源" class="headerlink" title="拷贝资源"></a>拷贝资源</h5><ol>
-<li><p>在hexo根目录live2d_models</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p live2d_models</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>cp模型文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r node_modules/live2d-widget-model-haruto/ live2d_models/</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="编辑主配置"><a href="#编辑主配置" class="headerlink" title="编辑主配置"></a>编辑主配置</h5><p>编辑_config.yml</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw/</span><br><span class="line">  pluginJsPath: lib/</span><br><span class="line">  pluginModelPath: assets/</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-haruto</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br></pre></td></tr></table></figure>
-<h5 id="重新部署"><a href="#重新部署" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>我部署到GitHub上的域名正常，服务器上的没生效，重启进程后生效。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1014,7 +977,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
